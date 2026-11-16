@@ -1,0 +1,39 @@
+\section*{About this document}
+\markboth{About this document}{About this document}
+
+\textbf{Assumptions made for this document.} Study area: Semarang--Demak. Team: four students with one
+radar specialist. Time: six weeks. Change any of these and the method stays; only
+Sections~\ref{sec:data} and~\ref{sec:feas} need updating.
+
+\subsection*{How to read this document}
+
+Every item that matters has a tag: a letter for its kind and a circled number. Tags let you follow
+one thread through the whole document. For example, \Q{2} (which sources?) is answered by stage \M{6},
+checked by \V{3}, built in component \Sx{4}, and delivered as output \Ox{3}. Section~\ref{sec:trace}
+lists every such link.
+
+\begin{center}
+\small\renewcommand{\arraystretch}{1.0}
+\begin{tabular}{@{}llp{62mm}l@{}}
+\toprule
+\textbf{Tag} & \textbf{Kind} & \textbf{Meaning} & \textbf{Defined in}\\*
+\midrule
+\Q{1}--\Q{3} & Question & What the research must answer & Section 2\\
+\D{1}--\D{9} & Data & A data set and where it comes from & Section~\ref{sec:data}\\
+\M{1}--\M{9} & Method & One stage of the pipeline & Section~\ref{sec:method}\\
+\V{1}--\V{7} & Validation & A check with a pass mark & Section~\ref{sec:rigour}\\
+\R{1}--\R{8} & Risk & What could go wrong, and the response & Section~\ref{sec:feas}\\
+\U{1}--\U{6} & User need & What a user must be able to do & Section~\ref{sec:product}\\
+\Sx{1}--\Sx{9} & Software & A component of the system & Section~\ref{sec:arch}\\
+\Ox{1}--\Ox{5} & Output & Something the project delivers & Section 2\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Three kinds of boxes recur. \textcolor{accent}{\textsf{\textbf{In short}}} gives the point of a
+section. \textcolor{green}{\textsf{\textbf{In plain words}}} explains an idea without jargon.
+\textcolor{warm}{\textsf{\textbf{Honest limit}}} says what a result does not show.
+
+\enlargethispage{2\baselineskip}
+{\sffamily\footnotesize\hypersetup{linkcolor=ink}\setcounter{tocdepth}{1}\setlength{\parskip}{0pt}\makeatletter\renewcommand*\l@section{\@dottedtocline{1}{0em}{2.2em}}\makeatother\tableofcontents}
+\clearpage

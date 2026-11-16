@@ -1,0 +1,394 @@
+\section{How the physics works}\label{sec:physics}
+
+\begin{inshort}
+Pumping creates a cone of low water pressure around a well field. Clay inside that cone compacts, and
+the ground above sinks in the same cone-shaped pattern. Our inversion reads that pattern backwards.
+\end{inshort}
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[node distance=5mm]
+\tikzset{ch/.style={box,text width=24mm,minimum height=12mm}}
+\node[ch,boxw] (a) {Pumping\\{\scriptsize volume per year}};
+\node[ch,right=of a] (b) {Water pressure\\drops in a cone};
+\node[ch,right=of b] (c) {Clay layers\\compact};
+\node[ch,right=of c] (d) {Ground\\sinks};
+\node[ch,boxa,right=of d] (e) {Radar measures\\the sinking};
+\draw[arr] (a)--(b); \draw[arr] (b)--(c); \draw[arr] (c)--(d); \draw[arr] (d)--(e);
+\draw[arr,draw=accent,line width=0.9pt] (e.south) -- ++(0,-5mm) -| (a.south);
+\node[lab,text=accent] at ($(c.south)+(0,-9.5mm)$) {our inversion runs backwards along this chain};
+\node[lab] at ($(c.north)+(0,3mm)$) {physics runs forwards};
+\end{tikzpicture}
+\caption{The causal chain. Each arrow is one piece of physics described below.}
+\end{figure}
+
+\subsection{From water pressure to compaction}
+
+When the water level (head) $h$ in an aquifer system falls, a layer of thickness $b_0$ compacts by
+\begin{equation}
+\Delta b \;=\; S_k\,\Delta h, \qquad
+S_k = \begin{cases} S_{ke} & \text{if } h \text{ is above its lowest past level (elastic, recoverable)}\\
+                    S_{kv} & \text{if } h \text{ falls below it (inelastic, permanent)} \end{cases}
+\label{eq:compaction}
+\end{equation}
+where $S_k$ is the skeletal storage coefficient. $S_{kv}$ is typically one to two orders of magnitude
+larger than $S_{ke}$ \cite{galloway2011}. This is why over-pumping is so damaging: once head falls
+below its historical minimum, compaction jumps and most of it never recovers. In Semarang, the Damar
+aquifer's head has already dropped below that threshold \cite{lo2022}.
+
+Thick clay drains slowly. A clay layer of thickness $b'$, vertical conductivity $K'_v$ and specific
+storage $S'_s$ needs a time of the order of
+\begin{equation}
+\tau \;=\; \frac{(b'/2)^2\,S'_s}{K'_v}
+\end{equation}
+to adjust \cite{galloway2011}. For metres of clay this is years to decades. Two consequences follow.
+The ground keeps sinking long after pumping stabilises, and it sinks in the place where the pressure
+cone sits. The second point is what makes attribution possible.
+
+\subsection{Why an elastic point source is not enough}\label{sec:identity}
+
+The usual model for inverting ground motion is a point source of volume change $\Delta V$ at depth
+$d$ in an elastic half-space (the Mogi model \cite{mogi1958,geertsma1973}). Its vertical surface
+motion at horizontal distance $r$ is
+\begin{equation}
+u_z(r) \;=\; \frac{(1-\nu)\,\Delta V}{\pi}\;\frac{d}{(r^2+d^2)^{3/2}},
+\label{eq:mogi}
+\end{equation}
+with Poisson's ratio $\nu$. Azeriansyah et al.\ used this model for Semarang with $d = 120$\,m
+\cite{azeriansyah2025}. Two short calculations show what it can and cannot tell us.
+
+\textbf{Total volume.} Integrating \eqref{eq:mogi} over the surface gives
+$\int u_z\,\mathrm{d}A = 2(1-\nu)\,\Delta V$. The model therefore returns a volume that is simply the
+integrated subsidence times a constant.
+
+\textbf{Locality.} The share of a source's surface signal that falls within radius $R$ of it is
+\begin{equation}
+f(R) \;=\; 1-\frac{d}{\sqrt{R^2+d^2}} .
+\end{equation}
+For $d = 120$\,m this is 57\,\% within 250\,m and 77\,\% within 500\,m. A source at aquifer depth
+moves the ground almost only directly above itself.
+
+\begin{plain}
+At a depth of about 100\,m, an elastic point source is nearly a mirror: the inverted ``volume map''
+is the subsidence map again, rescaled. It cannot say whether a 3\,km wide bowl comes from one big
+well field in the middle or from thirty small wells spread across it. Something else must carry that
+information.
+\end{plain}
+
+\subsection{The missing piece: the shape of a pumping cone}
+
+That ``something else'' is hydraulics. Around a well field that pumps at rate $Q$ from a confined
+aquifer with leaky clay above it, the long-term drawdown is (Hantush and Jacob \cite{hantush1955})
+\begin{equation}
+s(r) \;=\; \frac{Q}{2\pi T}\;K_0\!\left(\frac{r}{B}\right), \qquad B=\sqrt{\frac{T\,b'}{K'_v}} ,
+\label{eq:hantush}
+\end{equation}
+where $T$ is the aquifer's transmissivity, $K_0$ the modified Bessel function, and $B$ the
+\emph{leakage factor}: the distance over which the cone fades. Compaction rate follows drawdown
+(Eq.~\ref{eq:compaction}), so each source $j$ at position $\mathbf{x}_j$ adds a cone-shaped piece to
+the vertical velocity field:
+\begin{equation}
+v(\mathbf{x}) \;=\; \sum_{j} q_j\,k_B\big(\lVert\mathbf{x}-\mathbf{x}_j\rVert\big) \;+\; g(\mathbf{x}) \;+\; \varepsilon(\mathbf{x}),
+\qquad k_B(r)=\frac{K_0(r/B)}{2\pi B^2}.
+\label{eq:model}
+\end{equation}
+The kernel $k_B$ integrates to one, so $q_j$ is directly the \textbf{compaction volume per year}
+caused by source $j$ (m$^3$/yr). $g$ is the non-pumping background, and $\varepsilon$ is measurement
+noise. Equation~\eqref{eq:model} is the forward model of this project.
+
+\begin{caution}
+The cone shape is a modelling choice. Equation~\eqref{eq:hantush} assumes a uniform aquifer and a
+steady cone. Real aquifers are patchy, and $B$ is not known in advance. Section~\ref{sec:exp} measures
+how wrong the answers get when the cone shape or width is wrong, and Section~\ref{sec:feas} says how
+to calibrate $B$.
+\end{caution}
+
+\subsection{From compaction volume to extraction}\label{sec:massbalance}
+
+Pumped water comes from three places: water squeezed out of compacting clay, water released
+elastically, and water that leaks in from above or from the sides. Only the first leaves a permanent
+mark on the ground. So for every source
+\begin{equation}
+Q_j \;=\; \frac{q_j}{\varphi_j}, \qquad 0<\varphi_j\le 1 ,
+\label{eq:phi}
+\end{equation}
+where $\varphi_j$ is the share of pumped water that comes from compaction. Because
+$\varphi_j \le 1$, \textbf{the compaction volume $q_j$ is a lower bound on extraction}. Vasco et
+al.\ reached the same conclusion for California \cite{vasco2019}. With metered wells or head records
+(\D{6}), $\varphi$ can be calibrated and the bound becomes an estimate.
+
+\textbf{Order-of-magnitude check.} Suppose 75\,km$^2$ sinks at an average of 5\,cm/yr. (The area is
+20\,\% of the city \cite{aditiya2023}; the average rate is our assumption.) That is about
+3.7 million m$^3$ of lost storage per year, against more than 30 million m$^3$ pumped
+\cite{putranto2016}. This gives $\varphi \approx 0.1$: a plausible value, and a reminder that $q$ is
+a conservative number.
+
+\section{Method: nine stages}\label{sec:method}
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[node distance=5mm and 6mm]
+\tikzset{st/.style={text width=44mm,minimum height=13mm,align=left}}
+\node[boxa,st] (m1) {\M{1} \textbf{Radar time series}\\{\scriptsize two directions, 2015--2026}};
+\node[boxa,st,right=of m1] (m2) {\M{2} \textbf{Quality control}\\{\scriptsize atmosphere, GNSS tie, masks}};
+\node[boxa,st,right=of m2] (m3) {\M{3} \textbf{Vertical and east--west}\\{\scriptsize combine the two directions}};
+\node[boxg,st,below=of m3] (m4) {\M{4} \textbf{Time-series separation}\\{\scriptsize trend, season, change dates}};
+\node[boxg,st,left=of m4] (m5) {\M{5} \textbf{Background model}\\{\scriptsize non-pumping subsidence}};
+\node[boxw,st,left=of m5] (m6) {\M{6} \textbf{Sparse inversion}\\{\scriptsize few sources, cone-shaped kernel}};
+\node[boxw,st,below=of m6] (m7) {\M{7} \textbf{Uncertainty}\\{\scriptsize bootstrap, stability}};
+\node[box,st,right=of m7] (m8) {\M{8} \textbf{Volume to extraction}\\{\scriptsize lower bound, calibration}};
+\node[box,st,right=of m8] (m9) {\M{9} \textbf{Attribution, ranking}\\{\scriptsize land use, permits, report}};
+\draw[arr] (m1)--(m2); \draw[arr] (m2)--(m3); \draw[arr] (m3)--(m4); \draw[arr] (m4)--(m5);
+\draw[arr] (m5)--(m6); \draw[arr] (m6)--(m7); \draw[arr] (m7)--(m8); \draw[arr] (m8)--(m9);
+\end{tikzpicture}
+\caption{The pipeline. Blue: measurement (\Q{1}). Green: separation (\Q{3}). Orange: attribution
+(\Q{2}). White: interpretation and delivery.}\label{fig:pipeline}
+\end{figure}
+
+\subsubsection{\M{1} Radar time series}
+\textbf{What.} Turn stacks of Sentinel-1 images into a displacement history for every pixel.\\
+\textbf{How.} Small-baseline (SBAS) processing \cite{berardino2002}: each image is paired with its
+next three or four neighbours in time, each pair gives a map of phase change, and a least-squares
+solve turns the network of pairs into a time series. For the descending track we start from
+ready-made LiCSAR pairs and run LiCSBAS \cite{morishita2020}, as two earlier Semarang studies did
+\cite{lo2022,azeriansyah2025}. For the ascending track we order pairs from ASF's on-demand service
+and run MintPy \cite{yunjun2019}. Pixels are averaged to about 100\,m. Phase $\phi$ converts to motion
+along the line of sight by $d_{\mathrm{LOS}} = -\lambda\phi/4\pi$ with $\lambda = 5.55$\,cm.\\
+\textbf{Output.} Two cubes (ascending, descending) of line-of-sight displacement.
+\trace{serves \Q{1}; uses \D{1} \D{5}; checked by \V{2}; runs in \Sx{2}.}
+
+\subsubsection{\M{2} Quality control and referencing}
+\textbf{What.} Remove what is not ground motion, and fix the zero point.\\
+\textbf{How.} (i) Correct the delay from the lower atmosphere with GACOS maps \cite{yu2018}.
+(ii) Check \emph{loop closure}: for any three images, the three pairwise phases must sum to zero;
+pairs that fail are unwrapping errors and are dropped. (iii) Mask pixels with low coherence
+(water, fish ponds, rice fields). (iv) Reference all motion to the CSEM GNSS station, which earlier
+work also used \cite{azeriansyah2025}. (v) Estimate a velocity uncertainty per pixel by resampling
+the time series.\\
+\textbf{Output.} Clean cubes, a validity mask, and a per-pixel uncertainty.
+\trace{serves \Q{1}; uses \D{3} \D{4}; checked by \V{1} \V{2}; runs in \Sx{2}.}
+
+\subsubsection{\M{3} Vertical and east--west motion}
+\textbf{What.} A single radar direction mixes vertical and horizontal motion. Two directions untangle
+them.\\
+\textbf{How.} For incidence angle $\theta$ and heading $\alpha$, the line-of-sight unit vector in
+(east, north, up) is
+\[
+\mathbf{l} = (-\sin\theta\cos\alpha,\ \ \sin\theta\sin\alpha,\ \ \cos\theta).
+\]
+Radar is nearly blind to north--south motion, so we solve per pixel \cite{wright2004}
+\begin{equation}
+\begin{pmatrix} d^{\mathrm{asc}}\\ d^{\mathrm{desc}}\end{pmatrix} =
+\begin{pmatrix} l_E^{\mathrm{asc}} & l_U^{\mathrm{asc}}\\ l_E^{\mathrm{desc}} & l_U^{\mathrm{desc}}\end{pmatrix}
+\begin{pmatrix}u_E\\u_U\end{pmatrix}.
+\end{equation}
+For $\theta \approx 34$--$39^\circ$ the vertical error is about 0.9 times the line-of-sight error and
+the east--west error about 1.2 times.\\
+\textbf{Output.} Vertical and east--west displacement cubes. East--west motion is a free diagnostic:
+ground around a compacting bowl moves inwards.
+\trace{serves \Q{1}; produces \Ox{1}; checked by \V{1}; runs in \Sx{4}.}
+
+\subsubsection{\M{4} Time-series separation}
+\textbf{What.} Split each pixel's history into long-term trend, seasonal breathing and sudden changes.\\
+\textbf{How.} Three tools, from simple to rich.
+\begin{itemize}
+\item \emph{Robust regression} per pixel:
+$u(t) = a + v\,t + c_1\sin 2\pi t + c_2\cos 2\pi t + \varepsilon$, with Huber loss so that outliers
+do not bend the trend.
+\item \emph{Independent component analysis} (ICA \cite{hyvarinen2000}) on the whole cube, which finds
+a few shared time patterns and a map of where each one is strong. It has been used to separate
+sources in radar data before \cite{ebmeier2016} and to isolate aquifer signals \cite{chaussard2014}.
+\item \emph{Change-point detection} (PELT \cite{killick2012}) on the detrended series, which dates
+the moments when sinking sped up or slowed down. A source that switched on or off shows up here.
+\end{itemize}
+\textbf{Output.} Maps of long-term rate $v$, seasonal amplitude and change dates. The seasonal part
+is mostly elastic; a large trend with little seasonal recovery signals permanent compaction
+\cite{hoffmann2001,smith2017}.
+\trace{serves \Q{1} \Q{3}; produces \Ox{2}; uses \D{9}; checked by \V{4}; runs in \Sx{4}.}
+
+\subsubsection{\M{5} Background model (non-pumping subsidence)}
+\textbf{What.} Estimate $g(\mathbf{x})$ in Eq.~\eqref{eq:model}: the sinking that would happen without
+deep pumping.\\
+\textbf{How.} Two layers.
+\begin{itemize}
+\item A \emph{driver model}: gradient-boosted trees \cite{chen2016} that predict long-term rate from
+soft-clay thickness, land age (reclaimed or not), built-up volume, distance to coast and elevation.
+It is trained only on ``quiet'' pixels: those farther than $2B$ from industrial land and from any
+known deep well, so that it learns background and not pumping.
+\item A \emph{smooth remainder}: a low-order cosine surface that absorbs whatever long-wavelength
+signal the drivers miss. It is fitted jointly with the sources in \M{6}.
+\end{itemize}
+Shapley values (SHAP \cite{lundberg2017}) show which driver matters where.\\
+\textbf{Output.} Background map with uncertainty.
+\trace{serves \Q{3}; produces \Ox{4}; uses \D{5} \D{7} \D{8}; checked by \V{4}; runs in \Sx{4}.}
+
+\subsubsection{\M{6} Sparse source inversion}
+\textbf{What.} Find the few sources $q_j$ that explain the pumping part of the velocity field.\\
+\textbf{How.} Lay a grid of candidate source positions $\mathbf{c}_j$ every 500\,m. Build the matrix
+$A_{ij}=k_B(\lVert\mathbf{x}_i-\mathbf{c}_j\rVert)$ and a background matrix $Z$ (driver-model
+prediction plus cosine surface). Solve
+\begin{equation}
+\min_{\mathbf{q}\ge 0,\ \boldsymbol\beta}\;\; \frac{1}{2n}\,\big\lVert \mathbf{v}-A\mathbf{q}-Z\boldsymbol\beta\big\rVert_2^2
+\;+\;\lambda\sum_j q_j .
+\label{eq:lasso}
+\end{equation}
+This is a non-negative lasso \cite{tibshirani1996}. The constraint $q_j\ge 0$ says sources only
+remove volume. The penalty $\lambda\sum q_j$ says: explain the data with as little total volume, in
+as few places, as possible. Four details make it trustworthy.
+\begin{enumerate}
+\item \textbf{Penalty from the data's own noise.} After a first fit we take the residual map, shuffle
+its Fourier phases to create 30 fake noise maps with the same spatial texture, and record the
+largest source--noise correlation each one produces. $\lambda$ is set no lower than the 95th
+percentile of those values. A source then enters only if it stands out from what noise alone could
+do.
+\item \textbf{Refit without shrinkage.} The lasso picks \emph{where}; a plain non-negative
+least-squares refit on the selected positions then estimates \emph{how much}.
+\item \textbf{Merging.} Neighbouring selected grid points are merged into one source at their
+volume-weighted centre.
+\item \textbf{Cone width $B$.} Chosen by spatial cross-validation, or better, fixed from pumping
+tests or head data when available (see Section~\ref{sec:exp}).
+\end{enumerate}
+An optional \emph{informed mode} lowers the penalty for candidates on industrial land, as a soft
+version of the well-distance penalty of Vasco et al.\ \cite{vasco2019}. The default \emph{blind mode}
+uses no such prior.\\
+\textbf{Output.} A source list: position and compaction volume.
+\trace{serves \Q{2}; uses output of \M{3}--\M{5}; checked by \V{3} \V{5} \V{6}; runs in \Sx{4}.}
+
+\subsubsection{\M{7} Uncertainty}
+\textbf{What.} Say how sure we are of each source.\\
+\textbf{How.} A \emph{spatial block bootstrap}: cut the map into 2\,km blocks, resample blocks with
+replacement, and rerun the inversion. Repeating this 60--200 times gives, for each source, a 90\,\%
+range for its volume and a \emph{stability} score: the share of reruns in which it reappears, in the
+spirit of stability selection \cite{meinshausen2010}. Blocks are used because neighbouring pixels
+share noise; resampling single pixels would give falsely narrow ranges.\\
+\textbf{Output.} Volume range and stability for each source.
+\trace{serves \Q{2}; produces \Ox{3}; checked by \V{7}; runs in \Sx{4}.}
+
+\subsubsection{\M{8} From volume to extraction}
+\textbf{What.} Translate compaction volume into a statement about pumping.\\
+\textbf{How.} Report $q_j$ as a lower bound (Eq.~\ref{eq:phi}). Where metered extraction or head
+records exist for some sources, fit $\varphi$ by regression and use it, with its spread, to convert
+the other sources into estimated ranges.\\
+\textbf{Output.} For each source: minimum extraction, and estimated extraction if calibration data
+exist.
+\trace{serves \Q{2}; uses \D{6}; checked by \V{5}; runs in \Sx{4}.}
+
+\subsubsection{\M{9} Attribution and ranking}
+\textbf{What.} Make the list usable.\\
+\textbf{How.} Join each source with land use, building footprints and, if available, the permit
+register. Classify it as \emph{matches a permitted well field}, \emph{no permit on record nearby}, or
+\emph{unclear}. Rank by volume, then by stability. Public outputs show hot-spot cells, never company
+names (Section~\ref{sec:ethics}).\\
+\textbf{Output.} The audit list and report.
+\trace{serves \Q{2}; produces \Ox{3} \Ox{5}; uses \D{6} \D{8}; checked by \V{6}; runs in \Sx{7} \Sx{9}.}
+
+\section{ML/AI rigour: how we know it works}\label{sec:rigour}
+
+\begin{inshort}
+Four parts of the pipeline learn from data. Each has a baseline to beat, a split that prevents
+leakage, a metric with a pass mark, and an uncertainty estimate that is itself tested.
+\end{inshort}
+
+\Needspace{27\baselineskip}
+\subsection{The learning components}
+
+\Needspace{21\baselineskip}
+{\small
+\begin{xltabular}{\linewidth}{@{}L{8mm}L{33mm}L{30mm}Y@{}}
+\toprule
+ & \textbf{Component} & \textbf{Type} & \textbf{Why it is not a black box}\\*
+\midrule
+\M{4} & Trend, season, change dates & Robust regression, ICA, change-point detection & Every output
+  is a physical quantity (rate, amplitude, date) that can be checked against GNSS and rainfall.\\
+\M{5} & Background driver model & Gradient-boosted trees with SHAP & Trained only on pixels away from
+  pumping; each prediction is explained by named drivers.\\
+\M{6} & Source inversion & Sparse regression (non-negative lasso) with a physics kernel & Linear and
+  convex: one global optimum, every source is a visible term in Eq.~\eqref{eq:model}.\\
+\M{7} & Uncertainty & Block bootstrap, stability selection & Ranges are tested for coverage on
+  synthetic truth (\V{7}).\\
+\bottomrule
+\end{xltabular}}
+
+\subsection{Splits and leakage rules}
+
+Map data break the usual assumption that samples are independent: a pixel's neighbours are almost
+copies of it. A random train/test split would then report excellent scores for a model that has
+learned nothing transferable \cite{roberts2017}. We therefore fix these rules.
+
+\begin{itemize}
+\item \textbf{Spatial block cross-validation.} Pixels are grouped into 2\,km blocks; whole blocks are
+held out. Used for choosing $B$, $\lambda$ and the driver model's settings.
+\item \textbf{Temporal hold-out.} All fitting uses 2015--2023. The years 2024--2026 are kept back.
+A good model must predict the later cumulative motion better than simply extending each pixel's own
+trend.
+\item \textbf{No coordinates as features.} The driver model never sees latitude or longitude.
+Otherwise it would memorise where the bowls are.
+\item \textbf{No target-derived features.} Nothing computed from the velocity map (for example
+``distance to nearest bowl'') may enter \M{5}.
+\item \textbf{Quiet-pixel training.} \M{5} is trained only where pumping influence is unlikely, and
+evaluated on held-out quiet blocks.
+\item \textbf{Frozen test set.} Calibration and validation wells (\D{6}) are split once, by well, and
+the validation half is not looked at until the pipeline is final.
+\end{itemize}
+
+\Needspace{14\baselineskip}
+\Needspace{14\baselineskip}
+\subsection{Validation checks and pass marks}
+
+\Needspace{8\baselineskip}
+{\small
+\begin{xltabular}{\linewidth}{@{}L{8mm}L{37mm}Y L{37mm}@{}}
+\caption{Validation checks. Pass marks are ours, set from what earlier studies achieved and from the
+synthetic experiment.}\label{tab:valid}\\*
+\toprule
+ & \textbf{Check} & \textbf{How it is measured} & \textbf{Pass mark}\\*
+\midrule
+\V{1} & Radar against GNSS & Vertical rate at InaCORS stations, root-mean-square difference & $\le 8$\,\mmyr\
+  (earlier work: 3--9 \cite{azeriansyah2025,janur2025})\\
+\V{2} & Internal consistency & Loop-closure failures; agreement of ascending and descending where motion is
+  vertical & $<5$\,\% of pairs dropped\\
+\V{3} & Synthetic recovery & Known sources planted in a simulated map (Section~\ref{sec:exp}) & Recall and
+  precision $\ge 80$\,\%; median volume error $\le 25$\,\%\\
+\V{4} & Out-of-sample fit & Block cross-validation error; temporal hold-out against trend extension & Beats
+  both baselines\\
+\V{5} & Wells: heads & Rank correlation between inferred compaction rate and head decline at monitoring
+  wells & $\ge 0.6$\\
+\V{6} & Wells: locations & Share of registered high-capacity well clusters that lie within 1\,km of a
+  detected source & $\ge 70$\,\%\\
+\V{7} & Honest ranges & Share of true volumes inside the stated 90\,\% range (synthetic) & 80--95\,\%\\
+\bottomrule
+\end{xltabular}}
+
+\subsection{Baselines and ablations}
+
+A method is only as convincing as what it is compared with. Three baselines are run on every data
+set.
+
+\begin{itemize}
+\item \textbf{Bowl integration.} Threshold the subsidence map, treat each connected bowl as one source,
+integrate its volume. This is what a careful analyst would do by hand.
+\item \textbf{Smooth inversion.} The same kernel and data as ours, but with a smoothness (L2) penalty
+instead of the sparsity penalty, in the spirit of \cite{azeriansyah2025}.
+\item \textbf{Trend extension.} For the temporal hold-out: predict 2024--2026 by extending each
+pixel's 2015--2023 trend.
+\end{itemize}
+
+Ablations switch off one ingredient at a time: one radar direction instead of two; no background
+model; no noise-calibrated penalty; no refit; Gaussian instead of Bessel kernel; blind against
+informed mode. Each ablation reports the metrics of Table~\ref{tab:valid}.
+
+\subsection{Reproducibility}
+
+Fixed random seeds; all settings in one versioned configuration file; data versions tracked by
+content hash; every run logged with its parameters, metrics and figures; the full pipeline runs from
+one command inside a container. Section~\ref{sec:mlops} gives the tooling. The synthetic experiment
+in the next section follows these rules and its code ships with this document.
+
+\subsection{Stretch goal: a learned inversion}
+
+The forward model \eqref{eq:model} is cheap to simulate. That makes it possible to train a
+convolutional network (U-Net \cite{ronneberger2015}) on tens of thousands of simulated maps to
+predict source maps directly, as has been done for detecting volcanic deformation in radar data
+\cite{anantrasirichai2018}. It would be benchmarked against \M{6} on the same synthetic test set.
+It is not on the critical path: the convex inversion is simpler to defend in front of a jury, and
+its failure modes are easier to explain.

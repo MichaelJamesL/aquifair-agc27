@@ -1,0 +1,199 @@
+\section{The idea on one page}
+
+\begin{inshort}
+Satellites already show \emph{where} the ground in Semarang--Demak is sinking. This project asks the
+next question: \emph{which groundwater extraction sources cause it, and how much water does each one
+take from storage?} The result is a ranked list of extraction hot spots, each with a volume and an
+error bar, that a regulator could act on.
+\end{inshort}
+
+\textbf{Why it matters.} Sinking land is the main reason tidal floods (\emph{rob}) keep getting worse on
+Java's north coast. Parts of Semarang and Demak sink by more than 10\,cm a year
+\cite{aditiya2023,janur2025}. Pumping from deep wells is a leading cause, but well records are
+incomplete, so nobody can say which sources matter most.
+
+\textbf{What we do, in three steps.}
+\begin{enumerate}
+\item \textbf{Measure.} Process ten years of Sentinel-1 radar images from two viewing directions into
+      maps of vertical ground motion, tied to BIG's GNSS stations.
+\item \textbf{Separate.} Split the motion into a pumping part and a non-pumping part (natural settling
+      of young clay, weight of buildings), and into long-term and seasonal behaviour.
+\item \textbf{Invert.} Find the smallest set of extraction sources that explains the pumping part.
+      Each source gets a location, a volume of lost storage per year, and an uncertainty range.
+\end{enumerate}
+
+\textbf{What is new.} Earlier work in Semarang mapped the sinking and fitted smooth source models.
+None of it produced a short, ranked list of sources with uncertainty, and none linked the result to
+extraction volumes. A similar idea was shown in California, where a well registry guided the
+inversion \cite{vasco2019}. We do it where no reliable registry exists.
+
+\textbf{What this report already proves.} We built the inversion and tested it on a synthetic copy of
+the problem (Section~\ref{sec:exp}). With the cone width known, it found \calRecall\,\% of the
+hidden sources with \calPrecision\,\% precision, and estimated their volumes with a median error of
+\calMedErr\,\%. Two standard alternatives did clearly worse. The test also exposed the method's
+weakest point: volumes depend on one hydrogeological parameter (the width of a pumping cone) that
+radar alone cannot pin down. Section~\ref{sec:feas} turns that into a concrete plan.
+
+\textbf{What is still open.} The method has not yet been run on real Semarang data. Section~\ref{sec:spike}
+defines a one-week test with clear pass and fail criteria.
+
+\section{Problem and research questions}\label{sec:problem}
+
+Indonesia regulates groundwater use through permits. Since 2023, even households that use more than
+100\,m$^3$ a month need approval \cite{kepmen291}, and the energy ministry lists Semarang among the
+areas with serious groundwater damage \cite{esdm2023}. Permits only help if someone can check them.
+Today the checking tools are flow meters, where they are installed, and a sparse set of monitoring
+wells.
+
+\begin{plain}
+Pumping water out of deep sand layers lowers the water pressure. The clay layers around the sand then
+get squeezed, like a wet sponge under a weight, and the ground above sinks. Most of that squeezing is
+permanent. So sinking ground is a physical record of pumping, and radar satellites can read it.
+\end{plain}
+
+The project answers three research questions. Their tags are used throughout the document.
+
+\begin{tabularx}{\linewidth}{@{}L{12mm}Y@{}}
+\toprule
+\Q{1} & \textbf{Measurement.} How fast is the ground moving, vertically and east--west, at about
+        100\,m resolution, and how certain is each value?\\
+\Q{2} & \textbf{Attribution.} Which extraction sources explain the pumping-driven sinking, and how much
+        storage volume does each one remove per year?\\
+\Q{3} & \textbf{Separation.} How much of the sinking is \emph{not} caused by pumping, and how confident
+        can we be in that split?\\
+\bottomrule
+\end{tabularx}
+
+The answers are delivered as five outputs.
+
+\begin{tabularx}{\linewidth}{@{}L{12mm}Y L{24mm}@{}}
+\toprule
+ & \textbf{Output} & \textbf{Answers}\\*
+\midrule
+\Ox{1} & Maps of vertical and east--west velocity with uncertainty & \Q{1}\\
+\Ox{2} & Maps of seasonal amplitude and of dates when the motion changed & \Q{1} \Q{3}\\
+\Ox{3} & Ranked list of extraction hot spots: location, volume, 90\,\% range, stability & \Q{2}\\
+\Ox{4} & Map of non-pumping (background) subsidence & \Q{3}\\
+\Ox{5} & Audit report and interactive web map & \Q{1} \Q{2} \Q{3}\\
+\bottomrule
+\end{tabularx}
+
+\Needspace{17\baselineskip}
+\section{Study area: Semarang--Demak}\label{sec:area}
+
+Semarang is the capital of Central Java. Its northern half and neighbouring Demak lie on a young
+coastal plain of soft clay and sand. Table~\ref{tab:area} lists what published work says about it.
+
+\Needspace{8\baselineskip}
+{\small
+\begin{xltabular}{\linewidth}{@{}L{34mm}Y L{20mm}@{}}
+\caption{What is known about the study area. Each row names its source.}\label{tab:area}\\*
+\toprule
+\textbf{Topic} & \textbf{Finding} & \textbf{Source}\\*
+\midrule
+Sinking rate, 2008--2011 & GPS surveys: 6--7\,cm/yr on average, up to 14--19\,cm/yr in places. Faster in the
+  north, near the coast. & \cite{abidin2013}\\
+Sinking rate, 2015--2022 & Radar: up to 100--120\,mm/yr in north and east Semarang and Demak. About 20\,\% of
+  the city's land is affected. Deformation correlates with groundwater (coefficient 0.86). & \cite{aditiya2023}\\
+Sinking rate, 2020--2023 & Radar from two directions: highest vertical rates of about 144\,mm/yr (Semarang) and
+  146\,mm/yr (Demak). Vertical error against 12 GNSS stations: 8.8\,mm. & \cite{janur2025}\\
+Causes & Natural settling of young alluvial soil, groundwater extraction, and the load of buildings. & \cite{abidin2013}\\
+Aquifers & One unconfined aquifer and a confined system with three groups (Garang, Quaternary marine, Damar),
+  separated by clay layers 5--30\,m thick. & \cite{putranto2016}\\
+Well depths & Deep wells tap the confined Damar aquifer at 60--180\,m. The Genuk district draws from 60--120\,m
+  and is classed as a critical zone. & \cite{lo2022,aghnia2022}\\
+Extraction history & First deep well in 1841; 16 wells by 1900; more than 1,000 wells and over
+  30 million m$^3$/yr by 2010. Records stop in 2010. & \cite{putranto2016,lo2022}\\
+Sustainable yield & The confined aquifer is credited with about 16.5 million m$^3$/yr, well below the 30 million
+  or more that is pumped. & \cite{frontiers2023}\\
+Water pressure & The confined water level fell 0.7--1.1\,m per year, to about 20\,m below sea level. & \cite{fahrudin2012}\\
+Tectonic motion & Small: 3--5\,mm/yr of regional subsidence in GNSS data. & \cite{lo2022}\\
+\bottomrule
+\end{xltabular}}
+
+Two details in this table motivate the project. First, the official well records end in 2010, so any
+recent picture of extraction has to come from somewhere else. Second, a groundwater model driven by
+those records reproduces at most 36.8\,mm/yr of sinking in Genuk, while radar from 2015--2020 shows
+more than 80\,mm/yr in the same part of the city \cite{lo2022}. The periods differ, so this is not
+proof, but it suggests that recorded pumping does not tell the whole story.
+
+\Needspace{14\baselineskip}
+\section{Prior work and the gap}\label{sec:prior}
+
+\Needspace{8\baselineskip}
+{\small
+\begin{xltabular}{\linewidth}{@{}L{31mm}Y Y@{}}
+\caption{The closest earlier studies and what each leaves open.}\label{tab:prior}\\*
+\toprule
+\textbf{Study} & \textbf{What it did} & \textbf{What it leaves open}\\*
+\midrule
+Chaussard et al.\ 2013 \cite{chaussard2013} & Mapped sinking in Indonesian cities with ALOS radar. Linked
+  fast, patchy sinking to industrial land. & A visual link only. No source volumes.\\
+Lo et al.\ 2022 \cite{lo2022} & Groundwater-flow and compaction model (MODFLOW) for Semarang, checked against
+  radar. & Needs well records as input, and those end in 2010.\\
+Aditiya \& Ito 2023 \cite{aditiya2023} & Radar time series 2015--2022 with GNSS support. & A motion map. No
+  sources.\\
+Azeriansyah et al.\ 2025 \cite{azeriansyah2025} & Inverted one radar track into volume loss on a 250\,m grid of
+  point sources at a fixed depth of 120\,m, with smoothing. & The result is a smooth map, not a list of sources.
+  No uncertainty per source, no link to pumping, and east--west motion is predicted, not measured.\\
+Janur et al.\ 2025 \cite{janur2025} & Two-direction radar along the whole north coast, checked against GNSS. &
+  A motion map. No sources.\\
+Vasco et al.\ 2019 \cite{vasco2019} & California: inverted radar for aquifer volume change, steering the
+  solution towards registered wells. Stated the volumes are lower bounds on extraction. & Relies on a public
+  well registry. Blocks of 2\,km. No sparse source list.\\
+\bottomrule
+\end{xltabular}}
+
+\textbf{The gap.} Nobody has yet produced, for an Indonesian city, a short list of extraction sources
+with volumes and uncertainty, built without relying on a well registry.
+
+\textbf{Our four contributions.}
+\begin{enumerate}
+\item A \emph{sparse} inversion that returns few, well-separated sources instead of a smooth map
+      (stage \M{6}).
+\item A source model based on how a pumping cone spreads in a leaky aquifer, not only on elastic
+      point sources. Section~\ref{sec:identity} shows why the elastic model alone carries almost no
+      information about sources at these depths.
+\item Honest uncertainty for every source: a 90\,\% range and a stability score (stage \M{7}), with the
+      penalty level set from the data's own noise.
+\item An explicit, testable split between pumping and non-pumping subsidence (stage \M{5}).
+\end{enumerate}
+
+\Needspace{16\baselineskip}
+\section{Data}\label{sec:data}
+
+Every data set has a tag. The last column says how sure we are that the team can get it.
+
+\Needspace{8\baselineskip}
+{\small
+\begin{xltabular}{\linewidth}{@{}L{9mm}L{33mm}Y L{27mm}@{}}
+\caption{Data inventory.}\label{tab:data}\\*
+\toprule
+ & \textbf{Data set} & \textbf{Details and source} & \textbf{Access}\\*
+\midrule
+\D{1} & Sentinel-1 radar & C-band, 2015 to now, two directions: descending track 76 (ready-made LiCSAR frame
+  \texttt{076D\_09725\_121107} \cite{lo2022}) and ascending track 127 (confirm in ASF Vertex). & Open\\
+\D{2} & NISAR radar & L-band, sees through vegetation better. Calibrated products are public for images
+  from 17 June 2026; earlier images are being reprocessed during 2026 \cite{nisar2026}. & Open, short record\\
+\D{3} & GACOS & Maps of radar delay in the lower atmosphere, used for correction \cite{yu2018}. & Open, on request\\
+\D{4} & InaCORS GNSS & BIG's permanent stations, including CSEM in Semarang, through the SRGI portal. & Request to BIG\\
+\D{5} & Elevation model & DEMNAS from BIG, or the Copernicus 30\,m model. & Open\\
+\D{6} & Groundwater records & Monitoring-well water levels, conservation-zone map and well permits from the
+  Geological Agency and the Central Java energy office. & Request, uncertain\\
+\D{7} & Geology & Borehole logs, hydrogeological map, thickness of soft clay \cite{putranto2016}. & Partly published\\
+\D{8} & Buildings and land use & Building footprints (Google Open Buildings, OpenStreetMap), built-up volume
+  (GHSL), industrial estates. & Open\\
+\D{9} & Rainfall and tides & CHIRPS rainfall; BIG tide gauges. Used to explain seasonal signals. & Open / request\\
+\bottomrule
+\end{xltabular}}
+
+\textbf{Satellite status (November 2026).} Sentinel-1A ended operations on 29 June 2026 after twelve
+years. Sentinel-1C (data since March 2025) and Sentinel-1D (data since April 2026) now give a 6-day
+repeat \cite{s1status}. Sentinel-1B failed in December 2021, so 2022--2024 has one image every
+12 days. The series is continuous enough for our purpose, but the processing must handle the change
+of satellites.
+
+\textbf{What is essential.} Only \D{1}, \D{3}, \D{5} and \D{8} are needed to run the whole pipeline, and
+all four are open. \D{4} makes the motion maps trustworthy. \D{6} is what turns a good map into a
+validated audit; if it cannot be obtained in time, the report says so and relies on checks
+\V{1}--\V{4} (Section~\ref{sec:rigour}).
