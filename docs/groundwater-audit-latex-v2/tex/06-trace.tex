@@ -1,0 +1,124 @@
+\Needspace{28\baselineskip}
+\section{Traceability}\label{sec:trace}
+
+\begin{inshort}
+Read a row from left to right to follow one thread: from a question, through the data and method
+that answer it, to the check that tests it, the software that runs it and the output that delivers
+it.
+\end{inshort}
+
+\Needspace{16\baselineskip}
+{\small
+\begin{xltabular}{\linewidth}{@{}L{21mm}L{25mm}L{25mm}L{25mm}L{22mm}Y@{}}
+\caption{From research question to delivered output.}\label{tab:traceq}\\*
+\toprule
+\textbf{Question} & \textbf{Data} & \textbf{Method} & \textbf{Validation} & \textbf{Software} & \textbf{Output}\\*
+\midrule
+\Q{1} How fast? & \D{1} \D{2} \D{3} \D{4} \D{5} & \M{1} \M{2} \M{3} \M{4} & \V{1} \V{2} \V{4} & \Sx{1} \Sx{2} \Sx{3} & \Ox{1} \Ox{2}\\
+\Q{2} Which sources, how much? & \D{6} \D{8} and the maps from \Q{1} & \M{6} \M{7} \M{8} \M{9} & \V{3} \V{5} \V{6} \V{7} & \Sx{4} \Sx{7} \Sx{8} \Sx{9} & \Ox{3} \Ox{5}\\
+\Q{3} How much is not pumping? & \D{5} \D{7} \D{8} \D{9} & \M{4} \M{5} & \V{4} & \Sx{4} & \Ox{2} \Ox{4}\\
+\bottomrule
+\end{xltabular}}
+
+\Needspace{26\baselineskip}
+{\small
+\begin{xltabular}{\linewidth}{@{}L{46mm}L{24mm}L{24mm}L{22mm}Y@{}}
+\caption{Each method stage with its inputs, checks, software home and main risks.}\label{tab:tracem}\\*
+\toprule
+\textbf{Stage} & \textbf{Data} & \textbf{Checked by} & \textbf{Runs in} & \textbf{Risks}\\*
+\midrule
+\M{1} Radar time series & \D{1} \D{2} \D{5} & \V{2} & \Sx{1} \Sx{2} & \R{5} \R{6} \R{7}\\
+\M{2} Quality control & \D{3} \D{4} & \V{1} \V{2} & \Sx{2} & \R{2} \R{5}\\
+\M{3} Vertical / east--west & from \M{2} & \V{1} & \Sx{4} & \\
+\M{4} Time-series separation & \D{9} & \V{4} & \Sx{4} & \R{3}\\
+\M{5} Background model & \D{5} \D{7} \D{8} & \V{4} & \Sx{4} & \R{3}\\
+\M{6} Sparse source inversion & from \M{3}--\M{5} & \V{3} \V{5} \V{6} & \Sx{4} & \R{1}\\
+\M{7} Uncertainty & from \M{6} & \V{7} & \Sx{4} & \R{1}\\
+\M{8} Volume to extraction & \D{6} & \V{5} & \Sx{4} & \R{1} \R{4}\\
+\M{9} Attribution and ranking & \D{6} \D{8} & \V{6} & \Sx{7} \Sx{8} \Sx{9} & \R{8}\\
+\bottomrule
+\end{xltabular}}
+
+\Needspace{24\baselineskip}
+{\small
+\begin{xltabular}{\linewidth}{@{}L{44mm}L{34mm}Y@{}}
+\caption{Status of each validation check today.}\label{tab:tracev}\\*
+\toprule
+\textbf{Check} & \textbf{Status} & \textbf{Where}\\*
+\midrule
+\V{1} Radar against GNSS & Planned, week 2 & Needs \D{4}\\
+\V{2} Internal consistency & Planned, weeks 1--2 & One-week test, Section~\ref{sec:spike}\\
+\V{3} Synthetic recovery & \textbf{Done}: passed with $B$ known & Section~\ref{sec:exp}, Table~\ref{tab:e1}\\
+\V{4} Out-of-sample fit & Planned, week 3 & Needs real maps\\
+\V{5} Wells: heads & Planned, week 4 & Needs \D{6}\\
+\V{6} Wells: locations & Planned, week 4 & Needs \D{6}\\
+\V{7} Honest ranges & \textbf{Done}: \calCover\,\% coverage with $B$ known; \cvCover\,\% without & Section~\ref{sec:exp}\\
+\bottomrule
+\end{xltabular}}
+
+User needs \U{1}--\U{6} are traced to outputs and components in Table~\ref{tab:needs}.
+
+\section{Glossary}
+
+\begin{description}[leftmargin=34mm,style=nextline,font=\sffamily\bfseries\small,itemsep=1pt]
+\item[Aquifer / aquitard] A layer that yields water (sand, gravel) / a layer that barely lets water through (clay).
+\item[Confined aquifer] An aquifer sealed under clay, so its water is under pressure.
+\item[Head] The level water rises to in a well; a measure of water pressure.
+\item[Drawdown; pumping cone] The fall in head caused by pumping; it is deepest at the well and fades with distance, forming a cone.
+\item[Cone width $B$] The distance over which a pumping cone fades (the leakage factor).
+\item[Compaction] Squeezing of clay when water pressure falls. Mostly permanent.
+\item[Lost storage] The volume by which the aquifer system has shrunk. Equal to the volume of the subsidence bowl.
+\item[InSAR] Measuring ground motion by comparing the phase of radar images taken at different times.
+\item[Line of sight] The direction from ground to satellite. One radar pass sees only motion along it.
+\item[Ascending / descending] The satellite flying north or south. The two give two viewing directions.
+\item[Coherence] How well a pixel keeps its radar signature over time. Water and crops lose it.
+\item[SBAS] A way of building a displacement history from many pairs of images taken close together in time.
+\item[GNSS / CORS] Satellite positioning (GPS and others) / a permanent station that records its position continuously.
+\item[Sparse inversion] Finding the few causes that explain a measured pattern, instead of a smooth map of many small ones.
+\item[Lasso] A regression that adds a penalty which pushes most coefficients to exactly zero.
+\item[Bootstrap] Re-running an analysis on resampled data to see how much the answer varies.
+\item[Stability] The share of bootstrap reruns in which a source reappears.
+\item[Recall / precision] The share of true sources that were found / the share of detections that are real.
+\item[Cross-validation] Testing a model on data held back from fitting. In blocks, because neighbouring pixels are alike.
+\item[SHAP] A method that splits a model's prediction into contributions from each input.
+\end{description}
+
+\begin{thebibliography}{99}\small\raggedright
+\bibitem{abidin2013} H.Z. Abidin, H. Andreas, I. Gumilar, T.P. Sidiq, Y. Fukuda. Land subsidence in coastal city of Semarang (Indonesia): characteristics, impacts and causes. \emph{Geomatics, Natural Hazards and Risk} 4(3), 226--240, 2013.
+\bibitem{aditiya2023} A. Aditiya, T. Ito. Present-day land subsidence over Semarang revealed by time series InSAR new small baseline subset technique. \emph{Int.\ J.\ Applied Earth Observation and Geoinformation} 125, 103579, 2023. \url{https://doaj.org/article/bc659cefcb624b38a679829477d8e2d1}
+\bibitem{aghnia2022} S. Aghnia, H. Hendrayana, D.P.E. Putra. Characteristics and potential of confined aquifers in Genuk and surrounding area, Semarang City. \emph{Proc.\ ICOSEAT 2022}. doi:10.2991/978-94-6463-086-2\_87
+\bibitem{anantrasirichai2018} N. Anantrasirichai, J. Biggs, F. Albino, P. Hill, D. Bull. Application of machine learning to classification of volcanic deformation in routinely generated InSAR data. \emph{J.\ Geophys.\ Res.\ Solid Earth} 123, 6592--6606, 2018.
+\bibitem{azeriansyah2025} R. Azeriansyah, K.-E. Ching, B.D. Yuwono. Impact of land subsidence-induced three-dimensional surface deformation on infrastructure in the Semarang--Demak alluvial plain, Indonesia. \emph{J.\ Earth and Marine Technology} 5(2), 111--122, 2025. \url{https://ejournal.itats.ac.id/jemt/article/download/6841/4469}
+\bibitem{berardino2002} P. Berardino, G. Fornaro, R. Lanari, E. Sansosti. A new algorithm for surface deformation monitoring based on small baseline differential SAR interferograms. \emph{IEEE Trans.\ Geosci.\ Remote Sens.} 40(11), 2375--2383, 2002.
+\bibitem{chaussard2013} E. Chaussard, F. Amelung, H. Abidin, S.-H. Hong. Sinking cities in Indonesia: ALOS PALSAR detects rapid subsidence due to groundwater and gas extraction. \emph{Remote Sensing of Environment} 128, 150--161, 2013.
+\bibitem{chaussard2014} E. Chaussard, R. B\"urgmann, M. Shirzaei, E.J. Fielding, B. Baker. Predictability of hydraulic head changes and characterization of aquifer-system and fault properties from InSAR-derived ground deformation. \emph{J.\ Geophys.\ Res.\ Solid Earth} 119, 6572--6590, 2014.
+\bibitem{chen2016} T. Chen, C. Guestrin. XGBoost: a scalable tree boosting system. \emph{Proc.\ KDD}, 2016.
+\bibitem{ebmeier2016} S.K. Ebmeier. Application of independent component analysis to multitemporal InSAR data with volcanic case studies. \emph{J.\ Geophys.\ Res.\ Solid Earth} 121, 8970--8986, 2016.
+\bibitem{esdm2023} Ministry of Energy and Mineral Resources. Press release 652.Pers/04/SJI/2023 on the amendment of the groundwater-approval decree, 21 December 2023. \url{https://esdm.go.id/en/media-center/news-archives/kementerian-esdm-lakukan-penyesuaian-kepmen-penyelenggaraan-persetujuan-penggunaan-air-tanah-}
+\bibitem{fahrudin2012} Fahrudin, Najib. Study of the piezometric surface and hydrocompaction at confined aquifer caused the land subsidence in Semarang. \emph{Teknik} 32(1), 72--78, 2012.
+\bibitem{frontiers2023} Cost--benefit study of replacing groundwater abstraction wells in Semarang--Demak. \emph{Frontiers in Environmental Economics}, 2023. doi:10.3389/frevc.2023.1073089
+\bibitem{galloway2011} D.L. Galloway, T.J. Burbey. Review: regional land subsidence accompanying groundwater extraction. \emph{Hydrogeology Journal} 19, 1459--1486, 2011.
+\bibitem{geertsma1973} J. Geertsma. Land subsidence above compacting oil and gas reservoirs. \emph{J.\ Petroleum Technology} 25(6), 734--744, 1973.
+\bibitem{hantush1955} M.S. Hantush, C.E. Jacob. Non-steady radial flow in an infinite leaky aquifer. \emph{Trans.\ American Geophysical Union} 36(1), 95--100, 1955.
+\bibitem{hoffmann2001} J. Hoffmann, H.A. Zebker, D.L. Galloway, F. Amelung. Seasonal subsidence and rebound in Las Vegas Valley, Nevada, observed by synthetic aperture radar interferometry. \emph{Water Resources Research} 37(6), 1551--1566, 2001.
+\bibitem{hyvarinen2000} A. Hyv\"arinen, E. Oja. Independent component analysis: algorithms and applications. \emph{Neural Networks} 13, 411--430, 2000.
+\bibitem{janur2025} A. Janur, Harintaka, A.G. Suhadha. Uneven land subsidence patterns along Java's northern urban corridor (Pantura route) from 2.5D SBAS InSAR approach. \emph{Indonesian J.\ on Geoscience} 12(2), 281--300, 2025. doi:10.17014/ijog.12.2.281-300
+\bibitem{kepmen291} Ministry of Energy and Mineral Resources. Decree 291.K/GL.01/MEM.G/2023 on standards for groundwater-use approval; press release 529.Pers/04/SJI/2023, 4 November 2023. \url{https://www.esdm.go.id/id/media-center/arsip-berita/jangan-khawatir-sebagian-besar-rumah-tangga-tidak-perlu-izin-air-tanah}
+\bibitem{killick2012} R. Killick, P. Fearnhead, I.A. Eckley. Optimal detection of changepoints with a linear computational cost. \emph{J.\ American Statistical Association} 107, 1590--1598, 2012.
+\bibitem{lo2022} W. Lo, S.N. Purnomo, B.G. Dewanto, D. Sarah, Sumiyanto. Integration of numerical models and InSAR techniques to assess land subsidence due to excessive groundwater abstraction in the coastal and lowland regions of Semarang City. \emph{Water} 14(2), 201, 2022. \url{https://www.mdpi.com/2073-4441/14/2/201}
+\bibitem{lundberg2017} S.M. Lundberg, S.-I. Lee. A unified approach to interpreting model predictions. \emph{Advances in Neural Information Processing Systems} 30, 2017.
+\bibitem{meinshausen2010} N. Meinshausen, P. B\"uhlmann. Stability selection. \emph{J.\ Royal Statistical Society B} 72, 417--473, 2010.
+\bibitem{mogi1958} K. Mogi. Relations between the eruptions of various volcanoes and the deformations of the ground surfaces around them. \emph{Bull.\ Earthquake Research Institute} 36, 99--134, 1958.
+\bibitem{morishita2020} Y. Morishita, M. Lazecky, T.J. Wright, J.R. Weiss, J.R. Elliott, A. Hooper. LiCSBAS: an open-source InSAR time series analysis package integrated with the LiCSAR automated Sentinel-1 InSAR processor. \emph{Remote Sensing} 12(3), 424, 2020.
+\bibitem{nisar2026} Alaska Satellite Facility. NISAR data availability overview, 2026. \url{https://nisar-docs.asf.alaska.edu/availability-overview/}
+\bibitem{putranto2016} T.T. Putranto, T.R. R\"ude. Hydrogeological model of an urban city in a coastal area, case study: Semarang, Indonesia. \emph{Indonesian J.\ on Geoscience} 3(1), 17--27, 2016. \url{https://ijog.geologi.esdm.go.id/index.php/IJOG/article/view/227}
+\bibitem{roberts2017} D.R. Roberts et al. Cross-validation strategies for data with temporal, spatial, hierarchical, or phylogenetic structure. \emph{Ecography} 40, 913--929, 2017.
+\bibitem{ronneberger2015} O. Ronneberger, P. Fischer, T. Brox. U-Net: convolutional networks for biomedical image segmentation. \emph{Proc.\ MICCAI}, 2015.
+\bibitem{s1status} Copernicus Data Space Ecosystem. S1C/D final orbital configuration achieved, 24 June 2026, \url{https://dataspace.copernicus.eu/node/4010}; ASF HyP3 documentation, Sentinel-1 mission, \url{https://hyp3-docs.asf.alaska.edu/sentinel1/}
+\bibitem{smith2017} R.G. Smith, R. Knight, J. Chen, J.A. Reeves, H.A. Zebker, T. Farr, Z. Liu. Estimating the permanent loss of groundwater storage in the southern San Joaquin Valley, California. \emph{Water Resources Research} 53, 2133--2148, 2017.
+\bibitem{tibshirani1996} R. Tibshirani. Regression shrinkage and selection via the lasso. \emph{J.\ Royal Statistical Society B} 58, 267--288, 1996.
+\bibitem{vasco2019} D.W. Vasco, T.G. Farr, P. Jeanne, C. Doughty, P. Nico. Satellite-based monitoring of groundwater depletion in California's Central Valley. \emph{Scientific Reports} 9, 16053, 2019. doi:10.1038/s41598-019-52371-7
+\bibitem{wright2004} T.J. Wright, B.E. Parsons, Z. Lu. Toward mapping surface deformation in three dimensions using InSAR. \emph{Geophysical Research Letters} 31, L01607, 2004.
+\bibitem{yu2018} C. Yu, Z. Li, N.T. Penna, P. Crippa. Generic atmospheric correction model for interferometric synthetic aperture radar observations. \emph{J.\ Geophys.\ Res.\ Solid Earth} 123, 9202--9222, 2018.
+\bibitem{yunjun2019} Z. Yunjun, H. Fattahi, F. Amelung. Small baseline InSAR time series analysis: unwrapping error correction and noise reduction. \emph{Computers \& Geosciences} 133, 104331, 2019.
+\end{thebibliography}

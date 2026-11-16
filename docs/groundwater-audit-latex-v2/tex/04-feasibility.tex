@@ -1,0 +1,131 @@
+\section{Feasibility}\label{sec:feas}
+
+\begin{inshort}
+The project is feasible with open data and a laptop. The measurement part is proven by earlier
+studies. The inversion part works in simulation. The one real unknown is the cone width $B$, and
+there are three ways to pin it down. A one-week test on real data settles the rest.
+\end{inshort}
+
+\Needspace{30\baselineskip}
+\subsection{Verdict by component}
+
+\Needspace{24\baselineskip}
+{\small
+\begin{xltabular}{\linewidth}{@{}L{36mm}L{22mm}Y@{}}
+\toprule
+\textbf{Component} & \textbf{Status} & \textbf{Evidence}\\*
+\midrule
+Radar time series, \M{1}--\M{3} & Proven & Four published Semarang studies used the same satellite
+  \cite{lo2022,aditiya2023,azeriansyah2025,janur2025}; two used the same open tools.\\
+Time-series separation, \M{4} & Low risk & Standard methods with published uses on radar data
+  \cite{ebmeier2016,chaussard2014}.\\
+Background model, \M{5} & Medium risk & Depends on a usable clay-thickness map (\D{7}). The smooth
+  surface alone was enough in simulation.\\
+Source inversion, \M{6} & Works in simulation & Section~\ref{sec:exp}: recall \calRecall\,\%, precision
+  \calPrecision\,\%. Not yet run on real data.\\
+Uncertainty, \M{7} & Works in simulation & Ranges cover \calCover\,\% of truths when $B$ is known.\\
+Volume to extraction, \M{8} & Needs data & A lower bound is always available. An estimate needs \D{6}.\\
+\bottomrule
+\end{xltabular}}
+
+\subsection{Pinning down the cone width}\label{sec:calB}
+
+Section~\ref{sec:exp} showed that volumes scale with the assumed $B$. Three independent routes
+constrain it. Using more than one is itself a check.
+
+\begin{enumerate}
+\item \textbf{Hydraulics.} $B=\sqrt{T\,b'/K'_v}$ (Eq.~\ref{eq:hantush}). Transmissivity $T$ comes from
+pumping tests in well-completion reports; clay thickness $b'$ is 5--30\,m \cite{putranto2016}; clay
+conductivity $K'_v$ from laboratory tests or model calibration \cite{lo2022}. This gives a range, not
+a number.
+\item \textbf{Water levels.} Where several monitoring wells surround a known well field, fit the
+Bessel profile of Eq.~\eqref{eq:hantush} to their drawdowns.
+\item \textbf{The radar map itself.} Find one isolated, clean bowl and fit $B$ to its shape alone.
+A single clean source constrains the width far better than a crowded map does.
+\end{enumerate}
+
+Whatever the outcome, the audit reports each volume for a low, middle and high $B$, and leads with
+the ranking, which is robust (rank correlation \rankWide--\rankCal\ in simulation).
+
+\Needspace{29\baselineskip}
+\subsection{One-week test on real data}\label{sec:spike}
+
+Before the team commits six weeks, one person runs this test.
+
+\Needspace{21\baselineskip}
+{\small
+\begin{xltabular}{\linewidth}{@{}L{16mm}Y@{}}
+\toprule
+\textbf{Day} & \textbf{Task}\\*
+\midrule
+1--2 & Download the LiCSAR frame for track 76, clip to Semarang--Demak, run LiCSBAS with GACOS.\\
+3 & Compare the rate map with published ones: the north-east should exceed 80\,\mmyr\
+  \cite{lo2022,aditiya2023}. Check the rate at the CSEM station.\\
+4 & Convert to approximate vertical rates (one direction only, for the test). Build the cosine
+  background.\\
+5 & Run the inversion for $B$ = 1.0, 1.5 and 2.0\,km.\\
+6 & Run the block bootstrap. Overlay sources on industrial land use.\\
+7 & Decide.\\
+\bottomrule
+\end{xltabular}}
+
+\textbf{Go if all four hold:}
+\begin{itemize}
+\item usable pixels cover at least half of the built-up and industrial land;
+\item the rate map matches published maps in pattern and peak values;
+\item at least five sources appear with stability of 0.8 or more, for all three values of $B$;
+\item the map left over after the fit has a spread of 5\,\mmyr\ or less (earlier work reached 3.8
+\cite{azeriansyah2025}).
+\end{itemize}
+
+\textbf{If not:} the radar products from days 1--3 are not wasted. They feed directly into two other
+ideas from the shortlist that use the same maps: separating sea-level rise from land sinking, and
+testing whether a groundwater ban slowed subsidence.
+
+\Needspace{14\baselineskip}
+\subsection{Risks}
+
+\Needspace{8\baselineskip}
+{\small
+\begin{xltabular}{\linewidth}{@{}L{8mm}L{40mm}L{14mm}Y@{}}
+\caption{Risk register.}\label{tab:risk}\\*
+\toprule
+ & \textbf{Risk} & \textbf{Level} & \textbf{Response}\\*
+\midrule
+\R{1} & Cone width $B$ is uncertain, so volumes can be off by a factor of about two either way. & High &
+  Three calibration routes (Section~\ref{sec:calB}); report a band; lead with ranking.\\
+\R{2} & Radar loses signal over fish ponds and rice fields, common in Demak. & High & State coverage
+  honestly; add L-band data (\D{2}) as its record grows; lower resolution there.\\
+\R{3} & Non-pumping subsidence is mistaken for pumping. & Medium & Background model \M{5} trained on quiet
+  pixels; east--west motion and seasonal behaviour as extra evidence.\\
+\R{4} & Groundwater records (\D{6}) are not released in time. & Medium & Ask in week 1. Without them, label
+  results ``not yet checked against wells'' and rely on \V{1}--\V{4}.\\
+\R{5} & Phase-unwrapping errors where the ground sinks fastest, worse in 2022--2024 when images came every
+  12 days. & Medium & Loop-closure checks, short time gaps only, compare the two directions.\\
+\R{6} & A step in the series where Sentinel-1A hands over to 1C and 1D. & Low & Process as one network across
+  the April--June 2026 overlap; test for a jump at the hand-over.\\
+\R{7} & Processing takes longer than planned. & Low & Start from ready-made LiCSAR pairs; clip to the study
+  area; ascending track through on-demand processing.\\
+\R{8} & Results are read as accusations against named companies. & Medium & See Section~\ref{sec:ethics}.\\
+\bottomrule
+\end{xltabular}}
+
+\subsection{Responsible use}\label{sec:ethics}
+
+The method points at places, and places have owners. Three rules keep it fair.
+
+\begin{itemize}
+\item \textbf{Hot spots, not names.} Public maps and the competition material show 500\,m cells and
+land-use classes. Any link to a specific permit holder is for the regulator only.
+\item \textbf{A lead, not a verdict.} A detected source is a reason to inspect a meter. It is not
+proof of a violation: a permitted well field also makes a bowl.
+\item \textbf{Say what the number is.} Every volume is labelled as lost storage and as a lower bound
+on extraction, with its range and the assumed cone width.
+\end{itemize}
+
+\subsection{Computing needs}
+
+A laptop with 16\,GB of memory is enough. The inversion and bootstrap for the test area take
+minutes: one simulated map of 9,600 pixels and 1,536 candidates took under a minute on two cores.
+The radar time series is the heavy step. Clipped to the study area and started from ready-made
+pairs, we expect hours rather than days, but this is an estimate until the one-week test.

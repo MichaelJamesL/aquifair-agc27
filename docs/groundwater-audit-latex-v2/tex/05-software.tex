@@ -1,0 +1,439 @@
+\section{The product in brief}\label{sec:product}
+
+\begin{inshort}
+The research pipeline is wrapped in a small web application, working name \textbf{SUMUR} (Indonesian
+for ``well''). An analyst starts a run; a regulator opens a map, reads a ranked list of extraction
+hot spots, clicks one to see its evidence, and exports an audit sheet.
+\end{inshort}
+
+\Needspace{23\baselineskip}
+\subsection{Users and what they need}
+
+\Needspace{17\baselineskip}
+{\small
+\begin{xltabular}{\linewidth}{@{}L{38mm}Y@{}}
+\toprule
+\textbf{User} & \textbf{Question they bring}\\*
+\midrule
+Groundwater regulator (provincial energy office, Geological Agency) & ``Which sites should my inspectors
+  visit first?''\\
+Geospatial analyst (BIG, university) & ``Can I rerun this, check each step, and trust the numbers?''\\
+City planner (planning and public-works offices) & ``How much sinking will remain even if pumping stops?''\\
+Jury and public & ``What does this show, in two minutes?''\\
+\bottomrule
+\end{xltabular}}
+
+\Needspace{24\baselineskip}
+{\small
+\begin{xltabular}{\linewidth}{@{}L{8mm}Y L{22mm}L{24mm}@{}}
+\caption{User needs. Each one maps to research outputs and to software components.}\label{tab:needs}\\*
+\toprule
+ & \textbf{Need} & \textbf{Output} & \textbf{Component}\\*
+\midrule
+\U{1} & See where and how fast the ground sinks, with data gaps shown honestly. & \Ox{1} \Ox{2} & \Sx{7} \Sx{8}\\
+\U{2} & Read a ranked list of hot spots with volume ranges and stability. & \Ox{3} & \Sx{7} \Sx{8}\\
+\U{3} & Click a hot spot and see why it is there: time series, stability, land use, background share. & \Ox{3} \Ox{4} & \Sx{8}\\
+\U{4} & Move the cone-width assumption and watch volumes change while the ranking holds. & \Ox{3} & \Sx{4} \Sx{8}\\
+\U{5} & Export an audit sheet (PDF) and the data (GeoJSON, GeoTIFF). & \Ox{5} & \Sx{9}\\
+\U{6} & Rerun when new satellite images arrive and see what changed. & all & \Sx{1} \Sx{5}\\
+\bottomrule
+\end{xltabular}}
+
+\section{User flow}
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[node distance=7mm and 8mm]
+\tikzset{uf/.style={box,text width=31mm,minimum height=12mm}}
+\node[uf,boxa] (a) {Open the map};
+\node[uf,right=of a] (b) {Pick area\\and period};
+\node[draw=line,diamond,aspect=2.4,inner sep=1pt,font=\sffamily\small,right=of b,text=ink] (c) {Run exists?};
+\node[uf,boxw,right=of c] (d) {Start a run\\{\scriptsize analyst only}};
+\node[uf,below=13mm of c] (e) {\U{1} View the\\sinking map};
+\node[uf,left=of e] (f) {\U{2} Open the\\ranked list};
+\node[uf,left=of f] (g) {\U{3} Click a hot spot,\\read its evidence};
+\node[uf,below=of g] (h) {\U{4} Move the\\cone-width slider};
+\node[uf,boxg,right=of h] (i) {\U{5} Export the\\audit sheet};
+\draw[arr] (a)--(b); \draw[arr] (b)--(c);
+\draw[arr] (c)-- node[lab,above]{no} (d);
+\draw[arr] (c)-- node[lab,right]{yes} (e);
+\draw[arr] (d.south) |- node[lab,pos=0.75,above]{when finished} (e.east);
+\draw[arr] (e)--(f); \draw[arr] (f)--(g); \draw[arr] (g)--(h); \draw[arr] (h)--(i);
+\end{tikzpicture}
+\caption{The main path through the application. A regulator never starts a run; they open finished
+ones.}\label{fig:userflow}
+\end{figure}
+
+\textbf{The evidence panel} (\U{3}) is where trust is won. For one hot spot it shows: the volume as a
+band for low, middle and high cone width; the stability score; the displacement history of the
+nearest pixels with change dates marked; the share of local sinking assigned to background; land use
+under the source; and the match class from \M{9}.
+
+\textbf{The cone-width slider} (\U{4}) is also the demonstration. Dragging it makes every volume grow
+or shrink, while the order of the list barely moves. It shows the method's strength and its limit in
+one gesture.
+
+\section{Architecture}\label{sec:arch}
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[node distance=5mm and 5mm]
+\tikzset{c/.style={box,text width=31mm,minimum height=12mm},
+         band/.style={draw=line,dashed,rounded corners=3pt,inner sep=6pt}}
+\node[c] (x1) {ASF, LiCSAR,\\GACOS};
+\node[c,right=of x1] (x2) {BIG GNSS\\(SRGI)};
+\node[c,right=of x2] (x3) {Buildings, land use, geology};
+\node[c,right=of x3] (x4) {Well records};
+\node[c,boxa,below=14mm of x1] (s1) {\Sx{1} Ingest};
+\node[c,boxa,right=of s1] (s2) {\Sx{2} Radar\\processor};
+\node[c,boxw,right=of s2] (s4) {\Sx{4} Model\\service};
+\node[c,right=of s4] (s5) {\Sx{5} Orchestrator};
+\node[c,boxg,below=14mm of s2] (s3) {\Sx{3} Raster and vector store};
+\node[c,boxg,right=of s3] (s6) {\Sx{6} Run tracking and registry};
+\node[c,below=14mm of s3] (s7) {\Sx{7} API and tiles};
+\node[c,left=of s7] (s8) {\Sx{8} Web map};
+\node[c,right=of s7] (s9) {\Sx{9} Report\\generator};
+\begin{scope}[on background layer]
+\node[band,fit=(x1)(x4)] (bx) {};
+\node[band,fit=(s1)(s5)] (bp) {};
+\node[band,fit=(s3)(s6)] (bst) {};
+\node[band,fit=(s8)(s9)] (bsv) {};
+\end{scope}
+\node[lab,anchor=south west] at (bx.north west) {outside sources};
+\node[lab,anchor=south east] at (bp.north east) {batch pipeline};
+\node[lab,anchor=west] at ($(bst.east)+(2mm,0)$) {storage};
+\node[lab,anchor=west] at ($(bsv.east)+(2mm,0)$) {serving};
+\draw[arr] (x1.south)-- node[lab,right]{all inputs} (s1.north);
+\draw[arr] (s1)--(s2); \draw[arr] (s2)--(s4);
+\draw[arr,dashed] (s5)--(s4);
+\draw[arr] (s2)--(s3); \draw[arr] (s4.south)--(s6.north);
+\draw[arr] ([xshift=-8mm]s4.south)--++(0,-7mm)-|([xshift=8mm]s3.north);
+\draw[arr] (s3)--(s7); \draw[arr] (s6.south)--++(0,-7mm)-|([xshift=8mm]s7.north);
+\draw[arr] (s7)--(s8); \draw[arr] (s7)--(s9);
+\end{tikzpicture}
+\caption{Components and data flow. All outside data enter through \Sx{1}. The orchestrator \Sx{5}
+schedules \Sx{1}, \Sx{2} and \Sx{4} and enforces the quality gates.}\label{fig:arch}
+\end{figure}
+
+\Needspace{8\baselineskip}
+{\small
+\begin{xltabular}{\linewidth}{@{}L{8mm}L{31mm}Y L{17mm}@{}}
+\caption{Components.}\label{tab:components}\\*
+\toprule
+ & \textbf{Component} & \textbf{Responsibility} & \textbf{Stages}\\*
+\midrule
+\Sx{1} & Ingest & Find and download radar pairs, atmosphere maps, GNSS series, context layers. Record
+  versions and hashes. & feeds \M{1}\\
+\Sx{2} & Radar processor & Time series, quality control, referencing. Runs LiCSBAS and MintPy in
+  containers. & \M{1} \M{2}\\
+\Sx{3} & Raster and vector store & Displacement cubes and maps as cloud-friendly rasters; sources,
+  runs and checks in a spatial database. & all\\
+\Sx{4} & Model service & Decomposition, time-series separation, background model, inversion, bootstrap,
+  volume conversion. Precomputes results for three cone widths. & \M{3}--\M{8}\\
+\Sx{5} & Orchestrator & Runs the stages in order, retries failures, enforces quality gates. & all\\
+\Sx{6} & Run tracking and registry & Stores settings, metrics and figures of every run; marks which
+  run is published. & \V{1}--\V{7}\\
+\Sx{7} & API and tiles & Serves runs, sources, time series and map tiles. & \M{9}\\
+\Sx{8} & Web map & Map, ranked list, evidence panel, cone-width slider. & \M{9}\\
+\Sx{9} & Report generator & Builds the audit sheet and data exports. & \M{9}\\
+\bottomrule
+\end{xltabular}}
+
+\clearpage
+\section{Sequence: running an audit}
+
+\begin{figure}[H]
+\centering
+\resizebox{\linewidth}{!}{\sffamily\small
+\begin{sequencediagram}
+\newthread{u}{Analyst}
+\newinst[1.5]{ui}{Web map}
+\newinst[1.7]{api}{API}
+\newinst[1.5]{orc}{Orchestrator}
+\newinst[2.0]{wk}{Workers}
+\newinst[1.5]{db}{Store}
+\begin{call}{u}{Run}{ui}{map and list}
+  \begin{call}{ui}{POST /audits}{api}{202, run id}
+    \mess{api}{start run}{orc}
+  \end{call}
+  \postlevel
+  \begin{sdblock}{loop}{until finished}
+    \begin{call}{ui}{GET /audits/\{id\}}{api}{stage, progress}
+    \end{call}
+  \end{sdblock}
+  \postlevel
+  \begin{call}{orc}{radar: \M{1}--\M{2}}{wk}{gate 1 passed}
+    \mess{wk}{cubes, masks}{db}
+  \end{call}
+  \postlevel
+  \begin{call}{orc}{model: \M{3}--\M{8}}{wk}{gate 2 passed}
+    \mess{wk}{sources, metrics}{db}
+  \end{call}
+  \postlevel
+  \begin{call}{ui}{GET .../sources}{api}{GeoJSON}
+    \begin{call}{api}{query}{db}{rows}
+    \end{call}
+  \end{call}
+\end{call}
+\end{sequencediagram}}
+\caption{One audit run. Web map is \Sx{8}, API is \Sx{7}, orchestrator is \Sx{5}, workers are \Sx{1},
+\Sx{2} and \Sx{4}, the store is \Sx{3} and \Sx{6}. The run is asynchronous: the web map polls for
+progress while the orchestrator works (drawn one after the other here for readability). A failed
+gate stops the run and reports which check failed.}\label{fig:seq}
+\end{figure}
+
+Two design choices keep the interface fast.
+\begin{itemize}
+\item \textbf{Nothing heavy on a click.} All maps are pre-rendered as tiles, and the inversion is
+precomputed for low, middle and high cone width. The slider (\U{4}) only switches between stored
+results.
+\item \textbf{Runs are immutable.} A rerun with new data creates a new run. The interface can compare
+two runs (\U{6}) because the old one is never overwritten.
+\end{itemize}
+
+\Needspace{36\baselineskip}
+\section{The ML/AI pipeline in software}\label{sec:mlops}
+
+\begin{inshort}
+Every stage reads versioned inputs and writes versioned outputs. Three quality gates decide whether a
+run may continue or be published. A synthetic benchmark runs on every code change.
+\end{inshort}
+
+\Needspace{28\baselineskip}
+{\small
+\begin{xltabular}{\linewidth}{@{}L{17mm}L{35mm}L{37mm}Y@{}}
+\caption{Pipeline stages as software steps.}\label{tab:dag}\\*
+\toprule
+\textbf{Stages} & \textbf{Reads} & \textbf{Writes} & \textbf{Key settings}\\*
+\midrule
+\M{1} \M{2} & Radar pairs, atmosphere maps, GNSS & Displacement cubes, mask, per-pixel uncertainty &
+  Pair network, coherence threshold, reference station\\
+\M{3} & Two cubes & Vertical and east--west cubes & Viewing angles\\
+\M{4} & Vertical cube, rainfall & Rate, seasonal and change-date maps & Loss function, number of
+  components, change penalty\\
+\M{5} & Rate map, context layers & Background map, driver model, SHAP tables & Quiet-pixel distance, tree
+  settings\\
+\M{6} & Rate map, background & Source list per cone width & Candidate spacing, kernel family, $B$ values,
+  penalty floor percentile\\
+\M{7} & As \M{6} & Ranges and stability & Block size, number of resamples\\
+\M{8} \M{9} & Sources, well records, land use & Audit list, report & Calibration set, match radius\\
+\bottomrule
+\end{xltabular}}
+
+\Needspace{21\baselineskip}
+\subsection{Quality gates}
+
+\Needspace{15\baselineskip}
+{\small
+\begin{xltabular}{\linewidth}{@{}L{17mm}L{28mm}Y Y@{}}
+\toprule
+\textbf{Gate} & \textbf{After} & \textbf{Must pass} & \textbf{If it fails}\\*
+\midrule
+Gate 1 & \M{2} & \V{1} radar against GNSS; \V{2} loop closure & Stop. Fix pair network or masks.\\
+Gate 2 & \M{7} & \V{3} synthetic benchmark with this run's noise level and data gaps; \V{4} out-of-sample
+  fit & Stop. Report which metric failed.\\
+Gate 3 & Before publishing & \V{7} range coverage; \V{5} and \V{6} if well data exist; sign-off by a named
+  analyst & Keep the run private.\\
+\bottomrule
+\end{xltabular}}
+
+Gate 2 deserves a note. The synthetic benchmark is rerun \emph{with the real run's own noise level
+and data-gap pattern}. Section~\ref{sec:exp} showed that precision depends on noise. A run over a
+noisy area therefore gets its own, honest expectation of how many detections are real.
+
+\subsection{Versioning and tracking}
+
+\begin{itemize}
+\item \textbf{One identity per run:} code commit, configuration hash and input-data hashes. Two runs
+with the same three give the same outputs (fixed seeds).
+\item \textbf{Data versioning} with DVC: large files live in object storage; small pointer files live
+in the repository.
+\item \textbf{Run tracking} with MLflow: settings, the metrics of Table~\ref{tab:valid}, and
+diagnostic figures for every run.
+\item \textbf{Model card and data card} shipped with each published run: what it is for, what it must
+not be used for, known limits (Sections~\ref{sec:exp} and~\ref{sec:ethics}).
+\end{itemize}
+
+\Needspace{27\baselineskip}
+\subsection{Tests}
+
+\Needspace{21\baselineskip}
+{\small
+\begin{xltabular}{\linewidth}{@{}L{30mm}Y@{}}
+\toprule
+\textbf{Kind} & \textbf{Examples}\\*
+\midrule
+Unit & The kernel integrates to one. Line-of-sight vectors have unit length. Decomposition recovers a
+  known vertical motion.\\
+Property & Source volumes are never negative. Doubling the input map doubles the volumes. Shifting the
+  map shifts the sources.\\
+Regression & The synthetic benchmark of Section~\ref{sec:exp} on a fixed seed set must keep recall and
+  precision at 80\,\% or more and median volume error at 25\,\% or less.\\
+Data & Coordinate systems match. No-data values are consistent. Fewer than 5\,\% of pairs fail loop
+  closure.\\
+End to end & A ten-image sample runs from download to audit sheet in the build pipeline.\\
+\bottomrule
+\end{xltabular}}
+
+\subsection{Staying current}
+
+Sentinel-1 now revisits every 6 days \cite{s1status}. The orchestrator checks for new images weekly
+and proposes a rerun monthly. Each rerun is compared with the previous one: a source whose volume
+range no longer overlaps its earlier range is flagged as changed. Drift checks (residual spread,
+difference from GNSS) run on every update and raise an alert when they leave their usual band.
+
+\Needspace{30\baselineskip}
+\section{Data model and API}
+
+\Needspace{24\baselineskip}
+{\small
+\begin{xltabular}{\linewidth}{@{}L{31mm}Y@{}}
+\caption{Main tables in the spatial database.}\label{tab:datamodel}\\*
+\toprule
+\textbf{Table} & \textbf{Key fields}\\*
+\midrule
+\texttt{audit\_run} & id, area, period, code commit, configuration hash, data hashes, status, gate results,
+  published flag, signed-off by\\
+\texttt{raster\_asset} & run id, layer name (vertical rate, seasonal amplitude, background, \ldots), file
+  location, resolution, statistics\\
+\texttt{source} & id, run id, position, 500\,m cell, stability, match class, land-use class\\
+\texttt{source\_estimate} & source id, cone width, volume, 5th and 95th percentile, rank\\
+\texttt{validation\_result} & run id, check (\V{1}--\V{7}), value, pass mark, passed\\
+\texttt{well\_record} & restricted: position, depth, permitted volume, head series; calibration or
+  validation set\\
+\bottomrule
+\end{xltabular}}
+
+\Needspace{27\baselineskip}
+{\small
+\begin{xltabular}{\linewidth}{@{}L{58mm}Y L{12mm}@{}}
+\caption{API endpoints.}\label{tab:api}\\*
+\toprule
+\textbf{Endpoint} & \textbf{Returns} & \textbf{Need}\\*
+\midrule
+\texttt{POST /audits} & Starts a run for an area and period; returns a run id. Analysts only. & \U{6}\\
+\texttt{GET /audits/\{id\}} & Status, current stage, gate results. & \U{6}\\
+\texttt{GET /audits/\{id\}/sources?b=mid} & Ranked sources as GeoJSON for the chosen cone width. & \U{2} \U{4}\\
+\texttt{GET /sources/\{id\}} & One source with all three estimates and its evidence. & \U{3}\\
+\texttt{GET /sources/\{id\}/timeseries} & Displacement history of nearby pixels, with change dates. & \U{3}\\
+\texttt{GET /tiles/\{layer\}/\{z\}/\{x\}/\{y\}} & Map tiles for any raster layer. & \U{1}\\
+\texttt{GET /audits/\{id\}/report.pdf} & The audit sheet. & \U{5}\\
+\texttt{GET /audits/\{a\}/compare/\{b\}} & Sources that appeared, vanished or changed between two runs. & \U{6}\\
+\bottomrule
+\end{xltabular}}
+
+One source, as the API returns it:
+
+{\small
+\begin{verbatim}
+{ "type": "Feature",
+  "geometry": { "type": "Point", "coordinates": [110.46, -6.95] },
+  "properties": {
+    "rank": 3, "cell": "SMG-0412", "stability": 0.93,
+    "volume_m3_per_yr": { "low_B": 61000, "mid_B": 118000, "high_B": 171000 },
+    "range_90_mid_B": [84000, 149000],
+    "meaning": "lost storage; lower bound on extraction",
+    "background_share": 0.22, "land_use": "industrial",
+    "match": "no permit on record nearby" } }
+\end{verbatim}
+}
+The values above are placeholders that show the format. They are not results.
+
+\Needspace{14\baselineskip}
+\section{Technology choices}
+
+\Needspace{8\baselineskip}
+{\small
+\begin{xltabular}{\linewidth}{@{}L{27mm}L{45mm}Y L{9mm}@{}}
+\caption{Stack. ``First'' marks what the six-week build needs.}\label{tab:stack}\\*
+\toprule
+\textbf{Layer} & \textbf{Choice} & \textbf{Why} & \textbf{First}\\*
+\midrule
+Radar processing & LiCSAR pairs with LiCSBAS; ASF on-demand pairs with MintPy; GACOS & Open, documented,
+  already used on Semarang & yes\\
+Numerics & Python, NumPy, SciPy, scikit-learn, xarray, rasterio, GeoPandas & The inversion in this report
+  already runs on them & yes\\
+Learning & LightGBM or XGBoost, SHAP, \texttt{ruptures} for change points & Small, explainable models & yes\\
+Orchestration & DVC pipeline first; Prefect later & One command reruns everything; scheduling can wait & yes\\
+Storage & Cloud-optimised GeoTIFF and Zarr; PostgreSQL with PostGIS & Standard, tile-friendly, queryable & yes\\
+API and tiles & FastAPI; TiTiler & Typed, fast, serves rasters without pre-cutting tiles & yes\\
+Web map & MapLibre GL JS with deck.gl & Open, handles rasters and thousands of points smoothly & yes\\
+Tracking & MLflow; DVC & Every number traceable to a run & yes\\
+Packaging & Docker and Docker Compose & The same environment on every laptop & yes\\
+Build pipeline & GitHub Actions with pytest & The synthetic benchmark guards every change & yes\\
+Report & HTML template rendered to PDF & Same content as the web panel & later\\
+Extra data & NISAR L-band; ALOS-2 & Better over vegetation and ponds & later\\
+\bottomrule
+\end{xltabular}}
+
+Repository layout:
+
+{\small
+\begin{verbatim}
+sumur/
+  config/         one YAML file per study area
+  pipeline/       ingest.py  insar.py  decompose.py  separate.py
+                  background.py  invert.py  uncertainty.py  attribute.py
+  synth/          forward model and benchmark (the code shipped with this report)
+  api/            FastAPI application
+  web/            map, ranked list, evidence panel
+  tests/          unit, property, regression, data, end-to-end
+  dvc.yaml        the stage graph        docker-compose.yml
+\end{verbatim}
+}
+
+\section{Quality attributes}
+
+\begin{itemize}
+\item \textbf{Reproducible.} One command rebuilds a run from raw inputs.
+\item \textbf{Honest by design.} No volume is shown without its range, its cone-width band and the
+words ``lower bound''. Data gaps are drawn as gaps, never interpolated silently.
+\item \textbf{Fast to read.} The map and list load in about two seconds on a normal connection.
+\item \textbf{Restricted where needed.} Well records and permit matches sit behind a login. Public
+views show cells and classes only.
+\item \textbf{Bilingual.} Indonesian and English interface and audit sheet.
+\item \textbf{Portable.} Changing the study area means changing one configuration file. The same
+build can be pointed at Pekalongan, Jakarta, Bangkok or the Mekong delta.
+\end{itemize}
+
+\Needspace{30\baselineskip}
+\section{Build plan and competition fit}\label{sec:plan}
+
+\Needspace{24\baselineskip}
+{\small
+\begin{xltabular}{\linewidth}{@{}L{14mm}Y L{37mm}@{}}
+\caption{Six weeks. Confirm the national deadline with BIG before fixing dates.}\label{tab:plan}\\*
+\toprule
+\textbf{Week} & \textbf{Work} & \textbf{Done when}\\*
+\midrule
+1 & One-week test (Section~\ref{sec:spike}). Send data requests for \D{4} and \D{6}. & Go or no-go decided\\
+2 & Both radar directions processed; vertical and east--west maps; GNSS check. & Gate 1 passes\\
+3 & Time-series separation; background model; inversion and bootstrap on real data. & Gate 2 passes\\
+4 & Calibrate cone width; well checks if data arrived; API and web map with real results. & Evidence panel
+  works for every source\\
+5 & Slides in English; two-minute video; audit sheet. & Dry run of the 10-minute talk\\
+6 & Forms and letters; buffer; submit. & Submitted\\
+\bottomrule
+\end{xltabular}}
+
+\textbf{Roles for a team of four.} Radar lead (\M{1}--\M{3}, \Sx{2}). Modelling lead (\M{4}--\M{8},
+\Sx{4}, the benchmark). Software lead (\Sx{3}, \Sx{5}--\Sx{9}). Story and data lead (data requests,
+\M{9}, slides, video, team representative).
+
+\Needspace{23\baselineskip}
+{\small
+\begin{xltabular}{\linewidth}{@{}L{46mm}L{13mm}Y@{}}
+\caption{How the work scores against the official judging weights.}\label{tab:agc}\\*
+\toprule
+\textbf{Criterion} & \textbf{Weight} & \textbf{What earns the points}\\*
+\midrule
+Challenge statement and relevance & 20\,\% & A named coast, a measured problem, and three goals:
+  sustainable water use (SDG 6.4), safer cities (SDG 11.5) and climate resilience (SDG 13.1).\\
+Application of geospatial technology & 40\,\% & Two-direction radar tied to BIG's own GNSS network; a
+  physics-based sparse inversion; tested uncertainty; open benchmark.\\
+Communication and storytelling & 20\,\% & One image: a sinking bowl resolves into a few points on
+  factory roofs, each with a number and an error bar.\\
+Creativity and originality & 20\,\% & First ranked, uncertainty-aware source list for an Indonesian
+  city, built without a well registry; honest about its own limit.\\
+\bottomrule
+\end{xltabular}}
