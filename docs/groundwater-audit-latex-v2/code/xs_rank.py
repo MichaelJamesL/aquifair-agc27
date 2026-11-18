@@ -36,19 +36,20 @@ def loader(name):
     return X.houston("texas_w" if name == "R2_texas_west" else "houston")
 
 
-out = {}
-for name in ("R1_arizona_ESRV", "R2_texas_west", "houston_ref"):
-    out[name] = {}
-    for blk, k, km in ((2000.0, 1, 2), (4000.0, 1, 4), (4000.0, 2, 8)):
-        X.BLK = blk
-        f = kept(loader(name), (blk / 1e3) ** 2)
-        idx = index(f)
-        g = f.assign(**idx).assign(cx=f.bx // k, cy=f.by // k).groupby(["cx", "cy"])[["Q", *idx]].sum()
-        out[name][f"{km}km"] = dict(cells=len(g), **{m: scores(g.Q.values, g[m].values) for m in idx})
-        print(name, km, "km", out[name][f"{km}km"])
-X.BLK = 4000.0
-ok = {km: all(out[r][km]["S5"]["spearman"] >= 0.5 and out[r][km]["S5"]["top20_capture"] >= 0.4
-              for r in ("R1_arizona_ESRV", "R2_texas_west")) for km in ("2km", "4km", "8km")}
-out["useful"] = ok
-json.dump(out, open(f"{X.R0}/xsite_rank.json", "w"), indent=1)
-print("USEFUL:", ok)
+if __name__ == "__main__":
+    out = {}
+    for name in ("R1_arizona_ESRV", "R2_texas_west", "houston_ref"):
+        out[name] = {}
+        for blk, k, km in ((2000.0, 1, 2), (4000.0, 1, 4), (4000.0, 2, 8)):
+            X.BLK = blk
+            f = kept(loader(name), (blk / 1e3) ** 2)
+            idx = index(f)
+            g = f.assign(**idx).assign(cx=f.bx // k, cy=f.by // k).groupby(["cx", "cy"])[["Q", *idx]].sum()
+            out[name][f"{km}km"] = dict(cells=len(g), **{m: scores(g.Q.values, g[m].values) for m in idx})
+            print(name, km, "km", out[name][f"{km}km"])
+    X.BLK = 4000.0
+    ok = {km: all(out[r][km]["S5"]["spearman"] >= 0.5 and out[r][km]["S5"]["top20_capture"] >= 0.4
+                  for r in ("R1_arizona_ESRV", "R2_texas_west")) for km in ("2km", "4km", "8km")}
+    out["useful"] = ok
+    json.dump(out, open(f"{X.R0}/xsite_rank.json", "w"), indent=1)
+    print("USEFUL:", ok)

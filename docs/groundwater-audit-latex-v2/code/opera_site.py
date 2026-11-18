@@ -15,7 +15,17 @@ SITES = {
     "semarang": dict(root="semarang", box=(110.33, -7.07, 110.6, -6.9), frame=None, epsg=32749,
                      grid=(428000.0, 9220000.0, 200.0, 120, 80), static_date=None, track=None, direction=None),
 }
+# Confirmation regions R3-R7 (xsite_prereg.md addendum 5): frame, epsg and grid are filled in by
+# xs_site_setup.py into <root>/site.json
+for _k, _b in dict(r3_east=(-94.9, 29.6, -93.8, 30.45), r4_brazos=(-97.0, 29.75, -96.0, 30.75),
+                   r5_south=(-96.0, 28.75, -95.0, 29.35), r6_north=(-96.0, 30.45, -94.9, 31.3),
+                   r7_northeast=(-94.9, 30.45, -93.8, 31.3)).items():
+    SITES[_k] = dict(root=_k, box=_b, frame=None, epsg=None, grid=None, static_date=None, track=0, direction="")
 NAME = os.environ.get("SITE", "arizona")
-SITE = SITES[NAME]
-WIN_ROOT = f"C:/Kuliah/hackathon/agc-26/realdata/{SITE['root']}"
-WSL_ROOT = f"/mnt/c/Kuliah/hackathon/agc-26/realdata/{SITE['root']}"
+SITE = dict(SITES[NAME])
+_base = os.environ.get("DATA_ROOT")                     # set on the DGX Spark; unset on the laptop
+WIN_ROOT = f"{_base or 'C:/Kuliah/hackathon/agc-26/realdata'}/{SITE['root']}"
+WSL_ROOT = f"{_base or '/mnt/c/Kuliah/hackathon/agc-26/realdata'}/{SITE['root']}"
+if os.path.exists(f"{WIN_ROOT}/site.json"):
+    import json
+    SITE.update(json.load(open(f"{WIN_ROOT}/site.json")))
