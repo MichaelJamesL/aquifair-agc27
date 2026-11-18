@@ -1,9 +1,9 @@
-"""Remote-subset OPERA DISP-S1 granules (frame F07091) to the central-Arizona box.
+"""Remote-subset OPERA DISP-S1 granules of the site frame to the site box (opera_site.py, env SITE).
 
 Run in WSL env `alos`:  python az_opera_fetch.py inspect | fetch
 Auth: earthaccess netrc strategy (never reads the file itself here).
 Reads only the needed HDF5 chunks with HTTP range requests (block cache), crops to the box in
-the frame's UTM grid and stores per-granule arrays in realdata/arizona/opera/<sec>_<ref>.npz.
+the frame's UTM grid and stores per-granule arrays in realdata/<site>/opera/<sec>_<ref>.npz.
 """
 import sys, os, json, io, time
 import numpy as np
@@ -11,13 +11,14 @@ import h5py
 import earthaccess
 from pyproj import Transformer
 
-ROOT = "/mnt/c/Kuliah/hackathon/agc-26/realdata/arizona"
+from opera_site import SITE, WSL_ROOT as ROOT
+
 OUT = f"{ROOT}/opera"
 os.makedirs(OUT, exist_ok=True)
-FR = json.load(open(f"{ROOT}/opera_search.json"))["F07091"]
-LON0, LAT0, LON1, LAT1 = -112.1, 32.6, -111.2, 33.45
-# 200 m output grid in EPSG 32612 (frame CRS) covering the box crop (x 396795-481395, y 3606975-3701715)
-E0, N0, PIX, NX, NY = 396800.0, 3606800.0, 200.0, 423, 475
+FR = json.load(open(f"{ROOT}/opera_search.json"))[SITE["frame"]]
+LON0, LAT0, LON1, LAT1 = SITE["box"]
+# 200 m output grid in the frame's UTM CRS covering the box crop (from `inspect`)
+E0, N0, PIX, NX, NY = SITE["grid"] or (0.0, 0.0, 200.0, 0, 0)
 earthaccess.login(strategy="netrc")
 S = earthaccess.get_requests_https_session()
 

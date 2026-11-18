@@ -1,5 +1,5 @@
 """Linear subsidence rate (vertical-only, + = sinking, mm/yr) on a 200 m grid from the binned
-OPERA DISP-S1 granules (az_opera_fetch.py), frame F07091 (track 27 descending), EPSG 32612.
+OPERA DISP-S1 granules (az_opera_fetch.py) of the site frame (opera_site.py, env SITE).
 
 Steps: chain ministacks (each granule is relative to its own reference date; the cumulative
 offset at a new reference is the previous ministack's displacement at that date), remove a
@@ -14,8 +14,9 @@ import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 
-ROOT = "/mnt/c/Kuliah/hackathon/agc-26/realdata/arizona"
-E0, N0, PIX, NX, NY = 396800.0, 3606800.0, 200.0, 423, 475
+from opera_site import SITE, WSL_ROOT as ROOT
+
+E0, N0, PIX, NX, NY = SITE["grid"]
 files = sorted(glob.glob(f"{ROOT}/opera/*.npz"))
 G = []
 for f in files:
@@ -87,7 +88,7 @@ def binned(path, band=1):
     return (np.bincount(lin, a[ok], minlength=NX * NY) / np.maximum(c, 1)).reshape(NY, NX)
 
 
-st = f"{ROOT}/opera_static/OPERA_L3_DISP-S1-STATIC_F07091_20140403_S1A_v1.0_"
+st = f"{ROOT}/opera_static/OPERA_L3_DISP-S1-STATIC_{SITE['frame']}_{SITE['static_date']}_S1A_v1.0_"
 U = binned(st + "line_of_sight_enu.tif", 3)
 H = binned(st + "dem.tif", 1)
 sub = np.where(cells & (U > 0.3), -v_los.reshape(NY, NX) / np.where(U > 0.3, U, 1), np.nan)
@@ -95,16 +96,16 @@ mask = np.isfinite(sub)
 np.savez_compressed(f"{ROOT}/opera_rate_200m{TAG}.npz", D=np.nan_to_num(sub).astype(np.float32), mask=mask,
                     v_los=v_los.reshape(NY, NX).astype(np.float32), U=U.astype(np.float32), H=H.astype(np.float32),
                     seasonal_amp_los=amp.reshape(NY, NX).astype(np.float32), rms_los=rms.reshape(NY, NX).astype(np.float32),
-                    E0=E0, N0=N0, PIX=PIX, NX=NX, NY=NY, epsg=32612, frame="F07091", track=27, direction="Descending",
+                    E0=E0, N0=N0, PIX=PIX, NX=NX, NY=NY, epsg=SITE["epsg"], frame=SITE["frame"], track=SITE["track"], direction=SITE["direction"],
                     period=f"{dates[0]}-{dates[-1]}", n_epochs=len(dates), dates=np.array(dates))
 fig, ax = plt.subplots(figsize=(8, 8.5))
 im = ax.imshow(np.where(mask, sub, np.nan), origin="lower", cmap="turbo", vmin=-10, vmax=np.nanpercentile(sub, 99.9),
                extent=[E0, E0 + NX * PIX, N0, N0 + NY * PIX])
 plt.colorbar(im, label="subsidence mm/yr (vertical-only, + sinking)")
-ax.set_title(f"OPERA DISP-S1 F07091 (T27 desc) {dates[0]}-{dates[-1]}, {len(dates)} epochs")
+ax.set_title(f"OPERA DISP-S1 {SITE['frame']} (T{SITE['track']}) {dates[0]}-{dates[-1]}, {len(dates)} epochs")
 fig.savefig(f"{ROOT}/opera_rate_200m{TAG}.png", dpi=110, bbox_inches="tight")
 from pyproj import Transformer
-inv = Transformer.from_crs(32612, 4326, always_xy=True)
+inv = Transformer.from_crs(SITE["epsg"], 4326, always_xy=True)
 q = np.where(mask, sub, -np.inf)
 top = np.argsort(q.ravel())[::-1]
 peaks, used = [], np.zeros(NY * NX, bool)

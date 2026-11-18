@@ -1,4 +1,4 @@
-"""Find OPERA DISP-S1 granules over central Arizona; frame coverage of the box and date ranges.
+"""Find OPERA DISP-S1 granules over the site box (opera_site.py, env SITE); frame coverage of the box and date ranges.
 
 Run in WSL env `alos`. Writes realdata/arizona/opera_search.json (frame -> granules).
 """
@@ -6,9 +6,11 @@ import json, collections
 import earthaccess
 from shapely.geometry import Polygon, box
 
-BOX = box(-112.1, 32.6, -111.2, 33.45)
-OUT = "/mnt/c/Kuliah/hackathon/agc-26/realdata/arizona/opera_search.json"
-res = earthaccess.search_data(short_name="OPERA_L3_DISP-S1_V1", bounding_box=(-112.1, 32.6, -111.2, 33.45), count=5000)
+from opera_site import SITE, WSL_ROOT
+
+BOX = box(*SITE["box"])
+OUT = f"{WSL_ROOT}/opera_search.json"
+res = earthaccess.search_data(short_name="OPERA_L3_DISP-S1_V1", bounding_box=SITE["box"], count=5000)
 fr = collections.defaultdict(list)
 for g in res:
     u = g["umm"]

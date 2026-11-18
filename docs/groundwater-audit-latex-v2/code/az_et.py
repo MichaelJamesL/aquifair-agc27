@@ -1,24 +1,23 @@
-"""MODIS MOD16A3GF annual evapotranspiration (500 m, v061) 2016-2020 on the Arizona 200 m grid.
-Run in WSL env `alos` (earthaccess with ~/.netrc). Output: realdata/arizona/et_200m.npz (mm/yr)."""
+"""MODIS MOD16A3GF annual evapotranspiration (500 m, v061) 2016-2020 on the site 200 m grid (opera_site.py, env SITE).
+Run in WSL env `alos` (earthaccess with ~/.netrc). Output: realdata/<site>/et_200m.npz (mm/yr)."""
 import glob, os
 import numpy as np
 import earthaccess
 import rasterio
 from pyproj import Transformer
 
-A = "/mnt/c/Kuliah/hackathon/agc-26/realdata/arizona"
-z = np.load(f"{A}/opera_rate_200m.npz", allow_pickle=True)
-E0, N0, PIX = float(z["E0"]), float(z["N0"]), float(z["PIX"])
-NY, NX = z["D"].shape
+from opera_site import SITE, WSL_ROOT as A
+
+E0, N0, PIX, NX, NY = SITE["grid"]
 earthaccess.login(strategy="netrc")
 os.makedirs(f"{A}/modis", exist_ok=True)
-res = earthaccess.search_data(short_name="MOD16A3GF", version="061", bounding_box=(-112.1, 32.6, -111.2, 33.45),
+res = earthaccess.search_data(short_name="MOD16A3GF", version="061", bounding_box=SITE["box"],
                               temporal=("2016-01-01", "2020-12-31"))
 earthaccess.download(res, f"{A}/modis")
 # MODIS sinusoidal grid -> 200 m UTM cells (nearest)
 SIN = "+proj=sinu +R=6371007.181 +nadgrids=@null +wktext"
 Ec, Nc = np.meshgrid(E0 + (np.arange(NX) + .5) * PIX, N0 + (np.arange(NY) + .5) * PIX)
-xs, ys = Transformer.from_crs(32612, SIN, always_xy=True).transform(Ec, Nc)
+xs, ys = Transformer.from_crs(SITE["epsg"], SIN, always_xy=True).transform(Ec, Nc)
 ET = []
 for f in sorted(glob.glob(f"{A}/modis/MOD16A3GF*.hdf")):
     with rasterio.open(f'HDF4_EOS:EOS_GRID:"{f}":MOD_Grid_MOD16A3:ET_500m') as s:

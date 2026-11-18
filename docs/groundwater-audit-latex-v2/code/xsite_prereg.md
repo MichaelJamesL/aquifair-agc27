@@ -52,3 +52,15 @@ by the median of (GNSS rate - InSAR rate) at the HGSD/UH GNSS stations (realdata
 `Rate2024`, cm/yr, + = sinking; 2-km median of InSAR around each station). Arizona is left as is
 (mostly stable desert and rock in the scene). Block subsidence volume = mean of max(D, 0) over the
 coherent cells x block area (so sites with different coherence are comparable).
+
+## Result (2026-11-18, xs_model.py -> realdata/xsite_model.json)
+Houston InSAR tied to 144 GNSS stations (shift +5.2 mm/yr, rho GNSS vs InSAR 0.65).
+Units: Arizona 167 blocks (south region; ESRV has no clay map), Houston 627 blocks.
+- No model transfers (M0-M4 all fail): held-out median |log10| 0.68-1.43 (factor 5-27),
+  totals -92 % (Houston -> Arizona) to +417 % (Arizona -> Houston).
+- Subsidence per pumped m3 differs 11x between sites (median 2.5 % Arizona vs 28 % Houston).
+- Clay does not help: M3 is not better than M2 in both directions; within Houston clay vs the
+  ratio rho = 0.01 (Arizona 0.32).
+- Oracle (site ratio known): factor ~2.3-4 error, total within -63 .. +2 %.
+Verdict as pre-registered: no model is applied to Semarang; Semarang volumes stay the demand-model
+ranges (sem_demand.py), labelled unvalidated.

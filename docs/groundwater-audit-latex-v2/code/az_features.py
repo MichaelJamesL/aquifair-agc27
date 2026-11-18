@@ -1,16 +1,15 @@
-"""Open, globally available covariates on the Arizona 200 m grid (same grid as opera_rate_200m):
-ESA WorldCover 2021 class fractions (10 m, windowed COG reads). Output: realdata/arizona/features_200m.npz."""
+"""Open, globally available covariates on the site 200 m grid (opera_site.py, env SITE) (same grid as opera_rate_200m):
+ESA WorldCover 2021 class fractions (10 m, windowed COG reads). Output: realdata/<site>/features_200m.npz."""
 import numpy as np
 import rasterio
 from rasterio.windows import from_bounds
 from pyproj import Transformer
 
-A = "C:/Kuliah/hackathon/agc-26/realdata/arizona"
-z = np.load(f"{A}/opera_rate_200m.npz", allow_pickle=True)
-E0, N0, PIX = float(z["E0"]), float(z["N0"]), float(z["PIX"])
-NY, NX = z["D"].shape
-inv = Transformer.from_crs(32612, 4326, always_xy=True)
-fw = Transformer.from_crs(4326, 32612, always_xy=True)
+from opera_site import SITE, WIN_ROOT as A
+
+E0, N0, PIX, NX, NY = SITE["grid"]
+inv = Transformer.from_crs(SITE["epsg"], 4326, always_xy=True)
+fw = Transformer.from_crs(4326, SITE["epsg"], always_xy=True)
 lo0, la0 = inv.transform(E0 - 500, N0 - 500)
 lo1, la1 = inv.transform(E0 + NX * PIX + 500, N0 + NY * PIX + 500)
 ENV = dict(GDAL_DISABLE_READDIR_ON_OPEN="EMPTY_DIR", CPL_VSIL_CURL_ALLOWED_EXTENSIONS=".tif")
@@ -34,7 +33,9 @@ out = {}
 cls = dict(tree=10, shrub=20, grass=30, crop=40, built=50, bare=60, water=80)
 acc = {k: np.zeros((NY, NX)) for k in cls}
 n = np.zeros((NY, NX))
-for tile in ("N30W114", "N33W114"):
+lon_t = range(int(np.floor(SITE["box"][0] / 3) * 3), int(np.floor(SITE["box"][2] / 3) * 3) + 1, 3)
+lat_t = range(int(np.floor(SITE["box"][1] / 3) * 3), int(np.floor(SITE["box"][3] / 3) * 3) + 1, 3)
+for tile in [f"N{la:02d}W{-lo:03d}" for la in lat_t for lo in lon_t]:   # 3-degree tiles named by SW corner
     url = f"/vsicurl/https://esa-worldcover.s3.eu-central-1.amazonaws.com/v200/2021/map/ESA_WorldCover_10m_2021_v200_{tile}_Map.tif"
     with rasterio.Env(**ENV), rasterio.open(url) as s:
         b = s.bounds
