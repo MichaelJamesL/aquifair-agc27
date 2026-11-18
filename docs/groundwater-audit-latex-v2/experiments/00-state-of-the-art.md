@@ -33,6 +33,10 @@ Validated scale (16 km cells, Kota Semarang part of the 24 x 16 km grid, city to
 `validated: false`. The older demand-only areas and hotspots (`semarang_areas.geojson`, file 07) remain
 useful for ranking where to inspect.
 
+**No within-city heatmap.** A relative ranking of areas inside one region (2-8 km) was tested on 7
+regions and is not validated (file 12): large single users and areas with other water sources are
+invisible in land cover and InSAR.
+
 ## Known limits
 - **Scale:** 16 km cells are coarse (two cells over Semarang). In Houston, 8 km cells were still ~2.3x
   off even with county totals known.
@@ -47,9 +51,10 @@ useful for ranking where to inspect.
 - **No direct check in Semarang:** there is no per-area pumping data; only the city total.
 
 ## What would improve it most
-1. Groundwater use or PDAM piped-water coverage **per kecamatan** (Houston: knowing county totals
+1. The ESDM / city **well registry** (~1050 wells with locations and permitted volumes): it would give
+   the within-city heatmap directly, and InSAR could flag sinking areas without permitted wells.
+2. Groundwater use or PDAM piped-water coverage **per kecamatan** (Houston: knowing county totals
    cut the 16 km error from 0.36 to 0.21).
-2. Metered abstraction for a sample of Semarang wells (the ESDM registry lists ~1050 wells).
 3. Removing the east-west ramp from the ALOS-1 map, to compare 2006-10 with 2018-22 sinking rates.
 
 ## How to use the output

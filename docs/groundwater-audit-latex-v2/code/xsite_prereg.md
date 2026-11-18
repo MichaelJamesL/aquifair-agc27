@@ -159,3 +159,18 @@ and true pumping >= 10 Mm3/yr (decided now, without looking).
 CONFIRMED (a relative heatmap at 8 km may be shown) if demand-only reaches Spearman >= 0.5 AND top-20 %
 capture >= 40 % in at least 75 % of eligible regions (rounded up). Otherwise no within-city heatmap is
 claimed as validated; Semarang keeps only the 16 km split.
+
+Result of addendum 5 (xs_spark_run.sh on the DGX Spark + xs_confirm_rank.py -> realdata/xsite_confirm_rank.json):
+NOT CONFIRMED. Eligible: R3, R4, R5, R7 (R6: 7.9 Mm3/yr, below 10). Passing: none (3 needed).
+| region | 8 km cells | total Mm3/yr | demand rho / top-20 % | S5 rho / top-20 % | subsidence rho / top-20 % |
+|---|---|---|---|---|---|
+| R3 east (Beaumont) | 74 | 58.3 | -0.05 / 5 % | -0.12 / 5 % | -0.18 / 8 % |
+| R4 Brazos | 127 | 27.8 | -0.07 / 17 % | 0.31 / 26 % | 0.55 / 29 % |
+| R5 south coast | 50 | 16.2 | 0.17 / 30 % | 0.11 / 29 % | 0.12 / 31 % |
+| R6 north (not eligible) | 39 | 7.9 | 0.18 / 21 % | -0.08 / 10 % | -0.14 / 6 % |
+| R7 north-east | 89 | 17.6 | 0.39 / 68 % | 0.38 / 55 % | 0.15 / 18 % |
+Check of the worst case (R3): the largest true cell (24.5 Mm3/yr, 42 % of the region) is at -94.06, 30.34,
+forest with < 1 km2 built and no crop (consistent with a single industrial user); the highest-demand cells
+are rice fields with ~0 groundwater (surface-water irrigation). The georeferencing is correct.
+Verdict as pre-registered: no within-region (relative) pumping heatmap is validated from land cover or
+InSAR; Semarang keeps only the 16 km split of the city total.

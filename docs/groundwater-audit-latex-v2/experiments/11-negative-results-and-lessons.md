@@ -17,6 +17,7 @@
 | Clay thickness as a ratio predictor | rho 0.01 in Houston | file 08 |
 | Unweighted top-down split at 4-16 km | fails one direction | file 09 |
 | 2 km / 4 km / 8 km volume cells | not accurate | files 06, 09 |
+| Relative ranking inside a region (S5, demand, subsidence; 2-8 km) | 0 of 4 new regions pass | file 12 |
 
 ## Lessons
 1. **Detection is not identification.** The detector finds real, persistent sinking; in Arizona that

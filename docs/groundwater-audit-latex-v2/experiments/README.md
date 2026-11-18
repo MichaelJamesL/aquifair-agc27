@@ -23,6 +23,7 @@ honest limits.
 | 09 | [09-validated-regional-split.md](09-validated-regional-split.md) | Known total split by sqrt(demand x subsidence): validated |
 | 10 | [10-alos1-2006-2010.md](10-alos1-2006-2010.md) | ALOS-1 PALSAR 2006-2010 on the DGX Spark |
 | 11 | [11-negative-results-and-lessons.md](11-negative-results-and-lessons.md) | What failed and should not be retried |
+| 12 | [12-relative-heatmap.md](12-relative-heatmap.md) | Relative (no-volume) pumping heatmap inside a region; 5 new regions on the DGX Spark |
 
 ## Summary table
 
@@ -49,6 +50,8 @@ honest limits.
 | 09a | Known total split, unweighted | Arizona <-> Houston | ADWR + GULF | best 16 km 0.36 (one direction) | fail |
 | 09b | Same, volume-weighted, unseen regions | Arizona ESRV, Texas west | ADWR + GULF | 0.16 / 0.14 (within ~1.5x) | **pass (validated)** |
 | 10 | ALOS-1 2006-10 rate map | Semarang | Sentinel-1 2018-22, wells | r 0.72; wells on faster-sinking ground p 0.0095 | pattern persistent |
+| 12a | Relative ranking inside a region (2-8 km) | Arizona ESRV, Texas west | ADWR + GULF | S5 fails; demand only passes 8 km (exploratory) | fail |
+| 12b | Demand-only ranking, 5 new regions | GULF R3-R7 | GULF | 0 of 4 eligible pass; big single users invisible | fail |
 
 ## Flowchart
 
@@ -68,6 +71,9 @@ flowchart TD
     L -->|exploratory winner| M[Pre-registered confirmation on 2 unseen regions]
     M -->|PASS at 16 km| N[Validated method applied to Semarang<br/>city total 38-61 Mm3/yr]
     B --> O[ALOS-1 2006-10 on DGX Spark<br/>pattern persists, wells on sinking ground]
+    N --> P[Relative heatmap inside a city?<br/>ranking test 2-8 km]
+    P -->|demand only looked good at 8 km| Q[5 new regions built in parallel on DGX Spark]
+    Q -->|0 of 4 pass| R[Needs user data:<br/>well registry / industrial users]
 ```
 
 ## Where things are
