@@ -1,0 +1,89 @@
+@import "tailwindcss";
+@import "@fontsource/plus-jakarta-sans/400.css";
+@import "@fontsource/plus-jakarta-sans/500.css";
+@import "@fontsource/plus-jakarta-sans/600.css";
+@import "@fontsource/ibm-plex-mono/400.css";
+@import "@fontsource/ibm-plex-mono/500.css";
+@import "@fontsource/ibm-plex-sans/400-italic.css";
+@import "@fontsource/newsreader/400-italic.css";
+
+/* Design tokens from the Groundtrace Figma file (SUMUR tokens collection). */
+@theme {
+  --color-bg: #f5f3ee;
+  --color-surface: #ffffff;
+  --color-subtle: #edeae3;
+  --color-line: #ddd8ce;
+  --color-line-strong: #bdb6a8;
+  --color-ink: #17191c;
+  --color-ink-2: #4a4f55;
+  --color-ink-3: #7c8086;
+  --color-primary: #0f4c5c;
+  --color-primary-hover: #0b3b48;
+  --color-primary-tint: #dce8ea;
+  --color-on-primary: #f5f3ee;
+  --color-pass: #2e7d4f;
+  --color-pass-tint: #ddeee2;
+  --color-warn: #8a5b00;
+  --color-warn-tint: #f6ead0;
+  --color-range: #de8248;
+  --color-pump: #c34c30;
+  --color-bg-share: #b9a88a;
+  --color-water: #d5dedd;
+
+  --font-sans: "Plus Jakarta Sans", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+
+  --radius-sm: 3px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+
+  --shadow-pop: 0 4px 14px rgba(23, 26, 28, 0.1);
+  --shadow-card: 0 4px 16px rgba(23, 26, 28, 0.08);
+  --shadow-knob: 0 1px 3px rgba(0, 0, 0, 0.18);
+
+  --ease-map: cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+@layer base {
+  html,
+  body {
+    height: 100%;
+  }
+
+  body {
+    @apply bg-bg font-sans text-[13px] leading-4 text-ink antialiased;
+    min-width: 1280px;
+  }
+
+  button {
+    cursor: pointer;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+  }
+}
+
+@utility eyebrow {
+  font-size: 11px;
+  line-height: 14px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* Inline SVG map layers fill their 1200×900 box. */
+@utility map-layer {
+  position: absolute;
+  inset: 0;
+  width: 1200px;
+  height: 900px;
+  pointer-events: none;
+
+  & > svg {
+    display: block;
+    width: 1200px;
+    height: 900px;
+  }
+}
