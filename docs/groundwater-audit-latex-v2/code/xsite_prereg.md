@@ -45,3 +45,10 @@ an unknown regional share (e.g. piped-water coverage) costs; it is not a pass.
 Apply only a model that transfers. Subsidence volume is first reduced by the natural-compaction
 share of Sarah et al. 2020 (Semarang city 0-9 %, Semarang-Demak border 28-37 %, Demak 48-92 %).
 If no model transfers, the Semarang output stays the demand-model range, labelled unvalidated.
+
+## Addendum 1 (2026-11-18, still before any Houston InSAR result)
+OPERA maps are relative to the scene median; Houston sinks broadly, so the Houston rate is shifted
+by the median of (GNSS rate - InSAR rate) at the HGSD/UH GNSS stations (realdata/houston/gnss.json,
+`Rate2024`, cm/yr, + = sinking; 2-km median of InSAR around each station). Arizona is left as is
+(mostly stable desert and rock in the scene). Block subsidence volume = mean of max(D, 0) over the
+coherent cells x block area (so sites with different coherence are comparable).
