@@ -8,6 +8,9 @@ SITES = {
     # Houston-Galveston / Fort Bend / Montgomery subsidence districts (GULF model truth)
     "houston": dict(root="houston", box=(-96.0, 29.35, -94.9, 30.45), frame="F08882", epsg=32615,
                     grid=(208600.0, 3248200.0, 200.0, 545, 622), static_date="20140403", track=34, direction="Ascending"),
+    # Texas GULF-model area west of the Houston box (confirmatory region R2, xsite_prereg.md addendum 3)
+    "texas_w": dict(root="texas_w", box=(-97.0, 28.75, -96.0, 29.75), frame="F08882", epsg=32615,
+                    grid=(109200.0, 3183800.0, 200.0, 497, 570), static_date="20140403", track=34, direction="Ascending"),
     # Semarang: not an OPERA site (LiCSAR); listed so az_et.py can use the same 24 x 16 km model grid
     "semarang": dict(root="semarang", box=(110.33, -7.07, 110.6, -6.9), frame=None, epsg=32749,
                      grid=(428000.0, 9220000.0, 200.0, 120, 80), static_date=None, track=None, direction=None),

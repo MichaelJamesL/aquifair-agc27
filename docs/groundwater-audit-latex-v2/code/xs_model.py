@@ -13,6 +13,7 @@ from pyproj import Transformer
 R0 = "C:/Kuliah/hackathon/agc-26/realdata"
 BLK = 4000.0
 AF = 1.23348                                     # thousand m3 per acre-foot
+GULF = ("houston", "texas_w")                    # regions whose truth is the USGS GULF model
 
 
 def blocks(site):
@@ -21,7 +22,7 @@ def blocks(site):
     D, mask = z["D"].astype(float), z["mask"].astype(bool) & np.isfinite(z["D"])
     E0, N0, PIX = float(z["E0"]), float(z["N0"]), float(z["PIX"])
     NY, NX = D.shape
-    if site == "houston":                       # tie to GNSS (prereg addendum 1)
+    if site in GULF:                            # tie to GNSS (prereg addendum 1; addendum 3: only if >= 5 stations)
         g = json.load(open(f"{R0}/houston/gnss.json"))["features"]
         g = pd.DataFrame([x["attributes"] for x in g]).dropna(subset=["Rate2024"])
         E, N = Transformer.from_crs(4326, int(z["epsg"]), always_xy=True).transform(g.Long.values, g.Lat.values)
@@ -29,15 +30,20 @@ def blocks(site):
         YY, XX = np.mgrid[:NY, :NX]
         ins = np.array([np.nanmedian(np.where(mask & (np.hypot(YY - b, XX - a) <= 10), D, np.nan))
                         if 0 <= a < NX and 0 <= b < NY else np.nan for a, b in zip(ix, iy)])
-        d = g.Rate2024.values * 10 - ins
-        shift = float(np.nanmedian(d))
         ok = np.isfinite(ins)
-        print(f"houston GNSS tie: {ok.sum()} stations, shift {shift:+.1f} mm/yr, "
-              f"rho(GNSS, InSAR) {stats.spearmanr(g.Rate2024.values[ok], ins[ok])[0]:.2f}")
-        D = D + shift
+        if ok.sum() >= 5:
+            shift = float(np.nanmedian(g.Rate2024.values * 10 - ins))
+            print(f"{site} GNSS tie: {ok.sum()} stations, shift {shift:+.1f} mm/yr, "
+                  f"rho(GNSS, InSAR) {stats.spearmanr(g.Rate2024.values[ok], ins[ok])[0]:.2f}")
+            D = D + shift
+        else:
+            print(f"{site}: {ok.sum()} GNSS stations, no tie")
     F = np.load(f"{R0}/{site}/features_200m.npz")
     ET = np.nan_to_num(np.load(f"{R0}/{site}/et_200m.npz")["et_mm"].astype(float))
-    clay = np.load(f"{R0}/{site}/clay_200m.npz")["clay_m"].astype(float)
+    try:
+        clay = np.load(f"{R0}/{site}/clay_200m.npz")["clay_m"].astype(float)
+    except FileNotFoundError:                   # regions without a clay map (only clay-free models use them)
+        clay = np.full(D.shape, np.nan)
     BL = int(BLK // PIX)
     nbx = (NX - 1) // BL + 1
     bid = ((np.arange(NY)[:, None] // BL) * nbx + np.arange(NX)[None, :] // BL)
@@ -80,8 +86,9 @@ def arizona():
     return f[near].assign(site="arizona")
 
 
-def houston():
-    f, geo = blocks("houston")
+def houston(site="houston"):
+    """Any region inside the USGS GULF model area (truth = GULF WEL pumping)."""
+    f, geo = blocks(site)
     q, p = np.zeros((350, 380)), None
     for line in open(f"{R0}/houston/gulf/source_data/gulf2023_2021-06-15.wel"):
         if line.startswith("BEGIN PERIOD"):
@@ -97,7 +104,7 @@ def houston():
     E, N = Transformer.from_crs(4326, geo["epsg"], always_xy=True).transform(lon, lat)
     b = block_of(geo, E, N)
     f["Q"] = np.bincount(b[b >= 0], q[r, c][b >= 0], minlength=geo["nb"])
-    return f.assign(site="houston")
+    return f.assign(site=site)
 
 
 def score(t, p, lo=None, hi=None):
