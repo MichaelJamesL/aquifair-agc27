@@ -117,3 +117,45 @@ Semarang ranges use the confirmatory errors (volume-weighted) applied to shares,
 Semarang (xs_apply_semarang.py -> exp/sem_areas/xsite_semarang_split.json/.geojson), Kota Semarang part of
 the grid, city total 38-61 Mm3/yr, 16 km cells (validated): west+central 192 km2 P10/50/90 27.9/43.8/54.7;
 east edge 7 km2 0.4/3.8/20.9 Mm3/yr. 8 km and 4 km cells written but flagged not validated.
+
+## Addendum 4 (2026-11-19, before running): relative severity heatmap (no volumes)
+Question: inside one region, does the index rank areas by pumping correctly, so a RELATIVE heatmap
+("where pumping is most severe in this city") can be shown without claiming volumes?
+- Index fixed: S5 = sqrt(demand x subsidence volume), demand weights from xsite_confirm.json
+  (fit on Arizona south + Houston only). Reported for comparison: demand only, subsidence only.
+- Regions: R1 Arizona ESRV and R2 Texas west (no fitting done on them; their volumes were scored in
+  addendum 3, their rankings were not looked at). Houston reported for reference only (training site).
+- Scales: 2, 4, 8 km cells (cells kept by the addendum-3 rules).
+- Scores per region and scale: Spearman(index, true pumping) over all kept cells; top-20 % capture =
+  share of true pumped volume inside the 20 % of cells with the highest index (chance = 20 %);
+  quintile agreement = share of cells whose index quintile is within 1 of their true quintile.
+- USEFUL as a relative heatmap at a scale if in BOTH R1 and R2: Spearman >= 0.5 AND top-20 % capture
+  >= 40 % (2x chance). The finest passing scale is used for Semarang; if none passes, no heatmap finer
+  than the 16 km volume split is published.
+
+Result of addendum 4 (xs_rank.py -> realdata/xsite_rank.json): FAIL at 2, 4 and 8 km.
+| region | scale | S5 rho / top-20 % | demand rho / top-20 % | subsidence rho / top-20 % |
+|---|---|---|---|---|
+| R1 ESRV | 4 km | 0.19 / 25 % | 0.51 / 35 % | 0.08 / 25 % |
+| R1 ESRV | 8 km | 0.53 / 27 % | 0.71 / 51 % | 0.34 / 27 % |
+| R2 Texas west | 4 km | 0.40 / 45 % | 0.46 / 48 % | 0.17 / 31 % |
+| R2 Texas west | 8 km | 0.47 / 43 % | 0.51 / 43 % | 0.30 / 33 % |
+| Houston (training, ref) | 8 km | 0.56 / 39 % | 0.47 / 40 % | 0.41 / 36 % |
+2 km: all rho <= 0.27. Exploratory (seen only now): DEMAND ONLY meets the rule at 8 km in both R1 and R2;
+subsidence adds nothing to the within-region ranking.
+
+## Addendum 5 (2026-11-19, before any data of the new regions exist): confirm demand-only ranking at 8 km
+Index fixed: demand = 221.5*built_km2 + 0.823*crop_km2*ET_mm (xsite_confirm.json), summed to 8 km cells.
+Reported, not judged: S5, subsidence, and 4 km.
+New regions (all inside the USGS GULF model grid, no overlap with Houston or Texas-west boxes):
+- R3 east (Beaumont / Port Arthur): lon -94.9..-93.8, lat 29.6..30.45
+- R4 north-west (Brazos valley): -97.0..-96.0, 29.75..30.75
+- R5 south coast (Brazoria / Bay City): -96.0..-95.0, 28.75..29.35
+- R6 north (Conroe north / Huntsville): -96.0..-94.9, 30.45..31.3
+- R7 north-east (Jasper / Woodville): -94.9..-93.8, 30.45..31.3
+Truth: GULF WEL mean 2016-18. InSAR: OPERA DISP-S1, best-covering frame, 2016-10..2020-12 (needed for the
+cell keep rule and for S5). Keep rule as addendum 4. A region is ELIGIBLE if it has >= 20 kept 8 km cells
+and true pumping >= 10 Mm3/yr (decided now, without looking).
+CONFIRMED (a relative heatmap at 8 km may be shown) if demand-only reaches Spearman >= 0.5 AND top-20 %
+capture >= 40 % in at least 75 % of eligible regions (rounded up). Otherwise no within-city heatmap is
+claimed as validated; Semarang keeps only the 16 km split.
