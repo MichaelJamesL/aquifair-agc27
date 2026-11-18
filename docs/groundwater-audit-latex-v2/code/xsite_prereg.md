@@ -103,3 +103,17 @@ PASS if in BOTH regions the volume-weighted median |log10(pred/true)| <= 0.30 (w
 beats S0 (area share) on it. Also reported: unweighted median and 10-90 % range coverage.
 If it passes, that is the validated method ("known regional total, split by sqrt(demand x subsidence),
 16 km cells, within factor 2 for most of the pumped volume"), applied to Semarang with the city total.
+
+Result of addendum 3 (xs_confirm.py -> realdata/xsite_confirm.json): PASS.
+Demand weights (all Arizona + Houston blocks): 221.5 thousand m3/yr per km2 built + 0.823 x crop km2 x ET mm.
+| region | cells (16 km) | total Mm3 | S0 weighted | S5 weighted | S5 unweighted |
+|---|---|---|---|---|---|
+| R1 Arizona ESRV | 13 | 202.0 | 0.203 | 0.164 | 0.338 |
+| R2 Texas west (GNSS tie 7 stations, +1.4 mm/yr) | 45 | 134.7 | 0.248 | 0.140 | 0.146 |
+Share of volume within factor 2: 55 % (ESRV), 86 % (Texas). Weak spot: the largest ESRV cell (71 Mm3,
+35 % of the region) was under-predicted ~10x. The total-only 10-90 % range covered only ~20 % of cells, so
+Semarang ranges use the confirmatory errors (volume-weighted) applied to shares, then rescaled to the total.
+
+Semarang (xs_apply_semarang.py -> exp/sem_areas/xsite_semarang_split.json/.geojson), Kota Semarang part of
+the grid, city total 38-61 Mm3/yr, 16 km cells (validated): west+central 192 km2 P10/50/90 27.9/43.8/54.7;
+east edge 7 km2 0.4/3.8/20.9 Mm3/yr. 8 km and 4 km cells written but flagged not validated.

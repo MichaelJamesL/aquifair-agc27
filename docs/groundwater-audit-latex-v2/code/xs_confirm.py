@@ -40,7 +40,10 @@ for name, te in regions.items():
         res[m] = dict(cells=int(ok.sum()), weighted_med_abs_log10=round(wmed(e, agg.Q.values[ok]), 3),
                       med_abs_log10=round(float(np.median(e)), 3),
                       coverage80_total_only=round(float(np.mean((agg.Q.values >= lo) & (agg.Q.values <= hi))), 2),
-                      total_Mm3=round(float(te.Q.sum() / 1e3), 1))
+                      total_Mm3=round(float(te.Q.sum() / 1e3), 1),
+                      # signed per-cell errors + true volumes: used to build Semarang ranges (xs_apply_semarang.py)
+                      log10_pred_over_true=np.log10(np.maximum(agg.pred.values[ok], 1) / agg.Q.values[ok]).round(3).tolist(),
+                      true_kt=agg.Q.values[ok].round(1).tolist())
     out["regions"][name] = res
     print(name, res)
 out["pass"] = all(r["S5"]["weighted_med_abs_log10"] <= 0.30 and r["S5"]["weighted_med_abs_log10"] < r["S0"]["weighted_med_abs_log10"]
