@@ -64,3 +64,19 @@ Units: Arizona 167 blocks (south region; ESRV has no clay map), Houston 627 bloc
 - Oracle (site ratio known): factor ~2.3-4 error, total within -63 .. +2 %.
 Verdict as pre-registered: no model is applied to Semarang; Semarang volumes stay the demand-model
 ranges (sem_demand.py), labelled unvalidated.
+
+## Addendum 2 (2026-11-18): top-down test - regional total known, spread by transferable patterns
+Written before running it. Motivation: the oracle run above (site total known) cut the error from
+factor 5-27 to 2-4, and Semarang HAS a local total (city groundwater use 38-61 Mm3/yr, published).
+Question: given only the regional total (with Semarang-like uncertainty), how accurately can we split it
+into areas, using a share model trained at the OTHER site?
+- Units: same blocks as above (xs_model.keep). Scores at 4 km, 8 km (2x2) and 16 km (4x4) cells.
+- Total given to the model: true site total x U(0.77, 1.23) (the 38-61 spread), 200 draws.
+- Share models (fit on the training site, applied as shares at the test site, then x total):
+  S0 area; S1 demand (a*built + b*crop*ET, NNLS); S2 subsidence volume; S3 subsidence^a x clay^b
+  (log-linear fit); S4 ridge on log [subsidence, clay, built, crop*ET]; S5 geometric mean of S1 and S2.
+- ACCURATE at a scale if, in BOTH directions (Arizona->Houston, Houston->Arizona), median
+  |log10(pred/true)| <= 0.30 (within factor 2) over cells with pumping > 0, AND the 10-90 % range
+  (from the 200 total draws x training-site share residuals) covers 70-90 % of cells.
+- Report the smallest passing scale and the best model there. A model is chosen only if it beats S0.
+- If something passes, apply it to Semarang with the city total 38-61 Mm3/yr (Kota Semarang cells).
