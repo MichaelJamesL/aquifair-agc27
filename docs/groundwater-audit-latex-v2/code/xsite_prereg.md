@@ -80,3 +80,26 @@ into areas, using a share model trained at the OTHER site?
   (from the 200 total draws x training-site share residuals) covers 70-90 % of cells.
 - Report the smallest passing scale and the best model there. A model is chosen only if it beats S0.
 - If something passes, apply it to Semarang with the city total 38-61 Mm3/yr (Kota Semarang cells).
+
+Result (xs_share.py -> realdata/xsite_share.json): nothing passes at 4, 8 or 16 km
+(best 16 km: S5 Houston->Arizona 0.135 but Arizona->Houston 0.357; coverage 0.26-0.69).
+
+## Exploratory findings after addendum 2 (not pre-registered; xs_calcurve.py -> xsite_calcurve.json)
+- Local calibration blocks help Arizona (n=20 known blocks: 16 km 0.22) but not Houston (n=80: 4 km 0.52).
+- Houston with county totals known: S5 16 km 0.21, 8 km 0.32.
+- Volume-weighted median |log10| (the big pumping areas, what an audit cares about), S5 + regional total:
+  16 km 0.26 (Arizona->Houston) and 0.13 (Houston->Arizona); 8 km 0.36 / 0.15.
+
+## Addendum 3 (2026-11-18): confirmatory test of the exploratory winner on unseen regions
+Written before any data of the new regions were looked at.
+Method fixed: S5 = sqrt(demand x subsidence volume), demand = a*built + b*crop*ET with a, b from NNLS on
+all Arizona + Houston blocks used so far (xs_model.keep); shares x the region's true total x U(0.77, 1.23).
+Test regions (never used before):
+- R1 Arizona East Salt River Valley: Arizona blocks with unknown clay (ESRV) that pass the other keep rules.
+- R2 Texas, GULF model area west of the Houston box: lon -97.0..-96.0, lat 28.75..29.75 (OPERA frame
+  covering it, same 2016-10..2020-12 window; GNSS tie if stations exist, else none).
+Scale: 16 km cells (4 x 4 blocks).
+PASS if in BOTH regions the volume-weighted median |log10(pred/true)| <= 0.30 (within factor 2) and S5
+beats S0 (area share) on it. Also reported: unweighted median and 10-90 % range coverage.
+If it passes, that is the validated method ("known regional total, split by sqrt(demand x subsidence),
+16 km cells, within factor 2 for most of the pumped volume"), applied to Semarang with the city total.

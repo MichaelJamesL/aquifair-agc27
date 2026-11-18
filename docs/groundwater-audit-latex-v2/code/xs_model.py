@@ -53,7 +53,8 @@ def blocks(site):
         clay=S(np.nan_to_num(clay)) / np.maximum(S(np.isfinite(clay)), 1),
         clay_frac=S(np.isfinite(clay)) / ncell,
         built_km2=S(F["wc_built"]) * ckm2, crop_km2=S(F["wc_crop"]) * ckm2,
-        irr=S(F["wc_crop"] * ET) * ckm2, area_km2=ncell * ckm2))
+        irr=S(F["wc_crop"] * ET) * ckm2, area_km2=ncell * ckm2,
+        bx=np.arange(nb) % nbx, by=np.arange(nb) // nbx))
     geo = dict(E0=E0, N0=N0, PIX=PIX, NX=NX, NY=NY, BL=BL, nbx=nbx, nb=nb, epsg=int(z["epsg"]))
     return f, geo
 
