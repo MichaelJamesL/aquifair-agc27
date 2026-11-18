@@ -73,7 +73,7 @@ flowchart TD
 ## Where things are
 
 - Code: `../code/` (`real_*.py` Semarang, `az_*.py` Arizona, `xs_*.py` cross-site, `sem_*.py` Semarang
-  output). ALOS-1 scripts live on the DGX Spark in `~/alos_work`. Pre-registrations:
+  output, `alos_*` ALOS-1; intermediates on the DGX Spark in `~/alos_work`). Pre-registrations:
   `../code/az_prereg.md`, `../code/xsite_prereg.md`.
 - Data and result JSONs: `realdata/` at the repo root (git-ignored, several GB).
 - Web explainer (earlier state, up to the Semarang demand model): https://claude.ai/artifact/F3nQh6CoEEM7AtoMR66ojm

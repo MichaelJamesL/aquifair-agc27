@@ -32,5 +32,6 @@
 
 ## Operational notes
 - Background sessions must edit in a git worktree, then fast-forward `main`.
-- Large processing (ALOS) runs on the DGX Spark; downloads go directly from ASF there.
+- Large processing (ALOS) runs on the DGX Spark. Download directly from ASF there; streaming from the
+  laptop over the relayed Tailscale link runs at ~0.5-1 MB/s (9 GB took ~2 h in the 2026-11-18 run).
 - Credentials (`~/.netrc`, passwords) are entered by the user only.
