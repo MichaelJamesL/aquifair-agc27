@@ -1,0 +1,148 @@
+\section{A. Groundwater accounts}\label{sec:a}
+
+\begin{inshort}
+For each regency and city of Central Java, module A puts three numbers side by side: what was declared,
+what our validated method estimates, and what the difference is worth under the official tariff. The
+tariff side is fully official. The gap is not known yet, and the app says so with a range.
+\end{inshort}
+
+\subsection{Declared use}
+
+Dinas ESDM Jateng publishes the declared abstraction volume and its NPA for every regency and city, as XLSX
+files for 2020, 2021, 2022 and 2023 \cite{esdmdata}. Kota Semarang declared 10,069,814\,\mthree\ in 2023 \Off.
+A second data set gives use as a share of availability, 2019--2023 \cite{esdmpct}. Module A can therefore
+cover all 35 regencies and cities, not only Semarang.
+
+The city's own records show a longer series of registered abstraction \cite{perdasmg}:
+
+\begin{center}
+\small
+\begin{tabular}{@{}lrrrrrrrr@{}}
+\toprule
+Year & 1990 & 1995 & 2000 & 2016 & 2017 & 2018 & 2019 & 2023\\
+\midrule
+Wells & -- & 300 & 320 & 1,050 & -- & -- & -- & --\\
+Volume (\Mm) & 23 & 27 & 38 & 13.1 & 15.5 & 27.7 & 13.8 & 10.1\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\begin{caution}
+The series jumps from 13.8 to 27.7\Mm\ between neighbouring years. The declared numbers are themselves
+noisy, so a fall from 38 (2000) to 10 (2023) mixes three things: real decline, under-reporting and wells
+that were never registered.
+\end{caution}
+
+\subsection{Who pumps}
+
+The same document says 96\,\% of registered abstraction is industrial. PDAM (the city water company)
+supplied 62\,\% of household demand and distributed 51.66\Mm\ in 2022: 41.63 to households, 4.35 to
+commerce and \textbf{only 0.22 to industry} \Off\ \cite{perdasmg}. Industry therefore runs almost entirely
+on its own groundwater. The text also says about 19\,\% of supply comes from deep groundwater; the wording
+does not make clear whether this is PDAM's own wells.
+
+\subsection{The official price}\label{sec:npa}
+
+Pergub Jateng 7/2025 (in force 18 February 2025) sets the groundwater price, NPA, as \cite{pergub7}:
+\[
+\text{NPA} = \text{HAB} \times \text{BAT},\qquad \text{BAT} = 0.6\,S + 0.4\,P .
+\]
+HAB is the base price of water: Rp 2,561 (Wilayah A), 2,795 (B) and 2,824 (C) per \mthree. Wilayah C is
+Kota Semarang, Kab.\ Demak, Kab.\ Kudus, Kab.\ Pekalongan and Kota Surakarta. $S$ is the resource
+component (16, 9, 4 or 1, by water quality and whether an alternative source exists). $P$ is the use group:
+Kelompok 1 sells water as a product, 2--4 are high-, medium- and low-risk businesses, 5 is social,
+government and public water supply. Five volume tiers run from 0--50 to more than 2,500\,\mthree. The pages
+read do not state the period the tiers refer to.
+
+\begin{table}[H]
+\centering\small
+\caption{NPA in Wilayah C, good quality with an alternative source (annex table 3a), and the tax at 20\,\%.
+All values \Off\ except the tax column \Calc.}\label{tab:npa}
+\begin{tabular}{@{}lrrr@{}}
+\toprule
+\textbf{Use group} & \textbf{NPA, 0--50\,\mthree} & \textbf{NPA, $>$2,500\,\mthree} & \textbf{Tax, top tier}\\
+ & Rp/\mthree & Rp/\mthree & Rp/\mthree\\
+\midrule
+K1 water as a product & 37,277 & 78,575 & 15,715\\
+K2 high-risk business & 35,018 & 67,143 & 13,429\\
+K3 medium-risk business & 32,758 & 55,701 & 11,140\\
+K4 low-risk business & 30,499 & 44,269 & 8,854\\
+K5 social, government, public supply & 28,240 & 32,826 & 6,565\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The annex prints the 40\,\% $P$ column for Wilayah C as 0.40--2.02 for every group, which looks like a typo;
+the BAT totals match Wilayah A, so the NPA column is used as printed.
+
+\textbf{Tax rate.} Kota Semarang taxes groundwater (PAT) at 20\,\% of NPA under Perda 10/2023, amended by
+Perda 4/2025 \cite{ddtcsmg,perda10}. 20\,\% is also the maximum under UU 1/2022 \cite{terc}. This comes
+from a tax news service and a policy brief; the Perda clause itself was not read \Wk.
+
+\textbf{Who is exempt.} Basic household use is reported as exempt, by one secondary source \cite{enforcea}
+\Wk. The UU 1/2022 article must be read before households are left out of the rupiah figure.
+
+\subsection{Method \M{1}: declared vs estimated}
+
+The estimate comes from two earlier results:
+\begin{itemize}
+\item the demand model of file 07 at 4\,km cells, which gives Kota Semarang 25--48\Mmyr\ (median 36.5) but
+  was never validated \cite{exp07};
+\item the validated split of file 09 at 16\,km, which gives the west and central cell 27.9 / 43.8 /
+  54.7\Mmyr\ (P10 / P50 / P90) \cite{exp09} \Tst.
+\end{itemize}
+
+The taxable gap is then
+\[
+\text{gap} = \text{estimated total} - \text{household wells (exempt)} - \text{public supply wells} - \text{declared}.
+\]
+
+\begin{table}[htbp]
+\centering\small
+\caption{The gap for Kota Semarang with today's inputs.}\label{tab:gap}
+\begin{tabularx}{\linewidth}{@{}L{48mm}L{26mm}Y l@{}}
+\toprule
+\textbf{Term} & \textbf{Value, \Mmyr} & \textbf{Basis} & \textbf{Label}\\
+\midrule
+Estimated total & 25--55 & Files 07 and 09 & \Tst\ / \Calc\\
+Household wells outside PDAM & 0--25 & PDAM households $41.63\times38/62$, an upper bound that includes shallow wells and springs & \Calc\\
+Public supply wells & 0--10 & About 19\,\% of PDAM supply, if these wells are not already in the declared volume & \Wk\\
+Declared (2023) & 10.1 & ESDM open data & \Off\\
+\midrule
+\textbf{Taxable gap} & \textbf{below 0 to about 45} & Low: $25-25-10-10$; high: $55-0-0-10$ & \Calc\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\begin{caution}
+With today's inputs we cannot say that there \emph{is} a gap. The household term is the largest unknown.
+The app shows this range and the terms that make it up; it does not print a single ``lost revenue''
+number. The range narrows when \V{1} is run and when household well use is measured or requested.
+\end{caution}
+
+\subsection{Method \M{2}: pricing}
+
+Pricing is plain arithmetic on official numbers: tax per \mthree\ $=0.20\times$ NPA \Calc. For business use in
+the top tier (K4 to K2), each 1\Mm\ of undeclared pumping is \textbf{Rp 8.9--13.4 billion per year} in tax.
+Pricing the declared 10.07\Mm\ at the K3--K2 top tier gives Rp 112--135 billion per year; this is the
+\emph{size} of the tax base, not a measured revenue.
+
+The app shows a slider for ``undeclared business use'' \Scn, starting at zero, and prices whatever the user
+sets. Earlier drafts printed a scenario of 5--15\Mm\ (Rp 45--200 billion); this document drops it as a
+finding because nothing measured backs it.
+
+\subsection{The first check, \V{1}: billing}\label{sec:v1}
+
+Get the realised groundwater tax for Kota Semarang, 2020--2025, from the budget realisation report (APBD)
+or the mayor's accountability report (LKPJ). Divide it by the declared volume of the same year. The
+implied price per \mthree\ should fall inside $0.20\times$ the NPA range of groups 2--4.
+\begin{itemize}
+\item Inside the range: billing matches the declarations; any gap is about undeclared volume.
+\item Below the range: tax is leaking at the billing stage, before any unregistered well is counted. This is
+  the strongest single number for the pitch, and it needs no satellite data.
+\end{itemize}
+
+\begin{caution}
+Pergub 7/2025 applies from February 2025. For 2020--2024 the previous NPA regulation applies, and we have
+not obtained it yet (\R{1}).
+\end{caution}

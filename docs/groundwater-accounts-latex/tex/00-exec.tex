@@ -1,0 +1,143 @@
+% ===================== Executive summary: two pages, visual first =====================
+\newgeometry{left=22mm,right=22mm,top=15mm,bottom=17mm}
+\thispagestyle{empty}\phantomsection\addcontentsline{toc}{section}{Executive summary}
+\markboth{Executive summary}{Executive summary}
+\newcommand{\xhead}[2]{\par\vspace{2.2mm}\noindent
+  {\sffamily\bfseries\small\color{accent}\MakeUppercase{#1}}\hfill{\sffamily\scriptsize\color{muted}#2}\\[-7pt]
+  {\color{line}\rule{\linewidth}{0.5pt}}\par\vspace{0.6mm}}
+\tcbset{tile/.style={enhanced,colback=#1,colframe=#1,boxrule=0pt,arc=2pt,left=7pt,right=7pt,top=6pt,bottom=6pt,
+  fontupper=\sffamily\footnotesize\raggedright}}
+\newcommand{\tilebig}[2]{{\sffamily\bfseries\fontsize{19}{21}\selectfont\color{#1}#2}\\[2pt]}
+
+\begin{center}
+{\sffamily\scriptsize\color{muted} ASEAN Geospatial Challenge 2027 \textbullet\ National Level: Indonesia \textbullet\ working document, 19 November 2026}\\[3mm]
+{\sffamily\bfseries\fontsize{24}{27}\selectfont\color{ink} NERACA: Groundwater Accounts}\\[2mm]
+{\sffamily\large\color{accent} Who pumps, who pays, and where pipes should replace pumps in sinking Central Java}
+\end{center}
+\vspace{-1mm}
+
+\begin{tcolorbox}[enhanced,colback=accent,colframe=accent,boxrule=0pt,arc=2pt,left=10pt,right=10pt,top=7pt,bottom=7pt]
+\sffamily\color{white}\textbf{Executive summary.} Our earlier research showed that satellites cannot point at
+single wells in Semarang: the sinking follows soft clay and a city-wide fall in aquifer pressure. NERACA
+(Indonesian for ``balance sheet'') therefore works where satellite data meet official records. It
+\textbf{(A)} compares declared groundwater use with independent estimates and prices the difference with the
+official tariff, \textbf{(B)} lists new large buildings in zones where new wells are banned, for inspectors
+to visit, and \textbf{(C)} tests whether piped water slows the sinking. Every number on screen carries a
+label saying what backs it.
+\end{tcolorbox}
+
+% ---------------------------------------------------------------- PROBLEM
+\xhead{The problem, in official numbers}{Sections \ref{sec:why}--\ref{sec:a}}
+\begin{tcbraster}[raster columns=3,raster equal height,raster column skip=3mm,raster before skip=1mm,raster after skip=0mm]
+\begin{tcolorbox}[tile=warmsoft]
+\tilebig{warm}{Rp 78,575/m$^3$}
+The top official groundwater price in Kota Semarang \cite{pergub7}. At the 20\,\% tax rate, each
+1\Mm\ of undeclared business pumping is Rp 9--13 billion a year in tax.
+\end{tcolorbox}
+\begin{tcolorbox}[tile=warmsoft]
+\tilebig{warm}{27.7 $\rightarrow$ 10.1\Mm}
+Declared abstraction in Kota Semarang, 2018 and 2023 \cite{perdasmg,esdmdata}. Is pumping falling, or only
+the paperwork?
+\end{tcolorbox}
+\begin{tcolorbox}[tile=warmsoft]
+\tilebig{warm}{0.22\Mm}
+Piped water sold to all of Semarang's industry in 2022 \cite{perdasmg}. Industry runs on its own wells,
+and most of the city is a zone where new wells are banned.
+\end{tcolorbox}
+\end{tcbraster}
+
+% ---------------------------------------------------------------- MODULES
+\xhead{Three modules, one map}{Sections \ref{sec:a}--\ref{sec:c}}
+\begin{tcbraster}[raster columns=3,raster equal height,raster column skip=3mm,raster before skip=1mm,raster after skip=0mm]
+\begin{tcolorbox}[tile=accentsoft]
+{\sffamily\bfseries\color{accent}A. Groundwater accounts}\\[2pt]
+Declared vs estimated use for all 35 regencies and cities of Central Java, priced with the official tariff.\\[3pt]
+\textbf{Backed by:} provincial open data, Pergub 7/2025, our validated volume split.\\[2pt]
+\textbf{First check:} actual tax revenue $\div$ declared volume.
+\end{tcolorbox}
+\begin{tcolorbox}[tile=accentsoft]
+{\sffamily\bfseries\color{accent}B. Inspection leads}\\[2pt]
+New large buildings in no-new-well zones with no piped water: a short list for field visits.\\[3pt]
+\textbf{Backed by:} satellite building change, the 2022 zone map, PDAM coverage.\\[2pt]
+\textbf{First check:} Arizona, where every new well is registered with a date.
+\end{tcolorbox}
+\begin{tcolorbox}[tile=accentsoft]
+{\sffamily\bfseries\color{accent}C. Pipes instead of pumps}\\[2pt]
+Where piped water replaces most groundwater, and whether sinking slowed after it arrived.\\[3pt]
+\textbf{Backed by:} Sentinel-1 maps 2014--2026, clay thickness, SPAM Semarang Barat (19\Mmyr).\\[2pt]
+\textbf{First check:} before/after test with placebo areas and years.
+\end{tcolorbox}
+\end{tcbraster}
+
+% ---------------------------------------------------------------- BACKING
+\xhead{No random numbers: every value says what backs it}{Section \ref{sec:backing}}
+{\sffamily\footnotesize
+\noindent\begin{tabularx}{\linewidth}{@{}l Y l Y@{}}
+\Off & Government regulation or official open data & \Calc & Arithmetic on backed inputs, with ranges\\
+\Mea & Satellite or field measurement & \Wk & A single secondary source; to be confirmed\\
+\Tst & Our method, passed a pre-registered test & \Scn & An assumption the user sets with a slider\\
+ & & \Mis & Not obtained yet; the layer is hidden until it is\\
+\end{tabularx}}
+
+% ---------------------------------------------------------------- RESEARCH BASIS
+\xhead{What the earlier research settled}{Section \ref{sec:found}}
+\begin{tcbraster}[raster columns=3,raster equal height,raster column skip=3mm,raster before skip=1mm,raster after skip=0mm]
+\begin{tcolorbox}[tile=greensoft]
+\tilebig{green}{Within 1.5$\times$}
+A known regional pumping total, split over 16\,km cells by demand and sinking, passed a pre-registered test
+in two unseen regions \cite{exp09}.
+\end{tcolorbox}
+\begin{tcolorbox}[tile=warmsoft]
+\tilebig{warm}{Not at wells}
+Registered deep wells do not sit on faster-sinking ground; sinking bowls are near wells no more than chance
+\cite{exp13}.
+\end{tcolorbox}
+\begin{tcolorbox}[tile=greensoft]
+\tilebig{green}{80\,\% clay}
+Soft-clay thickness explains about 80\,\% of the sinking pattern; the fastest areas slowed from 113 to
+89\,mm/yr since 2014 \cite{exp14}.
+\end{tcolorbox}
+\end{tcbraster}
+
+\vspace{1mm}
+{\sffamily\footnotesize So the app does not draw wells from sinking. It uses the satellite for what was
+validated: volumes at 16\,km, sinking rates and their change, and building change. Records and tariffs
+do the rest.\par}
+
+% ---------------------------------------------------------------- HONEST
+\Needspace{14\baselineskip}
+\xhead{What we can and cannot say today}{Section \ref{sec:valid}}
+\begin{tcbraster}[raster columns=3,raster equal height,raster column skip=3mm,raster before skip=1mm,raster after skip=0mm]
+\begin{tcolorbox}[tile=greensoft]
+\textbf{\color{green}Backed now}\\[1pt]
+The tariff table, the tax per 1\Mm, declared volumes, the sinking maps and their slowdown, the 16\,km volume split.
+\end{tcolorbox}
+\begin{tcolorbox}[tile=accentsoft]
+\textbf{\color{accent}Next tests (pass marks fixed)}\\[1pt]
+Tax revenue vs declared volume; new building $\rightarrow$ new well in Arizona; the SPAM Semarang Barat
+before/after test with placebos.
+\end{tcolorbox}
+\begin{tcolorbox}[tile=warmsoft]
+\textbf{\color{warm}Not yet known}\\[1pt]
+The size of the undeclared gap: today it ranges from below zero to about 45\Mmyr, because household
+pumping is unmeasured. We show the range, not a ``lost revenue'' headline.
+\end{tcolorbox}
+\end{tcbraster}
+
+% ---------------------------------------------------------------- WHY IT CAN WIN
+\xhead{Why it can win}{Section \ref{sec:fit}}
+\noindent
+\begin{tikzpicture}[font=\sffamily\scriptsize]
+  \tikzset{seg/.style={minimum height=6.5mm,inner sep=0pt,anchor=west,text=white,font=\sffamily\bfseries\fontsize{7.6}{9}\selectfont},
+           why/.style={anchor=north west,align=flush left,inner sep=0pt,text=ink}}
+  \node[seg,fill=muted,minimum width=33.2mm] (s1) at (0,0) {Challenge 20\,\%};
+  \node[seg,fill=accent,minimum width=66.4mm] (s2) at (33.2mm,0) {Geospatial technology 40\,\%};
+  \node[seg,fill=muted,minimum width=33.2mm] (s3) at (99.6mm,0) {Communication 20\,\%};
+  \node[seg,fill=green,minimum width=33.2mm] (s4) at (132.8mm,0) {Creativity 20\,\%};
+  \node[why,text width=30mm] at ($(s1.south west)+(0,-1.5mm)$) {Water use, tax fairness and sinking cities (SDG 6.4, 11.5, 16.6). Jakarta, Bangkok and Ho Chi Minh City face the same choice.};
+  \node[why,text width=62mm] at ($(s2.south west)+(0,-1.5mm)$) {Two-direction Sentinel-1 time series, a volume split validated in unseen regions, satellite building change, and pre-registered tests run in the open, including the ones that failed.};
+  \node[why,text width=30mm] at ($(s3.south west)+(0,-1.5mm)$) {One map, three questions, and a label on every number.};
+  \node[why,text width=30.5mm] at ($(s4.south west)+(0,-1.5mm)$) {Turns a sinking map into an account book, a field list and a natural experiment.};
+\end{tikzpicture}
+\clearpage
+\restoregeometry

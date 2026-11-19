@@ -1,0 +1,95 @@
+\Needspace{24\baselineskip}
+\section{Traceability}\label{sec:trace}
+
+\begin{inshort}
+Read a row from left to right to follow one thread: from a question, through the data and method that
+answer it, to the check that tests it, the software that runs it and the output that delivers it.
+\end{inshort}
+
+{\small
+\begin{xltabular}{\linewidth}{@{}L{24mm}L{22mm}L{16mm}L{22mm}L{20mm}Y@{}}
+\caption{From question to output.}\label{tab:traceq}\\*
+\toprule
+\textbf{Question} & \textbf{Data} & \textbf{Method} & \textbf{Validation} & \textbf{Software} & \textbf{Output}\\*
+\midrule
+\Q{1} Used, declared, paid? & \D{1} \D{2} \D{3} \D{4} & \M{1} \M{2} & \V{1} \V{2} & \Sx{2} \Sx{4} \Sx{5} & \Ox{1} \Ox{5}\\
+\Q{2} Where are new wells? & \D{4} \D{5} \D{6} \D{9} & \M{3} \M{4} & \V{4} \V{5} \V{6} & \Sx{3} \Sx{5} \Sx{6} & \Ox{2} \Ox{5}\\
+\Q{3} Do pipes help? & \D{1} \D{7} \D{8} \D{9} & \M{5} \M{6} & \V{2} \V{3} \V{7} \V{8} & \Sx{1} \Sx{4} \Sx{5} & \Ox{3} \Ox{4} \Ox{5}\\
+\bottomrule
+\end{xltabular}}
+
+{\small
+\begin{xltabular}{\linewidth}{@{}L{46mm}L{24mm}L{22mm}L{18mm}Y@{}}
+\caption{Each method with its data, checks, software and risks.}\label{tab:tracem}\\*
+\toprule
+\textbf{Method} & \textbf{Data} & \textbf{Checked by} & \textbf{Runs in} & \textbf{Risks}\\*
+\midrule
+\M{1} Declared vs estimated & \D{1} \D{2} \D{4} & \V{1} \V{2} & \Sx{2} & \R{2}\\
+\M{2} Pricing & \D{3} & \V{1} & \Sx{2} & \R{1}\\
+\M{3} Lead filter & \D{5} \D{6} & \V{4} \V{5} & \Sx{3} & \R{3} \R{5} \R{7}\\
+\M{4} Field feedback & from \M{3} & \V{6} & \Sx{6} & \R{7}\\
+\M{5} Pipe-priority map & \D{1} \D{7} \D{8} & \V{2} \V{3} & \Sx{1} \Sx{5} & \R{4}\\
+\M{6} SPAM before/after test & \D{1} \D{7} \D{8} \D{9} & \V{7} \V{8} & \Sx{1} & \R{4} \R{6}\\
+\bottomrule
+\end{xltabular}}
+
+User needs \U{1}--\U{6} are traced to outputs and components in Table~\ref{tab:needs}.
+
+\section{Glossary}
+
+\begin{description}[leftmargin=34mm,style=nextline,font=\sffamily\bfseries\small,itemsep=1pt]
+\item[NPA] Nilai Perolehan Air: the official value of groundwater per \mthree, set by the province. The tax is a share of it.
+\item[PAT] Pajak Air Tanah: the regional groundwater tax, collected by the city or regency.
+\item[HAB / BAT] Base price of water / the weighting factor for resource and use group. NPA $=$ HAB $\times$ BAT.
+\item[CAT] Cekungan Air Tanah: a groundwater basin. CAT Semarang--Demak is zoned as safe, vulnerable, critical or damaged.
+\item[PDAM] The city water company. In Semarang: PDAM Tirta Moedal.
+\item[SPAM] Sistem Penyediaan Air Minum: a drinking-water supply system, such as SPAM Semarang Barat.
+\item[PPID] The public information office that answers citizens' data requests.
+\item[APBD / LKPJ] The regional budget / the head of region's annual accountability report; both list realised tax.
+\item[InSAR] Measuring ground motion by comparing radar images taken at different times.
+\item[Difference-in-differences] Comparing the change in a treated area with the change in similar untreated areas, so that changes common to both cancel.
+\item[Placebo test] The same test run where there should be no effect (wrong years, wrong places). If it finds one, the method is picking up noise.
+\item[Pre-registration] Writing down the test and its pass mark before looking at the result.
+\end{description}
+
+\begin{thebibliography}{99}\small\raggedright
+\bibitem{abidin2013} H.Z. Abidin, H. Andreas, I. Gumilar, T.P. Sidiq, Y. Fukuda. Land subsidence in coastal city of Semarang (Indonesia): characteristics, impacts and causes. \emph{Geomatics, Natural Hazards and Risk} 4(3), 226--240, 2013.
+\bibitem{aditiya2023} A. Aditiya, T. Ito. Present-day land subsidence over Semarang revealed by time series InSAR new small baseline subset technique. \emph{Int.\ J.\ Applied Earth Observation and Geoinformation} 125, 103579, 2023.
+\bibitem{aseangeo} ASEAN Geospatial Challenge. \url{https://www.aseangeospatial.org/asean-geospatial-challenge/}
+\bibitem{ddtcjabar} DDTC News. Demi kejar pajak, Dinas ESDM petakan ulang sumur air tanah di daerah, January 2025. \url{https://news.ddtc.co.id/berita/daerah/1808556/demi-kejar-pajak-dinas-esdm-petakan-ulang-sumur-air-tanah-di-daerah}
+\bibitem{ddtcsmg} DDTC News. Ketentuan terbaru tarif pajak daerah di Kota Semarang. \url{https://news.ddtc.co.id/berita/daerah/1800913/ketentuan-terbaru-tarif-pajak-daerah-di-kota-semarang-cek-di-sini}
+\bibitem{ekon} Kemenko Perekonomian. Pemerintah dorong peningkatan ketersediaan air minum dengan operasional PSN SPAM Semarang Barat. \url{https://ekon.go.id/unduh/publikasi/4380/pemerintah-dorong-peningkatan-ketersediaan-air-minum-dengan-operasional-psn-spam-semarang-barat}
+\bibitem{enforcea} Enforcea. Apa itu pajak air tanah. \url{https://enforcea.com/Blog/apa-itu-pajak-air-tanah}
+\bibitem{esdmdata} Dinas ESDM Provinsi Jawa Tengah. Nilai Perolehan Air Tanah (NPA) dan volume pengambilan pengusahaan air tanah di Provinsi Jawa Tengah, 2020--2023. \url{https://data.jatengprov.go.id/dataset/fcc-nilai-perolehan-air-tanah-npa-dan-volume-pengambilan-pengusahaan-air-tanah-di-provinsi-jawa-teng}
+\bibitem{esdmpct} Dinas ESDM Provinsi Jawa Tengah. Persentase pengambilan air tanah di Jawa Tengah. \url{https://data.jatengprov.go.id/dataset/29a-persentase-pengambilan-air-tanah-di-jawa-tengah}
+\bibitem{exp04} Experiments log, file 04: blind test and repeatability. \texttt{docs/groundwater-audit-latex-v2/experiments/04-blind-and-repeatability.md}
+\bibitem{exp05} Experiments log, file 05: Arizona metered-pumping validation T1--T7. \texttt{.../experiments/05-arizona-validation.md}
+\bibitem{exp07} Experiments log, file 07: Semarang water-demand model. \texttt{.../experiments/07-semarang-demand-model.md}
+\bibitem{exp09} Experiments log, file 09: known total split by demand and sinking, validated. \texttt{.../experiments/09-validated-regional-split.md}
+\bibitem{exp10} Experiments log, file 10: ALOS-1 PALSAR 2006--2010. \texttt{.../experiments/10-alos1-2006-2010.md}
+\bibitem{exp12} Experiments log, file 12: relative heatmap inside a region. \texttt{.../experiments/12-relative-heatmap.md}
+\bibitem{exp13} Experiments log, file 13: registered wells vs sinking, pre-registered. \texttt{.../experiments/13-registered-wells-test.md}
+\bibitem{exp14} Experiments log, file 14: what explains the sinking. \texttt{.../experiments/14-subsidence-causes.md}
+\bibitem{exp15} Experiments log, file 15: app pivot research A+B+C. \texttt{.../experiments/15-app-pivot-a-b-c.md}
+\bibitem{ghsl} European Commission Joint Research Centre. Global Human Settlement Layer (GHSL), built-up surface. \url{https://human-settlement.emergency.copernicus.eu/}
+\bibitem{ica} Illicit groundwater use in the Ica Valley, Peru. EGU General Assembly 2024, EGU24-11957. \url{https://meetingorganizer.copernicus.org/EGU24/EGU24-11957.html}
+\bibitem{idx} IDX Channel. ESDM beberkan wilayah yang cekungan air tanahnya rusak. \url{https://www.idxchannel.com/news/esdm-beberkan-wilayah-yang-cekungan-air-tanahnya-rusak-simak-lokasinya/all}
+\bibitem{iges} IGES. Groundwater management in Asian cities, ISAP 2009. \url{https://isap.iges.or.jp/2009/jp/pdf/day2/27m_304asiancities.pdf}
+\bibitem{impel} IMPEL. Water Over-abstraction and Illegal Abstraction (WODA), final report, 2015. \url{https://impel.eu/contents/libraryfile/FR-2015-11%20WODA%20Final%20Report.pdf}
+\bibitem{investortrust} Investortrust. Kemenkeu ungkap infrastruktur layanan air minum butuh investasi Rp 123,5 triliun. \url{https://investortrust.id/business/34175/kemenkeu-ungkap-infrastruktur-layanan-air-minum-butuh-investasi-rp-123-5-triliun}
+\bibitem{jordan} Remote sensing of irrigated area vs recorded groundwater abstraction in Jordan. \url{https://bvbvf1.bib-bvb.de/vufind/PrimoRecord/cdi_proquest_journals_2713850785}
+\bibitem{koranjkt} Koran Jakarta. Gubernur DKI Jakarta berkomitmen kejar target cakupan air bersih 100 persen, 30 September 2025. \url{https://koran-jakarta.com/2025-09-30/gubernur-dki-jakarta-berkomitmen-kejar-target-cakupan-air-bersih-100-persen/amp}
+\bibitem{lo2022} W. Lo, S.N. Purnomo, B.G. Dewanto, D. Sarah, Sumiyanto. Integration of numerical models and InSAR techniques to assess land subsidence due to excessive groundwater abstraction in the coastal and lowland regions of Semarang City. \emph{Water} 14(2), 201, 2022.
+\bibitem{mekong} Mekong--U.S.\ Partnership. How Bangkok stopped sinking, and what the Mekong delta could learn, 2 October 2020. \url{https://mekonguspartnership.org/2020/10/02/how-bangkok-stopped-sinking-and-what-the-mekong-delta-could-learn-october-2-2020/}
+\bibitem{morishita2020} Y. Morishita, M. Lazecky, T.J. Wright, J.R. Weiss, J.R. Elliott, A. Hooper. LiCSBAS: an open-source InSAR time series analysis package integrated with the LiCSAR automated Sentinel-1 InSAR processor. \emph{Remote Sensing} 12(3), 424, 2020.
+\bibitem{perda10} Perda Kota Semarang No.\ 10 Tahun 2023 tentang Pajak Daerah dan Retribusi Daerah. \url{https://pasal.id/peraturan/perda/perda-kota-semarang-no-10-tahun-2023}
+\bibitem{perdasmg} Perda Kota Semarang 2024, background text on water supply and groundwater use (local copy \texttt{realdata/semarang/perda/p.txt}).
+\bibitem{pergub7} Peraturan Gubernur Jawa Tengah No.\ 7 Tahun 2025 tentang Penetapan Nilai Perolehan Air Tanah, with annex. \url{https://peraturan.bpk.go.id/Details/314690/pergub-prov-jawa-tengah-no-7-tahun-2025}
+\bibitem{setkab} Sekretariat Kabinet. Resmikan SPAM Semarang Barat, Presiden bantu masyarakat peroleh air bersih terjangkau, January 2024. \url{https://setkab.go.id/resmikan-spam-semarang-barat-presiden-bantu-masyarakat-peroleh-air-bersih-terjangkau/}
+\bibitem{sla} Singapore Land Authority. ASEAN Geospatial Challenge. \url{https://geospatial.sla.gov.sg/geoworks/asean-geospatial-challenge/}
+\bibitem{terc} TERC LPEM FEB UI. Pajak air permukaan dan pajak air tanah, policy brief, 2024. \url{https://terc.lpem.org/wp-content/uploads/2024/04/PAP_dan_PAT-TERC_Brief.pdf}
+\bibitem{tirto} tirto.id. Gedung di zona bebas air tanah wajib pakai air PAM Jaya. \url{https://tirto.id/gedung-di-zona-bebas-air-tanah-wajib-pakai-air-pam-jaya-g5dF}
+\bibitem{tuoitre} Tuoi Tre News. Ho Chi Minh City reduces groundwater extraction to fight land subsidence. \url{https://news.tuoitre.vn/ho-chi-minh-city-reduces-groundwater-extraction-to-fight-land-subsidence-10325091712283531.htm}
+\bibitem{undip} Universitas Diponegoro thesis, chapter 1: CAT Semarang--Demak conservation zones and permit rules. \url{https://eprints2.undip.ac.id/55333/3/Bab%20I.pdf}
+\bibitem{wbbangkok} World Bank GW-MATE. Bangkok groundwater management case profile. \url{https://documents1.worldbank.org/curated/en/750761468304831965/pdf/518250BRI0Box31GWMATE1CP1201Bangkok.pdf}
+\end{thebibliography}

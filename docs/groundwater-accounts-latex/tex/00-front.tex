@@ -1,0 +1,61 @@
+\section*{About this document}
+\markboth{About this document}{About this document}
+
+This document follows \emph{Groundwater Audit from Space} (the v2 report and its experiments log). That work
+asked whether satellites can find and size single pumping wells; the answer for Semarang was no. This
+document designs the app that uses what did work. Its research basis is experiment file 15 and files
+04--14 of the experiments log \cite{exp15}.
+
+\textbf{Assumptions.} Study area: Central Java for module A, Semarang--Demak for B and C. Team: four
+students. Time: six weeks to the national round. Data: only open data and documents a citizen can request.
+
+\subsection*{How to read this document}
+
+Every item that matters has a tag: a letter for its kind and a circled number. For example, \Q{1} (how much
+is pumped and paid?) is answered by method \M{1}, checked by \V{1}, built in component \Sx{2}, and
+delivered as output \Ox{1}. Section~\ref{sec:trace} lists every link.
+
+\begin{center}
+\small\renewcommand{\arraystretch}{1.0}
+\begin{tabular}{@{}llp{62mm}l@{}}
+\toprule
+\textbf{Tag} & \textbf{Kind} & \textbf{Meaning} & \textbf{Defined in}\\*
+\midrule
+\Q{1}--\Q{3} & Question & What the app must answer & Section~\ref{sec:why}\\
+\D{1}--\D{9} & Data & A data set and where it comes from & Section~\ref{sec:data}\\
+\M{1}--\M{6} & Method & One step that turns data into an output & Sections~\ref{sec:a}--\ref{sec:c}\\
+\V{1}--\V{8} & Validation & A check with a pass mark & Section~\ref{sec:valid}\\
+\R{1}--\R{8} & Risk & What could go wrong, and the response & Section~\ref{sec:risks}\\
+\U{1}--\U{6} & User need & What a user must be able to do & Section~\ref{sec:product}\\
+\Sx{1}--\Sx{6} & Software & A component of the app & Section~\ref{sec:arch}\\
+\Ox{1}--\Ox{5} & Output & Something the project delivers & Section~\ref{sec:why}\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+A second kind of label says \emph{what backs a number}. It appears next to every value in the tables and on
+every number in the app.
+
+\begin{center}
+\small\renewcommand{\arraystretch}{1.05}
+\begin{tabular}{@{}lp{110mm}@{}}
+\toprule
+\textbf{Label} & \textbf{Meaning}\\*
+\midrule
+\Off & A government regulation, official statistic or official open data set.\\
+\Mea & A satellite or field measurement.\\
+\Tst & Our own method, which passed a test whose pass mark was fixed before the run.\\
+\Calc & Arithmetic on backed inputs. It carries their ranges.\\
+\Wk & Only one secondary source (news, blog). Shown, but flagged until confirmed.\\
+\Scn & An assumption. The app shows it as a slider the user moves, never as a finding.\\
+\Mis & Not obtained yet. The app hides the layer until it is.\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Three kinds of boxes recur. \textcolor{accent}{\textsf{\textbf{In short}}} gives the point of a
+section. \textcolor{green}{\textsf{\textbf{In plain words}}} explains an idea without jargon.
+\textcolor{warm}{\textsf{\textbf{Honest limit}}} says what a result does not show.
+
+{\sffamily\footnotesize\hypersetup{linkcolor=ink}\setcounter{tocdepth}{1}\setlength{\parskip}{0pt}\makeatletter\renewcommand*\l@section{\@dottedtocline{1}{0em}{2.2em}}\makeatother\tableofcontents}
+\clearpage

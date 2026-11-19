@@ -1,0 +1,108 @@
+\section{Why this app}\label{sec:why}
+
+\begin{inshort}
+The first app idea was a map of every pumping well and its volume. Our own tests ruled that out, and a
+plain sinking map already exists online. NERACA moves the question from ``where is each well'' to
+\emph{who pumps, who pays, and what to do}, using only results that passed a test or come from official
+records.
+\end{inshort}
+
+\subsection{What the earlier research settled}\label{sec:found}
+
+Fourteen real-data experiments on Semarang, Arizona and Houston \cite{exp15} leave three facts that shape
+this app.
+
+\begin{enumerate}
+\item \textbf{Volumes are reliable only at a coarse scale.} A known regional pumping total, split over
+  16\,km cells by water demand and sinking volume, landed within about 1.5 times the metered truth in two
+  regions it had never seen \cite{exp09}. Finer splits (2--8\,km) failed \cite{exp12}.
+\item \textbf{Sinking does not point at wells.} Registered deep wells in Semarang sit on ground that sinks
+  \emph{slower} than built-up land of the same density (35.9 vs 48.5\,mm/yr), and sinking bowls lie near
+  wells no more often than chance \cite{exp13}.
+\item \textbf{Sinking is soft clay times a regional pressure fall.} Clay thickness explains about 80\,\% of
+  the pattern; new ground and buildings add about 10\,\%; pumping proxies add nothing beyond that. Heads at
+  six observation wells fell in step with sinking. The fastest areas slowed from 113 (2014--17) to 103
+  (2018--22) to 89\,mm/yr (2023--26) \cite{exp14}.
+\end{enumerate}
+
+\begin{plain}
+The satellite can tell how fast the ground sinks, how that changes, and roughly how much water a whole
+district pumps. It cannot tell which factory pumps. So the app lets the satellite do the first three, and
+lets permits, tariffs and inspectors do the rest.
+\end{plain}
+
+Sinking maps and flood projections for Semarang are already published \cite{abidin2013,aditiya2023}, so another sinking map
+would not be new. What is missing is a link between the sinking, the water that is pumped, the water that
+is declared and paid for, and the piped water that could replace it.
+
+\subsection{Questions and outputs}
+
+\begin{center}
+\small
+\begin{tabularx}{\linewidth}{@{}L{8mm}Y L{32mm}@{}}
+\toprule
+ & \textbf{Question} & \textbf{User}\\
+\midrule
+\Q{1} & How much groundwater is used compared with what is declared, and what is the difference worth in tax? & Tax office (Bapenda), Dinas ESDM, council\\
+\Q{2} & Where are new large water users that probably drilled a well without a permit? & Dinas ESDM inspectors\\
+\Q{3} & Where does piped water replace the most groundwater, and does sinking slow after it arrives? & PDAM, Bappeda, public works\\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+\begin{center}
+\small
+\begin{tabularx}{\linewidth}{@{}L{8mm}Y L{24mm}@{}}
+\toprule
+ & \textbf{Output} & \textbf{Answers}\\
+\midrule
+\Ox{1} & Groundwater account per regency/city: declared, estimated (range), tariff, tax per 1\Mm & \Q{1}\\
+\Ox{2} & Inspection lead list for Semarang--Demak, with a field-feedback record per lead & \Q{2}\\
+\Ox{3} & Pipe-priority map with visible, adjustable weights & \Q{3}\\
+\Ox{4} & Result of the SPAM Semarang Barat before/after test, with placebos & \Q{3}\\
+\Ox{5} & Source register: every number in the app linked to its source and label & all\\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+\subsection{Sustainable Development Goals}
+
+\begin{center}
+\small
+\begin{tabularx}{\linewidth}{@{}L{22mm}Y@{}}
+\toprule
+\textbf{Target} & \textbf{How NERACA serves it}\\
+\midrule
+SDG 6.4 & Water-use efficiency and sustainable withdrawals: accounts (A) and enforcement (B).\\
+SDG 6.1 & Safe, affordable drinking water: where piped supply should go next (C).\\
+SDG 11.5 & Fewer people affected by disasters: slowing subsidence and tidal flooding (C).\\
+SDG 16.6 & Effective, accountable institutions: declared vs estimated use in the open (A, B).\\
+SDG 17.1 & Domestic revenue: groundwater tax that is owed but not collected (A).\\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+\subsection{Data}\label{sec:data}
+
+{\small
+\begin{xltabular}{\linewidth}{@{}L{8mm}L{44mm}Y L{17mm}@{}}
+\caption{Data sets. All are open or can be requested by a citizen.}\label{tab:data}\\*
+\toprule
+ & \textbf{Data} & \textbf{Source and access} & \textbf{Label}\\*
+\midrule
+\endfirsthead
+\toprule
+ & \textbf{Data} & \textbf{Source and access} & \textbf{Label}\\*
+\midrule
+\endhead
+\D{1} & Sentinel-1 ground motion, Semarang 2014--2026 & LiCSAR frames 076D and 127A, already processed \cite{morishita2020,exp14} & \Mea\\
+\D{2} & Declared abstraction and NPA per regency/city, 2020--2023 & Dinas ESDM Jateng open data, XLSX, CC-BY \cite{esdmdata,esdmpct} & \Off\\
+\D{3} & Groundwater price (NPA) table & Pergub Jateng 7/2025 with annex \cite{pergub7} & \Off\\
+\D{4} & Semarang water use, PDAM sales, registered volumes & Perda Kota Semarang 2024 background text \cite{perdasmg} & \Off\\
+\D{5} & Built-up change and building footprints & GHSL, Landsat 1988--2024, OSM \cite{ghsl,exp14} & \Mea\\
+\D{6} & Groundwater conservation zones, CAT Semarang--Demak & Dinas ESDM Jateng 2022 map under Permen ESDM 31/2018 \cite{undip,idx} & \Off, map to digitise\\
+\D{7} & Soft-clay thickness & Boreholes and models, used in \cite{exp14} & \Mea\\
+\D{8} & SPAM Semarang Barat capacity, uptake, service area & Government releases \cite{setkab,ekon,investortrust}; service map not yet obtained & \Off\ / \Mis\\
+\D{9} & Arizona well registry and metered pumping & ADWR Wells 55 and meters, used in \cite{exp05} & \Off\\
+\bottomrule
+\end{xltabular}}

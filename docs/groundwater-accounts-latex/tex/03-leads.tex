@@ -1,0 +1,94 @@
+\section{B. Inspection leads}\label{sec:b}
+
+\begin{inshort}
+Module B gives inspectors a short list of places to visit: new large buildings inside zones where no new
+well permit can be issued, and outside the reach of piped water. A building like that must get water from
+somewhere. Each visit is recorded in the app, which over time builds the per-site record that no open data
+set has.
+\end{inshort}
+
+\subsection{Why not use sinking to find wells}
+
+The first version of B ranked ``sinking that permits do not explain'' as a hunt for illegal wells. The
+experiments made this unsound: sinking follows clay thickness and a regional pressure fall, and registered
+wells sit on \emph{slower} ground \cite{exp13,exp14}. Unexplained sinking does not mean an illegal well. B
+therefore uses building change and zoning. Sinking appears only as background, to show how damaged a zone
+is.
+
+\subsection{Facts that support the leads}
+
+\begin{itemize}
+\item \textbf{The zoning exists.} Dinas ESDM Jateng mapped the groundwater conservation zones of the CAT
+  Semarang--Demak in 2022 under Permen ESDM 31/2018 \cite{undip,idx} \Off. The ``damaged'' (rusak) zone
+  covers most of Kota Semarang. In critical and damaged zones no new abstraction permit can be issued;
+  renewals get 50\,\% of the earlier volume and must build recharge wells.
+\item \textbf{Industry depends on wells.} PDAM sold 0.22\Mm\ to industry in 2022 \cite{perdasmg} \Off.
+\item \textbf{Unregistered wells are common.} In West Java, Dinas ESDM counted at least 6,000 well points,
+  of which about 200 had a permit, and is remapping wells to raise tax \cite{ddtcjabar} \Wk. This is
+  another province, from a news report.
+\item \textbf{Satellites already find unrecorded abstraction elsewhere.} Jordan compared irrigated area from
+  Landsat with recorded abstraction and found unlicensed wells and faulty meters \cite{jordan}. In Peru's
+  Ica Valley, illicit use was about twice the regulated volume \cite{ica}. EU regulators rate optical and
+  radar methods as mature but needing local tuning \cite{impel}.
+\end{itemize}
+
+\begin{caution}
+All the foreign cases are irrigation, where crops show water use through evaporation. A factory well shows
+nothing from space. B relies on a chain of reasoning (new, large, banned zone, no pipes, so probably a well),
+and the chain must be tested (\V{4}, \V{5}).
+\end{caution}
+
+\subsection{Method \M{3}: the lead filter}
+
+A building becomes a lead when it passes four filters. There is no weighted score: a score with made-up
+weights would be a number with nothing behind it.
+
+\begin{center}
+\small
+\begin{tabularx}{\linewidth}{@{}L{6mm}L{48mm}Y l@{}}
+\toprule
+ & \textbf{Filter} & \textbf{Data} & \textbf{Label}\\
+\midrule
+1 & Built after the 2022 zone map & GHSL and Landsat built-up change, building footprints \D{5} & \Mea\\
+2 & Footprint above a size threshold, in a water-using class (factory, hotel, mall, hospital) & Footprints, OSM land use \D{5} & \Mea\\
+3 & Inside a critical or damaged zone & Zone map \D{6} & \Off\\
+4 & Outside the PDAM network & PDAM coverage per village (kelurahan) & \Mis\\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+Filter 4 is the weakest link: the PDAM network map is not public. Until coverage is obtained (a PPID
+information request to PDAM or the city), the app uses a proxy: distance to known mains and the SPAM
+service districts. Leads based on the proxy are labelled as such.
+
+\subsection{Method \M{4}: the field-feedback loop}
+
+Each lead has a card with a satellite image, footprint, zone and PDAM status, and a button for the
+inspector to record what was found:
+\emph{registered well / unregistered well / no well / PDAM customer}. The records give two things:
+\begin{itemize}
+\item the hit rate of B per lead class, measured in the field (\V{6});
+\item a growing per-site register, the data that files 12 and 13 showed is missing \cite{exp12,exp13}.
+\end{itemize}
+
+Lead cards are for inspectors only. The public view shows counts per district, not addresses: a lead is a
+reason to visit, not an accusation (\R{7}).
+
+\subsection{How B is checked}
+
+\begin{itemize}
+\item \V{4} \textbf{Arizona retro test.} Arizona registers every well with a drilling date and location
+  (Wells 55), already used in file 05 \cite{exp05}. Do new large buildings outside water-provider service
+  areas get a new registered well within 500\,m in the same or next two years, more often than
+  built-matched random buildings? Pass marks are in Table~\ref{tab:valid}.
+\item \V{5} \textbf{Semarang permit overlap.} Leads that fall on a known permitted well (Lo et al.\
+  \cite{lo2022} or an ESDM permit list) are confirmed water users. Leads should hit permitted wells more
+  often than random new buildings of the same size.
+\item \V{6} \textbf{Field hit rate.} Reported per lead class with a 90\,\% interval. It has no pass mark:
+  it is the number B exists to measure.
+\end{itemize}
+
+\begin{caution}
+B cannot measure how many unpermitted wells it misses; that needs a full census. Factories that were already
+self-supplied before 2022 are not ``new'' and are not leads. They belong to the declared volume in A.
+\end{caution}

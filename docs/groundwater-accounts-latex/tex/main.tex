@@ -1,0 +1,136 @@
+% NERACA: groundwater accounts, inspection leads and pipes -- research report and app design
+% Compile: pdflatex main.tex (twice)
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[sc]{mathpazo}
+\usepackage[scaled=0.92]{helvet}
+\renewcommand{\ttdefault}{lmtt}
+\usepackage{microtype}
+\usepackage[a4paper,left=24mm,right=24mm,top=25mm,bottom=25mm]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage[table]{xcolor}
+\usepackage{graphicx}
+\usepackage{booktabs,tabularx,longtable,array,makecell}
+\usepackage{xltabular}
+\usepackage{needspace}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage[most]{tcolorbox}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,shapes.geometric,fit,calc,backgrounds}
+\usepackage{caption}
+\usepackage{float}
+\usepackage[hidelinks]{hyperref}
+\usepackage{xurl}
+
+% ---------- colours ----------
+\definecolor{ink}{HTML}{10232B}
+\definecolor{muted}{HTML}{52514E}
+\definecolor{accent}{HTML}{1C5CAB}
+\definecolor{accentsoft}{HTML}{E6EFFA}
+\definecolor{warm}{HTML}{B4491E}
+\definecolor{warmsoft}{HTML}{FCEDE6}
+\definecolor{green}{HTML}{0F7A55}
+\definecolor{greensoft}{HTML}{E4F4EE}
+\definecolor{line}{HTML}{C9D3D8}
+\definecolor{rowalt}{HTML}{F4F7F9}
+\color{ink}
+\hypersetup{colorlinks=true,linkcolor=accent,urlcolor=accent,citecolor=accent}
+
+% ---------- traceability tags (\textcircled) ----------
+% One letter says what kind of thing it is, the circled number says which one.
+\newcommand{\cir}[1]{\textcircled{\raisebox{-0.9pt}{\scriptsize\sffamily\bfseries #1}}}
+\newcommand{\trtag}[3]{\mbox{\textcolor{#1}{\sffamily\bfseries #2\kern0.8pt\cir{#3}}}}
+\newcommand{\Q}[1]{\trtag{accent}{Q}{#1}}   % research question
+\newcommand{\D}[1]{\trtag{green}{D}{#1}}    % data set
+\newcommand{\M}[1]{\trtag{warm}{M}{#1}}     % method stage
+\newcommand{\V}[1]{\trtag{accent}{V}{#1}}   % validation check
+\newcommand{\R}[1]{\trtag{warm}{R}{#1}}     % risk
+\newcommand{\U}[1]{\trtag{green}{U}{#1}}    % user need
+\newcommand{\Sx}[1]{\trtag{accent}{S}{#1}}  % software component
+\newcommand{\Ox}[1]{\trtag{green}{O}{#1}}   % output
+
+% ---------- headings ----------
+\titleformat{\part}[display]{\sffamily\bfseries\Huge\color{accent}}{\large Part \thepart}{6pt}{}
+\titleformat{\section}{\sffamily\bfseries\Large\color{ink}}{\thesection}{0.7em}{}
+\titleformat{\subsection}{\sffamily\bfseries\large\color{ink}}{\thesubsection}{0.6em}{}
+\titleformat{\subsubsection}{\sffamily\bfseries\normalsize\color{accent}}{}{0em}{}
+\titlespacing*{\section}{0pt}{16pt}{6pt}
+\titlespacing*{\subsection}{0pt}{12pt}{4pt}
+\titlespacing*{\subsubsection}{0pt}{9pt}{2pt}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt}
+\setlist{itemsep=2pt,topsep=3pt,leftmargin=1.5em}
+\renewcommand{\arraystretch}{1.25}
+\captionsetup{font={small,sf},labelfont=bf,skip=6pt}
+\setlength{\LTcapwidth}{\linewidth}\setlength{\LTpre}{8pt}\setlength{\LTpost}{8pt}
+
+\setlength{\headheight}{14pt}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\sffamily\color{muted}NERACA: Groundwater Accounts}
+\fancyhead[R]{\small\sffamily\color{muted}\nouppercase{\leftmark}}
+\fancyfoot[C]{\small\sffamily\color{muted}\thepage}
+\renewcommand{\headrulewidth}{0.3pt}
+\renewcommand{\headrule}{\color{line}\hrule width\headwidth height\headrulewidth}
+
+% ---------- boxes ----------
+\newtcolorbox{inshort}{enhanced,breakable,colback=accentsoft,colframe=accentsoft,boxrule=0pt,arc=2pt,
+  left=10pt,right=10pt,top=7pt,bottom=7pt,borderline west={3pt}{0pt}{accent},
+  before upper={\textsf{\textbf{\color{accent}In short.}}\ }}
+\newtcolorbox{plain}{enhanced,breakable,colback=greensoft,colframe=greensoft,boxrule=0pt,arc=2pt,
+  left=10pt,right=10pt,top=7pt,bottom=7pt,borderline west={3pt}{0pt}{green},
+  before upper={\textsf{\textbf{\color{green}In plain words.}}\ }}
+\newtcolorbox{caution}{enhanced,breakable,colback=warmsoft,colframe=warmsoft,boxrule=0pt,arc=2pt,
+  left=10pt,right=10pt,top=7pt,bottom=7pt,borderline west={3pt}{0pt}{warm},
+  before upper={\textsf{\textbf{\color{warm}Honest limit.}}\ }}
+\newcommand{\trace}[1]{\par{\small\sffamily\color{muted}\textbf{Trace:} #1}\par}
+
+% ---------- small helpers ----------
+\newcommand{\kcm}{$\times10^{3}$\,m$^{3}$/yr}
+\newcommand{\mmyr}{mm/yr}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+\tikzset{
+  box/.style={draw=line,fill=white,rounded corners=2pt,align=center,font=\sffamily\small,inner sep=5pt,text=ink},
+  boxa/.style={box,draw=accent,fill=accentsoft},
+  boxg/.style={box,draw=green,fill=greensoft},
+  boxw/.style={box,draw=warm,fill=warmsoft},
+  arr/.style={-{Stealth[length=5pt]},draw=muted,line width=0.6pt},
+  lab/.style={font=\sffamily\scriptsize,text=muted}
+}
+
+
+% ---------- provenance labels: what backs a number ----------
+\definecolor{tested}{HTML}{0B6E79}
+\definecolor{calc}{HTML}{6B6A66}
+\definecolor{weak}{HTML}{9A7413}
+\definecolor{miss}{HTML}{A61B29}
+\newcommand{\pv}[2]{{\setlength{\fboxsep}{1.3pt}\colorbox{#1}{\textcolor{white}{\sffamily\bfseries\fontsize{6.3}{7}\selectfont #2}}}}
+\newcommand{\Off}{\pv{accent}{OFFICIAL}}      % government document or official open data
+\newcommand{\Mea}{\pv{green}{MEASURED}}       % satellite or field measurement
+\newcommand{\Tst}{\pv{tested}{TESTED}}        % our method, passed a pre-registered test
+\newcommand{\Calc}{\pv{calc}{CALCULATED}}     % arithmetic on backed inputs
+\newcommand{\Wk}{\pv{weak}{WEAK}}             % one secondary source only
+\newcommand{\Scn}{\pv{warm}{SCENARIO}}        % an assumption the user sets
+\newcommand{\Mis}{\pv{miss}{MISSING}}         % not obtained yet
+\newcommand{\Mm}{\,Mm$^{3}$}
+\newcommand{\Mmyr}{\,Mm$^{3}$/yr}
+\newcommand{\mthree}{m$^{3}$}
+
+\begin{document}
+\input{00-exec}
+\input{00-front}
+\clearpage\part{Research report}
+\input{01-why}
+\input{02-accounts}
+\input{03-leads}
+\input{04-pipes}
+\input{05-backing}
+\clearpage\part{App design}
+\input{06-app}
+\clearpage\part{Traceability and references}
+\input{07-trace}
+\end{document}

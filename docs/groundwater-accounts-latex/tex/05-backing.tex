@@ -1,0 +1,114 @@
+\section{What backs each number}\label{sec:backing}
+
+\begin{inshort}
+Every number the app shows is listed here with its source and label. A number without a source becomes a
+slider (\Scn) or stays hidden (\Mis). Today three inputs are missing and two are weak; the rest is official,
+measured or tested.
+\end{inshort}
+
+{\small
+\begin{xltabular}{\linewidth}{@{}L{52mm}Y l@{}}
+\caption{Module A, groundwater accounts.}\label{tab:backa}\\*
+\toprule
+\textbf{Number on screen} & \textbf{Backed by} & \textbf{Label}\\*
+\midrule
+Declared volume per regency/city & ESDM Jateng open data 2020--23 \cite{esdmdata}; Semarang series in \cite{perdasmg} & \Off\\
+NPA per \mthree & Pergub Jateng 7/2025, annex table 3a \cite{pergub7} & \Off\\
+20\,\% tax rate & UU 1/2022 maximum \cite{terc}; Semarang Perda via a tax news service \cite{ddtcsmg} & \Off\ / \Wk\\
+Tax per 1\Mm & $0.20\times$ NPA & \Calc\\
+Industry runs on its own wells & PDAM sold industry 0.22\Mm\ in 2022 \cite{perdasmg} & \Off\\
+Estimated total use, 16\,km & Validated split, file 09 \cite{exp09} & \Tst\\
+Estimated total use, 4\,km & Demand model, file 07 \cite{exp07} & \Calc, unvalidated\\
+Household exemption & One secondary source \cite{enforcea} & \Wk\\
+Household wells outside PDAM & Upper bound from PDAM household sales & \Calc\\
+Taxable gap & Table~\ref{tab:gap} & \Calc, wide range\\
+Undeclared business use & Set by the user & \Scn\\
+Realised groundwater tax & APBD / LKPJ realisation reports & \Mis\\
+\bottomrule
+\end{xltabular}}
+
+{\small
+\begin{xltabular}{\linewidth}{@{}L{52mm}Y l@{}}
+\caption{Module B, inspection leads.}\label{tab:backb}\\*
+\toprule
+\textbf{Number or layer on screen} & \textbf{Backed by} & \textbf{Label}\\*
+\midrule
+New building and when it appeared & GHSL, Landsat change, footprints, OSM \cite{ghsl,exp14} & \Mea\\
+Building class (factory, hotel, \ldots) & OSM land use and tags & \Mea\\
+Zone where new wells are banned & ESDM 2022 zone map \cite{undip,idx} & \Off\\
+Outside piped water & PDAM coverage per village & \Mis\ (proxy until obtained)\\
+Likely to have a well & Industry's PDAM use \cite{perdasmg}; West Java remapping \cite{ddtcjabar} & \Off\ / \Wk\\
+Lead hit rate & Field feedback \V{6}; Arizona test \V{4} & \Tst\ once run\\
+\bottomrule
+\end{xltabular}}
+
+{\small
+\begin{xltabular}{\linewidth}{@{}L{52mm}Y l@{}}
+\caption{Module C, pipes instead of pumps.}\label{tab:backc}\\*
+\toprule
+\textbf{Number or layer on screen} & \textbf{Backed by} & \textbf{Label}\\*
+\midrule
+Sinking rate per period & Sentinel-1 LiCSAR; repeatable across periods and tracks \cite{exp04}; matches ALOS-1 2006--10 \cite{exp10} & \Mea, \Tst\\
+Soft-clay thickness & Boreholes; explains about 80\,\% of sinking \cite{exp14} & \Mea, \Tst\\
+SPAM Semarang Barat volume & 1,000\,L/s design, 605\,L/s taken up \cite{setkab,ekon} & \Off\\
+SPAM service area & Not obtained; districts named in releases used meanwhile & \Mis\\
+Pipe-priority weights & Set by the user & \Scn\\
+``Pipes slowed the sinking'' & Only after \V{7} and \V{8} & \Tst\ once run\\
+\bottomrule
+\end{xltabular}}
+
+\section{Validation plan}\label{sec:valid}
+
+\begin{inshort}
+Eight checks. Three are done. The other five have pass marks fixed here, before any data are looked at, as
+in files 13 and 14. A failure is reported as a failure.
+\end{inshort}
+
+{\small
+\begin{xltabular}{\linewidth}{@{}L{30mm}Y L{24mm}@{}}
+\caption{Validation checks, pass marks and status.}\label{tab:valid}\\*
+\toprule
+\textbf{Check} & \textbf{Pass mark} & \textbf{Status}\\*
+\midrule
+\endfirsthead
+\toprule
+\textbf{Check} & \textbf{Pass mark} & \textbf{Status}\\*
+\midrule
+\endhead
+\V{1} Billing (A) & Realised tax $\div$ declared volume lies within $0.20\times$ the NPA range of groups 2--4 for that year (2025: Rp 6,100--13,429/\mthree). Below the range is reported as a billing leak. & Planned; needs \R{1}\\
+\V{2} Volume split (A, C) & Error within 1.5$\times$ on unseen regions at 16\,km & \textbf{Done, passed}: 0.16 and 0.14 \cite{exp09}\\
+\V{3} Sinking maps (C) & Signals repeat across periods and tracks above a random null & \textbf{Done, passed}: 58--64\,\% vs 27\,\%; 78\,\% across tracks \cite{exp04}\\
+\V{4} Arizona leads (B) & Share of new large buildings with a new registered well within 500\,m in years $t$ to $t{+}2$ is at least 1.5$\times$ the built-matched null, one-sided permutation $p<0.05$ & Planned\\
+\V{5} Semarang permits (B) & Leads fall on permitted wells more often than random new buildings of the same size, $p<0.05$ & Planned; needs a permit list\\
+\V{6} Field hit rate (B) & No pass mark; reported per lead class with a 90\,\% interval & Starts with the first visits\\
+\V{7} SPAM test (C) & $\Delta$ below the 5th percentile of the shift null, and both placebos (fake years, fake areas) between the 5th and 95th percentiles & Planned; data on disk\\
+\V{8} Positive control (C) & The same test detects a known, metered pumping cut in Arizona & Planned; file 05 T4 warns it may fail\\
+\bottomrule
+\end{xltabular}}
+
+The pass marks will be copied into pre-registration files beside the code, as for the earlier experiments,
+before \V{4}, \V{5}, \V{7} and \V{8} are run.
+
+\section{Risks}\label{sec:risks}
+
+{\small
+\begin{xltabular}{\linewidth}{@{}L{8mm}L{50mm}Y@{}}
+\caption{Risks and responses.}\label{tab:risks}\\*
+\toprule
+ & \textbf{Risk} & \textbf{Response}\\*
+\midrule
+\endfirsthead
+\toprule
+ & \textbf{Risk} & \textbf{Response}\\*
+\midrule
+\endhead
+\R{1} & The NPA regulation before 2025 is not found, so \V{1} has no price for 2020--2024 & Search the provincial legal database (JDIH); otherwise run \V{1} on 2025 alone\\
+\R{2} & Households are not exempt after all & Read the UU 1/2022 article; move household wells into the taxable terms of Table~\ref{tab:gap}\\
+\R{3} & PDAM does not release coverage per village & Use the labelled proxy; file a PPID request early\\
+\R{4} & The SPAM service area is not available & Use the three named districts as the served area; the test becomes coarser\\
+\R{5} & Arizona does not transfer to an Indonesian city & \V{4} checks the logic only; Semarang is judged by \V{5} and \V{6}\\
+\R{6} & C finds no effect because of delay or the regional pressure fall & Report it with the outcome table in Section~\ref{sec:did}; no claim either way\\
+\R{7} & A lead is read as an accusation against a named company & Lead cards for inspectors only; the public sees district counts\\
+\R{8} & Challenge dates or rules differ from the ones listed & Confirm on the official page before planning the final weeks\\
+\bottomrule
+\end{xltabular}}

@@ -1,0 +1,87 @@
+\section{C. Pipes instead of pumps}\label{sec:c}
+
+\begin{inshort}
+Module C shows where piped surface water would replace the most groundwater, and tests on real data
+whether it already slowed the sinking where it arrived. Semarang has a natural experiment: SPAM Semarang
+Barat brought about 19\Mmyr\ of reservoir water online in 2022--2024, about twice the city's whole
+declared groundwater use.
+\end{inshort}
+
+\subsection{Facts}
+
+\begin{itemize}
+\item \textbf{SPAM Semarang Barat} is a public--private water project drawing on the Jatibarang reservoir.
+  Design capacity is 1,000\,L/s (31.5\Mmyr); uptake was 605\,L/s in January 2024 (about 19\Mmyr) with
+  about 44,000 house connections, aiming at 70,000 in Semarang Barat, Tugu and Ngaliyan. The President
+  opened it on 23 January 2024 \cite{setkab,ekon,investortrust} \Off.
+\item \textbf{Bangkok} combined a groundwater charge, piped-water expansion and a ban on pumping where
+  piped supply exists. Subsidence fell to about 0--1\,cm/yr in most areas. The gaps were enforcement and
+  household wells, because groundwater was cheaper than piped water \cite{mekong,iges,wbbangkok}.
+\item \textbf{Ho Chi Minh City} cut extraction from 716,581 to 252,528\,\mthree/day by the end of 2024,
+  aiming at 100,000, by sealing wells \cite{tuoitre} \Wk.
+\item \textbf{Jakarta} bans groundwater for large buildings in nine zones and 12 road segments from August
+  2023 (Pergub 93/2021). PAM Jaya coverage is reported at 66--82\,\%, with a 100\,\% target by 2030
+  \cite{tirto,koranjkt} \Wk.
+\end{itemize}
+
+\subsection{Method \M{5}: the pipe-priority map}
+
+Three layers, combined with weights the user can see and move:
+\begin{enumerate}
+\item groundwater demand not served by PDAM: file 07 at 4\,km (unvalidated, labelled so) and file 09 at
+  16\,km \Tst\ \cite{exp07,exp09};
+\item damage potential: soft-clay thickness \D{7} \Mea, the main driver of sinking \cite{exp14};
+\item planned and new supply: SPAM service districts and other projects \D{8}.
+\end{enumerate}
+
+The ranking of places inside a city failed validation in file 12 \cite{exp12}, so the weights are a
+\Scn: the map shows what the user's priorities imply, not a prediction.
+
+\subsection{Method \M{6}: did the pipes slow the sinking?}\label{sec:did}
+
+\begin{plain}
+Sinking slowed across the whole city after 2018. If piped water helped locally, it should have slowed
+\emph{more} where SPAM Semarang Barat connected homes than in similar places it did not reach.
+\end{plain}
+
+\textbf{Design.} A difference-in-differences on the Sentinel-1 rate maps already processed \D{1}:
+\[
+\Delta = (\bar v_{2023\text{--}26} - \bar v_{2018\text{--}22})_{\text{served}} - (\bar v_{2023\text{--}26} - \bar v_{2018\text{--}22})_{\text{matched control}} .
+\]
+Served cells are in Semarang Barat, Tugu and Ngaliyan; controls are cells elsewhere matched on clay
+thickness and built-up share, the two drivers found in file 14 \cite{exp14}. The common slowdown cancels
+in the difference.
+
+\textbf{Checks.}
+\begin{itemize}
+\item \V{7} \textbf{Placebos.} The same test with a fake start (2014--17 vs 2018--22, before the pipes) and
+  with fake service areas must show no effect. A shift null (moving the served area at random) gives the
+  significance level.
+\item \V{8} \textbf{Positive control in Arizona.} Areas where reservoir water replaced metered pumping, so
+  the cut is known. The same test must detect it there.
+\end{itemize}
+
+\begin{caution}
+Test T4 in file 05 already failed: in Arizona, changes in metered pumping did not show up as changes in
+sinking \cite{exp05}. So \V{8} may fail too, and C should be ready for that. Three more reasons a real
+effect could be hidden: clay keeps compacting for years after pumping stops; the pressure fall is regional,
+so local relief spreads over the whole aquifer; and the west has thin clay (about 20\,m), so it sinks
+less and has less room to slow.
+\end{caution}
+
+\begin{center}
+\small
+\begin{tabularx}{\linewidth}{@{}L{52mm}Y@{}}
+\toprule
+\textbf{Outcome} & \textbf{What the app will say}\\
+\midrule
+\V{7} passes, placebos clean & Sinking slowed more where pipes arrived. Evidence for pipes as a local fix. \\
+No extra slowdown, \V{8} passes & The method can see a pumping cut, and saw none here. Pipe priority should follow the volume replaced, not the location.\\
+No extra slowdown, \V{8} fails & Inconclusive. The app shows the before/after maps without a claim.\\
+Placebo shows an effect & The method picks up noise. No claim.\\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+\textbf{Also unknown:} whether the new customers used groundwater before connecting. If most came from
+shallow wells or water vendors, deep pumping did not change and no effect is expected.

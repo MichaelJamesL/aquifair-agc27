@@ -1,0 +1,164 @@
+\section{The product in brief}\label{sec:product}
+
+\begin{inshort}
+NERACA is a static web map with three tabs (Accounts, Leads, Pipes) and one small server piece, the
+field-feedback form. Every number has a coloured label; clicking it opens its source.
+\end{inshort}
+
+\subsection{Users and what they need}
+
+{\small
+\begin{xltabular}{\linewidth}{@{}L{40mm}Y@{}}
+\toprule
+\textbf{User} & \textbf{Question they bring}\\*
+\midrule
+Regional tax office (Bapenda) & ``Does the groundwater tax we collect match the water that is used?''\\
+Groundwater inspector (Dinas ESDM) & ``Which sites should my team visit this month?''\\
+Planner (PDAM, Bappeda, public works) & ``Where should the next piped-water project go, and did the last one help?''\\
+Jury and public & ``What does this show, and why should I trust the numbers?''\\
+\bottomrule
+\end{xltabular}}
+
+{\small
+\begin{xltabular}{\linewidth}{@{}L{8mm}Y L{16mm}L{21mm}@{}}
+\caption{User needs, with the outputs and components that serve them.}\label{tab:needs}\\*
+\toprule
+ & \textbf{Need} & \textbf{Output} & \textbf{Component}\\*
+\midrule
+\U{1} & See declared vs estimated use per regency/city, with ranges and labels. & \Ox{1} & \Sx{2} \Sx{5}\\
+\U{2} & Move the ``undeclared business use'' slider and see the tax it implies. & \Ox{1} & \Sx{5}\\
+\U{3} & Open the lead list and a lead card: image, footprint, zone, PDAM status. & \Ox{2} & \Sx{3} \Sx{5}\\
+\U{4} & Record the outcome of a field visit. & \Ox{2} & \Sx{6}\\
+\U{5} & Change pipe-priority weights; read the SPAM before/after result. & \Ox{3} \Ox{4} & \Sx{1} \Sx{5}\\
+\U{6} & Click any number and see its source and label. & \Ox{5} & \Sx{5}\\
+\bottomrule
+\end{xltabular}}
+
+\subsection{Screens}
+
+\begin{enumerate}
+\item \textbf{Accounts.} A Central Java map coloured by declared volume per regency/city. A side panel
+  shows declared, estimated range, tariff, tax per 1\Mm, and the slider. Each value has its label.
+\item \textbf{Leads.} The Semarang--Demak map with zones, PDAM coverage (or its proxy) and lead points.
+  A lead card opens on click, with the feedback buttons for signed-in inspectors.
+\item \textbf{Pipes.} The pipe-priority map with weight sliders, the sinking maps for 2018--22 and
+  2023--26, and the result card of the SPAM Semarang Barat test, worded by the outcome table in
+  Section~\ref{sec:did}.
+\end{enumerate}
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[node distance=6mm and 7mm]
+\tikzset{uf/.style={box,text width=30mm,minimum height=11mm}}
+\node[uf,boxa] (a) {Open the map};
+\node[uf,right=of a] (b) {Pick a tab:\\Accounts, Leads, Pipes};
+\node[uf,right=of b] (c) {Click a region,\\lead or cell};
+\node[uf,below=of c] (d) {Read numbers,\\each with a label};
+\node[uf,left=of d] (e) {\U{6} Click a label:\\see its source};
+\node[uf,left=of e] (f) {\U{2} \U{5} Move a\\slider or weight};
+\node[uf,boxg,below=of d] (g) {\U{4} Inspector\\records the visit};
+\draw[arr] (a)--(b); \draw[arr] (b)--(c); \draw[arr] (c)--(d);
+\draw[arr] (d)--(e); \draw[arr] (e)--(f);
+\draw[arr] (d)-- node[lab,right]{Leads tab} (g);
+\end{tikzpicture}
+\caption{User flow.}
+\end{figure}
+
+\section{Architecture}\label{sec:arch}
+
+\begin{inshort}
+The heavy work runs offline in the Python code that already exists. The app itself is static files plus
+one form, so it can be hosted for free and still work during judging.
+\end{inshort}
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[node distance=6mm and 6mm]
+\tikzset{cmp/.style={box,text width=29mm,minimum height=11mm,font=\sffamily\footnotesize}}
+\node[cmp,boxg] (d1) {\D{1} \D{5} \D{7}\\satellite and maps};
+\node[cmp,boxg,below=of d1] (d2) {\D{2} \D{3} \D{4} \D{6} \D{8}\\records and tariffs};
+\node[cmp,right=of d1] (s1) {\Sx{1} Rate maps and\\SPAM test (Python)};
+\node[cmp,right=of d2] (s2) {\Sx{2} Accounts builder};
+\node[cmp,below=of s2] (s3) {\Sx{3} Lead builder};
+\node[cmp,boxa,right=of s2] (s4) {\Sx{4} Tiles (PMTiles,\\COG) and sources.json};
+\node[cmp,boxa,right=of s4] (s5) {\Sx{5} Web map\\(MapLibre GL)};
+\node[cmp,boxw,below=of s5] (s6) {\Sx{6} Feedback store};
+\draw[arr] (d1)--(s1); \draw[arr] (d2)--(s2); \draw[arr] (d2.south) |- (s3.west);
+\draw[arr] (d1.east) ++(0,-2mm) -- ++(3mm,0) |- (s3.west);
+\draw[arr] (s1.east) -| (s4.north); \draw[arr] (s2)--(s4); \draw[arr] (s3.east) -| (s4.south);
+\draw[arr] (s4)--(s5); \draw[arr] (s5)--(s6);
+\end{tikzpicture}
+\caption{Components. Green: data; white: offline Python; blue: static files served to the browser;
+orange: the only server piece.}
+\end{figure}
+
+{\small
+\begin{xltabular}{\linewidth}{@{}L{8mm}L{36mm}Y@{}}
+\caption{Software components.}\label{tab:sw}\\*
+\toprule
+ & \textbf{Component} & \textbf{What it does}\\*
+\midrule
+\Sx{1} & Rate maps and SPAM test & Existing LiCSAR processing and the cause-test code of file 14; adds the difference-in-differences of \M{6} with placebos.\\
+\Sx{2} & Accounts builder & Reads the ESDM XLSX files and the NPA table; joins the 16\,km estimates; writes one record per regency/city with ranges and labels.\\
+\Sx{3} & Lead builder & Built-up change, footprints, zone and coverage layers; applies the four filters of \M{3}.\\
+\Sx{4} & Tiles and source register & Writes vector tiles (PMTiles), rasters (Cloud-Optimised GeoTIFF) and \texttt{sources.json}, which gives every number its source, link and label.\\
+\Sx{5} & Web map & MapLibre GL, three tabs, sliders, lead cards, label badges. No backend.\\
+\Sx{6} & Feedback store & One shared table: lead id, inspector, date, outcome, note. Sign-in for inspectors only.\\
+\bottomrule
+\end{xltabular}}
+
+One entry of the source register:
+\begin{verbatim}
+{ "id": "npa_C_K2_top", "value": 67143, "unit": "Rp/m3",
+  "label": "OFFICIAL",
+  "source": "Pergub Jateng 7/2025, annex table 3a",
+  "url": "https://peraturan.bpk.go.id/Details/314690/..." }
+\end{verbatim}
+
+\section{Beyond Semarang}\label{sec:asean}
+
+\begin{center}
+\small
+\begin{tabularx}{\linewidth}{@{}L{30mm}L{30mm}L{34mm}Y@{}}
+\toprule
+\textbf{Place} & \textbf{Sinking data} & \textbf{Declared use} & \textbf{Policy hook}\\
+\midrule
+Central Java (35) & LiCSAR, Semarang processed & ESDM open data 2020--23 & Pergub 7/2025 tariff, 2022 zones\\
+Jakarta & LiCSAR, free & not found yet & Groundwater-free zones, PAM Jaya coverage\\
+Ho Chi Minh City & LiCSAR, free & city totals in the news & Well sealing by SAWACO\\
+Bangkok & LiCSAR, free & DGR, not checked & Groundwater charge: the success case\\
+Manila & LiCSAR, free & nothing found & not checked\\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+The first version covers Central Java fully for A, and Semarang--Demak for B and C. Other cities appear in A
+only where official totals exist.
+
+\section{Challenge fit}\label{sec:fit}
+
+The ASEAN Geospatial Challenge is run with the Singapore Land Authority; BIG runs the Indonesian round
+\cite{aseangeo,sla}. The theme is the SDGs. Judging weights are Challenge 20\,\%, Geospatial Technology
+40\,\%, Communication 20\,\% and Creativity 20\,\%. The listed timeline (registration 4 August to 12
+January, judging 26 January, finals 11 February) must be confirmed on the official page (\R{8}).
+
+Geospatial technology is 40\,\% of the score, so the pitch leads with the satellite work: two-direction
+Sentinel-1 time series, the validated 16\,km volume split, building change from GHSL and Landsat, and the
+pre-registered tests. The tariff and the tax are what make it matter to a government user.
+
+\section{Plan}\label{sec:plan}
+
+{\small
+\begin{xltabular}{\linewidth}{@{}L{12mm}Y L{24mm}@{}}
+\caption{Six-week plan.}\label{tab:plan}\\*
+\toprule
+\textbf{Week} & \textbf{Work} & \textbf{Closes}\\*
+\midrule
+1 & Request realised groundwater tax 2020--25 and the pre-2025 NPA regulation; download the ESDM XLSX files; read the UU 1/2022 exemption and the Semarang Perda; file PPID requests for PDAM coverage and the SPAM service area & \V{1}, \R{1}--\R{4}\\
+2 & Write pre-registrations for \V{4}, \V{5}, \V{7}, \V{8}; run \V{7} on the rate maps on disk; digitise the 2022 zone map & \V{7}, \D{6}\\
+3 & Run \V{4} and \V{8} in Arizona; build the lead filter & \V{4}, \V{8}, \Sx{3}\\
+4 & App skeleton: tiles, Accounts tab, source register & \Sx{2}, \Sx{4}, \Sx{5}\\
+5 & Leads and Pipes tabs, feedback form & \Sx{5}, \Sx{6}\\
+6 & Results into the app wording; pitch video; write-up & all\\
+\bottomrule
+\end{xltabular}}
