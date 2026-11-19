@@ -4,6 +4,7 @@ import { Download, Info } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { Button, TraceTags, cn } from "@/components/ui";
 import { CONE_WIDTHS, fmtK, isLowStability, rankOf, ranked, total, type ConeWidth } from "@/data/run";
+import { useT } from "@/i18n";
 import { useStore } from "@/state";
 import { ConeWidthSlider } from "./ConeWidthSlider";
 import { PanelNote } from "./Panel";
@@ -12,7 +13,8 @@ import { PanelNote } from "./Panel";
 const SCALE = 232 / 450;
 
 export function AuditList() {
-  const { b, setB, stableOnly, setStableOnly, hovered, setHovered } = useStore();
+  const { b, setB, stableOnly, setStableOnly, hovered, setHovered, setExportOpen } = useStore();
+  const { t, n, pick } = useT();
   const router = useRouter();
   const all = ranked(b);
   const rows = all.filter((h) => !stableOnly || !isLowStability(h));
@@ -23,16 +25,18 @@ export function AuditList() {
     <>
       <div className="flex flex-col gap-1.5 px-4 pb-3 pt-4">
         <div className="flex h-7 items-center gap-2">
-          <h1 className="text-lg font-semibold leading-6 tracking-[-0.002em]">Audit list</h1>
+          <h1 className="text-lg font-semibold leading-6 tracking-[-0.002em]">{t("Audit list")}</h1>
           <TraceTags codes={["U2", "O3"]} />
           <span className="flex-1" />
-          <Button variant="ghost" icon={<Download size={14} strokeWidth={1.9} />}>
-            Export
+          <Button variant="ghost" icon={<Download size={14} strokeWidth={1.9} />} onClick={() => setExportOpen(true)}>
+            {t("Export")}
           </Button>
         </div>
         <p className="text-[13px] leading-[19px] text-ink-2">
-          {all.length} extraction hot spots, ranked by volume, then stability. Each is a lead for inspection, not a
-          verdict.
+          {pick(
+            `${all.length} extraction hot spots, ranked by volume, then stability. Each is a lead for inspection, not a verdict.`,
+            `${all.length} titik panas pengambilan air tanah, diurutkan menurut volume lalu stabilitas. Masing-masing petunjuk untuk diperiksa, bukan putusan.`,
+          )}
         </p>
       </div>
 
@@ -45,8 +49,8 @@ export function AuditList() {
       <div className="flex items-center gap-2 px-4 pb-2.5">
         <div className="flex rounded-md bg-subtle p-0.5">
           {[
-            { on: !stableOnly, label: `All ${all.length}`, set: false },
-            { on: stableOnly, label: `Stability ≥ 0.8 · ${stable}`, set: true },
+            { on: !stableOnly, label: pick(`All ${all.length}`, `Semua ${all.length}`), set: false },
+            { on: stableOnly, label: pick(`Stability ≥ 0.8 · ${stable}`, `Stabilitas ≥ 0,8 · ${stable}`), set: true },
           ].map((s) => (
             <button
               key={s.label}
@@ -61,14 +65,14 @@ export function AuditList() {
           ))}
         </div>
         <span className="flex-1" />
-        <span className="text-xs font-medium text-ink-2">Sort: volume ↓</span>
+        <span className="text-xs font-medium text-ink-2">{t("Sort: volume ↓")}</span>
       </div>
 
       <div className="eyebrow flex h-7 flex-none items-center gap-3 border-y border-line bg-bg px-4 py-1.5 text-ink">
         <span className="w-2.5">#</span>
-        <span>Cell · 90% range ({cw.label} B)</span>
+        <span>{pick(`Cell · 90% range (${cw.label} B)`, `Sel · rentang 90% (B ${t(cw.label)})`)}</span>
         <span className="flex-1" />
-        <span>Volume</span>
+        <span>{t("Volume")}</span>
       </div>
 
       <div className="min-h-0 flex-1 overflow-y-auto pb-[53px]">
@@ -119,15 +123,15 @@ export function AuditList() {
                   />
                 </span>
                 <span className="text-[11px] leading-[14px] text-ink-3">
-                  90% range {vol.lo}–{vol.hi}k
+                  {pick("90% range", "rentang 90%")} {vol.lo}–{vol.hi}k
                 </span>
               </span>
 
               <span className="ml-auto flex w-[84px] flex-col items-end gap-0.5">
                 <span className={cn("text-[15px] font-medium leading-5", low && "text-ink-2")}>{fmtK(vol.v)}</span>
-                <span className="text-xs leading-4 text-ink-3">m³/yr, min.</span>
+                <span className="text-xs leading-4 text-ink-3">{t("m³/yr, min.")}</span>
                 <span className="text-[11px] leading-[14px] text-ink-3 [word-spacing:2px]">
-                  stab. <span className={low ? "text-warn" : "text-ink-2"}>{h.stability.toFixed(2)}</span>
+                  stab. <span className={low ? "text-warn" : "text-ink-2"}>{n(h.stability, 2)}</span>
                 </span>
               </span>
             </button>
@@ -136,8 +140,10 @@ export function AuditList() {
       </div>
 
       <PanelNote>
-        Volume = storage lost by the aquifer, a lower bound on water pumped. Ranges: 90% bootstrap at B ={" "}
-        {cw.km.toFixed(1)} km.
+        {pick(
+          `Volume = storage lost by the aquifer, a lower bound on water pumped. Ranges: 90% bootstrap at B = ${cw.km.toFixed(1)} km.`,
+          `Volume = simpanan akuifer yang hilang, batas bawah air yang dipompa. Rentang: bootstrap 90% pada B = ${n(cw.km)} km.`,
+        )}
       </PanelNote>
     </>
   );

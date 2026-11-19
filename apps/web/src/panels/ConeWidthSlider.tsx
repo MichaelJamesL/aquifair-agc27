@@ -3,6 +3,7 @@
 import { useRef } from "react";
 import { TraceTag, cn } from "@/components/ui";
 import { CONE_WIDTHS, type ConeWidth } from "@/data/run";
+import { useT } from "@/i18n";
 
 const IDX: Record<ConeWidth, number> = { low: 0, mid: 1, high: 2 };
 /** position k (0, 1, 2) on a rail inset 8 px from each end */
@@ -10,6 +11,7 @@ const at = (k: number) => `calc(8px + (100% - 16px) * ${k / 2})`;
 
 export function ConeWidthSlider({ value, onChange }: { value: ConeWidth; onChange: (b: ConeWidth) => void }) {
   const track = useRef<HTMLDivElement>(null);
+  const { t, n } = useT();
   const i = IDX[value];
   const cur = CONE_WIDTHS[i];
 
@@ -22,11 +24,11 @@ export function ConeWidthSlider({ value, onChange }: { value: ConeWidth; onChang
   return (
     <div className="flex flex-col gap-2.5 rounded-lg border border-line px-4 py-3.5">
       <div className="flex h-[18px] items-center gap-2">
-        <span className="text-[13px] font-medium">Cone width B</span>
+        <span className="text-[13px] font-medium">{t("Cone width B")}</span>
         <TraceTag code="U4" size={11} />
         <span className="flex-1" />
         <span className="text-[11px] leading-[14px] text-primary">
-          {cur.km.toFixed(1)} km · {cur.label}
+          {n(cur.km)} km · {t(cur.label)}
         </span>
       </div>
 
@@ -72,7 +74,7 @@ export function ConeWidthSlider({ value, onChange }: { value: ConeWidth; onChang
             )}
             style={{ left: at(k) }}
           >
-            {c.km.toFixed(1)} km
+            {n(c.km)} km
           </span>
         ))}
         <span
@@ -82,8 +84,9 @@ export function ConeWidthSlider({ value, onChange }: { value: ConeWidth; onChang
       </div>
 
       <p className="text-xs leading-4 text-ink-3">
-        Radar alone cannot fix B. Volumes are stored for three widths; moving B rescales every volume while the order
-        barely moves.
+        {t(
+          "Radar alone cannot fix B. Volumes are stored for three widths; moving B rescales every volume while the order barely moves.",
+        )}
       </p>
     </div>
   );
