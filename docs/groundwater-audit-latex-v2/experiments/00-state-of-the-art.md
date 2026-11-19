@@ -8,7 +8,10 @@ regions it had never seen. It cannot give accurate pumping volumes for small are
 cannot predict a region's total from the satellite alone: the sinking produced per cubic metre pumped
 differs about 11 times between sites. In Semarang it cannot say which sinking is caused by pumping:
 registered wells do not sit on the faster-sinking ground, and the bowls are no closer to them than
-random points (file 13).
+random points (file 13). What it can explain (file 14): the sinking follows the thickness of the soft
+young clay, it is most likely driven by the regional fall of groundwater pressure in the deep aquifer
+(pumping acting over the whole north city, not at single wells), and new ground and new buildings sink
+extra on top.
 
 ## What to use
 
@@ -39,6 +42,17 @@ useful for ranking where to inspect.
 regions and is not validated (file 12): large single users and areas with other water sources are
 invisible in land cover and InSAR.
 
+## What explains the sinking (file 14)
+| Cause | Evidence | Share of the explained pattern* |
+|---|---|---|
+| Thick soft young clay (20 m in the west to 85-90 m on the north-east coast) | clay thickness rho 0.81; distance from the hills 0.78; predicts unseen 8 km areas better than location (R2 0.82 vs 0.66); same pattern in 2000-12 DEMs and ALOS 2006-10 | ~80 % |
+| Falling groundwater pressure in the deep aquifer (regional pumping) | at the 6 observation wells sinking ranks exactly with head decline 1990-2010 (exploratory, n = 6); thick clay with no head drop (O5) sinks only 9 mm/yr | not mappable yet (no head map) |
+| New ground and new buildings (fill, ponds and fields turned into built land) | converted land 53 vs 37 mm/yr on matching soil; areas built after 2000 sink faster than geography predicts; airport runway +11 mm/yr | ~10 % |
+| Registered-well positions, big water users, population, reclamation per se, embankments, faults, seasonal water | no test beats the nulls | ~0 % |
+
+\* Grouped Shapley share of block-CV R2 at 8 km blocks; associations, not proof of cause. The fast areas
+slowed from 113 to 89 mm/yr between 2014-17 and 2023-26 (cause open).
+
 ## Known limits
 - **Scale:** 16 km cells are coarse (two cells over Semarang). In Houston, 8 km cells were still ~2.3x
   off even with county totals known.
@@ -55,6 +69,8 @@ invisible in land cover and InSAR.
   built-up land (p = 0.98). Only 6 of 25 bowls have a registered well within 1 km, against 29 % for
   random bowls (pre-registered, file 13). The ALOS 2006-10 map also fails both tests.
 - **No direct check in Semarang:** there is no per-area pumping data; only the city total.
+- **Pumping vs natural compaction:** both scale with clay thickness, so maps alone cannot split them; the
+  head-decline evidence rests on 6 wells read from a figure (file 14).
 
 ## What would improve it most
 1. The ESDM / city **well registry** (~1050 wells with locations and permitted volumes): it would give
@@ -64,6 +80,9 @@ invisible in land cover and InSAR.
 2. Groundwater use or PDAM piped-water coverage **per kecamatan** (Houston: knowing county totals
    cut the 16 km error from 0.36 to 0.21).
 3. Removing the east-west ramp from the ALOS-1 map, to compare 2006-10 with 2018-22 sinking rates.
+4. **Head time series from the ESDM / ABT monitoring wells** (2015-2025, many wells): with the clay map
+   this would turn "sinking per metre of clay follows head decline" into a pre-registered test and give a
+   head-decline map, the missing driver layer.
 
 ## How to use the output
 Use it to decide **where to inspect first**, then compare the high-pumping areas with the permit list.

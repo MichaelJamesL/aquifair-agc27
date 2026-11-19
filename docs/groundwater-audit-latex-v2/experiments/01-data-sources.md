@@ -20,6 +20,16 @@ All raw data are in `realdata/` (git-ignored). Grids are 200 m cells in UTM.
 | City pumping totals | literature 38 (2000s) - 61 (2010 model) Mm3/yr; Perda Kota Semarang 2024: registered 13.1 (2016), 27.7 (2018), 10.4 (2022) Mm3, 96 % industrial | `realdata/semarang/perda/` |
 | PDAM coverage | Tirta Moedal 52 %, ANTARA 60-65 %, Perda 2024 62 % | city-level only |
 | ALOS-1 PALSAR | ASF, path 431, 2006-12 .. 2010-11 | processed on DGX Spark (file 10) |
+| Surface-water history | JRC Global Surface Water 1984-2021 (transitions, occurrence), Google Cloud | file 14, X01 |
+| Landsat 1988-2024 | Collection 2 Level 2 via Microsoft Planetary Computer (689 scenes) | annual MNDWI/NDVI, X02 |
+| Built-up history | GHSL R2023A BUILT-S 1975-2020, BUILT-V 2020, BUILT-H 2018 (tile R10_C30) | X03 |
+| OSM roads, rail, dikes, big water users | Overpass API | X04, X11 |
+| DEMs | Copernicus DEM GLO-30 (AWS, Planetary Computer), NASADEM (Planetary Computer) | X05, X10 |
+| Soil | SoilGrids 2.0 (clay, sand, silt, SOC, bulk density), ISRIC depth to bedrock | X05 |
+| Rain | ERA5 daily via Open-Meteo archive (CHIRPS server refused the Spark) | X07 |
+| Population | WorldPop 2000 and 2020, 100 m | X12 |
+| Faults / GNSS | GEM Global Active Faults (none cross the grid); NGL MIDAS (no station within ~1 degree) | X09, X14 |
+| Lo et al. 2022 figures | Fig. 5 sections + Fig. 4 positions (16 boreholes), Fig. 14 model bowls and observed heads | L1, L3, L4 |
 
 ## Arizona, USA (validation site 1)
 | Data | Source | Notes |

@@ -25,11 +25,12 @@ honest limits.
 | 11 | [11-negative-results-and-lessons.md](11-negative-results-and-lessons.md) | What failed and should not be retried |
 | 12 | [12-relative-heatmap.md](12-relative-heatmap.md) | Relative (no-volume) pumping heatmap inside a region; 5 new regions on the DGX Spark |
 | 13 | [13-registered-wells-test.md](13-registered-wells-test.md) | Registered deep wells (digitized from Lo et al. 2022) vs InSAR sinking, pre-registered |
+| 14 | [14-subsidence-causes.md](14-subsidence-causes.md) | What explains the sinking: 14 pre-registered cause tests + attribution, run in parallel on the DGX Spark |
 
 ## Summary table
 
 "Pass/fail" refers to criteria fixed before the test where a pre-registration exists
-(`../code/az_prereg.md`, `../code/xsite_prereg.md`, `../code/sem_wells_prereg.md`).
+(`../code/az_prereg.md`, `../code/xsite_prereg.md`, `../code/sem_wells_prereg.md`, `../code/sx_prereg.md`).
 
 | # | Experiment | Site | Truth used | Key result | Verdict |
 |---|---|---|---|---|---|
@@ -54,6 +55,12 @@ honest limits.
 | 12a | Relative ranking inside a region (2-8 km) | Arizona ESRV, Texas west | ADWR + GULF | S5 fails; demand only passes 8 km (exploratory) | fail |
 | 12b | Demand-only ranking, 5 new regions | GULF R3-R7 | GULF | 0 of 4 eligible pass; big single users invisible | fail |
 | 13 | Registered wells vs sinking map and bowls | Semarang | ESDM registry wells (Lo et al. 2022 Fig. 12) | wells 35.9 vs 48.5 mm/yr built-matched (p 0.98); bowls near wells 24 % vs 29 % (p 0.81) | fail |
+| 14a | Soft soil / clay thickness | Semarang | DEM, SoilGrids, boreholes | block-CV R2 0.85; clay rho 0.81 (p 0.003); beats location at 8 km blocks (0.82 vs 0.66) | **pass** |
+| 14b | DEM change 2000 -> ~2012 vs InSAR | Semarang | NASADEM, Copernicus DEM | rho -0.37 (p 0.004); fast cells lost ~1 m | **pass** |
+| 14c | New ground / new buildings | Semarang | Landsat 1988-2024, GHSL | converted 53 vs old built 37 mm/yr (p < 0.001); growth partial rho 0.41; age tests fail | partly |
+| 14d | Head decline at 6 observation wells | Semarang | Lo et al. Fig. 14 heads | rho 1.0 with sinking (exact p 0.0014); exploratory | strong, n = 6 |
+| 14e | Pumping proxies, reclamation, embankments, faults, seasonal, big users, population | Semarang | registry, OSM, JRC, GEM, ERA5, WorldPop | none beats the nulls | fail |
+| 14f | Attribution (8 km blocks) | Semarang | all drivers | soil 0.80, new ground 0.10, pumping proxies -0.05 of R2 0.85 | descriptive |
 
 ## Flowchart
 
@@ -78,12 +85,15 @@ flowchart TD
     Q -->|0 of 4 pass| R[Needs user data:<br/>well registry / industrial users]
     R --> S[Registered wells digitized from Lo et al. 2022<br/>pre-registered location test]
     S -->|wells not on faster sinking, bowls at chance| T[Sinking areas cannot be<br/>labelled pumping areas]
+    T --> U[What explains the sinking?<br/>14 cause tests, 13 + 11 jobs in parallel on DGX Spark]
+    U -->|soft clay thickness, regional head decline,<br/>new ground on top| V[Sinking = thick soft clay x falling aquifer pressure<br/>+ extra on new ground]
 ```
 
 ## Where things are
 
 - Code: `../code/` (`real_*.py` Semarang, `az_*.py` Arizona, `xs_*.py` cross-site, `sem_*.py` Semarang
   output, `alos_*` ALOS-1; intermediates on the DGX Spark in `~/alos_work`). Pre-registrations:
-  `../code/az_prereg.md`, `../code/xsite_prereg.md`, `../code/sem_wells_prereg.md`.
+  `../code/az_prereg.md`, `../code/xsite_prereg.md`, `../code/sem_wells_prereg.md`, `../code/sx_prereg.md`. Cause experiments: `sx_*.py`, data and
+  results on the Spark in `~/sx_data`.
 - Data and result JSONs: `realdata/` at the repo root (git-ignored, several GB).
 - Web explainer (earlier state, up to the Semarang demand model): https://claude.ai/artifact/F3nQh6CoEEM7AtoMR66ojm

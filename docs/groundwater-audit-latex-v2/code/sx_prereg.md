@@ -49,3 +49,35 @@ Local (laptop, the paper PDF is not on the Spark), descriptive:
 Each cause gets "linked", "adds beyond geography" or "not supported". X13 gives shares of explained
 variance, which are associations, not proof of cause. No result is used to change a rule above; bugs
 found later are fixed and reported.
+
+## Result (2026-11-19, after all runs; details in experiments/14-subsidence-causes.md)
+
+| # | Primary result | Verdict |
+|---|---|---|
+| X01 | 41 reclaimed cells 58.6 vs matched 78.5 mm/yr (p 0.998), shift p 0.49 | not supported |
+| X02 | age rho -0.22 (p_S 0.145): fail. Converted 53.2 vs old built 37.4 (p 0.0001): pass | partly linked |
+| X03 | age rho -0.26 (p_S 0.22): fail. Volume partial rho -0.40 (wrong sign): fail. Growth 2000-20 partial 0.41 (p_S 0.001), reported | age/volume not supported; growth adds beyond geography |
+| X04 | contrast -5.5 mm/yr (p_S 0.67); runway +10.8 (p 0.04), reported | not supported |
+| X05 | CV R2 0.85, best single borehole clay rho 0.81 (p_S 0.003) | **linked (PASS)** |
+| X06 | gain 0.026 vs null 95 % 0.029 (p 0.18) | not supported |
+| X07 | 12.9 % of fast cells significant (AR(1)-corrected SE; 20.2 % with the plain SE), R 0.97 | not supported (judged with the corrected SE) |
+| X08 | change at wells -5.5 vs matched -8.3 (p 1.0, p_S 0.67); stage 2 rho(age, ratio) -0.25 (p 0.93) | not supported |
+| X09 | no mapped fault crosses the grid; uplift 0.3 % of land | not supported (no data) |
+| X10 | rho -0.37 on non-built land (p_S 0.004) | **PASS** |
+| X11 | 36.5 vs matched 53.4 (p 1.0) | not supported (opposite sign) |
+| X12 | density partial rho -0.54 (p_S 0.97) | not supported |
+| X13 | 2 km: R2 0.95; Shapley soil 0.72, load 0.15, pumping proxies 0.07 | descriptive |
+| X14 | no NGL station within ~1 degree | no data |
+| L1 | model bowls 58.2 vs 63.3 matched (p 0.98) | not supported |
+| L2 | not done: Fig. 3 has no graticule (would need control points) | skipped |
+
+Deviations and fixes (none changed a rule):
+- X06: worker processes deadlocked (fork after OpenMP); switched to spawn and reran. Same design.
+- X07: CHIRPS (data.chc.ucsb.edu) returned 403 to the Spark, so rainfall timing uses ERA5 daily rain from
+  the Open-Meteo archive at the city centre.
+- X10: the Copernicus DEM asset key is "data", not "elevation" (code fix only).
+- X14: the http URL returned 404; https used, search radius widened to ~1 degree.
+- Added after stage 2, labelled as such: X16 (robustness across periods), X19 (sharp edges), X20 (a
+  coordinates-only model reaches R2 0.955 at 2 km blocks, so X13 was also run at 4 and 8 km blocks:
+  soil 0.80, load 0.10, pumping proxies -0.05 at 8 km), L3 (borehole thickness), L4 (head decline at 6
+  observation wells, exploratory: rho 1.0, exact p 0.0014).

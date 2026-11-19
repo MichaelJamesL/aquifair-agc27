@@ -19,6 +19,11 @@
 | Unweighted top-down split at 4-16 km | fails one direction | file 09 |
 | 2 km / 4 km / 8 km volume cells | not accurate | files 06, 09 |
 | Relative ranking inside a region (S5, demand, subsidence; 2-8 km) | 0 of 4 new regions pass | file 12 |
+| Registered-well drawdown (Cooper-Jacob) x soft soil as a cause map | adds 0.03 R2, not above shifted wells | file 14 |
+| Large water users (OSM) / population (WorldPop) as pumping proxies | on slower-sinking ground | file 14 |
+| Reclamation (JRC water-to-land), embankments, sharp edges along fill | no excess sinking | file 14 |
+| Seasonal InSAR term as aquifer signal | phase uniform citywide, peaks after rain: likely troposphere | file 14 |
+| 2 km block CV for attribution | x/y alone reach R2 0.955: use >= 8 km blocks | file 14 |
 
 ## Lessons
 1. **Detection is not identification.** The detector finds real, persistent sinking; in Arizona that
