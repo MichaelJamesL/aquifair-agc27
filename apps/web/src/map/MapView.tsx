@@ -1,6 +1,8 @@
 "use client";
 
 import { Check, Info, List, Minus, Plus, Search } from "lucide-react";
+import { DISTRICTS, districtByKey } from "@/data/planner";
+import { useT } from "@/i18n";
 import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { Button, TraceTag, cn } from "@/components/ui";
@@ -44,7 +46,7 @@ function frameView(panel: boolean, vw: number, vh: number): View {
   return clampView({ s, tx: f.rx * vw - FOCUS.x * s, ty: f.ty * s }, vw, vh);
 }
 
-export type MapMode = "explore" | "audit" | "evidence";
+export type MapMode = "explore" | "audit" | "evidence" | "planner";
 
 type Hover = { mx: number; my: number; info: PixelInfo } | null;
 
@@ -56,10 +58,18 @@ const stop = { onPointerDown: (e: React.PointerEvent) => e.stopPropagation() };
 
 export function MapView() {
   const pathname = usePathname();
-  const mode: MapMode = pathname === "/" ? "explore" : pathname === "/audit" ? "audit" : "evidence";
+  const mode: MapMode =
+    pathname === "/" ? "explore" : pathname === "/audit" ? "audit" : pathname === "/planner" ? "planner" : "evidence";
   const selectedId = mode === "evidence" ? decodeURIComponent(pathname.split("/")[2] ?? "") : undefined;
 
-  const { layer, ctx, b, hovered, setHovered } = useStore();
+  const { layer, ctx, b, hovered, setHovered, district, setDistrict, role } = useStore();
+  const { t, pick, n, lang } = useT();
+  const labelsSvg = useMemo(
+    () => (lang === "ID" ? LABELS_SVG.replace("Tanjung Emas port", "Pelabuhan Tanjung Emas") : LABELS_SVG),
+    [lang],
+  );
+  const [query, setQuery] = useState("");
+  const [hoverDistrict, setHoverDistrict] = useState<string | null>(null);
   const router = useRouter();
   const ref = useRef<HTMLDivElement>(null);
   const panelOpen = mode !== "explore";
@@ -71,7 +81,7 @@ export function MapView() {
   const [dragging, setDragging] = useState(false);
   const drag = useRef<{ x: number; y: number; v: View; moved: boolean } | null>(null);
   const [hover, setHover] = useState<Hover>(null);
-  const [cursor, setCursor] = useState("110.471 E  6.962 S");
+  const [cursor, setCursor] = useState({ lon: 110.471, lat: 6.962 });
   const [pinned, setPinned] = useState(mode === "explore");
 
   useEffect(() => {
@@ -142,7 +152,7 @@ export function MapView() {
     }
     const m = toMap(sx, sy);
     const { lon, lat } = toLonLat(m.x, m.y);
-    setCursor(`${lon.toFixed(3)} E  ${lat.toFixed(3)} S`);
+    setCursor({ lon, lat });
     if (mode !== "explore") return;
     const info = samplePixel(m.x, m.y);
     if (info && info.kind !== "sea") {
@@ -209,7 +219,7 @@ export function MapView() {
             alt=""
             draggable={false}
             className="map-layer transition-opacity duration-200"
-            style={{ opacity: l.key === layer ? 1 : 0 }}
+            style={{ opacity: l.key === (mode === "planner" ? "background" : layer) ? 1 : 0 }}
           />
         ))}
         {ctx.buildings && (
@@ -220,7 +230,7 @@ export function MapView() {
           </svg>
         )}
         <div className="map-layer" dangerouslySetInnerHTML={{ __html: ROADS_SVG }} />
-        <div className="map-layer" dangerouslySetInnerHTML={{ __html: LABELS_SVG }} />
+        <div className="map-layer" dangerouslySetInnerHTML={{ __html: labelsSvg }} />
         {ctx.gnss && (
           <svg className="map-layer" viewBox="0 0 1200 900">
             <path d="M440 323L446 334H434L440 323Z" fill="#17191C" stroke="white" strokeWidth="1.5" strokeLinejoin="round" />
@@ -248,7 +258,20 @@ export function MapView() {
         <ConeRing c={toScreen(selected.x, selected.y)} r={bKm * UNITS_PER_KM * view.s} km={bKm} animate={animate} />
       )}
 
+      {mode === "planner" && (
+        <Districts
+          toScreen={toScreen}
+          selected={district}
+          hovered={hoverDistrict}
+          onHover={setHoverDistrict}
+          onPick={setDistrict}
+          label={(d) => `${d.name} · ${d.bg} ${t("mm/yr")} ${t("would remain")}`}
+          width={size.w}
+        />
+      )}
+
       {mode !== "explore" &&
+        mode !== "planner" &&
         ctx.hotspots &&
         HOT_SPOTS.map((h) => {
           const p = toScreen(h.x, h.y);
@@ -275,23 +298,29 @@ export function MapView() {
 
       {/* controls */}
       <div className="absolute left-4 top-4 flex cursor-default items-start gap-4" {...stop}>
-        <label className={cn(CARD, "flex h-[34px] w-60 items-center gap-2 px-3 py-2")}>
-          <Search size={15} strokeWidth={1.9} className="text-ink-3" />
-          <input
-            placeholder="Search cell ID or place"
-            className="w-full bg-transparent text-[13px] leading-[19px] outline-none placeholder:text-ink-3"
-          />
-        </label>
+        <SearchBox
+          query={query}
+          setQuery={setQuery}
+          placeholder={t("Search cell ID or place")}
+          empty={t("No match")}
+          onPick={(id) => {
+            setQuery("");
+            if (id.startsWith("district:")) {
+              setDistrict(id.slice(9));
+              router.push("/planner");
+            } else router.push(`/audit/${id}`);
+          }}
+        />
         <div className={cn(CARD, "flex h-8 items-center gap-1.5 whitespace-nowrap px-2.5 py-1.5 text-xs font-medium text-ink-2")}>
           <Check size={13} strokeWidth={2.2} className="text-pass" />
-          <span>Tied to GNSS · {RUN.gnssMisfit} mm/yr vs GNSS</span>
+          <span>{pick(`Tied to GNSS · ${RUN.gnssMisfit} mm/yr vs GNSS`, `Terikat GNSS · selisih ${n(RUN.gnssMisfit)} mm/thn`)}</span>
           <TraceTag code="V1" />
         </div>
       </div>
 
       {mode === "explore" && (
         <div className={cn(CARD, "absolute left-4 top-[62px] flex h-[34px] cursor-default items-center gap-2 px-3 py-[7px] text-[13px] font-medium")} {...stop}>
-          <span>Where and how fast the ground sinks</span>
+          <span>{t("Where and how fast the ground sinks")}</span>
           <TraceTag code="U1" />
           <TraceTag code="O1" />
           <TraceTag code="Q1" />
@@ -299,19 +328,25 @@ export function MapView() {
       )}
 
       <div className={cn(CARD, "absolute right-3.5 top-4 flex w-9 cursor-default flex-col overflow-hidden")} {...stop}>
-        <button aria-label="Zoom in" onClick={() => zoom(1.25)} className="grid size-[34px] place-items-center hover:bg-bg">
+        <button aria-label={t("Zoom in")} onClick={() => zoom(1.25)} className="grid size-[34px] place-items-center hover:bg-bg">
           <Plus size={16} strokeWidth={2} />
         </button>
-        <button aria-label="Zoom out" onClick={() => zoom(0.8)} className="grid size-[34px] place-items-center hover:bg-bg">
+        <button aria-label={t("Zoom out")} onClick={() => zoom(0.8)} className="grid size-[34px] place-items-center hover:bg-bg">
           <Minus size={16} strokeWidth={2.2} />
         </button>
       </div>
 
       <div className="absolute bottom-4 left-4 cursor-default" {...stop}>
-        <Legend legend={layerByKey(layer).legend} />
+        <Legend
+          legend={
+            mode === "planner"
+              ? { kind: "ramp", title: "Background (non-pumping) · mm/yr", stops: layerByKey("background").legend.kind === "ramp" ? (layerByKey("background").legend as { stops: string[] }).stops : [], ticks: ["0", "15", "35", "60+"] }
+              : layerByKey(layer).legend
+          }
+        />
       </div>
       <div className="pointer-events-none absolute bottom-[18px] right-[216px] h-[22px] whitespace-pre rounded bg-white/85 px-2 py-1 text-[11px] leading-[14px] tabular-nums text-ink-2">
-        {cursor}
+        {`${n(cursor.lon, 3)} ${t("E")}  ${n(cursor.lat, 3)} ${t("S")}`}
       </div>
       <ScaleBar s={view.s} />
 
@@ -322,16 +357,18 @@ export function MapView() {
           {...stop}
         >
           <div className="flex items-center gap-2 text-[15px] font-semibold leading-5">
-            {HOT_SPOTS.length} hot spots found
+            {pick(`${HOT_SPOTS.length} hot spots found`, `${HOT_SPOTS.length} titik panas ditemukan`)}
             <span className="flex-1" />
             <TraceTag code="U2" />
           </div>
           <p className="text-[13px] leading-[19px] text-ink-2">
-            Sparse inversion of the pumping part of this map. {stableCount} of {HOT_SPOTS.length} reappear in at
-            least 80% of bootstrap reruns.
+            {pick(
+              `Sparse inversion of the pumping part of this map. ${stableCount} of ${HOT_SPOTS.length} reappear in at least 80% of bootstrap reruns.`,
+              `Inversi jarang dari bagian pemompaan di peta ini. ${stableCount} dari ${HOT_SPOTS.length} muncul lagi di sedikitnya 80% pengulangan bootstrap.`,
+            )}
           </p>
           <Button variant="primary" size="md" icon={<List size={16} strokeWidth={2} />} onClick={() => router.push("/audit")}>
-            Open audit list
+            {t("Open audit list")}
           </Button>
         </div>
       )}
@@ -384,20 +421,25 @@ function ScaleBar({ s }: { s: number }) {
 const TT = "pointer-events-none absolute flex w-[262px] flex-col gap-1.5 rounded-lg border border-line bg-surface px-3 py-2.5 shadow-pop";
 const GAP_TT = "pointer-events-none absolute flex w-[242px] items-center gap-2 rounded-md bg-ink px-2.5 py-2 text-xs leading-4 text-bg";
 const GAP_TEXT = "No data. Radar lost signal over fish ponds. Not interpolated.";
+function GapText() {
+  const { t } = useT();
+  return <span>{t(GAP_TEXT)}</span>;
+}
 
 function PixelCard({ lon, lat, rows }: { lon: number; lat: number; rows: [string, string][] }) {
+  const { t, n, pick } = useT();
   return (
     <>
       <div className="text-[11px] leading-[14px] text-ink-3">
-        Pixel {lon.toFixed(3)} E · {lat.toFixed(3)} S
+        {pick("Pixel", "Piksel")} {n(lon, 3)} {t("E")} · {n(lat, 3)} {t("S")}
       </div>
       {rows.map(([k, v]) => (
         <div key={k} className="flex h-[18px] items-center justify-between text-xs leading-4 text-ink-2">
-          <span>{k}</span>
-          <span className="text-[11px] leading-[14px] text-ink">{v}</span>
+          <span>{t(k)}</span>
+          <span className="text-[11px] leading-[14px] text-ink">{pick(v, v.replace("mm/yr", "mm/thn").replace(/(\d)\.(\d)/g, "$1,$2"))}</span>
         </div>
       ))}
-      <div className="text-xs leading-4 text-ink-3">412 images, Jan 2015 – Oct 2026. Seasons removed from the rate.</div>
+      <div className="text-xs leading-4 text-ink-3">{t("412 images, Jan 2015 – Oct 2026. Seasons removed from the rate.")}</div>
     </>
   );
 }
@@ -463,7 +505,7 @@ function HoverTooltip({
       {info.kind === "gap" ? (
         <div className={cn(GAP_TT, "z-[4]")} style={pos}>
           <Info size={14} strokeWidth={1.9} className="flex-none" />
-          <span>{GAP_TEXT}</span>
+          <GapText />
         </div>
       ) : info.kind === "pixel" ? (
         <div className={cn(TT, "z-[4]")} style={pos}>
@@ -507,4 +549,130 @@ function makeBuildings() {
     out.push([x, y, 3 + rnd() * 5, 3 + rnd() * 4]);
   }
   return out;
+}
+
+/* ---------- search ---------- */
+
+function SearchBox({
+  query,
+  setQuery,
+  placeholder,
+  empty,
+  onPick,
+}: {
+  query: string;
+  setQuery: (q: string) => void;
+  placeholder: string;
+  empty: string;
+  onPick: (id: string) => void;
+}) {
+  const [focus, setFocus] = useState(false);
+  const [sel, setSel] = useState(0);
+  const q = query.trim().toLowerCase();
+  const results = q
+    ? [
+        ...HOT_SPOTS.filter((h) => h.id.toLowerCase().includes(q) || h.place.toLowerCase().includes(q)).map((h) => ({
+          id: h.id,
+          title: h.id,
+          sub: h.place,
+        })),
+        ...DISTRICTS.filter((d) => d.name.toLowerCase().includes(q)).map((d) => ({
+          id: `district:${d.key}`,
+          title: d.name,
+          sub: "District · background sinking",
+        })),
+      ].slice(0, 6)
+    : [];
+  return (
+    <div className="relative">
+      <label className={cn(CARD, "flex h-[34px] w-60 items-center gap-2 px-3 py-2")}>
+        <Search size={15} strokeWidth={1.9} className="text-ink-3" />
+        <input
+          value={query}
+          onChange={(e) => {
+            setQuery(e.target.value);
+            setSel(0);
+          }}
+          onFocus={() => setFocus(true)}
+          onBlur={() => setTimeout(() => setFocus(false), 120)}
+          onKeyDown={(e) => {
+            if (e.key === "ArrowDown") setSel((i) => Math.min(results.length - 1, i + 1));
+            if (e.key === "ArrowUp") setSel((i) => Math.max(0, i - 1));
+            if (e.key === "Enter" && results[sel]) onPick(results[sel].id);
+            if (e.key === "Escape") setQuery("");
+          }}
+          placeholder={placeholder}
+          className="w-full bg-transparent text-[13px] leading-[19px] outline-none placeholder:text-ink-3"
+        />
+      </label>
+      {focus && q && (
+        <div className="absolute left-0 top-10 z-10 flex w-60 flex-col rounded-md border border-line bg-surface p-1 shadow-pop">
+          {results.length === 0 && <span className="px-2.5 py-2 text-xs text-ink-3">{empty}</span>}
+          {results.map((r, i) => (
+            <button
+              key={r.id}
+              onMouseDown={(e) => e.preventDefault()}
+              onClick={() => onPick(r.id)}
+              onMouseEnter={() => setSel(i)}
+              className={cn("flex flex-col rounded px-2.5 py-1.5 text-left", i === sel && "bg-bg")}
+            >
+              <span className="font-mono text-xs font-medium">{r.title}</span>
+              <span className="text-[11px] leading-[14px] text-ink-3">{r.sub}</span>
+            </button>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+
+/* ---------- planner districts (screen 10) ---------- */
+
+function Districts({
+  toScreen,
+  selected,
+  hovered,
+  onHover,
+  onPick,
+  label,
+  width,
+}: {
+  toScreen: (x: number, y: number) => Pt;
+  selected: string;
+  hovered: string | null;
+  onHover: (k: string | null) => void;
+  onPick: (k: string) => void;
+  label: (d: (typeof DISTRICTS)[number]) => string;
+  width: number;
+}) {
+  const sel = districtByKey(selected);
+  const pts = (poly: [number, number][]) => poly.map(([x, y]) => toScreen(x, y)).map((p) => `${p.x},${p.y}`).join(" ");
+  const corner = sel.poly.map(([x, y]) => toScreen(x, y)).reduce((a, p) => (p.x + p.y > a.x + a.y ? p : a));
+  return (
+    <>
+      <svg className="pointer-events-none absolute inset-0 h-full w-full overflow-visible">
+        {DISTRICTS.map((d) => (
+          <polygon
+            key={d.key}
+            points={pts(d.poly)}
+            onPointerDown={(e) => e.stopPropagation()}
+            onClick={() => onPick(d.key)}
+            onMouseEnter={() => onHover(d.key)}
+            onMouseLeave={() => onHover(null)}
+            className="pointer-events-auto cursor-pointer transition-[fill,stroke] duration-150"
+            fill={d.key === selected ? "rgba(23,25,28,0.06)" : hovered === d.key ? "rgba(23,25,28,0.05)" : "transparent"}
+            stroke={d.key === selected ? "#17191c" : hovered === d.key ? "rgba(23,25,28,0.5)" : "transparent"}
+            strokeWidth={d.key === selected ? 2 : 1.25}
+            strokeLinejoin="round"
+          />
+        ))}
+      </svg>
+      <span
+        className="pointer-events-none absolute h-6 whitespace-nowrap rounded bg-ink px-2 text-xs leading-6 text-bg"
+        style={{ left: Math.max(8, Math.min(corner.x - 64, width - 240)), top: corner.y + 8 }}
+      >
+        {label(sel)}
+      </span>
+    </>
+  );
 }

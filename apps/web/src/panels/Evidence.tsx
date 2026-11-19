@@ -6,15 +6,17 @@ import { usePathname } from "next/navigation";
 import { useState, type ReactNode } from "react";
 import { Badge, Button, TraceTags, cn } from "@/components/ui";
 import { CONE_WIDTHS, HOT_SPOTS, rankOf, toLonLat, type HotSpot } from "@/data/run";
+import { useT } from "@/i18n";
 import { useStore } from "@/state";
 import { HistoryChart } from "./HistoryChart";
 import { PanelFooter } from "./Panel";
 
 function Section({ title, codes, children }: { title: string; codes: string[]; children: ReactNode }) {
+  const { t } = useT();
   return (
     <section className="flex flex-col gap-2 border-t border-line px-4 py-3">
       <div className="flex h-[18px] items-center gap-1.5 text-[13px] font-medium">
-        <span>{title}</span>
+        <span>{t(title)}</span>
         <span className="flex-1" />
         <TraceTags codes={codes} />
       </div>
@@ -50,7 +52,9 @@ export function Evidence() {
 }
 
 function EvidenceFor({ h }: { h: HotSpot }) {
-  const { b } = useStore();
+  const { b, role, setExportOpen } = useStore();
+  const { t, n, pick } = useT();
+  const pub = role === "public" || role === "planner";
   const [copied, setCopied] = useState(false);
   const rank = rankOf(h.id, b);
   const { lon, lat } = toLonLat(h.x, h.y);
@@ -64,7 +68,7 @@ function EvidenceFor({ h }: { h: HotSpot }) {
         <div className="flex h-[18px] items-center gap-1.5">
           <Link href="/audit" className="flex items-center gap-1.5 text-xs font-medium text-ink-2 hover:text-ink">
             <ChevronLeft size={14} strokeWidth={2} />
-            Audit list
+            {t("Audit list")}
           </Link>
           <span className="flex-1" />
           <TraceTags codes={["U3", "O3", "O4"]} />
@@ -77,15 +81,23 @@ function EvidenceFor({ h }: { h: HotSpot }) {
           <span className="flex flex-col gap-0.5">
             <span className="font-mono text-lg font-medium leading-6 tracking-[-0.002em]">{h.id}</span>
             <span className="text-xs leading-4 text-ink-3">
-              {h.place} · {lon.toFixed(3)} E, {lat.toFixed(3)} S · 500 m cell
+              {h.place} · {n(lon, 3)} {t("E")}, {n(lat, 3)} {t("S")} · {pick("500 m cell", "sel 500 m")}
             </span>
           </span>
         </div>
 
         <div className="grid grid-cols-[122px_122px_1fr] rounded-lg border border-line">
-          <KeyNumber label={`Volume, ${CONE_WIDTHS.find((c) => c.key === b)!.label} B`} value={`${v.v}k`} sub="m³/yr, lower bound" />
-          <KeyNumber label="Stability" value={h.stability.toFixed(2)} sub={`${Math.round(h.stability * 200)} of 200 reruns`} />
-          <KeyNumber label="Background" value={`${h.background}%`} sub="of local sinking" />
+          <KeyNumber
+            label={pick(`Volume, ${CONE_WIDTHS.find((c) => c.key === b)!.label} B`, `Volume, B ${t(CONE_WIDTHS.find((c) => c.key === b)!.label)}`)}
+            value={`${v.v}k`}
+            sub={t("m³/yr, lower bound")}
+          />
+          <KeyNumber
+            label={t("Stability")}
+            value={n(h.stability, 2)}
+            sub={pick(`${Math.round(h.stability * 200)} of 200 reruns`, `${Math.round(h.stability * 200)} dari 200 ulangan`)}
+          />
+          <KeyNumber label={t("Background")} value={`${h.background}%`} sub={t("of local sinking")} />
         </div>
       </div>
 
@@ -113,7 +125,7 @@ function EvidenceFor({ h }: { h: HotSpot }) {
               </div>
             );
           })}
-          <p className="text-xs leading-4 text-ink-2">Lost storage per year, 90% ranges. A lower bound on water pumped.</p>
+          <p className="text-xs leading-4 text-ink-2">{t("Lost storage per year, 90% ranges. A lower bound on water pumped.")}</p>
         </Section>
 
         <Section title="Displacement history · 5 nearest pixels" codes={["M4"]}>
@@ -138,19 +150,25 @@ function EvidenceFor({ h }: { h: HotSpot }) {
 
         <Section title="Land use and permits" codes={["D8", "M9"]}>
           <div className="flex items-center gap-2 text-[13px] leading-[19px]">
-            <span>{h.landUse}</span>
+            <span>{pub ? `${pick("Land-use class", "Kelas lahan")}: ${h.landUse.split(" ")[0].toLowerCase()}` : h.landUse}</span>
             <span className="flex-1" />
             <span className="text-[11px] leading-[14px] text-ink-3">{h.buildings} buildings</span>
           </div>
           <div className="flex flex-col gap-1.5 rounded-lg border border-line bg-bg px-3 py-2.5">
             <div className="flex h-[22px] items-center gap-2 text-[13px] font-medium">
-              <span>{h.match.title}</span>
+              <span>{pub ? t("Permit match hidden") : h.match.title}</span>
               <span className="flex-1" />
               <Badge tone="restricted" icon={<Lock size={13} strokeWidth={2} />}>
-                Regulator only
+                {t("Regulator only")}
               </Badge>
             </div>
-            <p className="text-xs leading-4 text-ink-2">{h.match.text}</p>
+            <p className="text-xs leading-4 text-ink-2">
+              {pub
+                ? t(
+                    "Sign in as a regulator to see whether this cell matches a permitted well field. The public view shows the 500 m cell and land-use class only.",
+                  )
+                : h.match.text}
+            </p>
           </div>
         </Section>
       </div>
@@ -164,11 +182,11 @@ function EvidenceFor({ h }: { h: HotSpot }) {
             setTimeout(() => setCopied(false), 1400);
           }}
         >
-          {copied ? "Copied" : "Copy cell ID"}
+          {copied ? t("Copied") : t("Copy cell ID")}
         </Button>
         <span className="flex-1" />
-        <Button variant="primary" icon={<FileText size={14} strokeWidth={1.9} />}>
-          Export this hot spot
+        <Button variant="primary" icon={<FileText size={14} strokeWidth={1.9} />} onClick={() => setExportOpen(true)}>
+          {t("Export this hot spot")}
         </Button>
       </PanelFooter>
     </>

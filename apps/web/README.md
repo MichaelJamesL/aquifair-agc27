@@ -21,7 +21,26 @@ npm run build   # production build
 | `/` | 06 · Sinking map | U1 |
 | `/audit` | 07 · Audit list, and 09 · Cone width (slider state) | U2, U4 |
 | `/audit/[id]` | 08 · Hot-spot evidence | U3 |
-| `/runs`, `/compare`, `/validation` | placeholders for phase 2 | U6 |
+| `/runs` | 03 · Open a run, 03b · No run for this area yet | U6 |
+| `/runs/new` | 04 · Start a run (analysts only) | U6 |
+| `/runs/R-0008` | 05 · Run in progress (live demo: stages advance every few seconds) | U6 |
+| `/runs/R-0009` | 05b · Run stopped at Gate 2 | U6 |
+| `/compare` | 13 · Compare runs (R-0007 → R-0008) | U6, S6 |
+| `/validation` | 14 · Validation and Gate 3 sign-off for R-0008 | V1–V7 |
+| `/planner` | 10 · Background sinking for planners (also opens from the Background subsidence layer) | Q3, O4 |
+| `/sheet?lang=id\|en\|both&version=regulator\|public` | 12 · Audit sheet, 2 A4 pages, print to PDF | O5 |
+| `/story` | 01 · Story page (public landing) | |
+| `/sign-in` | 02 · Sign in, picks the role | S3 |
+
+Export (11) is a dialog opened from the top bar, the audit list or a hot spot. It downloads the
+hot spots as GeoJSON and opens the audit sheet; rasters and cards need the run service.
+ID/EN in the top bar switches the map workspace to Indonesian (07-ID). The public view (08b) hides
+permit matches and the permit layer.
+
+Sign in (or click the user in the top-right corner) to switch role: Regulator (Rina S.), Analyst
+(A. Wibowo), Planner (D. Lestari) or the public view. Analysts also see private and failed runs and
+can start or sign off a run. Signing off R-0008 (on its run page or on Validation) publishes it
+for the rest of the session.
 
 The map, top bar and layers panel live in `src/app/(workspace)/layout.tsx`, so they stay mounted
 while the right-hand panel changes. Opening the audit list reframes the map with an animation

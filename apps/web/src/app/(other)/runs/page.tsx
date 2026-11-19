@@ -1,5 +1,6 @@
-import { ComingSoon } from "@/components/ComingSoon";
+import { RunsScreen } from "@/runs/RunsScreen";
 
-export default function Page() {
-  return <ComingSoon title="Runs" />;
+/** 03 · Open a run, and 03b · No run for this area yet */
+export default function RunsPage() {
+  return <RunsScreen />;
 }

@@ -63,18 +63,31 @@ export function Button({ variant = "secondary", size = "sm", icon, children, cla
 
 const TONE = {
   pass: "bg-pass-tint text-pass",
+  running: "bg-primary-tint text-primary",
+  fail: "bg-fail-tint text-fail",
   restricted: "bg-ink text-on-primary",
   neutral: "bg-subtle text-ink-2",
   warn: "bg-warn-tint text-warn",
 };
 
+const DOT: Partial<Record<keyof typeof TONE, string>> = {
+  pass: "bg-pass",
+  running: "bg-primary",
+  fail: "bg-fail",
+  neutral: "bg-ink-3",
+  warn: "bg-warn",
+};
+
 export function Badge({
   tone,
   icon,
+  dot = true,
   children,
 }: {
   tone: keyof typeof TONE;
   icon?: ReactNode;
+  /** status dot before the label (off when an icon is given) */
+  dot?: boolean;
   children: ReactNode;
 }) {
   return (
@@ -84,7 +97,7 @@ export function Badge({
         TONE[tone],
       )}
     >
-      {tone === "pass" && <span className="size-1.5 rounded-full bg-pass" />}
+      {dot && !icon && DOT[tone] && <span className={cn("size-1.5 rounded-full", DOT[tone])} />}
       {icon}
       {children}
     </span>
