@@ -9,6 +9,7 @@ All raw data are in `realdata/` (git-ignored). Grids are 200 m cells in UTM.
 | GACOS troposphere | LiCSAR epochs `*.sltd.geo.tif` | no effect on noise; dropped |
 | Model grid | 24 x 16 km, SW corner E 428000 N 9220000, EPSG 32749 | `real_lib.Grid`, `synth.py` |
 | Wells | PANGAEA 862987, sampled wells 1992-2007 | hydrochemistry wells, not an abstraction inventory |
+| Registered deep wells | Lo et al. 2022, Water 14:201, Fig. 12 (ESDM registry coordinates), digitized | 74 blobs (~91 wells), locations only; `sem_wells_digitize.py`, `registry_wells/` |
 | Industrial land | OpenStreetMap | `osm.json` |
 | Land cover | ESA WorldCover 2021 | `worldcover_grid.npz` |
 | Buildings | Microsoft building footprints | `msbuild/` |

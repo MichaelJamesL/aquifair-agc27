@@ -66,4 +66,41 @@ PASS if p < 0.05 against BOTH (b) and (c).
   that still pass (each of T-A, T-B, and both).
 
 ## Result
-(to be appended after the run)
+Run 2026-11-19 (`sem_wells_digitize.py`, `sem_wells_test.py`; `realdata/semarang/exp/registry_wells_test.json`).
+
+Digitizing: 74 green blobs inside the map frame (legend dot and recharge inset excluded); 13 blobs are
+overlapping dots (about 91 dots in total by area), counted once each. 55 blobs fall inside the grid
+(the rest lie west of it); 54 are on coherent land for Sentinel-1, 55 for ALOS.
+
+Georeference: affine fit to all 16 graticule ticks, RMS 2.9 m (max 4.5 m; 1 figure pixel = 30 m).
+Coastline check: the Fig. 12 coast lies a median 271 m from the WorldCover 2021 coast, but the signed
+north offset changes sign along the coast (west -680 m, harbour -250 m, east +1,015 m). This is shoreline
+change (reclamation in the west, land lost to the sea in the east) plus a schematic boundary, not a
+rigid shift. The eastern river, a canal wide enough to show as WorldCover 10 m water, gives a sharp
+best fit at (dE 0, dN +25) m, median misfit 39 m. The georeference was not changed. Jitter RMS used
+= max(2.9, 271) = 271 m (the 2-D best-shift search on the coast alone was ill-posed: it slid along the
+coast to the edge of the search window and is not used).
+
+| Sentinel-1 2018-22 (judged) | observed | null (a) uniform | null (b) built | null (c) shift | p (a) / (b) / (c) |
+|---|---|---|---|---|---|
+| T-A mean 3x3 rate at 54 wells (mm/yr) | 35.9 | 54.2 | 48.5 | 57.0 | 0.997 / 0.979 / 0.662 |
+| T-B share of 25 bowls with a well <= 1 km | 0.24 (6) | 0.34 | 0.29 | 0.17 | 0.902 / 0.807 / 0.267 |
+| T-B at 500 m (reported) | 0.08 | 0.15 | 0.12 | 0.06 | 0.906 / 0.843 / 0.451 |
+| T-B at 2 km (reported) | 0.52 | 0.59 | 0.54 | 0.34 | 0.827 / 0.663 / 0.105 |
+
+T-A FAIL, T-B FAIL. **Verdict: sinking areas cannot be labelled pumping areas.** The registered wells sit
+on ground that sinks more slowly than typical coherent land (median 3x3 rate at the wells 25 mm/yr;
+median land cell 49 mm/yr), also when the comparison is limited to equally built-up cells.
+
+Reported, not judged:
+- ALOS 2006-10 (55 wells, 59 of 74 bowls on coherent land): T-A 22.9 vs 19.0 / 21.8 / 19.1 mm/yr,
+  p = 0.081 / 0.363 / 0.323; T-B 1 km 0.20 vs 0.26 / 0.25 / 0.19, p = 0.870 / 0.851 / 0.476. Both fail.
+- Jitter (200 repeats, radial RMS 271 m, Sentinel-1): T-A passes in 0 %, T-B in 0 %, both in 0 %
+  (median p: T-A 0.99 / 0.67, T-B 0.69 / 0.18 vs built / shift).
+- Post hoc, not pre-registered: with every draw limited to the Lo et al. model domain (Fig. 12 covers
+  only grid x < ~17 km), the wells are at chance: Sentinel-1 T-A 35.9 vs 38.6 / 39.0 / 40.2 mm/yr,
+  p = 0.66 / 0.69 / 0.44; T-B 1 km (14 bowls) 0.36 vs 0.50 / 0.46 / 0.16, p = 0.91 / 0.87 / 0.12.
+
+Note on the shift null: shifted wells that land off coherent land are dropped (on average 29 of 54
+remain for Sentinel-1). For T-B this lowers the null share and makes the test easier to pass, so the
+T-B failure is not caused by the null being too strict.

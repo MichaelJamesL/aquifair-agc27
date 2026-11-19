@@ -10,6 +10,7 @@
 | Per-detection width refinement | collinear with local quadratic | file 02 |
 | ViT / space-time transformer | worse than stacking | file 03 |
 | Detections vs PANGAEA wells / OSM industrial | never beats chance (2014-26 and 2006-10) | files 02, 10 |
+| Sinking map / bowls vs registered deep wells (Lo et al. 2022 Fig. 12) | wells on slower-sinking ground; bowls at chance (2018-22 and 2006-10) | file 13 |
 | Volume per bowl from subsidence (fixed ratio) | Arizona hold-out error 68 %; T6 coverage 6 % | file 05 |
 | Change-over-time (delta pumping vs delta sinking) | rho ~0 | file 05 |
 | Transferable calibration (subsidence, heads) | no method beats regional mean | file 05 |

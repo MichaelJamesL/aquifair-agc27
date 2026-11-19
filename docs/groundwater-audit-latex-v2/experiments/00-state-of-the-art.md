@@ -1,4 +1,4 @@
-# State of the art (temporary final result, 2026-11-18)
+# State of the art (temporary final result, 2026-11-19)
 
 ## In one paragraph
 From open satellite and map data, the system can (1) find sinking bowls and the areas where they
@@ -6,14 +6,16 @@ repeat year after year, and (2) given a known regional groundwater total, split 
 16 km areas within about a factor of 1.5 for most of the pumped volume. That split was validated on two
 regions it had never seen. It cannot give accurate pumping volumes for small areas (4-8 km), and it
 cannot predict a region's total from the satellite alone: the sinking produced per cubic metre pumped
-differs about 11 times between sites.
+differs about 11 times between sites. In Semarang it cannot say which sinking is caused by pumping:
+registered wells do not sit on the faster-sinking ground, and the bowls are no closer to them than
+random points (file 13).
 
 ## What to use
 
 | Output | Method | Validated how | Accuracy | Code |
 |---|---|---|---|---|
 | Sinking map (mm/yr) | Stack of pairs >= 24 days, two tracks combined | Repeat periods; GNSS in Houston (rho 0.65) | noise ~3.5 mm/yr robust (Semarang) | `real_goal_maps.py` |
-| Sinking bowls (where) | Local matched filter: K0 cone B = 1.5 km + local quadratic in 2 km disc, threshold 60, 1 km spacing | Planted cones; blind realistic fields; repeat periods; Arizona meters | recall 73-87 %; near pumping 61 % vs 22 % random (Arizona) | `real_mf.py`, `real_cfar.py` |
+| Sinking bowls (where) | Local matched filter: K0 cone B = 1.5 km + local quadratic in 2 km disc, threshold 60, 1 km spacing | Planted cones; blind realistic fields; repeat periods; Arizona meters | recall 73-87 %; near pumping 61 % vs 22 % random (Arizona); Semarang: not near registered wells (file 13) | `real_mf.py`, `real_cfar.py` |
 | Pumping per area (how much) | Known regional total x share; share = sqrt(demand x subsidence volume) | Pre-registered confirmation on Arizona ESRV and Texas west | 16 km cells: volume-weighted median error factor 1.38-1.46; 55-86 % of volume within 2x | `xs_confirm.py`, `xs_apply_semarang.py` |
 | Range per area | Errors measured on the unseen regions, applied to shares, rescaled to the total | same | P10-P90 | `xs_apply_semarang.py` |
 
@@ -48,15 +50,21 @@ invisible in land cover and InSAR.
 - **Not all sinking is pumping:** 28-92 % of sinking in Demak is natural compaction (Sarah et al.
   2020); landfill loading dominates under fills (Perda 2024). Detected bowls do not coincide with
   sampled wells (Semarang, any period).
+- **Sinking areas are not pumping areas in Semarang:** 54 registered deep wells (ESDM coordinates,
+  digitized from Lo et al. 2022 Fig. 12) sit on ground sinking 36 mm/yr against 49 mm/yr for equally
+  built-up land (p = 0.98). Only 6 of 25 bowls have a registered well within 1 km, against 29 % for
+  random bowls (pre-registered, file 13). The ALOS 2006-10 map also fails both tests.
 - **No direct check in Semarang:** there is no per-area pumping data; only the city total.
 
 ## What would improve it most
 1. The ESDM / city **well registry** (~1050 wells with locations and permitted volumes): it would give
-   the within-city heatmap directly, and InSAR could flag sinking areas without permitted wells.
+   the within-city heatmap directly. Registry *locations* alone (file 13) do not line up with the
+   sinking, so "sinking without permitted wells" would flag most of the fast-sinking north-east. That
+   is a place to look, not evidence of unregistered pumping.
 2. Groundwater use or PDAM piped-water coverage **per kecamatan** (Houston: knowing county totals
    cut the 16 km error from 0.36 to 0.21).
 3. Removing the east-west ramp from the ALOS-1 map, to compare 2006-10 with 2018-22 sinking rates.
 
 ## How to use the output
 Use it to decide **where to inspect first**, then compare the high-pumping areas with the permit list.
-Do not use the volumes to bill or fine anyone.
+Do not use the volumes to bill or fine anyone, and do not read a sinking bowl as a pumping site.

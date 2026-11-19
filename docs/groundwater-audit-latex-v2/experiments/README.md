@@ -1,7 +1,7 @@
 # Experiments log: groundwater audit from space (real data)
 
 This folder documents every real-data experiment run on the groundwater-audit method between
-2026-11-16 and 2026-11-18: what was tried, how it was checked, what it showed, and where the code and
+2026-11-16 and 2026-11-19: what was tried, how it was checked, what it showed, and where the code and
 results are. The synthetic study that the report (`../tex`) is built on is not repeated here.
 
 **Start with [00-state-of-the-art.md](00-state-of-the-art.md)**: the current best method and its
@@ -24,11 +24,12 @@ honest limits.
 | 10 | [10-alos1-2006-2010.md](10-alos1-2006-2010.md) | ALOS-1 PALSAR 2006-2010 on the DGX Spark |
 | 11 | [11-negative-results-and-lessons.md](11-negative-results-and-lessons.md) | What failed and should not be retried |
 | 12 | [12-relative-heatmap.md](12-relative-heatmap.md) | Relative (no-volume) pumping heatmap inside a region; 5 new regions on the DGX Spark |
+| 13 | [13-registered-wells-test.md](13-registered-wells-test.md) | Registered deep wells (digitized from Lo et al. 2022) vs InSAR sinking, pre-registered |
 
 ## Summary table
 
 "Pass/fail" refers to criteria fixed before the test where a pre-registration exists
-(`../code/az_prereg.md`, `../code/xsite_prereg.md`).
+(`../code/az_prereg.md`, `../code/xsite_prereg.md`, `../code/sem_wells_prereg.md`).
 
 | # | Experiment | Site | Truth used | Key result | Verdict |
 |---|---|---|---|---|---|
@@ -52,6 +53,7 @@ honest limits.
 | 10 | ALOS-1 2006-10 rate map | Semarang | Sentinel-1 2018-22, wells | r 0.72; wells on faster-sinking ground p 0.0095 | pattern persistent |
 | 12a | Relative ranking inside a region (2-8 km) | Arizona ESRV, Texas west | ADWR + GULF | S5 fails; demand only passes 8 km (exploratory) | fail |
 | 12b | Demand-only ranking, 5 new regions | GULF R3-R7 | GULF | 0 of 4 eligible pass; big single users invisible | fail |
+| 13 | Registered wells vs sinking map and bowls | Semarang | ESDM registry wells (Lo et al. 2022 Fig. 12) | wells 35.9 vs 48.5 mm/yr built-matched (p 0.98); bowls near wells 24 % vs 29 % (p 0.81) | fail |
 
 ## Flowchart
 
@@ -74,12 +76,14 @@ flowchart TD
     N --> P[Relative heatmap inside a city?<br/>ranking test 2-8 km]
     P -->|demand only looked good at 8 km| Q[5 new regions built in parallel on DGX Spark]
     Q -->|0 of 4 pass| R[Needs user data:<br/>well registry / industrial users]
+    R --> S[Registered wells digitized from Lo et al. 2022<br/>pre-registered location test]
+    S -->|wells not on faster sinking, bowls at chance| T[Sinking areas cannot be<br/>labelled pumping areas]
 ```
 
 ## Where things are
 
 - Code: `../code/` (`real_*.py` Semarang, `az_*.py` Arizona, `xs_*.py` cross-site, `sem_*.py` Semarang
   output, `alos_*` ALOS-1; intermediates on the DGX Spark in `~/alos_work`). Pre-registrations:
-  `../code/az_prereg.md`, `../code/xsite_prereg.md`.
+  `../code/az_prereg.md`, `../code/xsite_prereg.md`, `../code/sem_wells_prereg.md`.
 - Data and result JSONs: `realdata/` at the repo root (git-ignored, several GB).
 - Web explainer (earlier state, up to the Semarang demand model): https://claude.ai/artifact/F3nQh6CoEEM7AtoMR66ojm
