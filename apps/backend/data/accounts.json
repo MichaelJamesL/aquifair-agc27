@@ -1,0 +1,1262 @@
+[
+  {
+    "region_id": "3301",
+    "year": 2020,
+    "declared_m3": 509814,
+    "npa_value_idr": 3058887100,
+    "source_ids": [
+      "ESDM-NPA-2020"
+    ]
+  },
+  {
+    "region_id": "3301",
+    "year": 2021,
+    "declared_m3": 1875757,
+    "npa_value_idr": 10641682100,
+    "source_ids": [
+      "ESDM-NPA-2021"
+    ]
+  },
+  {
+    "region_id": "3301",
+    "year": 2022,
+    "declared_m3": 1332084,
+    "npa_value_idr": 18212030697,
+    "source_ids": [
+      "ESDM-NPA-2022"
+    ]
+  },
+  {
+    "region_id": "3301",
+    "year": 2023,
+    "declared_m3": 1499057,
+    "npa_value_idr": 8016464900,
+    "source_ids": [
+      "ESDM-NPA-2023"
+    ]
+  },
+  {
+    "region_id": "3302",
+    "year": 2020,
+    "declared_m3": 311652,
+    "npa_value_idr": 1869914280,
+    "source_ids": [
+      "ESDM-NPA-2020"
+    ]
+  },
+  {
+    "region_id": "3302",
+    "year": 2021,
+    "declared_m3": 3036071,
+    "npa_value_idr": 7711318830,
+    "source_ids": [
+      "ESDM-NPA-2021"
+    ]
+  },
+  {
+    "region_id": "3302",
+    "year": 2022,
+    "declared_m3": 2751000,
+    "npa_value_idr": 6304235585,
+    "source_ids": [
+      "ESDM-NPA-2022"
+    ]
+  },
+  {
+    "region_id": "3302",
+    "year": 2023,
+    "declared_m3": 2990975,
+    "npa_value_idr": 7250885570,
+    "source_ids": [
+      "ESDM-NPA-2023"
+    ]
+  },
+  {
+    "region_id": "3303",
+    "year": 2020,
+    "declared_m3": 463194,
+    "npa_value_idr": 2779165700,
+    "source_ids": [
+      "ESDM-NPA-2020"
+    ]
+  },
+  {
+    "region_id": "3303",
+    "year": 2021,
+    "declared_m3": 417277,
+    "npa_value_idr": 2496069600,
+    "source_ids": [
+      "ESDM-NPA-2021"
+    ]
+  },
+  {
+    "region_id": "3303",
+    "year": 2022,
+    "declared_m3": 517827,
+    "npa_value_idr": 2049747200,
+    "source_ids": [
+      "ESDM-NPA-2022"
+    ]
+  },
+  {
+    "region_id": "3303",
+    "year": 2023,
+    "declared_m3": 480652,
+    "npa_value_idr": 2959113800,
+    "source_ids": [
+      "ESDM-NPA-2023"
+    ]
+  },
+  {
+    "region_id": "3304",
+    "year": 2020,
+    "declared_m3": 920012,
+    "npa_value_idr": 2300030285,
+    "source_ids": [
+      "ESDM-NPA-2020"
+    ]
+  },
+  {
+    "region_id": "3304",
+    "year": 2021,
+    "declared_m3": 673462,
+    "npa_value_idr": 2252296805,
+    "source_ids": [
+      "ESDM-NPA-2021"
+    ]
+  },
+  {
+    "region_id": "3304",
+    "year": 2022,
+    "declared_m3": 253389,
+    "npa_value_idr": 820677825,
+    "source_ids": [
+      "ESDM-NPA-2022"
+    ]
+  },
+  {
+    "region_id": "3304",
+    "year": 2023,
+    "declared_m3": 882990,
+    "npa_value_idr": 995134300,
+    "source_ids": [
+      "ESDM-NPA-2023"
+    ]
+  },
+  {
+    "region_id": "3305",
+    "year": 2020,
+    "declared_m3": 226658,
+    "npa_value_idr": 1359953718,
+    "source_ids": [
+      "ESDM-NPA-2020"
+    ]
+  },
+  {
+    "region_id": "3305",
+    "year": 2021,
+    "declared_m3": 265296,
+    "npa_value_idr": 1505096700,
+    "source_ids": [
+      "ESDM-NPA-2021"
+    ]
+  },
+  {
+    "region_id": "3305",
+    "year": 2022,
+    "declared_m3": 899795,
+    "npa_value_idr": 2843602589,
+    "source_ids": [
+      "ESDM-NPA-2022"
+    ]
+  },
+  {
+    "region_id": "3305",
+    "year": 2023,
+    "declared_m3": 329575,
+    "npa_value_idr": 1866768000,
+    "source_ids": [
+      "ESDM-NPA-2023"
+    ]
+  },
+  {
+    "region_id": "3306",
+    "year": 2020,
+    "declared_m3": 625379,
+    "npa_value_idr": 3752278400,
+    "source_ids": [
+      "ESDM-NPA-2020"
+    ]
+  },
+  {
+    "region_id": "3306",
+    "year": 2021,
+    "declared_m3": 783708,
+    "npa_value_idr": 2298873075,
+    "source_ids": [
+      "ESDM-NPA-2021"
+    ]
+  },
+  {
+    "region_id": "3306",
+    "year": 2022,
+    "declared_m3": 1017841,
+    "npa_value_idr": 1920581045,
+    "source_ids": [
+      "ESDM-NPA-2022"
+    ]
+  },
+  {
+    "region_id": "3306",
+    "year": 2023,
+    "declared_m3": 1614704,
+    "npa_value_idr": 3501164675,
+    "source_ids": [
+      "ESDM-NPA-2023"
+    ]
+  },
+  {
+    "region_id": "3307",
+    "year": 2020,
+    "declared_m3": 142457,
+    "npa_value_idr": 356143400,
+    "source_ids": [
+      "ESDM-NPA-2020"
+    ]
+  },
+  {
+    "region_id": "3307",
+    "year": 2021,
+    "declared_m3": 199309,
+    "npa_value_idr": 840434700,
+    "source_ids": [
+      "ESDM-NPA-2021"
+    ]
+  },
+  {
+    "region_id": "3307",
+    "year": 2022,
+    "declared_m3": 502783,
+    "npa_value_idr": 342763306,
+    "source_ids": [
+      "ESDM-NPA-2022"
+    ]
+  },
+  {
+    "region_id": "3307",
+    "year": 2023,
+    "declared_m3": 372946,
+    "npa_value_idr": 1518219100,
+    "source_ids": [
+      "ESDM-NPA-2023"
+    ]
+  },
+  {
+    "region_id": "3308",
+    "year": 2020,
+    "declared_m3": null,
+    "npa_value_idr": null,
+    "source_ids": [
+      "ESDM-NPA-2020"
+    ]
+  },
+  {
+    "region_id": "3308",
+    "year": 2021,
+    "declared_m3": 668027,
+    "npa_value_idr": 4226081800,
+    "source_ids": [
+      "ESDM-NPA-2021"
+    ]
+  },
+  {
+    "region_id": "3308",
+    "year": 2022,
+    "declared_m3": 641839,
+    "npa_value_idr": 4069765700,
+    "source_ids": [
+      "ESDM-NPA-2022"
+    ]
+  },
+  {
+    "region_id": "3308",
+    "year": 2023,
+    "declared_m3": 663329,
+    "npa_value_idr": 4244275400,
+    "source_ids": [
+      "ESDM-NPA-2023"
+    ]
+  },
+  {
+    "region_id": "3309",
+    "year": 2020,
+    "declared_m3": null,
+    "npa_value_idr": null,
+    "source_ids": [
+      "ESDM-NPA-2020"
+    ]
+  },
+  {
+    "region_id": "3309",
+    "year": 2021,
+    "declared_m3": 5278581,
+    "npa_value_idr": 11146082001,
+    "source_ids": [
+      "ESDM-NPA-2021"
+    ]
+  },
+  {
+    "region_id": "3309",
+    "year": 2022,
+    "declared_m3": 4396897,
+    "npa_value_idr": 14911260403,
+    "source_ids": [
+      "ESDM-NPA-2022"
+    ]
+  },
+  {
+    "region_id": "3309",
+    "year": 2023,
+    "declared_m3": 5578226,
+    "npa_value_idr": 14289096840,
+    "source_ids": [
+      "ESDM-NPA-2023"
+    ]
+  },
+  {
+    "region_id": "3310",
+    "year": 2020,
+    "declared_m3": null,
+    "npa_value_idr": null,
+    "source_ids": [
+      "ESDM-NPA-2020"
+    ]
+  },
+  {
+    "region_id": "3310",
+    "year": 2021,
+    "declared_m3": 4594914,
+    "npa_value_idr": 27666328100,
+    "source_ids": [
+      "ESDM-NPA-2021"
+    ]
+  },
+  {
+    "region_id": "3310",
+    "year": 2022,
+    "declared_m3": 4869374,
+    "npa_value_idr": 1441837056,
+    "source_ids": [
+      "ESDM-NPA-2022"
+    ]
+  },
+  {
+    "region_id": "3310",
+    "year": 2023,
+    "declared_m3": 5064023,
+    "npa_value_idr": 16523556500,
+    "source_ids": [
+      "ESDM-NPA-2023"
+    ]
+  },
+  {
+    "region_id": "3311",
+    "year": 2020,
+    "declared_m3": 2187029,
+    "npa_value_idr": 13122179279,
+    "source_ids": [
+      "ESDM-NPA-2020"
+    ]
+  },
+  {
+    "region_id": "3311",
+    "year": 2021,
+    "declared_m3": 3746704,
+    "npa_value_idr": 24145409900,
+    "source_ids": [
+      "ESDM-NPA-2021"
+    ]
+  },
+  {
+    "region_id": "3311",
+    "year": 2022,
+    "declared_m3": 5773582,
+    "npa_value_idr": 33364950800,
+    "source_ids": [
+      "ESDM-NPA-2022"
+    ]
+  },
+  {
+    "region_id": "3311",
+    "year": 2023,
+    "declared_m3": 3996762,
+    "npa_value_idr": 30703770600,
+    "source_ids": [
+      "ESDM-NPA-2023"
+    ]
+  },
+  {
+    "region_id": "3312",
+    "year": 2020,
+    "declared_m3": 826114,
+    "npa_value_idr": 4956686330,
+    "source_ids": [
+      "ESDM-NPA-2020"
+    ]
+  },
+  {
+    "region_id": "3312",
+    "year": 2021,
+    "declared_m3": 222976,
+    "npa_value_idr": 1416722100,
+    "source_ids": [
+      "ESDM-NPA-2021"
+    ]
+  },
+  {
+    "region_id": "3312",
+    "year": 2022,
+    "declared_m3": 835366,
+    "npa_value_idr": 4929807000,
+    "source_ids": [
+      "ESDM-NPA-2022"
+    ]
+  },
+  {
+    "region_id": "3312",
+    "year": 2023,
+    "declared_m3": 857419,
+    "npa_value_idr": 4941796600,
+    "source_ids": [
+      "ESDM-NPA-2023"
+    ]
+  },
+  {
+    "region_id": "3313",
+    "year": 2020,
+    "declared_m3": 1494744,
+    "npa_value_idr": 8968464600,
+    "source_ids": [
+      "ESDM-NPA-2020"
+    ]
+  },
+  {
+    "region_id": "3313",
+    "year": 2021,
+    "declared_m3": 1427214,
+    "npa_value_idr": 10870003371,
+    "source_ids": [
+      "ESDM-NPA-2021"
+    ]
+  },
+  {
+    "region_id": "3313",
+    "year": 2022,
+    "declared_m3": 902268,
+    "npa_value_idr": 6150871407,
+    "source_ids": [
+      "ESDM-NPA-2022"
+    ]
+  },
+  {
+    "region_id": "3313",
+    "year": 2023,
+    "declared_m3": 977725,
+    "npa_value_idr": 6604525107,
+    "source_ids": [
+      "ESDM-NPA-2023"
+    ]
+  },
+  {
+    "region_id": "3314",
+    "year": 2020,
+    "declared_m3": 13633738,
+    "npa_value_idr": 81802430900,
+    "source_ids": [
+      "ESDM-NPA-2020"
+    ]
+  },
+  {
+    "region_id": "3314",
+    "year": 2021,
+    "declared_m3": 2714763,
+    "npa_value_idr": 13468171700,
+    "source_ids": [
+      "ESDM-NPA-2021"
+    ]
+  },
+  {
+    "region_id": "3314",
+    "year": 2022,
+    "declared_m3": 273153,
+    "npa_value_idr": 2068758400,
+    "source_ids": [
+      "ESDM-NPA-2022"
+    ]
+  },
+  {
+    "region_id": "3314",
+    "year": 2023,
+    "declared_m3": 298518,
+    "npa_value_idr": 2264994000,
+    "source_ids": [
+      "ESDM-NPA-2023"
+    ]
+  },
+  {
+    "region_id": "3315",
+    "year": 2020,
+    "declared_m3": 275187,
+    "npa_value_idr": 1651124900,
+    "source_ids": [
+      "ESDM-NPA-2020"
+    ]
+  },
+  {
+    "region_id": "3315",
+    "year": 2021,
+    "declared_m3": 185170,
+    "npa_value_idr": 1353344700,
+    "source_ids": [
+      "ESDM-NPA-2021"
+    ]
+  },
+  {
+    "region_id": "3315",
+    "year": 2022,
+    "declared_m3": 234093,
+    "npa_value_idr": 2388586000,
+    "source_ids": [
+      "ESDM-NPA-2022"
+    ]
+  },
+  {
+    "region_id": "3315",
+    "year": 2023,
+    "declared_m3": 392318,
+    "npa_value_idr": 2611552400,
+    "source_ids": [
+      "ESDM-NPA-2023"
+    ]
+  },
+  {
+    "region_id": "3316",
+    "year": 2020,
+    "declared_m3": 85818,
+    "npa_value_idr": 944000975,
+    "source_ids": [
+      "ESDM-NPA-2020"
+    ]
+  },
+  {
+    "region_id": "3316",
+    "year": 2021,
+    "declared_m3": 903898,
+    "npa_value_idr": 7324241700,
+    "source_ids": [
+      "ESDM-NPA-2021"
+    ]
+  },
+  {
+    "region_id": "3316",
+    "year": 2022,
+    "declared_m3": 603297,
+    "npa_value_idr": 5489473920,
+    "source_ids": [
+      "ESDM-NPA-2022"
+    ]
+  },
+  {
+    "region_id": "3316",
+    "year": 2023,
+    "declared_m3": 940070,
+    "npa_value_idr": 1978540400,
+    "source_ids": [
+      "ESDM-NPA-2023"
+    ]
+  },
+  {
+    "region_id": "3317",
+    "year": 2020,
+    "declared_m3": 308796,
+    "npa_value_idr": 3396760500,
+    "source_ids": [
+      "ESDM-NPA-2020"
+    ]
+  },
+  {
+    "region_id": "3317",
+    "year": 2021,
+    "declared_m3": 155867,
+    "npa_value_idr": 1210127452,
+    "source_ids": [
+      "ESDM-NPA-2021"
+    ]
+  },
+  {
+    "region_id": "3317",
+    "year": 2022,
+    "declared_m3": 424258,
+    "npa_value_idr": 5631007421,
+    "source_ids": [
+      "ESDM-NPA-2022"
+    ]
+  },
+  {
+    "region_id": "3317",
+    "year": 2023,
+    "declared_m3": 330934,
+    "npa_value_idr": 3571379900,
+    "source_ids": [
+      "ESDM-NPA-2023"
+    ]
+  },
+  {
+    "region_id": "3318",
+    "year": 2020,
+    "declared_m3": 882281,
+    "npa_value_idr": 5293690927,
+    "source_ids": [
+      "ESDM-NPA-2020"
+    ]
+  },
+  {
+    "region_id": "3318",
+    "year": 2021,
+    "declared_m3": 8257056,
+    "npa_value_idr": 11704376880,
+    "source_ids": [
+      "ESDM-NPA-2021"
+    ]
+  },
+  {
+    "region_id": "3318",
+    "year": 2022,
+    "declared_m3": 11446385,
+    "npa_value_idr": 16225250738,
+    "source_ids": [
+      "ESDM-NPA-2022"
+    ]
+  },
+  {
+    "region_id": "3318",
+    "year": 2023,
+    "declared_m3": 9662261,
+    "npa_value_idr": 60872244300,
+    "source_ids": [
+      "ESDM-NPA-2023"
+    ]
+  },
+  {
+    "region_id": "3319",
+    "year": 2020,
+    "declared_m3": 2885055,
+    "npa_value_idr": 31735607771,
+    "source_ids": [
+      "ESDM-NPA-2020"
+    ]
+  },
+  {
+    "region_id": "3319",
+    "year": 2021,
+    "declared_m3": 16228279,
+    "npa_value_idr": 41990671913,
+    "source_ids": [
+      "ESDM-NPA-2021"
+    ]
+  },
+  {
+    "region_id": "3319",
+    "year": 2022,
+    "declared_m3": 17853579,
+    "npa_value_idr": 46196135663,
+    "source_ids": [
+      "ESDM-NPA-2022"
+    ]
+  },
+  {
+    "region_id": "3319",
+    "year": 2023,
+    "declared_m3": 14426105,
+    "npa_value_idr": 156687155000,
+    "source_ids": [
+      "ESDM-NPA-2023"
+    ]
+  },
+  {
+    "region_id": "3320",
+    "year": 2020,
+    "declared_m3": 3824826,
+    "npa_value_idr": 22948959228,
+    "source_ids": [
+      "ESDM-NPA-2020"
+    ]
+  },
+  {
+    "region_id": "3320",
+    "year": 2021,
+    "declared_m3": 17112473,
+    "npa_value_idr": 24256930478,
+    "source_ids": [
+      "ESDM-NPA-2021"
+    ]
+  },
+  {
+    "region_id": "3320",
+    "year": 2022,
+    "declared_m3": 18038653,
+    "npa_value_idr": 25569790628,
+    "source_ids": [
+      "ESDM-NPA-2022"
+    ]
+  },
+  {
+    "region_id": "3320",
+    "year": 2023,
+    "declared_m3": 16457669,
+    "npa_value_idr": 103683314700,
+    "source_ids": [
+      "ESDM-NPA-2023"
+    ]
+  },
+  {
+    "region_id": "3321",
+    "year": 2020,
+    "declared_m3": 9410468,
+    "npa_value_idr": 103515151420,
+    "source_ids": [
+      "ESDM-NPA-2020"
+    ]
+  },
+  {
+    "region_id": "3321",
+    "year": 2021,
+    "declared_m3": 5548637,
+    "npa_value_idr": 10759080750,
+    "source_ids": [
+      "ESDM-NPA-2021"
+    ]
+  },
+  {
+    "region_id": "3321",
+    "year": 2022,
+    "declared_m3": 5923864,
+    "npa_value_idr": 11570841250,
+    "source_ids": [
+      "ESDM-NPA-2022"
+    ]
+  },
+  {
+    "region_id": "3321",
+    "year": 2023,
+    "declared_m3": 6583808,
+    "npa_value_idr": 11894178500,
+    "source_ids": [
+      "ESDM-NPA-2023"
+    ]
+  },
+  {
+    "region_id": "3322",
+    "year": 2020,
+    "declared_m3": 6124945,
+    "npa_value_idr": 36749671362,
+    "source_ids": [
+      "ESDM-NPA-2020"
+    ]
+  },
+  {
+    "region_id": "3322",
+    "year": 2021,
+    "declared_m3": 17331345,
+    "npa_value_idr": 78457697338,
+    "source_ids": [
+      "ESDM-NPA-2021"
+    ]
+  },
+  {
+    "region_id": "3322",
+    "year": 2022,
+    "declared_m3": 15898665,
+    "npa_value_idr": 46841834740,
+    "source_ids": [
+      "ESDM-NPA-2022"
+    ]
+  },
+  {
+    "region_id": "3322",
+    "year": 2023,
+    "declared_m3": 12144617,
+    "npa_value_idr": 44426897890,
+    "source_ids": [
+      "ESDM-NPA-2023"
+    ]
+  },
+  {
+    "region_id": "3323",
+    "year": 2020,
+    "declared_m3": 765962,
+    "npa_value_idr": 1914906800,
+    "source_ids": [
+      "ESDM-NPA-2020"
+    ]
+  },
+  {
+    "region_id": "3323",
+    "year": 2021,
+    "declared_m3": 519210,
+    "npa_value_idr": 1714286700,
+    "source_ids": [
+      "ESDM-NPA-2021"
+    ]
+  },
+  {
+    "region_id": "3323",
+    "year": 2022,
+    "declared_m3": 472728,
+    "npa_value_idr": 1605794250,
+    "source_ids": [
+      "ESDM-NPA-2022"
+    ]
+  },
+  {
+    "region_id": "3323",
+    "year": 2023,
+    "declared_m3": 521095,
+    "npa_value_idr": 1791453250,
+    "source_ids": [
+      "ESDM-NPA-2023"
+    ]
+  },
+  {
+    "region_id": "3324",
+    "year": 2020,
+    "declared_m3": 27925213,
+    "npa_value_idr": 167551282008,
+    "source_ids": [
+      "ESDM-NPA-2020"
+    ]
+  },
+  {
+    "region_id": "3324",
+    "year": 2021,
+    "declared_m3": 12769011,
+    "npa_value_idr": 26882547005,
+    "source_ids": [
+      "ESDM-NPA-2021"
+    ]
+  },
+  {
+    "region_id": "3324",
+    "year": 2022,
+    "declared_m3": 16795863,
+    "npa_value_idr": 27978163640,
+    "source_ids": [
+      "ESDM-NPA-2022"
+    ]
+  },
+  {
+    "region_id": "3324",
+    "year": 2023,
+    "declared_m3": 20902490,
+    "npa_value_idr": 29618948745,
+    "source_ids": [
+      "ESDM-NPA-2023"
+    ]
+  },
+  {
+    "region_id": "3325",
+    "year": 2020,
+    "declared_m3": 480946,
+    "npa_value_idr": 2885677609,
+    "source_ids": [
+      "ESDM-NPA-2020"
+    ]
+  },
+  {
+    "region_id": "3325",
+    "year": 2021,
+    "declared_m3": 888198,
+    "npa_value_idr": 16358569397,
+    "source_ids": [
+      "ESDM-NPA-2021"
+    ]
+  },
+  {
+    "region_id": "3325",
+    "year": 2022,
+    "declared_m3": 1407484,
+    "npa_value_idr": 7967645610,
+    "source_ids": [
+      "ESDM-NPA-2022"
+    ]
+  },
+  {
+    "region_id": "3325",
+    "year": 2023,
+    "declared_m3": 2480589,
+    "npa_value_idr": 5251783900,
+    "source_ids": [
+      "ESDM-NPA-2023"
+    ]
+  },
+  {
+    "region_id": "3326",
+    "year": 2020,
+    "declared_m3": 940359,
+    "npa_value_idr": 5642154300,
+    "source_ids": [
+      "ESDM-NPA-2020"
+    ]
+  },
+  {
+    "region_id": "3326",
+    "year": 2021,
+    "declared_m3": 4822467,
+    "npa_value_idr": 10310531117,
+    "source_ids": [
+      "ESDM-NPA-2021"
+    ]
+  },
+  {
+    "region_id": "3326",
+    "year": 2022,
+    "declared_m3": 3918483,
+    "npa_value_idr": 10024489100,
+    "source_ids": [
+      "ESDM-NPA-2022"
+    ]
+  },
+  {
+    "region_id": "3326",
+    "year": 2023,
+    "declared_m3": 4969395,
+    "npa_value_idr": 11191205850,
+    "source_ids": [
+      "ESDM-NPA-2023"
+    ]
+  },
+  {
+    "region_id": "3327",
+    "year": 2020,
+    "declared_m3": 64931,
+    "npa_value_idr": 714249486,
+    "source_ids": [
+      "ESDM-NPA-2020"
+    ]
+  },
+  {
+    "region_id": "3327",
+    "year": 2021,
+    "declared_m3": 514531,
+    "npa_value_idr": 4948264620,
+    "source_ids": [
+      "ESDM-NPA-2021"
+    ]
+  },
+  {
+    "region_id": "3327",
+    "year": 2022,
+    "declared_m3": 673932,
+    "npa_value_idr": 8314526800,
+    "source_ids": [
+      "ESDM-NPA-2022"
+    ]
+  },
+  {
+    "region_id": "3327",
+    "year": 2023,
+    "declared_m3": 830944,
+    "npa_value_idr": 10133386800,
+    "source_ids": [
+      "ESDM-NPA-2023"
+    ]
+  },
+  {
+    "region_id": "3328",
+    "year": 2020,
+    "declared_m3": 190913,
+    "npa_value_idr": 1145481635,
+    "source_ids": [
+      "ESDM-NPA-2020"
+    ]
+  },
+  {
+    "region_id": "3328",
+    "year": 2021,
+    "declared_m3": 390637,
+    "npa_value_idr": 430162740,
+    "source_ids": [
+      "ESDM-NPA-2021"
+    ]
+  },
+  {
+    "region_id": "3328",
+    "year": 2022,
+    "declared_m3": 538194,
+    "npa_value_idr": 3011533380,
+    "source_ids": [
+      "ESDM-NPA-2022"
+    ]
+  },
+  {
+    "region_id": "3328",
+    "year": 2023,
+    "declared_m3": 614226,
+    "npa_value_idr": 3358408573,
+    "source_ids": [
+      "ESDM-NPA-2023"
+    ]
+  },
+  {
+    "region_id": "3329",
+    "year": 2020,
+    "declared_m3": 323309,
+    "npa_value_idr": 3556407636,
+    "source_ids": [
+      "ESDM-NPA-2020"
+    ]
+  },
+  {
+    "region_id": "3329",
+    "year": 2021,
+    "declared_m3": 1977271,
+    "npa_value_idr": 3237218229,
+    "source_ids": [
+      "ESDM-NPA-2021"
+    ]
+  },
+  {
+    "region_id": "3329",
+    "year": 2022,
+    "declared_m3": 1703920,
+    "npa_value_idr": 3163772748,
+    "source_ids": [
+      "ESDM-NPA-2022"
+    ]
+  },
+  {
+    "region_id": "3329",
+    "year": 2023,
+    "declared_m3": 2576885,
+    "npa_value_idr": 4978886356,
+    "source_ids": [
+      "ESDM-NPA-2023"
+    ]
+  },
+  {
+    "region_id": "3371",
+    "year": 2020,
+    "declared_m3": null,
+    "npa_value_idr": null,
+    "source_ids": [
+      "ESDM-NPA-2020"
+    ]
+  },
+  {
+    "region_id": "3371",
+    "year": 2021,
+    "declared_m3": 242592,
+    "npa_value_idr": 1591884700,
+    "source_ids": [
+      "ESDM-NPA-2021"
+    ]
+  },
+  {
+    "region_id": "3371",
+    "year": 2022,
+    "declared_m3": 268513,
+    "npa_value_idr": 1729944000,
+    "source_ids": [
+      "ESDM-NPA-2022"
+    ]
+  },
+  {
+    "region_id": "3371",
+    "year": 2023,
+    "declared_m3": 295978,
+    "npa_value_idr": 1772004300,
+    "source_ids": [
+      "ESDM-NPA-2023"
+    ]
+  },
+  {
+    "region_id": "3372",
+    "year": 2020,
+    "declared_m3": 4271311,
+    "npa_value_idr": 46984426020,
+    "source_ids": [
+      "ESDM-NPA-2020"
+    ]
+  },
+  {
+    "region_id": "3372",
+    "year": 2021,
+    "declared_m3": 6459729,
+    "npa_value_idr": 68219743410,
+    "source_ids": [
+      "ESDM-NPA-2021"
+    ]
+  },
+  {
+    "region_id": "3372",
+    "year": 2022,
+    "declared_m3": 4839249,
+    "npa_value_idr": 51919144400,
+    "source_ids": [
+      "ESDM-NPA-2022"
+    ]
+  },
+  {
+    "region_id": "3372",
+    "year": 2023,
+    "declared_m3": 5921209,
+    "npa_value_idr": 55059182120,
+    "source_ids": [
+      "ESDM-NPA-2023"
+    ]
+  },
+  {
+    "region_id": "3373",
+    "year": 2020,
+    "declared_m3": 3050648,
+    "npa_value_idr": 18303888920,
+    "source_ids": [
+      "ESDM-NPA-2020"
+    ]
+  },
+  {
+    "region_id": "3373",
+    "year": 2021,
+    "declared_m3": 2200590,
+    "npa_value_idr": 11107931000,
+    "source_ids": [
+      "ESDM-NPA-2021"
+    ]
+  },
+  {
+    "region_id": "3373",
+    "year": 2022,
+    "declared_m3": 2159660,
+    "npa_value_idr": 12605486100,
+    "source_ids": [
+      "ESDM-NPA-2022"
+    ]
+  },
+  {
+    "region_id": "3373",
+    "year": 2023,
+    "declared_m3": 1184014,
+    "npa_value_idr": 7828236800,
+    "source_ids": [
+      "ESDM-NPA-2023"
+    ]
+  },
+  {
+    "region_id": "3374",
+    "year": 2020,
+    "declared_m3": 22421481,
+    "npa_value_idr": 246636295055,
+    "source_ids": [
+      "ESDM-NPA-2020"
+    ]
+  },
+  {
+    "region_id": "3374",
+    "year": 2021,
+    "declared_m3": 11805655,
+    "npa_value_idr": 90699100970,
+    "source_ids": [
+      "ESDM-NPA-2021"
+    ]
+  },
+  {
+    "region_id": "3374",
+    "year": 2022,
+    "declared_m3": 10415525,
+    "npa_value_idr": 97624080550,
+    "source_ids": [
+      "ESDM-NPA-2022"
+    ]
+  },
+  {
+    "region_id": "3374",
+    "year": 2023,
+    "declared_m3": 10069814,
+    "npa_value_idr": 98992815800,
+    "source_ids": [
+      "ESDM-NPA-2023"
+    ]
+  },
+  {
+    "region_id": "3375",
+    "year": 2020,
+    "declared_m3": 98242,
+    "npa_value_idr": 1080671750,
+    "source_ids": [
+      "ESDM-NPA-2020"
+    ]
+  },
+  {
+    "region_id": "3375",
+    "year": 2021,
+    "declared_m3": 3672504,
+    "npa_value_idr": 1861739670,
+    "source_ids": [
+      "ESDM-NPA-2021"
+    ]
+  },
+  {
+    "region_id": "3375",
+    "year": 2022,
+    "declared_m3": 2297053,
+    "npa_value_idr": 12758864750,
+    "source_ids": [
+      "ESDM-NPA-2022"
+    ]
+  },
+  {
+    "region_id": "3375",
+    "year": 2023,
+    "declared_m3": 2532384,
+    "npa_value_idr": 12572980400,
+    "source_ids": [
+      "ESDM-NPA-2023"
+    ]
+  },
+  {
+    "region_id": "3376",
+    "year": 2020,
+    "declared_m3": 35819,
+    "npa_value_idr": 394015800,
+    "source_ids": [
+      "ESDM-NPA-2020"
+    ]
+  },
+  {
+    "region_id": "3376",
+    "year": 2021,
+    "declared_m3": 760272,
+    "npa_value_idr": 1093122180,
+    "source_ids": [
+      "ESDM-NPA-2021"
+    ]
+  },
+  {
+    "region_id": "3376",
+    "year": 2022,
+    "declared_m3": 980989,
+    "npa_value_idr": 5828695705,
+    "source_ids": [
+      "ESDM-NPA-2022"
+    ]
+  },
+  {
+    "region_id": "3376",
+    "year": 2023,
+    "declared_m3": 600880,
+    "npa_value_idr": 6619308810,
+    "source_ids": [
+      "ESDM-NPA-2023"
+    ]
+  }
+]

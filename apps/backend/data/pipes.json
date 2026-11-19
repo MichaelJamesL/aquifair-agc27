@@ -1,0 +1,64 @@
+{
+  "periods": [
+    {
+      "key": "2014_17",
+      "label": "2014-2017",
+      "fast_mm_yr": 112.77708029635772,
+      "land_mm_yr": 57.505556576238654,
+      "source_ids": [
+        "X08",
+        "EXP14"
+      ]
+    },
+    {
+      "key": "2018_22",
+      "label": "2018-2022",
+      "fast_mm_yr": 103.1020995420402,
+      "land_mm_yr": 48.84299423491922,
+      "source_ids": [
+        "X08",
+        "EXP14"
+      ]
+    },
+    {
+      "key": "2023_26",
+      "label": "2023-2026",
+      "fast_mm_yr": 88.66651297710663,
+      "land_mm_yr": 37.729386593961415,
+      "source_ids": [
+        "X08",
+        "EXP14"
+      ]
+    }
+  ],
+  "spam": {
+    "name": "SPAM Semarang Barat",
+    "status": "not_run",
+    "design_capacity_lps": 1000,
+    "uptake_lps_2024_01": 605,
+    "uptake_m3_yr_2024": 19000000,
+    "connections_target": 70000,
+    "connections_actual_2024_09": 47261,
+    "commercial_operation_date": "2021-05-22",
+    "districts": [
+      "Semarang Barat",
+      "Ngaliyan",
+      "Tugu"
+    ],
+    "delta_mm_yr": null,
+    "shift_null_p05": null,
+    "placebo_year_clean": null,
+    "placebo_area_clean": null,
+    "positive_control_passed": null,
+    "outcome_code": "not_run",
+    "outcome_wording": "The SPAM Semarang Barat before/after test has not been run. The app shows the design and the data on disk, but makes no claim.",
+    "source_ids": [
+      "SPAM-SETKAB",
+      "SPAM-EKON",
+      "SPAM-ANTARA",
+      "SPAM-HASINA",
+      "EXP14",
+      "LICSAR"
+    ]
+  }
+}

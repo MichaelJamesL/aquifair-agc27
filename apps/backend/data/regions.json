@@ -1,0 +1,352 @@
+[
+  {
+    "id": "3301",
+    "name": "Kab. Cilacap",
+    "type": "kabupaten",
+    "wilayah": "B",
+    "source_ids": [
+      "PERGUB-7-2025",
+      "BPS-JATENG"
+    ]
+  },
+  {
+    "id": "3302",
+    "name": "Kab. Banyumas",
+    "type": "kabupaten",
+    "wilayah": "B",
+    "source_ids": [
+      "PERGUB-7-2025",
+      "BPS-JATENG"
+    ]
+  },
+  {
+    "id": "3303",
+    "name": "Kab. Purbalingga",
+    "type": "kabupaten",
+    "wilayah": "A",
+    "source_ids": [
+      "PERGUB-7-2025",
+      "BPS-JATENG"
+    ]
+  },
+  {
+    "id": "3304",
+    "name": "Kab. Banjarnegara",
+    "type": "kabupaten",
+    "wilayah": "A",
+    "source_ids": [
+      "PERGUB-7-2025",
+      "BPS-JATENG"
+    ]
+  },
+  {
+    "id": "3305",
+    "name": "Kab. Kebumen",
+    "type": "kabupaten",
+    "wilayah": "A",
+    "source_ids": [
+      "PERGUB-7-2025",
+      "BPS-JATENG"
+    ]
+  },
+  {
+    "id": "3306",
+    "name": "Kab. Purworejo",
+    "type": "kabupaten",
+    "wilayah": "A",
+    "source_ids": [
+      "PERGUB-7-2025",
+      "BPS-JATENG"
+    ]
+  },
+  {
+    "id": "3307",
+    "name": "Kab. Wonosobo",
+    "type": "kabupaten",
+    "wilayah": "A",
+    "source_ids": [
+      "PERGUB-7-2025",
+      "BPS-JATENG"
+    ]
+  },
+  {
+    "id": "3308",
+    "name": "Kab. Magelang",
+    "type": "kabupaten",
+    "wilayah": "A",
+    "source_ids": [
+      "PERGUB-7-2025",
+      "BPS-JATENG"
+    ]
+  },
+  {
+    "id": "3309",
+    "name": "Kab. Boyolali",
+    "type": "kabupaten",
+    "wilayah": "B",
+    "source_ids": [
+      "PERGUB-7-2025",
+      "BPS-JATENG"
+    ]
+  },
+  {
+    "id": "3310",
+    "name": "Kab. Klaten",
+    "type": "kabupaten",
+    "wilayah": "B",
+    "source_ids": [
+      "PERGUB-7-2025",
+      "BPS-JATENG"
+    ]
+  },
+  {
+    "id": "3311",
+    "name": "Kab. Sukoharjo",
+    "type": "kabupaten",
+    "wilayah": "B",
+    "source_ids": [
+      "PERGUB-7-2025",
+      "BPS-JATENG"
+    ]
+  },
+  {
+    "id": "3312",
+    "name": "Kab. Wonogiri",
+    "type": "kabupaten",
+    "wilayah": "A",
+    "source_ids": [
+      "PERGUB-7-2025",
+      "BPS-JATENG"
+    ]
+  },
+  {
+    "id": "3313",
+    "name": "Kab. Karanganyar",
+    "type": "kabupaten",
+    "wilayah": "B",
+    "source_ids": [
+      "PERGUB-7-2025",
+      "BPS-JATENG"
+    ]
+  },
+  {
+    "id": "3314",
+    "name": "Kab. Sragen",
+    "type": "kabupaten",
+    "wilayah": "A",
+    "source_ids": [
+      "PERGUB-7-2025",
+      "BPS-JATENG"
+    ]
+  },
+  {
+    "id": "3315",
+    "name": "Kab. Grobogan",
+    "type": "kabupaten",
+    "wilayah": "A",
+    "source_ids": [
+      "PERGUB-7-2025",
+      "BPS-JATENG"
+    ]
+  },
+  {
+    "id": "3316",
+    "name": "Kab. Blora",
+    "type": "kabupaten",
+    "wilayah": "A",
+    "source_ids": [
+      "PERGUB-7-2025",
+      "BPS-JATENG"
+    ]
+  },
+  {
+    "id": "3317",
+    "name": "Kab. Rembang",
+    "type": "kabupaten",
+    "wilayah": "A",
+    "source_ids": [
+      "PERGUB-7-2025",
+      "BPS-JATENG"
+    ]
+  },
+  {
+    "id": "3318",
+    "name": "Kab. Pati",
+    "type": "kabupaten",
+    "wilayah": "B",
+    "source_ids": [
+      "PERGUB-7-2025",
+      "BPS-JATENG"
+    ]
+  },
+  {
+    "id": "3319",
+    "name": "Kab. Kudus",
+    "type": "kabupaten",
+    "wilayah": "C",
+    "source_ids": [
+      "PERGUB-7-2025",
+      "BPS-JATENG"
+    ]
+  },
+  {
+    "id": "3320",
+    "name": "Kab. Jepara",
+    "type": "kabupaten",
+    "wilayah": "B",
+    "source_ids": [
+      "PERGUB-7-2025",
+      "BPS-JATENG"
+    ]
+  },
+  {
+    "id": "3321",
+    "name": "Kab. Demak",
+    "type": "kabupaten",
+    "wilayah": "C",
+    "source_ids": [
+      "PERGUB-7-2025",
+      "BPS-JATENG"
+    ]
+  },
+  {
+    "id": "3322",
+    "name": "Kab. Semarang",
+    "type": "kabupaten",
+    "wilayah": "B",
+    "source_ids": [
+      "PERGUB-7-2025",
+      "BPS-JATENG"
+    ]
+  },
+  {
+    "id": "3323",
+    "name": "Kab. Temanggung",
+    "type": "kabupaten",
+    "wilayah": "A",
+    "source_ids": [
+      "PERGUB-7-2025",
+      "BPS-JATENG"
+    ]
+  },
+  {
+    "id": "3324",
+    "name": "Kab. Kendal",
+    "type": "kabupaten",
+    "wilayah": "B",
+    "source_ids": [
+      "PERGUB-7-2025",
+      "BPS-JATENG"
+    ]
+  },
+  {
+    "id": "3325",
+    "name": "Kab. Batang",
+    "type": "kabupaten",
+    "wilayah": "B",
+    "source_ids": [
+      "PERGUB-7-2025",
+      "BPS-JATENG"
+    ]
+  },
+  {
+    "id": "3326",
+    "name": "Kab. Pekalongan",
+    "type": "kabupaten",
+    "wilayah": "C",
+    "source_ids": [
+      "PERGUB-7-2025",
+      "BPS-JATENG"
+    ]
+  },
+  {
+    "id": "3327",
+    "name": "Kab. Pemalang",
+    "type": "kabupaten",
+    "wilayah": "A",
+    "source_ids": [
+      "PERGUB-7-2025",
+      "BPS-JATENG"
+    ]
+  },
+  {
+    "id": "3328",
+    "name": "Kab. Tegal",
+    "type": "kabupaten",
+    "wilayah": "A",
+    "source_ids": [
+      "PERGUB-7-2025",
+      "BPS-JATENG"
+    ]
+  },
+  {
+    "id": "3329",
+    "name": "Kab. Brebes",
+    "type": "kabupaten",
+    "wilayah": "B",
+    "source_ids": [
+      "PERGUB-7-2025",
+      "BPS-JATENG"
+    ]
+  },
+  {
+    "id": "3371",
+    "name": "Kota Magelang",
+    "type": "kota",
+    "wilayah": "A",
+    "source_ids": [
+      "PERGUB-7-2025",
+      "BPS-JATENG"
+    ]
+  },
+  {
+    "id": "3372",
+    "name": "Kota Surakarta",
+    "type": "kota",
+    "wilayah": "C",
+    "source_ids": [
+      "PERGUB-7-2025",
+      "BPS-JATENG"
+    ]
+  },
+  {
+    "id": "3373",
+    "name": "Kota Salatiga",
+    "type": "kota",
+    "wilayah": "B",
+    "source_ids": [
+      "PERGUB-7-2025",
+      "BPS-JATENG"
+    ]
+  },
+  {
+    "id": "3374",
+    "name": "Kota Semarang",
+    "type": "kota",
+    "wilayah": "C",
+    "source_ids": [
+      "PERGUB-7-2025",
+      "BPS-JATENG"
+    ]
+  },
+  {
+    "id": "3375",
+    "name": "Kota Pekalongan",
+    "type": "kota",
+    "wilayah": "B",
+    "source_ids": [
+      "PERGUB-7-2025",
+      "BPS-JATENG"
+    ]
+  },
+  {
+    "id": "3376",
+    "name": "Kota Tegal",
+    "type": "kota",
+    "wilayah": "B",
+    "source_ids": [
+      "PERGUB-7-2025",
+      "BPS-JATENG"
+    ]
+  }
+]

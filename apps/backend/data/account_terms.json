@@ -1,0 +1,15 @@
+[
+  {
+    "region_id": "3374",
+    "year": 2023,
+    "household_wells_low_m3": 0,
+    "household_wells_high_m3": 25000000,
+    "public_supply_low_m3": 0,
+    "public_supply_high_m3": 10000000,
+    "source_ids": [
+      "PERDA-SMG-2024",
+      "EXP09"
+    ],
+    "note": "Household wells outside PDAM: PDAM households 41.63 x 38/62, an upper bound that includes shallow wells and springs. Public supply wells: about 19 % of PDAM supply, if not already in the declared volume. The range is the point."
+  }
+]

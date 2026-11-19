@@ -1,0 +1,34 @@
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: neraca
+      POSTGRES_USER: neraca
+      POSTGRES_PASSWORD: neraca
+    ports:
+      - "55432:5432"
+    volumes:
+      - neraca_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U neraca -d neraca"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  api:
+    build: .
+    environment:
+      NERACA_ENVIRONMENT: docker
+      NERACA_DATABASE_URL: postgresql+psycopg://neraca:neraca@db:5432/neraca
+      NERACA_CORS_ORIGINS: '["http://localhost:3000","http://127.0.0.1:3000"]'
+    ports:
+      - "8000:8000"
+    depends_on:
+      db:
+        condition: service_healthy
+    command: >
+      sh -c "alembic upgrade head &&
+             uvicorn neraca.main:app --host 0.0.0.0 --port 8000"
+
+volumes:
+  neraca_pgdata:

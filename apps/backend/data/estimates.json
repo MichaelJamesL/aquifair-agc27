@@ -1,0 +1,28 @@
+[
+  {
+    "region_id": "3374",
+    "year": 2023,
+    "method": "validated_16km_split",
+    "low_m3": 27900000,
+    "central_m3": 43800000,
+    "high_m3": 54700000,
+    "label": "TESTED",
+    "source_ids": [
+      "EXP09"
+    ],
+    "note": "Semarang west and central 16 km cell, P10/P50/P90. Validated in two unseen regions."
+  },
+  {
+    "region_id": "3374",
+    "year": 2023,
+    "method": "demand_4km",
+    "low_m3": 25000000,
+    "central_m3": 36500000,
+    "high_m3": 48000000,
+    "label": "CALCULATED",
+    "source_ids": [
+      "EXP07"
+    ],
+    "note": "4 km demand model, not validated at this scale."
+  }
+]

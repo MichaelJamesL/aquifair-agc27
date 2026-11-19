@@ -1,0 +1,286 @@
+{
+    "help":  "https://data.jatengprov.go.id/api/3/action/help_show?name=datastore_search",
+    "success":  true,
+    "result":  {
+                   "include_total":  true,
+                   "limit":  1000,
+                   "records_format":  "objects",
+                   "resource_id":  "1bb2a757-b231-4716-9009-a55c8c5b1fdd",
+                   "total_estimation_threshold":  null,
+                   "records":  [
+                                   {
+                                       "_id":  1,
+                                       "tahun_data":  2022,
+                                       "kabupatenkota_data":  "Kab. Banjarnegara",
+                                       "nilai_perolehan_air_data":  "820677825.0",
+                                       "volume_pengusahaan_air_tanah":  253389
+                                   },
+                                   {
+                                       "_id":  2,
+                                       "tahun_data":  2022,
+                                       "kabupatenkota_data":  "Kab. Banyumas",
+                                       "nilai_perolehan_air_data":  "6304235585.0",
+                                       "volume_pengusahaan_air_tanah":  2751000
+                                   },
+                                   {
+                                       "_id":  3,
+                                       "tahun_data":  2022,
+                                       "kabupatenkota_data":  "Kab. Batang",
+                                       "nilai_perolehan_air_data":  "7967645610.0",
+                                       "volume_pengusahaan_air_tanah":  1407484
+                                   },
+                                   {
+                                       "_id":  4,
+                                       "tahun_data":  2022,
+                                       "kabupatenkota_data":  "Kab. Blora",
+                                       "nilai_perolehan_air_data":  "5489473920.0",
+                                       "volume_pengusahaan_air_tanah":  603297
+                                   },
+                                   {
+                                       "_id":  5,
+                                       "tahun_data":  2022,
+                                       "kabupatenkota_data":  "Kab. Boyolali",
+                                       "nilai_perolehan_air_data":  "14911260403.0",
+                                       "volume_pengusahaan_air_tanah":  4396897
+                                   },
+                                   {
+                                       "_id":  6,
+                                       "tahun_data":  2022,
+                                       "kabupatenkota_data":  "Kab. Brebes",
+                                       "nilai_perolehan_air_data":  "3163772748.0",
+                                       "volume_pengusahaan_air_tanah":  1703920
+                                   },
+                                   {
+                                       "_id":  7,
+                                       "tahun_data":  2022,
+                                       "kabupatenkota_data":  "Kab. Cilacap",
+                                       "nilai_perolehan_air_data":  "18212030697.0",
+                                       "volume_pengusahaan_air_tanah":  1332084
+                                   },
+                                   {
+                                       "_id":  8,
+                                       "tahun_data":  2022,
+                                       "kabupatenkota_data":  "Kab. Demak",
+                                       "nilai_perolehan_air_data":  "11570841250.0",
+                                       "volume_pengusahaan_air_tanah":  5923864
+                                   },
+                                   {
+                                       "_id":  9,
+                                       "tahun_data":  2022,
+                                       "kabupatenkota_data":  "Kab. Grobogan",
+                                       "nilai_perolehan_air_data":  "2388586000.0",
+                                       "volume_pengusahaan_air_tanah":  234093
+                                   },
+                                   {
+                                       "_id":  10,
+                                       "tahun_data":  2022,
+                                       "kabupatenkota_data":  "Kab. Jepara",
+                                       "nilai_perolehan_air_data":  "25569790628.0",
+                                       "volume_pengusahaan_air_tanah":  18038653
+                                   },
+                                   {
+                                       "_id":  11,
+                                       "tahun_data":  2022,
+                                       "kabupatenkota_data":  "Kab Karanganyar",
+                                       "nilai_perolehan_air_data":  "6150871407.0",
+                                       "volume_pengusahaan_air_tanah":  902268
+                                   },
+                                   {
+                                       "_id":  12,
+                                       "tahun_data":  2022,
+                                       "kabupatenkota_data":  "Kab. Kebumen",
+                                       "nilai_perolehan_air_data":  "2843602589.0",
+                                       "volume_pengusahaan_air_tanah":  899795
+                                   },
+                                   {
+                                       "_id":  13,
+                                       "tahun_data":  2022,
+                                       "kabupatenkota_data":  "Kab. Kendal",
+                                       "nilai_perolehan_air_data":  "27978163640.0",
+                                       "volume_pengusahaan_air_tanah":  16795863
+                                   },
+                                   {
+                                       "_id":  14,
+                                       "tahun_data":  2022,
+                                       "kabupatenkota_data":  "Kab. Klaten",
+                                       "nilai_perolehan_air_data":  "                          14.418.370.56 ",
+                                       "volume_pengusahaan_air_tanah":  4869374
+                                   },
+                                   {
+                                       "_id":  15,
+                                       "tahun_data":  2022,
+                                       "kabupatenkota_data":  "Kab. Kudus",
+                                       "nilai_perolehan_air_data":  "46196135663.0",
+                                       "volume_pengusahaan_air_tanah":  17853579
+                                   },
+                                   {
+                                       "_id":  16,
+                                       "tahun_data":  2022,
+                                       "kabupatenkota_data":  "Kab. Magelang",
+                                       "nilai_perolehan_air_data":  "4069765700.0",
+                                       "volume_pengusahaan_air_tanah":  641839
+                                   },
+                                   {
+                                       "_id":  17,
+                                       "tahun_data":  2022,
+                                       "kabupatenkota_data":  "Kab. Pati",
+                                       "nilai_perolehan_air_data":  "16225250738.0",
+                                       "volume_pengusahaan_air_tanah":  11446385
+                                   },
+                                   {
+                                       "_id":  18,
+                                       "tahun_data":  2022,
+                                       "kabupatenkota_data":  "Kab. Pekalongan",
+                                       "nilai_perolehan_air_data":  "10024489100.0",
+                                       "volume_pengusahaan_air_tanah":  3918483
+                                   },
+                                   {
+                                       "_id":  19,
+                                       "tahun_data":  2022,
+                                       "kabupatenkota_data":  "Kab. Pemalang",
+                                       "nilai_perolehan_air_data":  "8314526800.0",
+                                       "volume_pengusahaan_air_tanah":  673932
+                                   },
+                                   {
+                                       "_id":  20,
+                                       "tahun_data":  2022,
+                                       "kabupatenkota_data":  "Kab. Purbalingga",
+                                       "nilai_perolehan_air_data":  "2049747200.0",
+                                       "volume_pengusahaan_air_tanah":  517827
+                                   },
+                                   {
+                                       "_id":  21,
+                                       "tahun_data":  2022,
+                                       "kabupatenkota_data":  "Kab. Purworejo",
+                                       "nilai_perolehan_air_data":  "1920581045.0",
+                                       "volume_pengusahaan_air_tanah":  1017841
+                                   },
+                                   {
+                                       "_id":  22,
+                                       "tahun_data":  2022,
+                                       "kabupatenkota_data":  "Kab. Rembang",
+                                       "nilai_perolehan_air_data":  "5631007421.0",
+                                       "volume_pengusahaan_air_tanah":  424258
+                                   },
+                                   {
+                                       "_id":  23,
+                                       "tahun_data":  2022,
+                                       "kabupatenkota_data":  "Kab. Semarang",
+                                       "nilai_perolehan_air_data":  "46841834740.0",
+                                       "volume_pengusahaan_air_tanah":  15898665
+                                   },
+                                   {
+                                       "_id":  24,
+                                       "tahun_data":  2022,
+                                       "kabupatenkota_data":  "Kab Sragen",
+                                       "nilai_perolehan_air_data":  "2068758400.0",
+                                       "volume_pengusahaan_air_tanah":  273153
+                                   },
+                                   {
+                                       "_id":  25,
+                                       "tahun_data":  2022,
+                                       "kabupatenkota_data":  "Kab. Sukoharjo",
+                                       "nilai_perolehan_air_data":  "33364950800.0",
+                                       "volume_pengusahaan_air_tanah":  5773582
+                                   },
+                                   {
+                                       "_id":  26,
+                                       "tahun_data":  2022,
+                                       "kabupatenkota_data":  "Kab. Tegal",
+                                       "nilai_perolehan_air_data":  "3011533380.0",
+                                       "volume_pengusahaan_air_tanah":  538194
+                                   },
+                                   {
+                                       "_id":  27,
+                                       "tahun_data":  2022,
+                                       "kabupatenkota_data":  "Kab. Temanggung",
+                                       "nilai_perolehan_air_data":  "1605794250.0",
+                                       "volume_pengusahaan_air_tanah":  472728
+                                   },
+                                   {
+                                       "_id":  28,
+                                       "tahun_data":  2022,
+                                       "kabupatenkota_data":  "Kab. Wonogiri",
+                                       "nilai_perolehan_air_data":  "4929807000.0",
+                                       "volume_pengusahaan_air_tanah":  835366
+                                   },
+                                   {
+                                       "_id":  29,
+                                       "tahun_data":  2022,
+                                       "kabupatenkota_data":  "Kab. Wonosobo",
+                                       "nilai_perolehan_air_data":  "342763306.0",
+                                       "volume_pengusahaan_air_tanah":  502783
+                                   },
+                                   {
+                                       "_id":  30,
+                                       "tahun_data":  2022,
+                                       "kabupatenkota_data":  "Kota Magelang",
+                                       "nilai_perolehan_air_data":  "1729944000.0",
+                                       "volume_pengusahaan_air_tanah":  268513
+                                   },
+                                   {
+                                       "_id":  31,
+                                       "tahun_data":  2022,
+                                       "kabupatenkota_data":  "Kota Pekalongan",
+                                       "nilai_perolehan_air_data":  "12758864750.0",
+                                       "volume_pengusahaan_air_tanah":  2297053
+                                   },
+                                   {
+                                       "_id":  32,
+                                       "tahun_data":  2022,
+                                       "kabupatenkota_data":  "Kota Salatiga",
+                                       "nilai_perolehan_air_data":  "12605486100.0",
+                                       "volume_pengusahaan_air_tanah":  2159660
+                                   },
+                                   {
+                                       "_id":  33,
+                                       "tahun_data":  2022,
+                                       "kabupatenkota_data":  "Kota Semarang",
+                                       "nilai_perolehan_air_data":  "97624080550.0",
+                                       "volume_pengusahaan_air_tanah":  10415525
+                                   },
+                                   {
+                                       "_id":  34,
+                                       "tahun_data":  2022,
+                                       "kabupatenkota_data":  "Kota Surakarta",
+                                       "nilai_perolehan_air_data":  "51919144400.0",
+                                       "volume_pengusahaan_air_tanah":  4839249
+                                   },
+                                   {
+                                       "_id":  35,
+                                       "tahun_data":  2022,
+                                       "kabupatenkota_data":  "Kota Tegal",
+                                       "nilai_perolehan_air_data":  "5828695705.0",
+                                       "volume_pengusahaan_air_tanah":  980989
+                                   }
+                               ],
+                   "fields":  [
+                                  {
+                                      "id":  "_id",
+                                      "type":  "int"
+                                  },
+                                  {
+                                      "id":  "tahun_data",
+                                      "type":  "numeric"
+                                  },
+                                  {
+                                      "id":  "kabupatenkota_data",
+                                      "type":  "text"
+                                  },
+                                  {
+                                      "id":  "nilai_perolehan_air_data",
+                                      "type":  "text"
+                                  },
+                                  {
+                                      "id":  "volume_pengusahaan_air_tanah",
+                                      "type":  "numeric"
+                                  }
+                              ],
+                   "_links":  {
+                                  "start":  "/api/3/action/datastore_search?resource_id=1bb2a757-b231-4716-9009-a55c8c5b1fdd\u0026limit=1000",
+                                  "next":  "/api/3/action/datastore_search?resource_id=1bb2a757-b231-4716-9009-a55c8c5b1fdd\u0026limit=1000\u0026offset=1000"
+                              },
+                   "total":  35,
+                   "total_was_estimated":  false
+               }
+}

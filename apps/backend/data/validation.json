@@ -1,0 +1,95 @@
+[
+  {
+    "code": "V1",
+    "name": "Billing",
+    "module": "A",
+    "pass_mark": "Realised tax / declared volume lies within 0.20 x the NPA range of groups 2-4 for that year. Below the range is a billing leak.",
+    "status": "planned",
+    "result": "waiting",
+    "source_ids": [
+      "APBD-SMG",
+      "PERGUB-7-2025"
+    ]
+  },
+  {
+    "code": "V2",
+    "name": "Volume split",
+    "module": "A",
+    "pass_mark": "Error within 1.5x on unseen regions at 16 km.",
+    "status": "done",
+    "result": "pass",
+    "source_ids": [
+      "EXP09"
+    ]
+  },
+  {
+    "code": "V3",
+    "name": "Sinking maps",
+    "module": "C",
+    "pass_mark": "Signals repeat across periods and tracks above a random null.",
+    "status": "done",
+    "result": "pass",
+    "source_ids": [
+      "EXP04",
+      "LICSAR"
+    ]
+  },
+  {
+    "code": "V4",
+    "name": "Arizona leads",
+    "module": "B",
+    "pass_mark": "New large buildings with a new registered well within 500 m in t to t+2 are at least 1.5x the built-matched null; one-sided permutation p < 0.05.",
+    "status": "planned",
+    "result": "waiting",
+    "source_ids": [
+      "EXP05",
+      "ADWR"
+    ]
+  },
+  {
+    "code": "V5",
+    "name": "Semarang permits",
+    "module": "B",
+    "pass_mark": "Leads fall on permitted wells more often than random new buildings of the same size, p < 0.05.",
+    "status": "planned",
+    "result": "waiting",
+    "source_ids": [
+      "LO-2022",
+      "ZONE-2022"
+    ]
+  },
+  {
+    "code": "V6",
+    "name": "Field hit rate",
+    "module": "B",
+    "pass_mark": "No pass mark; reported per lead class with a 90 % interval.",
+    "status": "waiting",
+    "result": "waiting",
+    "source_ids": []
+  },
+  {
+    "code": "V7",
+    "name": "SPAM test",
+    "module": "C",
+    "pass_mark": "Delta below the 5th percentile of the shift null, and both placebos between the 5th and 95th percentiles.",
+    "status": "planned",
+    "result": "waiting",
+    "source_ids": [
+      "LICSAR",
+      "EXP14",
+      "SPAM-SETKAB"
+    ]
+  },
+  {
+    "code": "V8",
+    "name": "Positive control in Arizona",
+    "module": "C",
+    "pass_mark": "The same test detects a known, metered pumping cut.",
+    "status": "planned",
+    "result": "waiting",
+    "source_ids": [
+      "EXP05",
+      "ADWR"
+    ]
+  }
+]

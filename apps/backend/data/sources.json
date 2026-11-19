@@ -1,0 +1,281 @@
+[
+  {
+    "id": "PERGUB-7-2025",
+    "name": "Pergub Jawa Tengah 7/2025: Penetapan Nilai Perolehan Air Tanah",
+    "publisher": "Pemerintah Provinsi Jawa Tengah",
+    "url": "https://peraturan.bpk.go.id/Details/314690/pergub-prov-jawa-tengah-no-7-tahun-2025",
+    "label": "OFFICIAL",
+    "accessed": "2026-11-19",
+    "note": "In force 18 February 2025. HAB and BAT tables in the annex."
+  },
+  {
+    "id": "ESDM-NPA-2020",
+    "name": "NPA and groundwater abstraction volume 2020",
+    "publisher": "Dinas ESDM Provinsi Jawa Tengah",
+    "url": "https://data.jatengprov.go.id/dataset/fcc-nilai-perolehan-air-tanah-npa-dan-volume-pengambilan-pengusahaan-air-tanah-di-provinsi-jawa-teng",
+    "label": "OFFICIAL",
+    "accessed": "2026-11-19",
+    "note": "CC-BY. CKAN resource 6e4abb61-78ab-40dd-a21c-1242d4b677f9."
+  },
+  {
+    "id": "ESDM-NPA-2021",
+    "name": "NPA and groundwater abstraction volume 2021",
+    "publisher": "Dinas ESDM Provinsi Jawa Tengah",
+    "url": "https://data.jatengprov.go.id/dataset/fcc-nilai-perolehan-air-tanah-npa-dan-volume-pengambilan-pengusahaan-air-tanah-di-provinsi-jawa-teng",
+    "label": "OFFICIAL",
+    "accessed": "2026-11-19",
+    "note": "CC-BY. CKAN resource 8af351c3-f1b4-425e-b59b-681696e3a542."
+  },
+  {
+    "id": "ESDM-NPA-2022",
+    "name": "NPA and groundwater abstraction volume 2022",
+    "publisher": "Dinas ESDM Provinsi Jawa Tengah",
+    "url": "https://data.jatengprov.go.id/dataset/fcc-nilai-perolehan-air-tanah-npa-dan-volume-pengambilan-pengusahaan-air-tanah-di-provinsi-jawa-teng",
+    "label": "OFFICIAL",
+    "accessed": "2026-11-19",
+    "note": "CC-BY. CKAN resource 1bb2a757-b231-4716-9009-a55c8c5b1fdd."
+  },
+  {
+    "id": "ESDM-NPA-2023",
+    "name": "NPA and groundwater abstraction volume 2023",
+    "publisher": "Dinas ESDM Provinsi Jawa Tengah",
+    "url": "https://data.jatengprov.go.id/dataset/fcc-nilai-perolehan-air-tanah-npa-dan-volume-pengambilan-pengusahaan-air-tanah-di-provinsi-jawa-teng",
+    "label": "OFFICIAL",
+    "accessed": "2026-11-19",
+    "note": "CC-BY. CKAN resource 276bcab2-ab5d-45c4-b2d6-c3daa637f3b8. Kota Semarang 2023: 10,069,814 m3."
+  },
+  {
+    "id": "BPS-JATENG",
+    "name": "BPS province and regency codes, Central Java",
+    "publisher": "Badan Pusat Statistik",
+    "url": "https://jateng.bps.go.id/",
+    "label": "OFFICIAL",
+    "accessed": "2026-11-19",
+    "note": "Used only to key the 35 kabupaten/kota."
+  },
+  {
+    "id": "PERDA-SMG-2024",
+    "name": "Perda Kota Semarang 4/2024: environmental protection and management plan, 2024-2054",
+    "publisher": "Pemerintah Kota Semarang",
+    "url": null,
+    "label": "OFFICIAL",
+    "accessed": "2026-11-19",
+    "note": "Local copy realdata/semarang/perda/p.txt. Gives PDAM sales and registered abstraction."
+  },
+  {
+    "id": "PERDA-10-2023",
+    "name": "Perda Kota Semarang 10/2023: regional taxes and levies",
+    "publisher": "Pemerintah Kota Semarang",
+    "url": "https://pasal.id/peraturan/perda/perda-kota-semarang-no-10-tahun-2023",
+    "label": "OFFICIAL",
+    "accessed": "2026-11-19",
+    "note": "Amended by Perda 4/2025. The 20 % PAT rate is reported by a tax news service."
+  },
+  {
+    "id": "TERC-2024",
+    "name": "TERC LPEM FEB UI policy brief: surface and groundwater tax",
+    "publisher": "Universitas Indonesia",
+    "url": "https://terc.lpem.org/wp-content/uploads/2024/04/PAP_dan_PAT-TERC_Brief.pdf",
+    "label": "WEAK",
+    "accessed": "2026-11-19",
+    "note": "Secondary source for the 20 % maximum under UU 1/2022."
+  },
+  {
+    "id": "DDTC-SMG",
+    "name": "DDTC News: latest local tax rates in Kota Semarang",
+    "publisher": "DDTC News",
+    "url": "https://news.ddtc.co.id/berita/daerah/1800913/ketentuan-terbaru-tarif-pajak-daerah-di-kota-semarang-cek-di-sini",
+    "label": "WEAK",
+    "accessed": "2026-11-19",
+    "note": "Secondary source for the 20 % PAT rate."
+  },
+  {
+    "id": "PDAM-COVERAGE",
+    "name": "Perumda Air Minum Tirta Moedal: service coverage",
+    "publisher": "Perumda Air Minum Tirta Moedal Kota Semarang",
+    "url": "https://pdamkotasmg.co.id/index.php/page/cakupan_pelayanan",
+    "label": "OFFICIAL",
+    "accessed": "2026-11-19",
+    "note": "52 % service coverage, 200k+ customers, 3,600 L/s production."
+  },
+  {
+    "id": "SPAM-SETKAB",
+    "name": "Presiden resmikan SPAM Semarang Barat",
+    "publisher": "Sekretariat Kabinet Republik Indonesia",
+    "url": "https://setkab.go.id/resmikan-spam-semarang-barat-presiden-bantu-masyarakat-peroleh-air-bersih-terjangkau/",
+    "label": "OFFICIAL",
+    "accessed": "2026-11-19",
+    "note": "Opening 23 January 2024; Jatibarang reservoir."
+  },
+  {
+    "id": "SPAM-EKON",
+    "name": "Operational SPAM Semarang Barat",
+    "publisher": "Kemenko Perekonomian",
+    "url": "https://ekon.go.id/unduh/publikasi/4380/pemerintah-dorong-peningkatan-ketersediaan-air-minum-dengan-operasional-psn-spam-semarang-barat",
+    "label": "OFFICIAL",
+    "accessed": "2026-11-19",
+    "note": "Design capacity 1,000 L/s; 605 L/s uptake in January 2024."
+  },
+  {
+    "id": "SPAM-ANTARA",
+    "name": "SPAM Semarang Barat, penopang kebutuhan air Kota Atlas",
+    "publisher": "ANTARA News",
+    "url": "https://www.antaranews.com/berita/4014417/spam-semarang-barat-penopang-kebutuhan-air-kota-atlas",
+    "label": "WEAK",
+    "accessed": "2026-11-19",
+    "note": "70,000 household connections; Semarang Barat, Ngaliyan, Tugu; PDAM coverage rises to 80 %."
+  },
+  {
+    "id": "SPAM-HASINA",
+    "name": "Evaluation of the SPAM Semarang Barat PPP project 2024",
+    "publisher": "Hasina Jurnal Akuntansi dan Bisnis Syariah",
+    "url": "https://doi.org/10.35897/hasina.v2i2.2032",
+    "label": "WEAK",
+    "accessed": "2026-11-19",
+    "note": "COD 22 May 2021; 47,261 customers in the west area by September 2024."
+  },
+  {
+    "id": "LICSAR",
+    "name": "LiCSAR Sentinel-1 ground motion, Semarang 2014-2026",
+    "publisher": "COMET / University of Leeds",
+    "url": "https://comet.nerc.ac.uk/comet-lics-portal/",
+    "label": "MEASURED",
+    "accessed": "2026-11-19",
+    "note": "Frames 076D descending and 127A ascending, processed locally."
+  },
+  {
+    "id": "GEOBOUNDARIES",
+    "name": "geoBoundaries ADM2 boundaries, Indonesia",
+    "publisher": "geoBoundaries",
+    "url": "https://www.geoboundaries.org/",
+    "label": "OFFICIAL",
+    "accessed": "2026-11-19",
+    "note": "Filtered to the 35 Central Java kabupaten/kota."
+  },
+  {
+    "id": "EXP04",
+    "name": "Experiment 4: blind test and repeatability",
+    "publisher": "NERACA research log",
+    "url": null,
+    "label": "TESTED",
+    "accessed": "2026-11-19",
+    "note": "Sinking signals repeat across periods and tracks."
+  },
+  {
+    "id": "EXP07",
+    "name": "Experiment 7: Semarang water-demand model at 4 km",
+    "publisher": "NERACA research log",
+    "url": null,
+    "label": "CALCULATED",
+    "accessed": "2026-11-19",
+    "note": "Unvalidated 4 km demand model. Kota Semarang 25-48 Mm3/yr, median 36.5."
+  },
+  {
+    "id": "EXP09",
+    "name": "Experiment 9: validated 16 km regional volume split",
+    "publisher": "NERACA research log",
+    "url": null,
+    "label": "TESTED",
+    "accessed": "2026-11-19",
+    "note": "Passed pre-registered confirmation in two unseen regions. Semarang west+central: 27.9/43.8/54.7 Mm3/yr (P10/P50/P90)."
+  },
+  {
+    "id": "EXP13",
+    "name": "Experiment 13: registered wells against sinking",
+    "publisher": "NERACA research log",
+    "url": null,
+    "label": "TESTED",
+    "accessed": "2026-11-19",
+    "note": "Registered deep wells do not sit on faster-sinking ground."
+  },
+  {
+    "id": "EXP14",
+    "name": "Experiment 14: what explains the sinking",
+    "publisher": "NERACA research log",
+    "url": null,
+    "label": "TESTED",
+    "accessed": "2026-11-19",
+    "note": "Soft-clay thickness explains about 80 % of the pattern; fast areas slowed from 113 to 89 mm/yr."
+  },
+  {
+    "id": "X08",
+    "name": "Real-data period medians, Semarang",
+    "publisher": "NERACA analysis on Sentinel-1 LiCSAR",
+    "url": null,
+    "label": "MEASURED",
+    "accessed": "2026-11-19",
+    "note": "Fast-area medians: 112.8 (2014-17), 103.1 (2018-22), 88.7 mm/yr (2023-26)."
+  },
+  {
+    "id": "X05",
+    "name": "Real-data cause tests: soft-clay thickness",
+    "publisher": "NERACA analysis on Sentinel-1 LiCSAR",
+    "url": null,
+    "label": "MEASURED",
+    "accessed": "2026-11-19",
+    "note": "Clay thickness vs sinking, rho 0.81, p 0.003."
+  },
+  {
+    "id": "LO-2022",
+    "name": "Lo et al. 2022: InSAR and MODFLOW in Semarang",
+    "publisher": "Water 14(2), 201",
+    "url": "https://doi.org/10.3390/w14020201",
+    "label": "MEASURED",
+    "accessed": "2026-11-19",
+    "note": "Registered wells and heads; permits on request from Dinas ESDM."
+  },
+  {
+    "id": "ZONE-2022",
+    "name": "CAT Semarang-Demak conservation zones, 2022",
+    "publisher": "Dinas ESDM Provinsi Jawa Tengah",
+    "url": "https://eprints2.undip.ac.id/55333/3/Bab%20I.pdf",
+    "label": "OFFICIAL",
+    "accessed": "2026-11-19",
+    "note": "Map not yet digitised. In critical and damaged zones no new abstraction permit can be issued."
+  },
+  {
+    "id": "ADWR",
+    "name": "Arizona Department of Water Resources Wells 55 and pump data",
+    "publisher": "ADWR",
+    "url": "https://gisweb.azwater.gov/",
+    "label": "OFFICIAL",
+    "accessed": "2026-11-19",
+    "note": "Used for V4 and V8 only; not part of the Central Java accounts."
+  },
+  {
+    "id": "EXP05",
+    "name": "Experiment 5: Arizona metered-pumping validation",
+    "publisher": "NERACA research log",
+    "url": null,
+    "label": "TESTED",
+    "accessed": "2026-11-19",
+    "note": "T4 warned that a pumping cut may not show in sinking."
+  },
+  {
+    "id": "PDAM-NETWORK",
+    "name": "PDAM coverage per kelurahan",
+    "publisher": "Perumda Air Minum Tirta Moedal Kota Semarang",
+    "url": null,
+    "label": "MISSING",
+    "accessed": null,
+    "note": "Not public. A PPID request is needed; until then filter 4 is a proxy."
+  },
+  {
+    "id": "SPAM-SERVICE-AREA",
+    "name": "SPAM Semarang Barat service-area map",
+    "publisher": "PDAM / Kementerian PUPR",
+    "url": null,
+    "label": "MISSING",
+    "accessed": null,
+    "note": "Not obtained. The three named districts are used meanwhile."
+  },
+  {
+    "id": "APBD-SMG",
+    "name": "Realised groundwater tax, Kota Semarang 2020-2025",
+    "publisher": "Bapenda Kota Semarang / APBD / LKPJ",
+    "url": null,
+    "label": "MISSING",
+    "accessed": null,
+    "note": "Needed for V1. Not in the open dataset."
+  }
+]

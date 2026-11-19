@@ -1,0 +1,5 @@
+{
+  "status": "unavailable",
+  "reason": "The 4 km demand layer and the SPAM service-area layer are not in a common grid. The validated 16 km volume split is available in module A; ranking within the city failed validation, so no pipe-priority cell is asserted.",
+  "items": []
+}

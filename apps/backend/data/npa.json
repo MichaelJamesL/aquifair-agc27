@@ -1,0 +1,118 @@
+{
+  "regulation": "Pergub Jawa Tengah 7/2025",
+  "in_force": "2025-02-18",
+  "tax_rate": 0.2,
+  "source_ids": [
+    "PERGUB-7-2025",
+    "PERDA-10-2023",
+    "TERC-2024"
+  ],
+  "hab_idr_per_m3": {
+    "A": 2561,
+    "B": 2795,
+    "C": 2824
+  },
+  "resource_component": {
+    "good_alternative": 16,
+    "good_no_alternative": 9,
+    "poor_alternative": 4,
+    "poor_no_alternative": 1
+  },
+  "use_component": {
+    "1": [
+      9.0,
+      13.5,
+      20.25,
+      30.38,
+      45.56
+    ],
+    "2": [
+      7.0,
+      10.5,
+      15.75,
+      23.63,
+      35.44
+    ],
+    "3": [
+      5.0,
+      7.5,
+      11.25,
+      16.88,
+      25.31
+    ],
+    "4": [
+      3.0,
+      4.5,
+      6.75,
+      10.13,
+      15.19
+    ],
+    "5": [
+      1.0,
+      1.5,
+      2.25,
+      3.38,
+      5.06
+    ]
+  },
+  "tiers": [
+    {
+      "key": "0_50",
+      "label": "0-50",
+      "min_m3": 0,
+      "max_m3": 50
+    },
+    {
+      "key": "51_500",
+      "label": "51-500",
+      "min_m3": 51,
+      "max_m3": 500
+    },
+    {
+      "key": "501_1000",
+      "label": "501-1,000",
+      "min_m3": 501,
+      "max_m3": 1000
+    },
+    {
+      "key": "1001_2500",
+      "label": "1,001-2,500",
+      "min_m3": 1001,
+      "max_m3": 2500
+    },
+    {
+      "key": "over_2500",
+      "label": ">2,500",
+      "min_m3": 2501,
+      "max_m3": null
+    }
+  ],
+  "groups": [
+    {
+      "key": 1,
+      "name": "K1",
+      "description": "Water as a product"
+    },
+    {
+      "key": 2,
+      "name": "K2",
+      "description": "High-risk business"
+    },
+    {
+      "key": 3,
+      "name": "K3",
+      "description": "Medium-risk business"
+    },
+    {
+      "key": 4,
+      "name": "K4",
+      "description": "Low-risk business"
+    },
+    {
+      "key": 5,
+      "name": "K5",
+      "description": "Social, government, public supply"
+    }
+  ],
+  "note": "NPA = HAB x BAT, BAT = 0.6 S + 0.4 P. The service computes NPA from these official inputs instead of transcribing 300 printed cells. A printed Wilayah C table check: K1 tier 0-50 = 37,277 Rp/m3."
+}
