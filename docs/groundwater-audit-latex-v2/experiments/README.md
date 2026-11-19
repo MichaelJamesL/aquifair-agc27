@@ -26,6 +26,7 @@ honest limits.
 | 12 | [12-relative-heatmap.md](12-relative-heatmap.md) | Relative (no-volume) pumping heatmap inside a region; 5 new regions on the DGX Spark |
 | 13 | [13-registered-wells-test.md](13-registered-wells-test.md) | Registered deep wells (digitized from Lo et al. 2022) vs InSAR sinking, pre-registered |
 | 14 | [14-subsidence-causes.md](14-subsidence-causes.md) | What explains the sinking: 14 pre-registered cause tests + attribution, run in parallel on the DGX Spark |
+| 15 | [15-app-pivot-a-b-c.md](15-app-pivot-a-b-c.md) | Web-app pivot research: groundwater accounts + tax (A), inspection leads (B), pipes instead of pumps (C) |
 
 ## Summary table
 
