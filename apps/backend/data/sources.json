@@ -331,5 +331,14 @@
     "label": "MEASURED",
     "accessed": "2026-11-20",
     "note": "Radar check in lead filter 1: walls give double bounce, bare fill does not. Built by scripts/fetch_s1_composites.py."
+  },
+  {
+    "id": "OVERTURE-PLACES",
+    "name": "Overture Maps places, release 2026-11-18.0",
+    "publisher": "Overture Maps Foundation",
+    "url": "https://docs.overturemaps.org/guides/places/",
+    "label": "WEAK",
+    "accessed": "2026-11-20",
+    "note": "Points of interest with a category (CDLA-Permissive-2.0). Used for the use class of a new roof when OSM has no tag: a place within 30 m. Positions are geocoded listings, so the class is WEAK."
   }
 ]
