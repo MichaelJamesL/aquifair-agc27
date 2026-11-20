@@ -17,6 +17,7 @@
 \usepackage{titlesec}
 \usepackage{fancyhdr}
 \usepackage[most]{tcolorbox}
+\usepackage{graphicx}
 \usepackage{tikz}
 \usetikzlibrary{arrows.meta,positioning,calc}
 \usepackage{caption}
@@ -475,6 +476,18 @@ is a source in the register with its own label (\Tst\ when it passed a test, \Ca
 
 % =====================================================================================
 \section{The method, step by step}\label{sec:method}
+
+Figure~\ref{fig:overview} shows the whole method on one page. The rest of this section walks through it
+module by module.
+
+\begin{figure}[tbp]
+\centering
+\includegraphics[width=\linewidth]{figures/method-overview.png}
+\caption{The method at a glance. \textbf{A:} declared use is compared with an estimate, and the gap is
+priced with the official formula. \textbf{B:} new roofs found by satellite pass four filters to become
+leads, which inspectors visit. \textbf{C:} sinking maps feed a pipe-priority map with user-set weights, and a
+before/after test of SPAM Semarang Barat that came out inconclusive.}\label{fig:overview}
+\end{figure}
 
 \subsection{Module A: groundwater accounts}
 
