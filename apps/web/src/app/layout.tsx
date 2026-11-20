@@ -5,7 +5,7 @@ import { StoreProvider } from "@/state";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "NERACA · Groundwater accounts",
+  title: "AquiFair · Groundwater accounts",
   description:
     "Who pumps, who pays, and where pipes should replace pumps in sinking Central Java.",
 };

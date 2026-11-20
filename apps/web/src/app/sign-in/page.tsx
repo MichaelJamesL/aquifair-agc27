@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { ArrowRight, Check, Coins, Droplets, Landmark, MapPin, ShieldCheck } from "lucide-react";
@@ -49,10 +50,10 @@ export default function SignInPage() {
     <div className="grid min-h-screen grid-cols-[600px_minmax(0,1fr)] bg-bg">
       <section className="relative flex flex-col justify-between overflow-hidden bg-navy-900 px-16 py-12 text-white">
         <div className="relative z-10 flex items-center gap-2">
-          <span className="flex size-7 items-center justify-center rounded-full bg-white/10">
-            <Droplets size={16} />
+          <Image src="/AquiFair_mark_for_light_bg.png" alt="" width={30} height={30} priority />
+          <span className="font-display text-[20px] font-extrabold tracking-[-0.3px]">
+            Aqui<span className="text-[#e8892b]">Fair</span>
           </span>
-          <span className="font-display text-[20px] font-extrabold tracking-[-0.3px]">NERACA</span>
         </div>
 
         <div className="relative z-10 max-w-[460px]">

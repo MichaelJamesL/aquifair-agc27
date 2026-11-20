@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useState } from "react";
@@ -66,13 +67,8 @@ export function TopBar() {
 
   return (
     <header className="sticky top-0 z-40 flex h-14 w-full items-center gap-5 border-b border-line bg-surface pl-5 pr-4">
-      <Link href="/" className="flex shrink-0 items-center gap-2">
-        <span className="flex size-7 items-center justify-center rounded-full bg-blue-700 text-white">
-          <Droplets size={16} strokeWidth={2.4} />
-        </span>
-        <span className="font-display text-[20px] font-extrabold leading-[26px] tracking-[-0.3px] text-blue-700">
-          NERACA
-        </span>
+      <Link href="/" className="flex shrink-0 items-center">
+        <Image src="/AquiFair_logo_for_light_bg.png" alt="AquiFair" width={108} height={28} priority />
       </Link>
 
       <div className="h-6 w-px bg-line" />

@@ -1,8 +1,8 @@
+import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowRight,
   Check,
-  Droplets,
   Grid2x2,
   MapPin,
 } from "lucide-react";
@@ -90,26 +90,16 @@ function MiniMap({
 }
 
 function Logo({ size = "md" }: { size?: "md" | "sm" }) {
-  const small = size === "sm";
+  const height = size === "sm" ? 24 : 32;
+  // the PNG is 5336 x 1379; next/image serves a resized copy
   return (
-    <span className="flex items-center gap-2">
-      <span
-        className={cn(
-          "flex items-center justify-center rounded-full bg-blue-700 text-white",
-          small ? "size-6" : "size-8",
-        )}
-      >
-        <Droplets size={small ? 13 : 17} strokeWidth={2.3} />
-      </span>
-      <span
-        className={cn(
-          "font-display font-extrabold tracking-[-0.3px] text-blue-700",
-          small ? "text-[16px]" : "text-[21px]",
-        )}
-      >
-        NERACA
-      </span>
-    </span>
+    <Image
+      src="/AquiFair_logo_for_light_bg.png"
+      alt="AquiFair"
+      width={Math.round((height * 5336) / 1379)}
+      height={height}
+      priority={size === "md"}
+    />
   );
 }
 
@@ -802,7 +792,7 @@ export default function HomePage() {
     <div className="min-h-screen bg-bg">
       <header className="border-b border-line">
         <div className="mx-auto flex h-[76px] max-w-[1240px] items-center px-10">
-          <Link href="/" aria-label="NERACA home">
+          <Link href="/" aria-label="AquiFair home">
             <Logo />
           </Link>
 
@@ -836,7 +826,7 @@ export default function HomePage() {
                 between 25 and 48.
               </h1>
               <p className="mt-6 max-w-[540px] text-[14px] leading-[22px] text-ink-2">
-                NERACA puts that gap on a map for every kab/kota in Central Java, shows inspectors
+                AquiFair puts that gap on a map for every kab/kota in Central Java, shows inspectors
                 the new large buildings most likely to have drilled, and shows where piped water
                 should replace pumps.
               </p>
@@ -983,7 +973,7 @@ export default function HomePage() {
                 Every number carries its label
               </h2>
               <p className="mt-5 max-w-[360px] text-[13px] leading-[21px] text-ink-2">
-                Radar shows where the ground sinks, not which well caused it. So NERACA follows
+                Radar shows where the ground sinks, not which well caused it. So AquiFair follows
                 water and money, and says how sure each figure is.
               </p>
             </div>
@@ -1104,7 +1094,7 @@ export default function HomePage() {
         </div>
 
         <div className="mt-9 flex items-center justify-between border-t border-line pt-5 text-[11px] text-ink-3">
-          <span>NERACA · public view, no sign-in</span>
+          <span>AquiFair · public view, no sign-in</span>
           <span className="inline-flex items-center gap-1.5">
             <Check size={12} /> Ranges, sources and years travel with every figure.
           </span>
