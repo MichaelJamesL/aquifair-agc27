@@ -399,7 +399,7 @@ export default function AccountsPage() {
         )}
 
         <div className="pointer-events-none absolute bottom-4 left-4 rounded-md bg-surface px-2.5 py-1.5 font-mono text-[10px] text-ink-3">
-          Kab/kota boundaries: geoBoundaries · 0&nbsp;&nbsp;50 km
+          Kab/kota boundaries: geoBoundaries, coast OpenStreetMap · 0&nbsp;&nbsp;50 km
         </div>
 
         <div className="pointer-events-none absolute bottom-4 right-4 flex items-center gap-1 rounded-md bg-surface px-2.5 py-1.5 font-mono text-[10px] text-ink-3">
