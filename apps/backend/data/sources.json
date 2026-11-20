@@ -315,6 +315,24 @@
     "note": "Used to assign blocks, leads and served cells to kecamatan. Not an official Indonesian boundary product."
   },
   {
+    "id": "MS-BUILDINGS",
+    "name": "Microsoft Global ML Building Footprints",
+    "publisher": "Microsoft",
+    "url": "https://github.com/microsoft/GlobalMLBuildingFootprints",
+    "label": "MEASURED",
+    "accessed": "2026-11-20",
+    "note": "Machine-traced footprints from Bing imagery (dates vary, mostly before 2023); quadkeys 310013102/103/120/121."
+  },
+  {
+    "id": "OSM",
+    "name": "OpenStreetMap: buildings, land use, amenities",
+    "publisher": "OpenStreetMap contributors (ODbL)",
+    "url": "https://www.openstreetmap.org/",
+    "label": "WEAK",
+    "accessed": "2026-11-20",
+    "note": "Use class (factory, hotel, mall, hospital) from building/landuse/amenity/tourism/shop tags. Volunteer data; tags can be missing or out of date."
+  },
+  {
     "id": "S2-L2A",
     "name": "Copernicus Sentinel-2 L2A, tile 49MDN, dry-season medians 2021-2026",
     "publisher": "ESA Copernicus via Microsoft Planetary Computer",
@@ -331,6 +349,15 @@
     "label": "MEASURED",
     "accessed": "2026-11-20",
     "note": "Radar check in lead filter 1: walls give double bounce, bare fill does not. Built by scripts/fetch_s1_composites.py."
+  },
+  {
+    "id": "IO-LULC",
+    "name": "Impact Observatory 10 m annual land use/land cover 2017-2023",
+    "publisher": "Impact Observatory / Esri via Microsoft Planetary Computer",
+    "url": "https://planetarycomputer.microsoft.com/dataset/io-lulc-annual-v02",
+    "label": "MEASURED",
+    "accessed": "2026-11-20",
+    "note": "Built-area class: training labels for the Semarang Sentinel-2 roof detector, and the new-building step of the Arizona V4 test (scripts/fetch_az_v4.py)."
   },
   {
     "id": "OVERTURE-PLACES",
