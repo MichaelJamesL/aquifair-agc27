@@ -87,7 +87,7 @@ class PipeService:
             note=(
                 "Scenario: ranking within the city failed validation (file 12), so the order shows what the "
                 "chosen weights imply, not a prediction. Each layer is rescaled to 0-1 across the 22 blocks; "
-                "supply counts blocks not yet reached by SPAM Semarang Barat."
+                "supply counts blocks not yet reached by the West Semarang SPAM."
             ),
         )
 
@@ -96,7 +96,7 @@ def interpret_spam_test(test: SpamTest) -> str:
     """The outcome table from section C, in the order the report states it."""
     if test.status is PipeTestStatus.NOT_RUN:
         return (
-            "The SPAM Semarang Barat before/after test has not been run. "
+            "The West Semarang SPAM before/after test has not been run. "
             "The app shows the design and the data on disk, but makes no claim."
         )
     if test.placebo_year_clean is False or test.placebo_area_clean is False:

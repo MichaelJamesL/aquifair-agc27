@@ -16,6 +16,7 @@ from neraca.domain.models import (
     ValidationCheck,
 )
 from neraca.domain.npa import Npa2018File, NpaFile
+from neraca.repositories.english import english
 from neraca.repositories.seed_models import (
     DeclaredUseFile,
     EstimateFile,
@@ -61,7 +62,7 @@ class SeedStore:
         path = self.data_dir / name
         if not path.exists():
             raise RuntimeError(f"seed file not found: {path}")
-        return json.loads(path.read_text(encoding="utf-8"))
+        return english(json.loads(path.read_text(encoding="utf-8")))
 
     def _load_sources(self) -> dict[str, Source]:
         parsed = SourceFile.model_validate({"sources": self._read_json("sources.json")})
@@ -103,7 +104,7 @@ class SeedStore:
         path = self.data_dir / "regions.geojson"
         if not path.exists():
             return {"type": "FeatureCollection", "features": []}
-        payload = json.loads(path.read_text(encoding="utf-8"))
+        payload = english(json.loads(path.read_text(encoding="utf-8")))
         if not isinstance(payload, dict):
             raise RuntimeError(f"regions.geojson must contain an object: {path}")
         return payload

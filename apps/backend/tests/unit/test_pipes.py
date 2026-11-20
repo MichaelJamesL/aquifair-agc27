@@ -20,9 +20,10 @@ def test_spam_test_result_is_inconclusive() -> None:
     test = PipeService(SeedStore(DATA_DIR)).spam_test()
     assert test.status.value == "inconclusive"
     assert test.delta_mm_yr is not None and test.shift_null_p05 is not None
-    assert test.delta_mm_yr > test.shift_null_p05  # no extra slowdown in the served kecamatan
+    assert test.delta_mm_yr > test.shift_null_p05  # no extra slowdown in the served districts
     assert interpret_spam_test(test).startswith("Inconclusive")
-    assert interpret_spam_test(test.model_copy(update={"status": PipeTestStatus.NOT_RUN})).startswith("The SPAM")
+    not_run = test.model_copy(update={"status": PipeTestStatus.NOT_RUN})
+    assert interpret_spam_test(not_run).startswith("The West Semarang SPAM")
 
 
 def test_priority_uses_clay_as_damage() -> None:
