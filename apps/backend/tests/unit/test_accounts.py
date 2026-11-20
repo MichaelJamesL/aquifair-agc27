@@ -45,10 +45,31 @@ def test_scenario_is_calculated_not_a_finding() -> None:
     assert "Scenario" in result.note
 
 
-def test_region_without_estimate_is_missing() -> None:
-    account = service().get_account("3301", 2023)
-    assert account.declared.value is not None
+def test_region_without_validated_estimate_uses_regency_model() -> None:
+    svc = service()
+    account = svc.get_account("3301", 2023)
+    terms = svc.seed.terms_for("3301", 2023)
     assert account.estimated_validated.label is ProvenanceLabel.MISSING
+    assert account.estimate_method == "regency_model"
+    assert account.estimate.label is ProvenanceLabel.CALCULATED
+    assert "not validated" in (account.estimate.note or "")
+    assert terms is not None and terms.household_in_estimate
+    assert account.declared.value is not None and account.estimate.low is not None
+    # household wells are inside the estimate, so they cancel: gap = business wells - declared, never below 0
+    assert account.gap.low == round(account.estimate.low - terms.household_wells_low_m3 - account.declared.value)
+    assert account.gap.low is not None and account.gap.low >= 0
+
+
+def test_semarang_keeps_validated_estimate_every_year() -> None:
+    for year in (2020, 2021, 2022, 2023):
+        account = service().get_account("3374", year)
+        assert account.estimate_method == "validated_16km_split"
+        assert account.estimate.label is ProvenanceLabel.TESTED
+
+
+def test_region_without_declared_volume_has_no_gap() -> None:
+    account = service().get_account("3309", 2020)
+    assert account.estimate.label is ProvenanceLabel.CALCULATED
     assert account.gap.label is ProvenanceLabel.MISSING
 
 

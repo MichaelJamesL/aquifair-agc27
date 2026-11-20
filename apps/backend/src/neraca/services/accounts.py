@@ -22,6 +22,7 @@ MONEY_UNIT = "IDR/yr"
 PER_M3_UNIT = "IDR/m3"
 VALIDATED_METHOD = "validated_16km_split"
 DEMAND_METHOD = "demand_4km"
+REGENCY_METHOD = "regency_model"
 
 
 def _unique(values: list[str]) -> list[str]:
@@ -253,7 +254,19 @@ class AccountService:
                 note=demand.note,
             )
 
-        gap = self._gap(declared, estimated_validated, terms)
+        used = estimate or self.seed.estimate_for(region.id, year, REGENCY_METHOD)
+        estimate_range = Range.missing(DECLARED_UNIT)
+        if used is not None:
+            estimate_range = Range(
+                low=used.low_m3,
+                central=used.central_m3,
+                high=used.high_m3,
+                unit=DECLARED_UNIT,
+                label=used.label,
+                source_ids=list(used.source_ids),
+                note=used.note,
+            )
+        gap = self._gap(declared, estimate_range, terms)
         undeclared = self.npa.undeclared_tax_band(region.wilayah)
         declared_band = self.npa.declared_tax_band(region.wilayah)
 
@@ -295,6 +308,8 @@ class AccountService:
             declared=declared,
             estimated_validated=estimated_validated,
             estimated_demand=estimated_demand,
+            estimate=estimate_range,
+            estimate_method=used.method if used is not None else None,
             gap=gap,
             tax_per_m3=tax_per_m3,
             declared_tax_base=declared_base,
@@ -333,7 +348,7 @@ class AccountService:
         ):
             return Range.missing(
                 DECLARED_UNIT,
-                note="Needs both a declared volume and the validated 16 km estimate.",
+                note="Needs both a declared volume and an estimate.",
             )
 
         sources = _unique(list(declared.source_ids) + list(estimate.source_ids))
@@ -352,8 +367,14 @@ class AccountService:
             )
 
         sources = _unique(sources + list(terms.source_ids))
-        low = estimate.low - terms.household_wells_high_m3 - terms.public_supply_high_m3 - declared.value
-        high = estimate.high - terms.household_wells_low_m3 - terms.public_supply_low_m3 - declared.value
+        # Same household term inside the estimate: pair low with low; otherwise the terms are independent.
+        house_for_low, house_for_high = (
+            (terms.household_wells_low_m3, terms.household_wells_high_m3)
+            if terms.household_in_estimate
+            else (terms.household_wells_high_m3, terms.household_wells_low_m3)
+        )
+        low = estimate.low - house_for_low - terms.public_supply_high_m3 - declared.value
+        high = estimate.high - house_for_high - terms.public_supply_low_m3 - declared.value
         central = None
         if estimate.central is not None:
             household_mid = (terms.household_wells_low_m3 + terms.household_wells_high_m3) / 2

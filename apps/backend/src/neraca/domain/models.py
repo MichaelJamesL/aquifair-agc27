@@ -135,6 +135,8 @@ class AccountTerms(BaseModel):
     household_wells_high_m3: int | float
     public_supply_low_m3: int | float
     public_supply_high_m3: int | float
+    # True when the estimate was built as household wells + business wells, so the household term cancels.
+    household_in_estimate: bool = False
     source_ids: list[str] = Field(default_factory=list)
     note: str | None = None
 
@@ -165,6 +167,8 @@ class Account(BaseModel):
     declared: Number
     estimated_validated: Range
     estimated_demand: Range | None
+    estimate: Range  # the one the gap uses: validated if it exists, else the regency model
+    estimate_method: str | None
     gap: Range
     tax_per_m3: Range
     declared_tax_base: Range

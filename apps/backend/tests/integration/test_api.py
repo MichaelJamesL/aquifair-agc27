@@ -22,6 +22,10 @@ def test_accounts_for_all_regions(client: TestClient) -> None:
     assert semarang["declared"]["label"] == "OFFICIAL"
     assert semarang["estimated_validated"]["label"] == "TESTED"
     assert semarang["gap"]["low"] < 0 < semarang["gap"]["high"]
+    assert semarang["estimate_method"] == "validated_16km_split"
+    others = [item for item in body if item["region"]["id"] != "3374"]
+    assert all(item["estimate_method"] == "regency_model" for item in others)
+    assert all(item["estimate"]["label"] == "CALCULATED" and item["gap"]["low"] >= 0 for item in others)
 
 
 def test_account_history(client: TestClient) -> None:
