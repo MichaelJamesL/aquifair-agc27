@@ -3,7 +3,7 @@ from __future__ import annotations
 from fastapi import APIRouter
 
 from neraca.api.deps import RoleDep, SeedDep, SessionDep
-from neraca.domain.enums import UseClass, ZoneClass
+from neraca.domain.enums import LeadStage, UseClass, ZoneClass
 from neraca.domain.models import (
     Feedback,
     HitRate,
@@ -26,9 +26,10 @@ def list_leads(
     district: str | None = None,
     use_class: UseClass | None = None,
     zone: ZoneClass | None = None,
+    stage: LeadStage = LeadStage.LEAD,
 ) -> LeadCollection:
     service = LeadService(seed, SqlFeedbackRepository(session))
-    return service.list_leads(role, district=district, use_class=use_class, zone=zone)
+    return service.list_leads(role, district=district, use_class=use_class, zone=zone, stage=stage)
 
 
 @router.get("/public/summary", response_model=LeadSummaryCollection)

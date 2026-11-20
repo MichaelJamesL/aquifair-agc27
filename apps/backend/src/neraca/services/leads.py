@@ -6,7 +6,7 @@ from datetime import UTC, date, datetime
 from uuid import uuid4
 
 from neraca.core.errors import InvalidFeedbackError, NotFoundError, RoleForbiddenError
-from neraca.domain.enums import LeadOutcome, Role, UseClass, ZoneClass
+from neraca.domain.enums import LeadOutcome, LeadStage, Role, UseClass, ZoneClass
 from neraca.domain.models import (
     Feedback,
     HitRate,
@@ -32,6 +32,13 @@ def wilson_interval(successes: int, total: int, *, z: float = 1.6448536269514722
     return max(0.0, centre - margin), min(1.0, centre + margin)
 
 
+def in_stage(lead: Lead, stage: LeadStage) -> bool:
+    """True when the candidate passes filters 1..N of the stage (a filter not applied counts as passed)."""
+    if stage is LeadStage.UNKNOWN:
+        return lead.use_class is UseClass.UNKNOWN and lead.filters.get("3") is True
+    return all(lead.filters.get(str(n)) is not False for n in range(1, int(stage.value[-1]) + 1))
+
+
 class LeadService:
     """Module B: the lead list, the public counts, and the field-feedback loop."""
 
@@ -46,6 +53,7 @@ class LeadService:
         district: str | None = None,
         use_class: UseClass | None = None,
         zone: ZoneClass | None = None,
+        stage: LeadStage = LeadStage.LEAD,
     ) -> LeadCollection:
         self._require_inspector(role)
         if self.seed.leads.status == "unavailable":
@@ -54,14 +62,19 @@ class LeadService:
                 reason=self.seed.leads.reason,
                 items=[],
             )
-        items = list(self.seed.leads.items)
+        items = [lead for lead in self.seed.leads.items if in_stage(lead, stage)]
         if district:
             items = [lead for lead in items if lead.district.lower() == district.lower()]
         if use_class:
             items = [lead for lead in items if lead.use_class is use_class]
         if zone:
             items = [lead for lead in items if lead.zone is zone]
-        return LeadCollection(status="available", items=items)
+        return LeadCollection(
+            status="available",
+            funnel=list(self.seed.leads.funnel),
+            method=dict(self.seed.leads.method),
+            items=items,
+        )
 
     def get_lead(self, role: Role, lead_id: str) -> Lead:
         self._require_inspector(role)
@@ -76,7 +89,8 @@ class LeadService:
             )
         grouped: dict[str, Counter[str]] = defaultdict(Counter)
         for lead in self.seed.leads.items:
-            grouped[lead.district][lead.use_class.value] += 1
+            if in_stage(lead, LeadStage.LEAD):  # earlier funnel steps and site checks are not leads
+                grouped[lead.district][lead.use_class.value] += 1
         items = [
             LeadSummary(
                 district=district,
@@ -86,7 +100,7 @@ class LeadService:
             )
             for district, counter in sorted(grouped.items())
         ]
-        return LeadSummaryCollection(status="available", items=items)
+        return LeadSummaryCollection(status="available", funnel=list(self.seed.leads.funnel), items=items)
 
     def add_feedback(
         self,

@@ -238,16 +238,32 @@ class Lead(BaseModel):
 
     id: str
     district: str
+    regency: str | None = None
     lon: float
     lat: float
     footprint_m2: int | float
+    polygon: list[list[float]] = Field(default_factory=list)
     built_year: int
     use_class: UseClass
-    zone: ZoneClass
+    use_class_basis: str | None = None
+    zone: ZoneClass | None = None
+    # filter number -> passed; None = not applied to this class (filter 4 for factories)
+    filters: dict[str, bool | None] = Field(default_factory=dict)
     pdam_status: str
+    pdam_coverage: float | None = None
     sinking_mm_yr: float | None = None
     source_ids: list[str] = Field(default_factory=list)
     labels: dict[str, ProvenanceLabel] = Field(default_factory=dict)
+
+
+class FunnelStep(BaseModel):
+    """How many candidate buildings survive each filter of method M3."""
+
+    model_config = ConfigDict(frozen=True)
+
+    step: str
+    label: str
+    count: int
 
 
 class LeadCollection(BaseModel):
@@ -255,6 +271,8 @@ class LeadCollection(BaseModel):
 
     status: Literal["available", "unavailable"]
     reason: str | None = None
+    funnel: list[FunnelStep] = Field(default_factory=list)
+    method: dict[str, Any] = Field(default_factory=dict)
     items: list[Lead] = Field(default_factory=list)
 
 
@@ -272,6 +290,7 @@ class LeadSummaryCollection(BaseModel):
 
     status: Literal["available", "unavailable"]
     reason: str | None = None
+    funnel: list[FunnelStep] = Field(default_factory=list)
     items: list[LeadSummary] = Field(default_factory=list)
 
 

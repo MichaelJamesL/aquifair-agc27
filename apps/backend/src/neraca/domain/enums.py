@@ -44,6 +44,19 @@ class UseClass(StrEnum):
     MALL = "mall"
     HOSPITAL = "hospital"
     OTHER = "other"
+    WAREHOUSE = "warehouse"
+    # No class in OSM or Overture places: listed for a site check, not counted as a lead.
+    UNKNOWN = "unknown"
+
+
+class LeadStage(StrEnum):
+    """A step of the method M3 funnel: the candidates that pass filters 1 to N, or the unknown-class site checks."""
+
+    NEW_ROOF = "1"
+    WATER_CLASS = "1-2"
+    CLOSED_ZONE = "1-3"
+    LEAD = "1-4"
+    UNKNOWN = "unknown"
 
 
 class CheckStatus(StrEnum):

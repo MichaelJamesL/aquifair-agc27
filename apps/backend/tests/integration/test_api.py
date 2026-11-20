@@ -77,13 +77,40 @@ def test_leads_reject_public_role(client: TestClient) -> None:
     assert response.json()["error"]["code"] == "ROLE_FORBIDDEN"
 
 
-def test_leads_inspector_gets_empty_but_honest_collection(client: TestClient) -> None:
+def test_leads_pass_all_four_filters(client: TestClient) -> None:
     response = client.get("/api/v1/leads", params={"role": "inspector"})
     assert response.status_code == 200
     body = response.json()
-    assert body["status"] == "unavailable"
-    assert body["items"] == []
-    assert "zone map" in body["reason"]
+    assert body["status"] == "available"
+    assert body["items"]
+    steps = {step["step"]: step["count"] for step in body["funnel"]}
+    assert len(body["items"]) == steps["1-4"]
+    for lead in body["items"]:
+        assert lead["zone"] in {"critical", "damaged"}
+        assert lead["use_class"] in {"factory", "hotel", "mall", "hospital"}
+        assert lead["footprint_m2"] >= 1000
+        if lead["use_class"] == "factory":
+            assert lead["filters"]["4"] is None  # filter 4 is not applied to factories
+        else:
+            assert lead["pdam_coverage"] < 0.5
+
+
+def test_each_funnel_step_lists_its_candidates(client: TestClient) -> None:
+    funnel = client.get("/api/v1/leads", params={"role": "inspector"}).json()["funnel"]
+    counts = [step["count"] for step in funnel if step["step"] != "unknown"]
+    assert counts == sorted(counts, reverse=True)
+    for step in funnel:
+        items = client.get("/api/v1/leads", params={"role": "inspector", "stage": step["step"]}).json()["items"]
+        assert len(items) == step["count"], step["step"]
+    unknown = client.get("/api/v1/leads", params={"role": "inspector", "stage": "unknown"}).json()["items"]
+    assert all(item["use_class"] == "unknown" and item["zone"] is not None for item in unknown)
+
+
+def test_public_summary_counts_leads_only(client: TestClient) -> None:
+    body = client.get("/api/v1/leads/public/summary").json()
+    leads = client.get("/api/v1/leads", params={"role": "inspector"}).json()["items"]
+    assert sum(row["leads"] for row in body["items"]) == len(leads)
+    assert all("unknown" not in row["by_use_class"] for row in body["items"])
 
 
 def test_public_summary_has_no_addresses(client: TestClient) -> None:

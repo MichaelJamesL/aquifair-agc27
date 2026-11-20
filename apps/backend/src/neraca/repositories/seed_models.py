@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from typing import Literal
+from typing import Any, Literal
 
 from pydantic import BaseModel, Field
 
@@ -8,6 +8,7 @@ from neraca.domain.models import (
     AccountTerms,
     DeclaredUse,
     Estimate,
+    FunnelStep,
     Lead,
     Region,
     Source,
@@ -20,6 +21,8 @@ from neraca.domain.models import (
 class LeadFile(BaseModel):
     status: Literal["available", "unavailable"] = "unavailable"
     reason: str | None = None
+    method: dict[str, Any] = Field(default_factory=dict)
+    funnel: list[FunnelStep] = Field(default_factory=list)
     items: list[Lead] = Field(default_factory=list)
 
 
