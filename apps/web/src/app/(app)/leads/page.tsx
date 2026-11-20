@@ -70,6 +70,48 @@ const FILTERS = [
   { key: "4", label: "Piped coverage below 50 % (proxy; hotels, malls, hospitals only)" },
 ];
 
+// Piped coverage per kecamatan, classed so the 50 % cut-off of filter 4 is a class edge (one hue, light to dark).
+const COVERAGE_CLASSES = [
+  { label: "< 25 %", colour: "#cfe2f3" },
+  { label: "25–50 %", colour: "#9cc4e4" },
+  { label: "50–75 %", colour: "#5d9bcc" },
+  { label: "≥ 75 %", colour: "#155a96" },
+];
+const COVERAGE_NO_DATA = "#9ca3af";
+const COVERAGE_BASIS: Record<string, string> = {
+  "Kota Semarang": "PDAM customers per resident, scaled to the city's 65 % service level (BPS 2024)",
+  "Kab. Demak": "households with piped water per family card (Portal Data Demak)",
+};
+
+function CoverageTip({ properties }: { properties: Record<string, unknown> }) {
+  const coverage = properties.coverage as number | null;
+  const regency = String(properties.regency ?? "");
+  return (
+    <div className="space-y-0.5">
+      <p className="text-[12.5px] font-semibold leading-4 text-ink">{String(properties.kecamatan ?? "")}</p>
+      <p className="text-[11px] text-ink-3">{regency}</p>
+      {coverage == null ? (
+        <p className="pt-1 text-[11.5px] leading-4">
+          No piped-coverage figure per kecamatan is published here, so a hotel, mall or hospital cannot pass filter 4.
+        </p>
+      ) : (
+        <>
+          <p className="pt-1 text-[11.5px] leading-4">
+            <span className="font-mono font-medium text-ink">{Math.round(coverage * 100)} %</span> piped coverage,{" "}
+            {String(properties.year ?? "")}
+          </p>
+          <p className="text-[11.5px] leading-4">
+            {coverage < 0.5
+              ? "Below 50 %: hotels, malls and hospitals here pass filter 4."
+              : "50 % or more: hotels, malls and hospitals here fail filter 4."}
+          </p>
+          {COVERAGE_BASIS[regency] && <p className="text-[10.5px] leading-[14px] text-ink-3">{COVERAGE_BASIS[regency]}</p>}
+        </>
+      )}
+    </div>
+  );
+}
+
 type LayerKey = "zones" | "coverage" | "wells" | "leads";
 
 const LAYERS: { key: LayerKey; label: string }[] = [
@@ -205,13 +247,31 @@ export default function LeadsPage() {
           {
             id: "coverage-fill",
             type: "fill",
-            filter: ["!=", ["get", "coverage"], null],
             paint: {
-              "fill-color": ["interpolate", ["linear"], ["get", "coverage"], 0, "#fff7ed", 0.5, "#93c5fd", 1, "#1d4ed8"],
-              "fill-opacity": 0.55,
+              "fill-color": [
+                "case",
+                ["==", ["get", "coverage"], null],
+                COVERAGE_NO_DATA,
+                ["step", ["get", "coverage"], ...COVERAGE_CLASSES.flatMap((c, i) => (i ? [i / 4, c.colour] : [c.colour]))],
+              ] as never,
+              "fill-opacity": [
+                "case",
+                ["boolean", ["feature-state", "hover"], false],
+                0.8,
+                ["==", ["get", "coverage"], null],
+                0.18,
+                0.6,
+              ] as never,
             },
           },
-          { id: "coverage-line", type: "line", paint: { "line-color": "#1e3a5f", "line-width": 0.6 } },
+          {
+            id: "coverage-line",
+            type: "line",
+            paint: {
+              "line-color": "#1e3a5f",
+              "line-width": ["case", ["boolean", ["feature-state", "hover"], false], 2.5, 0.6] as never,
+            },
+          },
         ],
       },
       {
@@ -273,42 +333,6 @@ export default function LeadsPage() {
           </p>
         </div>
 
-        <div className="rounded-lg bg-bg px-3 py-3">
-          <p className="text-[12px] font-medium leading-4 text-ink">Which sites become leads</p>
-          {funnel.length > 0 ? (
-            <ol className="mt-2 space-y-1.5">
-              {funnel.map((step) => (
-                <li key={step.step} className="flex items-baseline gap-2 text-[11px] leading-[16px] text-ink-2">
-                  <span className="w-7 shrink-0 font-mono text-[10px] text-ink-3">{step.step === "unknown" ? "?" : step.step}</span>
-                  <span className="flex-1">{step.label}</span>
-                  <span className="font-mono text-[12px] font-medium text-ink">{num(step.count)}</span>
-                </li>
-              ))}
-            </ol>
-          ) : (
-            <p className="mt-2 text-[11px] leading-[16px] text-ink-3">{reason ?? "Loading the filter counts…"}</p>
-          )}
-          {detector && (
-            <p className="mt-2 border-t border-line pt-2 text-[11px] leading-[16px] text-ink-3">
-              Step 1 roof detector, tested on the half of the map it did not learn from:{" "}
-              {Math.round(detector.accuracy * 100)} % correct, {Math.round(detector.roof_recall * 100)} % of known
-              roofs found.
-              {dropped &&
-                ` Removed before step 1: ${num(dropped.road_or_runway_shape ?? 0)} road or runway shapes, ` +
-                  `${num(dropped.larger_than_25_ha ?? 0)} patches over 25 ha, ` +
-                  `${num(dropped.already_in_microsoft_footprints ?? 0)} already in Microsoft footprints, ` +
-                  `${num(dropped.radar_not_a_building_now ?? 0)} that radar does not see as a building now ` +
-                  `(bare fill, fields), ${num(dropped.radar_building_already_in_2022 ?? 0)} that radar saw ` +
-                  `as a building in 2022.`}
-            </p>
-          )}
-          <p className="mt-2 border-t border-line pt-2 text-[11px] leading-[16px] text-ink-3">
-            Four filters, no weighted score. Filter 4 is a proxy until PDAM releases coverage per
-            kelurahan, and is not applied to factories: PDAM sold industry 0.22 Mm³ in 2022 (Perda Kota
-            Semarang 4/2024), so household piped coverage says little about a factory.
-          </p>
-        </div>
-
         {isInspector && (
           <div className="flex flex-col gap-1.5">
             <p className="text-[12px] font-medium leading-4 text-ink-2">Show roofs that pass</p>
@@ -336,8 +360,8 @@ export default function LeadsPage() {
               );
             })}
             <p className="text-[11px] leading-[16px] text-ink-3">
-              {num(allLeads.length)} roofs pass the ticked filters; leads pass all four. Factories always pass
-              filter 4 (not applied). For the unknown-class site checks, tick only 3 and pick Unknown below.
+              {num(allLeads.length)} roofs pass the ticked filters; leads pass all four. Unknown-class site checks:
+              tick only 3, then pick Unknown.
             </p>
           </div>
         )}
@@ -385,6 +409,48 @@ export default function LeadsPage() {
           ))}
         </div>
 
+        <div className="rounded-lg bg-bg px-3 py-3">
+          <p className="text-[12px] font-medium leading-4 text-ink">Which sites become leads</p>
+          {funnel.length > 0 ? (
+            <ol className="mt-2 space-y-1.5">
+              {funnel.map((step) => (
+                <li key={step.step} className="flex items-baseline gap-2 text-[11px] leading-[16px] text-ink-2">
+                  <span className="w-7 shrink-0 font-mono text-[10px] text-ink-3">{step.step === "unknown" ? "?" : step.step}</span>
+                  <span className="flex-1">{step.label}</span>
+                  <span className="font-mono text-[12px] font-medium text-ink">{num(step.count)}</span>
+                </li>
+              ))}
+            </ol>
+          ) : (
+            <p className="mt-2 text-[11px] leading-[16px] text-ink-3">{reason ?? "Loading the filter counts…"}</p>
+          )}
+          <details className="group mt-2 border-t border-line pt-2">
+            <summary className="cursor-pointer list-none text-[11px] font-medium leading-4 text-blue-700">
+              <span className="group-open:hidden">How the filters work</span>
+              <span className="hidden group-open:inline">Hide details</span>
+            </summary>
+          {detector && (
+            <p className="mt-2 text-[11px] leading-[16px] text-ink-3">
+              Step 1 roof detector, tested on the half of the map it did not learn from:{" "}
+              {Math.round(detector.accuracy * 100)} % correct, {Math.round(detector.roof_recall * 100)} % of known
+              roofs found.
+              {dropped &&
+                ` Removed before step 1: ${num(dropped.road_or_runway_shape ?? 0)} road or runway shapes, ` +
+                  `${num(dropped.larger_than_25_ha ?? 0)} patches over 25 ha, ` +
+                  `${num(dropped.already_in_microsoft_footprints ?? 0)} already in Microsoft footprints, ` +
+                  `${num(dropped.radar_not_a_building_now ?? 0)} that radar does not see as a building now ` +
+                  `(bare fill, fields), ${num(dropped.radar_building_already_in_2022 ?? 0)} that radar saw ` +
+                  `as a building in 2022.`}
+            </p>
+          )}
+          <p className="mt-2 border-t border-line pt-2 text-[11px] leading-[16px] text-ink-3">
+            Four filters, no weighted score. Filter 4 is a proxy until PDAM releases coverage per
+            kelurahan, and is not applied to factories: PDAM sold industry 0.22 Mm³ in 2022 (Perda Kota
+            Semarang 4/2024), so household piped coverage says little about a factory.
+          </p>
+          </details>
+        </div>
+
         <div className="flex-1" />
 
         <p className="text-[11px] leading-[15px] text-ink-3">
@@ -400,6 +466,8 @@ export default function LeadsPage() {
           bounds={BOUNDS}
           clickableLayers={["leads-dot"]}
           onFeatureClick={(_, feature) => router.push(`/leads/${feature.properties?.id}`)}
+          hoverLayers={["coverage-fill"]}
+          tooltip={(_, feature) => <CoverageTip properties={feature.properties ?? {}} />}
         />
 
         {!isInspector && (
@@ -427,7 +495,25 @@ export default function LeadsPage() {
           </div>
         )}
 
-        <div className="absolute bottom-4 left-4 z-10 w-[380px] rounded-xl bg-surface p-3.5 shadow-pop">
+        <div className="absolute bottom-4 left-4 z-10 flex w-[380px] flex-col gap-2">
+        {layers.coverage && (
+          <div className="rounded-xl bg-surface p-3.5 shadow-pop">
+            <p className="text-[12px] font-medium leading-4 text-ink">Piped water coverage per kecamatan · filter 4 proxy</p>
+            <div className="mt-2.5 grid grid-cols-5 gap-2">
+              {[...COVERAGE_CLASSES, { label: "no data", colour: COVERAGE_NO_DATA }].map((item) => (
+                <span key={item.label} className="flex items-center gap-1.5 text-[11px] text-ink-2">
+                  <span className="size-2.5 shrink-0 rounded-[2px] border border-line" style={{ backgroundColor: item.colour }} />
+                  {item.label}
+                </span>
+              ))}
+            </div>
+            <p className="mt-2.5 border-t border-line pt-2 text-[10px] leading-[15px] text-ink-3">
+              Share of a kecamatan on PDAM pipes: Kota Semarang 2023, Kab. Demak 2025. Below 50 % counts as outside the
+              network for hotels, malls and hospitals; factories are not checked. Hover a kecamatan for its value.
+            </p>
+          </div>
+        )}
+        <div className="rounded-xl bg-surface p-3.5 shadow-pop">
           <div className="flex items-center gap-2">
             <Layers size={14} className="text-ink-3" />
             <p className="text-[12px] font-medium leading-4 text-ink">Groundwater conservation zone · ESDM 2022</p>
@@ -443,8 +529,9 @@ export default function LeadsPage() {
           <p className="mt-2.5 border-t border-line pt-2 text-[10px] leading-[15px] text-ink-3">
             Kritis: new wells only for non-industrial use, with volume caps. Rusak: no new abstraction,
             PDAM only. Dark dots: the map&apos;s {num(wellsState.data?.items.length ?? 0)} &ldquo;Sumur Bor&rdquo;
-            markers.
+            markers. Coast fitted to OpenStreetMap: reclaimed land the 2022 map leaves out takes the nearest zone.
           </p>
+        </div>
         </div>
       </section>
 
