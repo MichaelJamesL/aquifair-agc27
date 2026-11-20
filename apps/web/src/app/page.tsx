@@ -3,7 +3,6 @@ import {
   ArrowRight,
   Check,
   Droplets,
-  Globe2,
   Grid2x2,
   MapPin,
 } from "lucide-react";
@@ -821,14 +820,6 @@ export default function HomePage() {
           </nav>
 
           <div className="ml-7 flex items-center gap-3">
-            <div className="flex items-center rounded bg-subtle p-0.5" aria-label="English">
-              <Globe2 size={12} className="mx-1 text-ink-3" />
-              <span className="px-1.5 py-0.5 font-mono text-[10px] leading-4 text-ink-3">ID</span>
-              <span className="rounded bg-surface px-1.5 py-0.5 font-mono text-[10px] leading-4 text-ink">
-                EN
-              </span>
-            </div>
-            <span className="h-4 w-px bg-line" />
             <Link href="/sign-in" className="text-[12px] font-medium text-blue-700 hover:text-primary-hover">
               Sign in
             </Link>

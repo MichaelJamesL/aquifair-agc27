@@ -8,7 +8,6 @@ import {
   ChevronDown,
   Coins,
   Droplets,
-  Globe2,
   MapPin,
   UserRound,
 } from "lucide-react";
@@ -46,7 +45,7 @@ const SCOPE_COPY: Record<Scope, { title: string; meta: string }> = {
 export function TopBar() {
   const pathname = usePathname();
   const router = useRouter();
-  const { role, setRole, language, setLanguage } = useRole();
+  const { role, setRole } = useRole();
   const [scopeOpen, setScopeOpen] = useState(false);
   const [userOpen, setUserOpen] = useState(false);
   const scope = scopeForPath(pathname);
@@ -133,30 +132,6 @@ export function TopBar() {
       </nav>
 
       <div className="flex-1" />
-
-      <div className="flex shrink-0 items-center rounded-md bg-subtle p-0.5">
-        <span className="flex size-3.5 items-center justify-center text-ink-3">
-          <Globe2 size={13} />
-        </span>
-        <button
-          onClick={() => setLanguage("ID")}
-          className={cn(
-            "rounded px-2 py-[3px] font-mono text-[10px] leading-4",
-            language === "ID" ? "bg-surface text-ink" : "text-ink-3",
-          )}
-        >
-          ID
-        </button>
-        <button
-          onClick={() => setLanguage("EN")}
-          className={cn(
-            "rounded px-2 py-[3px] font-mono text-[10px] leading-4",
-            language === "EN" ? "bg-surface text-ink" : "text-ink-3",
-          )}
-        >
-          EN
-        </button>
-      </div>
 
       <div className="relative shrink-0">
         <button

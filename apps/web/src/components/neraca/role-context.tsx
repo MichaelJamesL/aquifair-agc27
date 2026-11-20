@@ -7,12 +7,9 @@ export type Role = "public" | "regulator" | "inspector" | "planner";
 type RoleContextValue = {
   role: Role;
   setRole: (role: Role) => void;
-  language: "EN" | "ID";
-  setLanguage: (language: "EN" | "ID") => void;
 };
 
 const ROLE_STORAGE_KEY = "neraca.role";
-const LANG_STORAGE_KEY = "neraca.language";
 
 const RoleContext = createContext<RoleContextValue | null>(null);
 
@@ -44,13 +41,10 @@ export const ROLE_PEOPLE: Record<Role, { name: string; org: string; initials: st
 
 export function RoleProvider({ children }: { children: ReactNode }) {
   const [role, setRoleState] = useState<Role>("regulator");
-  const [language, setLanguageState] = useState<"EN" | "ID">("EN");
 
   useEffect(() => {
     const storedRole = window.localStorage.getItem(ROLE_STORAGE_KEY) as Role | null;
     if (storedRole && storedRole in ROLE_LABELS) setRoleState(storedRole);
-    const storedLang = window.localStorage.getItem(LANG_STORAGE_KEY);
-    if (storedLang === "ID" || storedLang === "EN") setLanguageState(storedLang);
   }, []);
 
   const value = useMemo<RoleContextValue>(
@@ -60,13 +54,8 @@ export function RoleProvider({ children }: { children: ReactNode }) {
         setRoleState(next);
         window.localStorage.setItem(ROLE_STORAGE_KEY, next);
       },
-      language,
-      setLanguage: (next) => {
-        setLanguageState(next);
-        window.localStorage.setItem(LANG_STORAGE_KEY, next);
-      },
     }),
-    [role, language],
+    [role],
   );
 
   return <RoleContext.Provider value={value}>{children}</RoleContext.Provider>;
