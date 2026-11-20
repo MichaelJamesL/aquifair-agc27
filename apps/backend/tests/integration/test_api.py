@@ -151,12 +151,14 @@ def test_pipes_spam_test(client: TestClient) -> None:
     assert "has not been run" in body["outcome_wording"]
 
 
-def test_pipes_priority_unavailable(client: TestClient) -> None:
-    response = client.get("/api/v1/pipes/priority")
+def test_pipes_priority_ranks_real_blocks(client: TestClient) -> None:
+    response = client.get("/api/v1/pipes/priority", params={"w_demand": 1, "w_damage": 0, "w_supply": 0})
     assert response.status_code == 200
     body = response.json()
-    assert body["status"] == "unavailable"
-    assert body["items"] == []
+    assert body["status"] == "available"
+    assert len(body["items"]) == 22
+    demands = [item["cell"]["demand_m3_yr"] for item in body["items"]]
+    assert demands == sorted(demands, reverse=True)
 
 
 def test_map_layers(client: TestClient) -> None:

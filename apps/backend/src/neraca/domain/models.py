@@ -331,14 +331,22 @@ class SubsidencePeriod(BaseModel):
 
 
 class PipeCell(BaseModel):
+    """One 4 km block of the pipe-priority grid (method M5)."""
+
     model_config = ConfigDict(frozen=True)
 
     id: str
     lon: float
     lat: float
+    polygon: list[list[float]] = Field(default_factory=list)
     demand_m3_yr: float
-    damage_mm_yr: float
+    demand_low_m3_yr: float | None = None
+    demand_high_m3_yr: float | None = None
+    clay_m: float
+    sinking_mm_yr: float | None = None
     supply_m3_yr: float
+    land_share: float | None = None
+    districts: list[str] = Field(default_factory=list)
     source_ids: list[str] = Field(default_factory=list)
 
 
@@ -357,6 +365,7 @@ class PipePriorityCollection(BaseModel):
 
     status: Literal["available", "unavailable"]
     reason: str | None = None
+    note: str | None = None
     weights: dict[str, float]
     items: list[PipePriority] = Field(default_factory=list)
 

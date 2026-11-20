@@ -23,11 +23,19 @@ def test_spam_test_is_not_run_and_makes_no_claim() -> None:
     assert "no claim" in wording.lower()
 
 
-def test_priority_is_unavailable_without_cells() -> None:
-    collection = PipeService(SeedStore(DATA_DIR)).priority()
-    assert collection.status == "unavailable"
-    assert collection.items == []
-    assert collection.weights == DEFAULT_WEIGHTS
+def test_priority_uses_clay_as_damage() -> None:
+    collection = PipeService(SeedStore(DATA_DIR)).priority({"demand": 0, "damage": 1, "supply": 0})
+    assert collection.status == "available"
+    assert collection.weights == {"demand": 0, "damage": 1, "supply": 0}
+    clays = [item.cell.clay_m for item in collection.items]
+    assert clays == sorted(clays, reverse=True)
+    assert PipeService(SeedStore(DATA_DIR)).priority().weights == DEFAULT_WEIGHTS
+
+
+def test_supply_weight_favours_blocks_without_new_supply() -> None:
+    items = PipeService(SeedStore(DATA_DIR)).priority({"demand": 0, "damage": 0, "supply": 1}).items
+    assert items[0].cell.supply_m3_yr == 0
+    assert items[-1].cell.supply_m3_yr == max(item.cell.supply_m3_yr for item in items)
 
 
 def test_weights_are_validated() -> None:

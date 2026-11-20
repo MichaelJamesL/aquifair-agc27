@@ -56,21 +56,12 @@ class PipeService:
                 items=[],
             )
 
-        cells: list[PipeCell] = [
-            PipeCell(
-                id=item.id,
-                lon=item.lon,
-                lat=item.lat,
-                demand_m3_yr=item.demand_m3_yr,
-                damage_mm_yr=item.damage_mm_yr,
-                supply_m3_yr=item.supply_m3_yr,
-                source_ids=list(item.source_ids),
-            )
-            for item in self.seed.pipe_cells.items
-        ]
+        cells = [PipeCell.model_validate(item.model_dump()) for item in self.seed.pipe_cells.items]
         demand = _normalise([cell.demand_m3_yr for cell in cells])
-        damage = _normalise([cell.damage_mm_yr for cell in cells])
-        supply = _normalise([cell.supply_m3_yr for cell in cells])
+        # damage potential = soft-clay thickness, the main driver of sinking (report, method M5)
+        damage = _normalise([cell.clay_m for cell in cells])
+        # a block already reached by new bulk supply needs pipes less: score "not yet on new supply"
+        supply = [1.0 - share for share in _normalise([cell.supply_m3_yr for cell in cells])]
 
         scored: list[PipePriority] = []
         for index, cell in enumerate(cells):
@@ -89,7 +80,16 @@ class PipeService:
                 )
             )
         scored.sort(key=lambda item: item.score, reverse=True)
-        return PipePriorityCollection(status="available", weights=selected, items=scored)
+        return PipePriorityCollection(
+            status="available",
+            weights=selected,
+            items=scored,
+            note=(
+                "Scenario: ranking within the city failed validation (file 12), so the order shows what the "
+                "chosen weights imply, not a prediction. Each layer is rescaled to 0-1 across the 22 blocks; "
+                "supply counts blocks not yet reached by SPAM Semarang Barat."
+            ),
+        )
 
 
 def interpret_spam_test(test: SpamTest) -> str:
