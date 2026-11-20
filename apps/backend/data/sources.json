@@ -277,5 +277,41 @@
     "label": "MISSING",
     "accessed": null,
     "note": "Needed for V1. Not in the open dataset."
+  },
+  {
+    "id": "BPS-SMG-DA-2024",
+    "name": "Kota Semarang Dalam Angka 2024 (tables 3.1.1 population, 6.3 PDAM customers per kecamatan)",
+    "publisher": "BPS Kota Semarang",
+    "url": "https://pustakadata.semarangkota.go.id/upload/pdf/466-kota-semarang-dalam-angka-semarang-2024.pdf",
+    "label": "OFFICIAL",
+    "accessed": "2026-11-20",
+    "note": "PDAM Tirta Moedal customers and residents per kecamatan, 2023."
+  },
+  {
+    "id": "DEMAK-DINPUTARU-2025",
+    "name": "Households with piped drinking water per kecamatan, Kab. Demak 2025",
+    "publisher": "Dinas Perumahan, Kawasan Permukiman dan Pertanahan Kab. Demak (Portal Data Demak)",
+    "url": "https://data.demakkab.go.id/dataset/f8ae57bd-45fd-474c-b21c-c814bc02f7ee",
+    "label": "OFFICIAL",
+    "accessed": "2026-11-20",
+    "note": "All piped systems (PDAM and community), so coverage is an upper bound for the PDAM network."
+  },
+  {
+    "id": "DEMAK-KK-2025",
+    "name": "Family cards (KK) per kecamatan, Kab. Demak, semester II 2025",
+    "publisher": "Dinas Kependudukan dan Pencatatan Sipil Kab. Demak (Portal Data Demak)",
+    "url": "https://data.demakkab.go.id/dataset/1d6f8711-dc1d-40bf-8857-b95181eac57f",
+    "label": "OFFICIAL",
+    "accessed": "2026-11-20",
+    "note": "Denominator for Demak piped coverage."
+  },
+  {
+    "id": "GADM",
+    "name": "GADM 4.1 level 3 (kecamatan) boundaries, Kota Semarang and Kab. Demak",
+    "publisher": "GADM",
+    "url": "https://gadm.org/",
+    "label": "OFFICIAL",
+    "accessed": "2026-11-20",
+    "note": "Used to assign blocks, leads and served cells to kecamatan. Not an official Indonesian boundary product."
   }
 ]
