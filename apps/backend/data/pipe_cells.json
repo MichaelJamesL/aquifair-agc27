@@ -1,5 +1,1012 @@
 {
-  "status": "unavailable",
-  "reason": "The 4 km demand layer and the SPAM service-area layer are not in a common grid. The validated 16 km volume split is available in module A; ranking within the city failed validation, so no pipe-priority cell is asserted.",
-  "items": []
+ "status": "available",
+ "reason": null,
+ "grid": "22 blocks of 4 km x 4 km, UTM 49S, the file 07 demand grid",
+ "spam_allocated_m3_yr": 7929797,
+ "items": [
+  {
+   "id": "E428-N9220",
+   "lon": 110.3662,
+   "lat": -7.03803,
+   "polygon": [
+    [
+     110.34806,
+     -7.05609
+    ],
+    [
+     110.38428,
+     -7.05614
+    ],
+    [
+     110.38433,
+     -7.01996
+    ],
+    [
+     110.34811,
+     -7.01991
+    ],
+    [
+     110.34806,
+     -7.05609
+    ]
+   ],
+   "demand_m3_yr": 291000,
+   "demand_low_m3_yr": 53000,
+   "demand_high_m3_yr": 1458000,
+   "clay_m": 40.3,
+   "sinking_mm_yr": 1.4,
+   "supply_m3_yr": 54959,
+   "land_share": 0.99,
+   "districts": [
+    "Gunungpati",
+    "Mijen",
+    "Ngaliyan"
+   ],
+   "source_ids": [
+    "EXP07",
+    "EXP14",
+    "LICSAR",
+    "SPAM-SETKAB",
+    "GADM"
+   ]
+  },
+  {
+   "id": "E428-N9224",
+   "lon": 110.36625,
+   "lat": -7.00184,
+   "polygon": [
+    [
+     110.34811,
+     -7.01991
+    ],
+    [
+     110.38433,
+     -7.01996
+    ],
+    [
+     110.38438,
+     -6.98378
+    ],
+    [
+     110.34816,
+     -6.98373
+    ],
+    [
+     110.34811,
+     -7.01991
+    ]
+   ],
+   "demand_m3_yr": 3608000,
+   "demand_low_m3_yr": 625000,
+   "demand_high_m3_yr": 15319000,
+   "clay_m": 6.7,
+   "sinking_mm_yr": 0.8,
+   "supply_m3_yr": 3014893,
+   "land_share": 0.99,
+   "districts": [
+    "Ngaliyan",
+    "Semarang Barat",
+    "Mijen"
+   ],
+   "source_ids": [
+    "EXP07",
+    "EXP14",
+    "LICSAR",
+    "SPAM-SETKAB",
+    "GADM"
+   ]
+  },
+  {
+   "id": "E428-N9228",
+   "lon": 110.36629,
+   "lat": -6.96566,
+   "polygon": [
+    [
+     110.34816,
+     -6.98373
+    ],
+    [
+     110.38438,
+     -6.98378
+    ],
+    [
+     110.38442,
+     -6.9476
+    ],
+    [
+     110.34821,
+     -6.94755
+    ],
+    [
+     110.34816,
+     -6.98373
+    ]
+   ],
+   "demand_m3_yr": 239000,
+   "demand_low_m3_yr": 45000,
+   "demand_high_m3_yr": 1259000,
+   "clay_m": 47.5,
+   "sinking_mm_yr": 25.3,
+   "supply_m3_yr": 2653734,
+   "land_share": 0.84,
+   "districts": [
+    "Tugu",
+    "Semarang Barat"
+   ],
+   "source_ids": [
+    "EXP07",
+    "EXP14",
+    "LICSAR",
+    "SPAM-SETKAB",
+    "GADM"
+   ]
+  },
+  {
+   "id": "E432-N9220",
+   "lon": 110.40241,
+   "lat": -7.03807,
+   "polygon": [
+    [
+     110.38428,
+     -7.05614
+    ],
+    [
+     110.4205,
+     -7.05619
+    ],
+    [
+     110.42054,
+     -7.02001
+    ],
+    [
+     110.38433,
+     -7.01996
+    ],
+    [
+     110.38428,
+     -7.05614
+    ]
+   ],
+   "demand_m3_yr": 528000,
+   "demand_low_m3_yr": 90000,
+   "demand_high_m3_yr": 2588000,
+   "clay_m": 19.4,
+   "sinking_mm_yr": 4.7,
+   "supply_m3_yr": 0,
+   "land_share": 1.0,
+   "districts": [
+    "Gunungpati",
+    "Banyumanik",
+    "Gajahmungkur"
+   ],
+   "source_ids": [
+    "EXP07",
+    "EXP14",
+    "LICSAR",
+    "SPAM-SETKAB",
+    "GADM"
+   ]
+  },
+  {
+   "id": "E432-N9224",
+   "lon": 110.40246,
+   "lat": -7.00189,
+   "polygon": [
+    [
+     110.38433,
+     -7.01996
+    ],
+    [
+     110.42054,
+     -7.02001
+    ],
+    [
+     110.42059,
+     -6.98382
+    ],
+    [
+     110.38438,
+     -6.98378
+    ],
+    [
+     110.38433,
+     -7.01996
+    ]
+   ],
+   "demand_m3_yr": 1725000,
+   "demand_low_m3_yr": 296000,
+   "demand_high_m3_yr": 7968000,
+   "clay_m": 9.9,
+   "sinking_mm_yr": 1.9,
+   "supply_m3_yr": 934303,
+   "land_share": 0.99,
+   "districts": [
+    "Gajahmungkur",
+    "Semarang Barat",
+    "Semarang Selatan"
+   ],
+   "source_ids": [
+    "EXP07",
+    "EXP14",
+    "LICSAR",
+    "SPAM-SETKAB",
+    "GADM"
+   ]
+  },
+  {
+   "id": "E432-N9228",
+   "lon": 110.4025,
+   "lat": -6.96571,
+   "polygon": [
+    [
+     110.38438,
+     -6.98378
+    ],
+    [
+     110.42059,
+     -6.98382
+    ],
+    [
+     110.42063,
+     -6.94764
+    ],
+    [
+     110.38442,
+     -6.9476
+    ],
+    [
+     110.38438,
+     -6.98378
+    ]
+   ],
+   "demand_m3_yr": 2324000,
+   "demand_low_m3_yr": 416000,
+   "demand_high_m3_yr": 11234000,
+   "clay_m": 48.1,
+   "sinking_mm_yr": 43.1,
+   "supply_m3_yr": 1271908,
+   "land_share": 0.94,
+   "districts": [
+    "Semarang Utara",
+    "Semarang Barat",
+    "Semarang Tengah"
+   ],
+   "source_ids": [
+    "EXP07",
+    "EXP14",
+    "LICSAR",
+    "SPAM-SETKAB",
+    "GADM"
+   ]
+  },
+  {
+   "id": "E436-N9220",
+   "lon": 110.43863,
+   "lat": -7.03812,
+   "polygon": [
+    [
+     110.4205,
+     -7.05619
+    ],
+    [
+     110.45672,
+     -7.05623
+    ],
+    [
+     110.45676,
+     -7.02005
+    ],
+    [
+     110.42054,
+     -7.02001
+    ],
+    [
+     110.4205,
+     -7.05619
+    ]
+   ],
+   "demand_m3_yr": 596000,
+   "demand_low_m3_yr": 115000,
+   "demand_high_m3_yr": 2883000,
+   "clay_m": 11.1,
+   "sinking_mm_yr": -2.0,
+   "supply_m3_yr": 0,
+   "land_share": 0.99,
+   "districts": [
+    "Tembalang",
+    "Banyumanik",
+    "Candisari"
+   ],
+   "source_ids": [
+    "EXP07",
+    "EXP14",
+    "LICSAR",
+    "SPAM-SETKAB",
+    "GADM"
+   ]
+  },
+  {
+   "id": "E436-N9224",
+   "lon": 110.43867,
+   "lat": -7.00194,
+   "polygon": [
+    [
+     110.42054,
+     -7.02001
+    ],
+    [
+     110.45676,
+     -7.02005
+    ],
+    [
+     110.4568,
+     -6.98387
+    ],
+    [
+     110.42059,
+     -6.98382
+    ],
+    [
+     110.42054,
+     -7.02001
+    ]
+   ],
+   "demand_m3_yr": 1341000,
+   "demand_low_m3_yr": 252000,
+   "demand_high_m3_yr": 7035000,
+   "clay_m": 31.3,
+   "sinking_mm_yr": 15.4,
+   "supply_m3_yr": 0,
+   "land_share": 0.99,
+   "districts": [
+    "Semarang Selatan",
+    "Candisari",
+    "Gayamsari"
+   ],
+   "source_ids": [
+    "EXP07",
+    "EXP14",
+    "LICSAR",
+    "SPAM-SETKAB",
+    "GADM"
+   ]
+  },
+  {
+   "id": "E436-N9228",
+   "lon": 110.43871,
+   "lat": -6.96575,
+   "polygon": [
+    [
+     110.42059,
+     -6.98382
+    ],
+    [
+     110.4568,
+     -6.98387
+    ],
+    [
+     110.45684,
+     -6.94768
+    ],
+    [
+     110.42063,
+     -6.94764
+    ],
+    [
+     110.42059,
+     -6.98382
+    ]
+   ],
+   "demand_m3_yr": 2630000,
+   "demand_low_m3_yr": 531000,
+   "demand_high_m3_yr": 12399000,
+   "clay_m": 67.0,
+   "sinking_mm_yr": 72.9,
+   "supply_m3_yr": 0,
+   "land_share": 0.98,
+   "districts": [
+    "Semarang Timur",
+    "Semarang Utara",
+    "Gayamsari"
+   ],
+   "source_ids": [
+    "EXP07",
+    "EXP14",
+    "LICSAR",
+    "SPAM-SETKAB",
+    "GADM"
+   ]
+  },
+  {
+   "id": "E436-N9232",
+   "lon": 110.43876,
+   "lat": -6.92957,
+   "polygon": [
+    [
+     110.42063,
+     -6.94764
+    ],
+    [
+     110.45684,
+     -6.94768
+    ],
+    [
+     110.45688,
+     -6.9115
+    ],
+    [
+     110.42068,
+     -6.91146
+    ],
+    [
+     110.42063,
+     -6.94764
+    ]
+   ],
+   "demand_m3_yr": 488000,
+   "demand_low_m3_yr": 88000,
+   "demand_high_m3_yr": 2937000,
+   "clay_m": 79.3,
+   "sinking_mm_yr": 86.5,
+   "supply_m3_yr": 0,
+   "land_share": 0.18,
+   "districts": [
+    "Genuk",
+    "Semarang Utara"
+   ],
+   "source_ids": [
+    "EXP07",
+    "EXP14",
+    "LICSAR",
+    "SPAM-SETKAB",
+    "GADM"
+   ]
+  },
+  {
+   "id": "E440-N9220",
+   "lon": 110.47484,
+   "lat": -7.03816,
+   "polygon": [
+    [
+     110.45672,
+     -7.05623
+    ],
+    [
+     110.49293,
+     -7.05627
+    ],
+    [
+     110.49297,
+     -7.02009
+    ],
+    [
+     110.45676,
+     -7.02005
+    ],
+    [
+     110.45672,
+     -7.05623
+    ]
+   ],
+   "demand_m3_yr": 893000,
+   "demand_low_m3_yr": 159000,
+   "demand_high_m3_yr": 4684000,
+   "clay_m": 7.8,
+   "sinking_mm_yr": 2.5,
+   "supply_m3_yr": 0,
+   "land_share": 1.0,
+   "districts": [
+    "Tembalang",
+    "Mranggen",
+    "Pedurungan"
+   ],
+   "source_ids": [
+    "EXP07",
+    "EXP14",
+    "LICSAR",
+    "SPAM-SETKAB",
+    "GADM"
+   ]
+  },
+  {
+   "id": "E440-N9224",
+   "lon": 110.47489,
+   "lat": -7.00198,
+   "polygon": [
+    [
+     110.45676,
+     -7.02005
+    ],
+    [
+     110.49297,
+     -7.02009
+    ],
+    [
+     110.49301,
+     -6.98391
+    ],
+    [
+     110.4568,
+     -6.98387
+    ],
+    [
+     110.45676,
+     -7.02005
+    ]
+   ],
+   "demand_m3_yr": 1072000,
+   "demand_low_m3_yr": 180000,
+   "demand_high_m3_yr": 5942000,
+   "clay_m": 41.3,
+   "sinking_mm_yr": 68.8,
+   "supply_m3_yr": 0,
+   "land_share": 1.0,
+   "districts": [
+    "Pedurungan",
+    "Genuk",
+    "Tembalang"
+   ],
+   "source_ids": [
+    "EXP07",
+    "EXP14",
+    "LICSAR",
+    "SPAM-SETKAB",
+    "GADM"
+   ]
+  },
+  {
+   "id": "E440-N9228",
+   "lon": 110.47493,
+   "lat": -6.9658,
+   "polygon": [
+    [
+     110.4568,
+     -6.98387
+    ],
+    [
+     110.49301,
+     -6.98391
+    ],
+    [
+     110.49305,
+     -6.94772
+    ],
+    [
+     110.45684,
+     -6.94768
+    ],
+    [
+     110.4568,
+     -6.98387
+    ]
+   ],
+   "demand_m3_yr": 2530000,
+   "demand_low_m3_yr": 497000,
+   "demand_high_m3_yr": 11829000,
+   "clay_m": 85.6,
+   "sinking_mm_yr": 91.2,
+   "supply_m3_yr": 0,
+   "land_share": 1.0,
+   "districts": [
+    "Genuk",
+    "Pedurungan",
+    "Sayung"
+   ],
+   "source_ids": [
+    "EXP07",
+    "EXP14",
+    "LICSAR",
+    "SPAM-SETKAB",
+    "GADM"
+   ]
+  },
+  {
+   "id": "E440-N9232",
+   "lon": 110.47497,
+   "lat": -6.92961,
+   "polygon": [
+    [
+     110.45684,
+     -6.94768
+    ],
+    [
+     110.49305,
+     -6.94772
+    ],
+    [
+     110.49309,
+     -6.91154
+    ],
+    [
+     110.45688,
+     -6.9115
+    ],
+    [
+     110.45684,
+     -6.94768
+    ]
+   ],
+   "demand_m3_yr": 869000,
+   "demand_low_m3_yr": 144000,
+   "demand_high_m3_yr": 4617000,
+   "clay_m": 95.6,
+   "sinking_mm_yr": 95.3,
+   "supply_m3_yr": 0,
+   "land_share": 0.72,
+   "districts": [
+    "Sayung",
+    "Genuk"
+   ],
+   "source_ids": [
+    "EXP07",
+    "EXP14",
+    "LICSAR",
+    "SPAM-SETKAB",
+    "GADM"
+   ]
+  },
+  {
+   "id": "E444-N9220",
+   "lon": 110.51106,
+   "lat": -7.0382,
+   "polygon": [
+    [
+     110.49293,
+     -7.05627
+    ],
+    [
+     110.52915,
+     -7.05631
+    ],
+    [
+     110.52919,
+     -7.02013
+    ],
+    [
+     110.49297,
+     -7.02009
+    ],
+    [
+     110.49293,
+     -7.05627
+    ]
+   ],
+   "demand_m3_yr": 919000,
+   "demand_low_m3_yr": 159000,
+   "demand_high_m3_yr": 4877000,
+   "clay_m": 23.6,
+   "sinking_mm_yr": 62.1,
+   "supply_m3_yr": 0,
+   "land_share": 1.0,
+   "districts": [
+    "Mranggen",
+    "Pedurungan"
+   ],
+   "source_ids": [
+    "EXP07",
+    "EXP14",
+    "LICSAR",
+    "SPAM-SETKAB",
+    "GADM"
+   ]
+  },
+  {
+   "id": "E444-N9224",
+   "lon": 110.5111,
+   "lat": -7.00202,
+   "polygon": [
+    [
+     110.49297,
+     -7.02009
+    ],
+    [
+     110.52919,
+     -7.02013
+    ],
+    [
+     110.52922,
+     -6.98394
+    ],
+    [
+     110.49301,
+     -6.98391
+    ],
+    [
+     110.49297,
+     -7.02009
+    ]
+   ],
+   "demand_m3_yr": 359000,
+   "demand_low_m3_yr": 59000,
+   "demand_high_m3_yr": 1998000,
+   "clay_m": 70.2,
+   "sinking_mm_yr": 110.7,
+   "supply_m3_yr": 0,
+   "land_share": 1.0,
+   "districts": [
+    "Mranggen",
+    "Pedurungan",
+    "Genuk"
+   ],
+   "source_ids": [
+    "EXP07",
+    "EXP14",
+    "LICSAR",
+    "SPAM-SETKAB",
+    "GADM"
+   ]
+  },
+  {
+   "id": "E444-N9228",
+   "lon": 110.51114,
+   "lat": -6.96584,
+   "polygon": [
+    [
+     110.49301,
+     -6.98391
+    ],
+    [
+     110.52922,
+     -6.98394
+    ],
+    [
+     110.52926,
+     -6.94776
+    ],
+    [
+     110.49305,
+     -6.94772
+    ],
+    [
+     110.49301,
+     -6.98391
+    ]
+   ],
+   "demand_m3_yr": 876000,
+   "demand_low_m3_yr": 146000,
+   "demand_high_m3_yr": 4480000,
+   "clay_m": 89.6,
+   "sinking_mm_yr": 106.7,
+   "supply_m3_yr": 0,
+   "land_share": 1.0,
+   "districts": [
+    "Sayung",
+    "Genuk",
+    "Mranggen"
+   ],
+   "source_ids": [
+    "EXP07",
+    "EXP14",
+    "LICSAR",
+    "SPAM-SETKAB",
+    "GADM"
+   ]
+  },
+  {
+   "id": "E444-N9232",
+   "lon": 110.51117,
+   "lat": -6.92965,
+   "polygon": [
+    [
+     110.49305,
+     -6.94772
+    ],
+    [
+     110.52926,
+     -6.94776
+    ],
+    [
+     110.5293,
+     -6.91158
+    ],
+    [
+     110.49309,
+     -6.91154
+    ],
+    [
+     110.49305,
+     -6.94772
+    ]
+   ],
+   "demand_m3_yr": 1047000,
+   "demand_low_m3_yr": 190000,
+   "demand_high_m3_yr": 5402000,
+   "clay_m": 104.5,
+   "sinking_mm_yr": 95.9,
+   "supply_m3_yr": 0,
+   "land_share": 1.0,
+   "districts": [
+    "Sayung"
+   ],
+   "source_ids": [
+    "EXP07",
+    "EXP14",
+    "LICSAR",
+    "SPAM-SETKAB",
+    "GADM"
+   ]
+  },
+  {
+   "id": "E448-N9220",
+   "lon": 110.54728,
+   "lat": -7.03824,
+   "polygon": [
+    [
+     110.52915,
+     -7.05631
+    ],
+    [
+     110.56537,
+     -7.05635
+    ],
+    [
+     110.5654,
+     -7.02016
+    ],
+    [
+     110.52919,
+     -7.02013
+    ],
+    [
+     110.52915,
+     -7.05631
+    ]
+   ],
+   "demand_m3_yr": 529000,
+   "demand_low_m3_yr": 105000,
+   "demand_high_m3_yr": 2719000,
+   "clay_m": 57.4,
+   "sinking_mm_yr": 90.6,
+   "supply_m3_yr": 0,
+   "land_share": 1.0,
+   "districts": [
+    "Mranggen",
+    "Karangawen"
+   ],
+   "source_ids": [
+    "EXP07",
+    "EXP14",
+    "LICSAR",
+    "SPAM-SETKAB",
+    "GADM"
+   ]
+  },
+  {
+   "id": "E448-N9224",
+   "lon": 110.54731,
+   "lat": -7.00205,
+   "polygon": [
+    [
+     110.52919,
+     -7.02013
+    ],
+    [
+     110.5654,
+     -7.02016
+    ],
+    [
+     110.56544,
+     -6.98398
+    ],
+    [
+     110.52922,
+     -6.98394
+    ],
+    [
+     110.52919,
+     -7.02013
+    ]
+   ],
+   "demand_m3_yr": 297000,
+   "demand_low_m3_yr": 53000,
+   "demand_high_m3_yr": 1554000,
+   "clay_m": 81.9,
+   "sinking_mm_yr": 95.7,
+   "supply_m3_yr": 0,
+   "land_share": 0.98,
+   "districts": [
+    "Mranggen",
+    "Guntur",
+    "Sayung"
+   ],
+   "source_ids": [
+    "EXP07",
+    "EXP14",
+    "LICSAR",
+    "SPAM-SETKAB",
+    "GADM"
+   ]
+  },
+  {
+   "id": "E448-N9228",
+   "lon": 110.54735,
+   "lat": -6.96587,
+   "polygon": [
+    [
+     110.52922,
+     -6.98394
+    ],
+    [
+     110.56544,
+     -6.98398
+    ],
+    [
+     110.56547,
+     -6.9478
+    ],
+    [
+     110.52926,
+     -6.94776
+    ],
+    [
+     110.52922,
+     -6.98394
+    ]
+   ],
+   "demand_m3_yr": 213000,
+   "demand_low_m3_yr": 39000,
+   "demand_high_m3_yr": 1191000,
+   "clay_m": 103.5,
+   "sinking_mm_yr": 100.5,
+   "supply_m3_yr": 0,
+   "land_share": 0.99,
+   "districts": [
+    "Sayung",
+    "Guntur",
+    "Karang Tengah"
+   ],
+   "source_ids": [
+    "EXP07",
+    "EXP14",
+    "LICSAR",
+    "SPAM-SETKAB",
+    "GADM"
+   ]
+  },
+  {
+   "id": "E448-N9232",
+   "lon": 110.54738,
+   "lat": -6.92969,
+   "polygon": [
+    [
+     110.52926,
+     -6.94776
+    ],
+    [
+     110.56547,
+     -6.9478
+    ],
+    [
+     110.5655,
+     -6.91161
+    ],
+    [
+     110.5293,
+     -6.91158
+    ],
+    [
+     110.52926,
+     -6.94776
+    ]
+   ],
+   "demand_m3_yr": 2669000,
+   "demand_low_m3_yr": 478000,
+   "demand_high_m3_yr": 11991000,
+   "clay_m": 109.2,
+   "sinking_mm_yr": 99.0,
+   "supply_m3_yr": 0,
+   "land_share": 0.99,
+   "districts": [
+    "Sayung",
+    "Karang Tengah"
+   ],
+   "source_ids": [
+    "EXP07",
+    "EXP14",
+    "LICSAR",
+    "SPAM-SETKAB",
+    "GADM"
+   ]
+  }
+ ]
 }
