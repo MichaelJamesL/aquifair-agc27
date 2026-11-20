@@ -3,6 +3,7 @@ from __future__ import annotations
 import pytest
 
 from neraca.core.errors import InvalidScenarioError
+from neraca.domain.enums import PipeTestStatus
 from neraca.repositories.seed import SeedStore
 from neraca.services.pipes import DEFAULT_WEIGHTS, PipeService, interpret_spam_test
 from tests.conftest import DATA_DIR
@@ -15,12 +16,13 @@ def test_subsidence_periods_are_real_medians() -> None:
     assert periods[0].fast_mm_yr == pytest.approx(112.777, rel=1e-4)
 
 
-def test_spam_test_is_not_run_and_makes_no_claim() -> None:
+def test_spam_test_result_is_inconclusive() -> None:
     test = PipeService(SeedStore(DATA_DIR)).spam_test()
-    assert test.status.value == "not_run"
-    wording = interpret_spam_test(test)
-    assert "has not been run" in wording
-    assert "no claim" in wording.lower()
+    assert test.status.value == "inconclusive"
+    assert test.delta_mm_yr is not None and test.shift_null_p05 is not None
+    assert test.delta_mm_yr > test.shift_null_p05  # no extra slowdown in the served kecamatan
+    assert interpret_spam_test(test).startswith("Inconclusive")
+    assert interpret_spam_test(test.model_copy(update={"status": PipeTestStatus.NOT_RUN})).startswith("The SPAM")
 
 
 def test_priority_uses_clay_as_damage() -> None:

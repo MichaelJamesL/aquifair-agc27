@@ -147,8 +147,9 @@ def test_pipes_spam_test(client: TestClient) -> None:
     response = client.get("/api/v1/pipes/spam-test")
     assert response.status_code == 200
     body = response.json()
-    assert body["status"] == "not_run"
-    assert "has not been run" in body["outcome_wording"]
+    assert body["status"] == "inconclusive"
+    assert body["outcome_wording"].startswith("Inconclusive")
+    assert body["positive_control_passed"] is False
 
 
 def test_pipes_priority_ranks_real_blocks(client: TestClient) -> None:

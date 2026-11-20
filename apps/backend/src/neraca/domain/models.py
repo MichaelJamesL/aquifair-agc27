@@ -384,9 +384,21 @@ class SpamTest(BaseModel):
     districts: list[str] = Field(default_factory=list)
     delta_mm_yr: float | None = None
     shift_null_p05: float | None = None
+    shift_null_p95: float | None = None
+    p_lower: float | None = None
     placebo_year_clean: bool | None = None
     placebo_area_clean: bool | None = None
+    placebo_years_delta_mm_yr: float | None = None
+    placebo_area_delta_mm_yr: float | None = None
+    served_mean_mm_yr: dict[str, float] = Field(default_factory=dict)
+    control_mean_mm_yr: dict[str, float] = Field(default_factory=dict)
+    served_cells: int | None = None
     positive_control_passed: bool | None = None
+    positive_control_delta_mm_yr: float | None = None
+    positive_control_null_p05: float | None = None
+    positive_control_note: str | None = None
+    preregistration: str | None = None
+    run_date: date | None = None
     outcome_code: str | None = None
     outcome_wording: str
     source_ids: list[str] = Field(default_factory=list)
