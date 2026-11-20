@@ -226,12 +226,12 @@
   },
   {
     "id": "ZONE-2022",
-    "name": "CAT Semarang-Demak conservation zones, 2022",
+    "name": "Peta Zona Konservasi Air Tanah Akuifer Tertekan CAT Semarang-Demak 2022",
     "publisher": "Dinas ESDM Provinsi Jawa Tengah",
-    "url": "https://eprints2.undip.ac.id/55333/3/Bab%20I.pdf",
+    "url": "https://data.jatengprov.go.id/dataset/0df967c7-e67d-4c9e-b25e-2b47c28908fb/resource/ad7efa82-553e-4b31-8fc8-5180df02d2a5/download/cat-semarang-demak_a0.pdf",
     "label": "OFFICIAL",
-    "accessed": "2026-11-19",
-    "note": "Map not yet digitised. In critical and damaged zones no new abstraction permit can be issued."
+    "accessed": "2026-11-20",
+    "note": "Official ArcMap vector PDF (1:150,000), made under Permen ESDM 31/2018. Digitised exactly by scripts/digitise_zones.py: zone fills and the 467 'Sumur Bor' markers, georeferenced on the UTM 49S tick labels (about 26 m)."
   },
   {
     "id": "ADWR",
