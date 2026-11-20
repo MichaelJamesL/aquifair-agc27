@@ -33,7 +33,7 @@
   ],
   "spam": {
     "name": "SPAM Semarang Barat",
-    "status": "not_run",
+    "status": "inconclusive",
     "design_capacity_lps": 1000,
     "uptake_lps_2024_01": 605,
     "uptake_m3_yr_2024": 19000000,
@@ -45,20 +45,43 @@
       "Ngaliyan",
       "Tugu"
     ],
-    "delta_mm_yr": null,
-    "shift_null_p05": null,
-    "placebo_year_clean": null,
-    "placebo_area_clean": null,
-    "positive_control_passed": null,
-    "outcome_code": "not_run",
-    "outcome_wording": "The SPAM Semarang Barat before/after test has not been run. The app shows the design and the data on disk, but makes no claim.",
+    "delta_mm_yr": 5.88,
+    "shift_null_p05": 0.73,
+    "placebo_year_clean": true,
+    "placebo_area_clean": true,
+    "positive_control_passed": false,
+    "outcome_code": "no_extra_slowdown_control_failed",
+    "outcome_wording": "Inconclusive. The app shows the before/after maps without a claim either way.",
     "source_ids": [
       "SPAM-SETKAB",
       "SPAM-EKON",
       "SPAM-ANTARA",
       "SPAM-HASINA",
       "EXP14",
-      "LICSAR"
-    ]
+      "LICSAR",
+      "ADWR",
+      "EXP05",
+      "GADM"
+    ],
+    "shift_null_p95": 5.9,
+    "p_lower": 0.948,
+    "served_cells": 791,
+    "placebo_years_delta_mm_yr": 2.53,
+    "placebo_area_delta_mm_yr": -6.15,
+    "served_mean_mm_yr": {
+      "2014_17": 15.7,
+      "2018_22": 13.7,
+      "2023_26": 12.3
+    },
+    "control_mean_mm_yr": {
+      "2014_17": 72.9,
+      "2018_22": 66.0,
+      "2023_26": 56.0
+    },
+    "positive_control_delta_mm_yr": -0.68,
+    "positive_control_null_p05": -1.48,
+    "positive_control_note": "Arizona, OPERA F07091: 5 4 km blocks where metered pumping fell from 20,893 to 9,210 acre-ft/yr (2016-20 -> 2021-25).",
+    "preregistration": "apps/backend/scripts/prereg_v5_v7_v8.md",
+    "run_date": "2026-11-20"
   }
 }

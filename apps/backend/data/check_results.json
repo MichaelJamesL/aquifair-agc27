@@ -1,0 +1,95 @@
+{
+ "V7": {
+  "main": {
+   "delta_mm_yr": 5.88,
+   "null_p05": 0.73,
+   "null_p95": 5.9,
+   "p_lower": 0.948,
+   "served_cells": 791
+  },
+  "placebo_years": {
+   "delta_mm_yr": 2.53,
+   "null_p05": -4.38,
+   "null_p95": 3.41,
+   "p_lower": 0.408,
+   "served_cells": 791
+  },
+  "placebo_area": {
+   "delta_mm_yr": -6.15,
+   "null_p05": -10.51,
+   "null_p95": 6.56,
+   "p_lower": 0.263,
+   "served_cells": 1249
+  },
+  "placebo_year_clean": true,
+  "placebo_area_clean": true,
+  "passed": false,
+  "served_mean_mm_yr": {
+   "2014_17": 15.7,
+   "2018_22": 13.7,
+   "2023_26": 12.3
+  },
+  "control_mean_mm_yr": {
+   "2014_17": 72.9,
+   "2018_22": 66.0,
+   "2023_26": 56.0
+  },
+  "grid": {
+   "e0": 428000.0,
+   "n0": 9220000.0,
+   "pix": 200.0,
+   "epsg": 32749
+  }
+ },
+ "V8": {
+  "ran": true,
+  "cut_blocks": 5,
+  "pumped_blocks": 227,
+  "cut_acre_ft_yr": [
+   20893,
+   9210
+  ],
+  "main": {
+   "delta_mm_yr": -0.68,
+   "null_p05": -1.48,
+   "null_p95": 1.1,
+   "p_lower": 0.476,
+   "served_cells": 397
+  },
+  "passed": false
+ },
+ "preregistration": "apps/backend/scripts/prereg_v5_v7_v8.md",
+ "run_date": "2026-11-20",
+ "V4": {
+  "ran": true,
+  "radius_m": 500,
+  "new_buildings": 1094,
+  "by_year": {
+   "2018": 298,
+   "2019": 348,
+   "2020": 231,
+   "2021": 217
+  },
+  "hits": 184,
+  "share": 0.1682,
+  "null_share": 0.1216,
+  "null_p95": 0.138,
+  "ratio": 1.38,
+  "p": 0.0001,
+  "wells": 7140,
+  "passed": false
+ },
+ "V5": {
+  "ran": true,
+  "radius_m": 250,
+  "wells": 541,
+  "leads": 20,
+  "lead_hits": 5,
+  "lead_share": 0.25,
+  "pool": 85,
+  "null_share": 0.1448,
+  "null_p95": 0.3,
+  "p": 0.1527,
+  "passed": false
+ }
+}

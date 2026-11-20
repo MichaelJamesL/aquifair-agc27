@@ -44,24 +44,27 @@
     "name": "Arizona leads",
     "module": "B",
     "pass_mark": "New large buildings with a new registered well within 500 m in t to t+2 are at least 1.5x the built-matched null; one-sided permutation p < 0.05.",
-    "status": "planned",
-    "result": "waiting",
+    "status": "done",
+    "result": "fail",
     "source_ids": [
       "EXP05",
-      "ADWR"
-    ]
+      "ADWR",
+      "IO-LULC"
+    ],
+    "detail": "1094 new built patches (1,000 m2 to 25 ha, IO land cover 2018-2021) outside ADWR water-provider areas: 184 got a new registered well within 500 m in t to t+2 (16.8%) vs 12.2% for built-matched existing sites (ratio 1.38, p = 0.0001). New buildings pull new wells more than chance, but less than the 1.5x pass mark."
   },
   {
     "code": "V5",
     "name": "Semarang permits",
     "module": "B",
     "pass_mark": "Leads fall on permitted wells more often than random new buildings of the same size, p < 0.05.",
-    "status": "planned",
-    "result": "waiting",
+    "status": "done",
+    "result": "fail",
     "source_ids": [
       "LO-2022",
       "ZONE-2022"
-    ]
+    ],
+    "detail": "20 buildings passing filters 1-3: 5 within 250 m of a permitted well (25%) vs 14% for size-matched new buildings, p = 0.153. Above the null, but not significant with 20 buildings."
   },
   {
     "code": "V6",
@@ -77,24 +80,27 @@
     "name": "SPAM test",
     "module": "C",
     "pass_mark": "Delta below the 5th percentile of the shift null, and both placebos between the 5th and 95th percentiles.",
-    "status": "planned",
-    "result": "waiting",
+    "status": "done",
+    "result": "fail",
     "source_ids": [
       "LICSAR",
       "EXP14",
-      "SPAM-SETKAB"
-    ]
+      "SPAM-SETKAB",
+      "GADM"
+    ],
+    "detail": "Delta +5.9 mm/yr (shift null 5th-95th: +0.7 to +5.9, p = 0.95); placebo years +2.5 (clean), placebo area -6.2 (clean). Served kecamatan did not slow more than matched controls."
   },
   {
     "code": "V8",
     "name": "Positive control in Arizona",
     "module": "C",
     "pass_mark": "The same test detects a known, metered pumping cut.",
-    "status": "planned",
-    "result": "waiting",
+    "status": "done",
+    "result": "fail",
     "source_ids": [
       "EXP05",
       "ADWR"
-    ]
+    ],
+    "detail": "5 Arizona blocks with a >= 50 % metered cut: Delta -0.68 mm/yr vs shift-null 5th percentile -1.48 (p = 0.48). The method does not see a known, metered cut."
   }
 ]
