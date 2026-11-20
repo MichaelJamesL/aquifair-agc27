@@ -2,6 +2,7 @@
 @import "@fontsource/plus-jakarta-sans/400.css";
 @import "@fontsource/plus-jakarta-sans/500.css";
 @import "@fontsource/plus-jakarta-sans/600.css";
+@import "@fontsource/plus-jakarta-sans/700.css";
 @import "@fontsource/ibm-plex-mono/400.css";
 @import "@fontsource/ibm-plex-mono/500.css";
 @import "@fontsource/ibm-plex-sans/400-italic.css";
@@ -9,45 +10,74 @@
 @import "@fontsource/newsreader/400.css";
 @import "@fontsource/manrope/400.css";
 @import "@fontsource/manrope/500.css";
+@import "@fontsource/manrope/600.css";
+@import "@fontsource/manrope/800.css";
 
-/* Design tokens from the Groundtrace Figma file (SUMUR tokens collection). */
+/* NERACA / Aquilens design tokens. */
 @theme {
-  --color-bg: #f5f3ee;
+  --color-bg: #f5f4f0;
   --color-surface: #ffffff;
-  --color-subtle: #edeae3;
-  --color-line: #ddd8ce;
-  --color-line-strong: #bdb6a8;
-  --color-ink: #17191c;
-  --color-ink-2: #4a4f55;
-  --color-ink-3: #7c8086;
-  --color-primary: #0f4c5c;
-  --color-primary-hover: #0b3b48;
-  --color-primary-tint: #dce8ea;
-  --color-on-primary: #f5f3ee;
-  --color-pass: #2e7d4f;
-  --color-pass-tint: #ddeee2;
-  --color-warn: #8a5b00;
-  --color-warn-tint: #f6ebcb;
-  --color-fail: #b3261e;
-  --color-fail-tint: #f6dedb;
-  --color-range: #de8248;
-  --color-pump: #c34c30;
-  --color-bg-share: #b9a88a;
-  --color-water: #d5dedd;
+  --color-subtle: #eceae4;
+  --color-line: #e2dfd7;
+  --color-line-strong: #c9c5bb;
+  --color-ink: #14202b;
+  --color-ink-2: #4a5664;
+  --color-ink-3: #8893a0;
+
+  --color-navy-900: #0d1a33;
+  --color-navy-800: #142b4f;
+  --color-blue-50: #eef5fb;
+  --color-blue-100: #dcebf7;
+  --color-blue-200: #c4ddf0;
+  --color-blue-400: #5d9bcc;
+  --color-blue-500: #2e7cc0;
+  --color-blue-700: #155a96;
+
+  --color-amber-50: #fdf8ed;
+  --color-amber-100: #fcefd3;
+  --color-amber-200: #f9d48f;
+  --color-amber-400: #f2ae52;
+  --color-amber-500: #ee9b2f;
+  --color-amber-600: #e0812a;
+  --color-amber-800: #8f4e0e;
+
+  --color-green-100: #e2f1e8;
+  --color-green-700: #2e6d4a;
+  --color-red-100: #f8e1de;
+  --color-red-700: #a83a30;
+  --color-purple-100: #eee8f8;
+  --color-purple-700: #5e4593;
+  --color-sea: #d7e6f2;
+
+  --color-ramp-amber-1: #fdf0d2;
+  --color-ramp-amber-2: #f9d48f;
+  --color-ramp-amber-3: #f2ae52;
+  --color-ramp-amber-4: #e0812a;
+  --color-ramp-amber-5: #b5591a;
+
+  --color-primary: #155a96;
+  --color-primary-hover: #0f467a;
+  --color-primary-tint: #dcebf7;
+  --color-on-primary: #ffffff;
+  --color-pass: #2e6d4a;
+  --color-pass-tint: #e2f1e8;
+  --color-warn: #8f4e0e;
+  --color-warn-tint: #fcefd3;
+  --color-fail: #a83a30;
+  --color-fail-tint: #f8e1de;
 
   --font-sans: "Plus Jakarta Sans", system-ui, sans-serif;
   --font-mono: "IBM Plex Mono", ui-monospace, monospace;
   --font-display: "Manrope", "Plus Jakarta Sans", system-ui, sans-serif;
+  --font-serif: "Newsreader", Georgia, serif;
 
   --radius-sm: 3px;
   --radius-md: 6px;
   --radius-lg: 8px;
+  --radius-xl: 10px;
 
-  --shadow-pop: 0 4px 14px rgba(23, 26, 28, 0.1);
-  --shadow-card: 0 4px 16px rgba(23, 26, 28, 0.08);
-  --shadow-knob: 0 1px 3px rgba(0, 0, 0, 0.18);
-
-  --ease-map: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --shadow-pop: 0 6px 20px rgba(13, 26, 51, 0.14);
+  --shadow-card: 0 2px 8px rgba(13, 26, 51, 0.05);
 }
 
 @layer base {
@@ -66,41 +96,41 @@
   }
 
   :focus-visible {
-    outline: 2px solid var(--color-primary);
+    outline: 2px solid var(--color-blue-700);
     outline-offset: 2px;
   }
 }
 
 @utility eyebrow {
-  font-size: 11px;
-  line-height: 14px;
+  font-size: 10px;
+  line-height: 12px;
   font-weight: 500;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.6px;
   text-transform: uppercase;
-}
-
-/* Inline SVG map layers fill their 1200×900 box. */
-@utility map-layer {
-  position: absolute;
-  inset: 0;
-  width: 1200px;
-  height: 900px;
-  pointer-events: none;
-
-  & > svg {
-    display: block;
-    width: 1200px;
-    height: 900px;
-  }
 }
 
 @utility font-serif-display {
   font-family: "Newsreader", Georgia, serif;
   font-weight: 400;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.02em;
 }
 
-/* Audit sheet: A4 pages, one per printed sheet. */
+/* Keep the map canvas crisp and let it fill its panel. */
+.maplibregl-map {
+  font-family: var(--font-sans);
+}
+
+.maplibregl-ctrl-group {
+  border: 1px solid var(--color-line) !important;
+  border-radius: 8px !important;
+  box-shadow: none !important;
+}
+
+.maplibregl-ctrl-group button {
+  width: 34px !important;
+  height: 34px !important;
+}
+
 @media print {
   @page {
     size: A4;
@@ -109,9 +139,6 @@
   body {
     min-width: 0;
     background: white;
-  }
-  .sheet-page {
-    break-after: page;
   }
   .no-print {
     display: none !important;
