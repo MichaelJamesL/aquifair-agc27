@@ -22,7 +22,7 @@ import {
   InfoNote,
 } from "@/components/neraca/ui";
 
-const SERVED = ["Semarang Barat", "Tugu", "Ngaliyan"];
+const SERVED = ["West Semarang", "Tugu", "Ngaliyan"];
 const PLACEBO = ["Genuk", "Pedurungan", "Gayamsari"];
 const BOUNDS: [[number, number], [number, number]] = [
   [110.27, -7.15],
@@ -40,7 +40,7 @@ const CITIES = [
   },
   {
     city: "Jakarta",
-    fact: "Pergub 93/2021 bans groundwater for large buildings in nine zones and 12 road segments from Aug 2023.",
+    fact: "Governor Regulation 93/2021 bans groundwater for large buildings in nine zones and 12 road segments from Aug 2023.",
   },
 ];
 
@@ -73,7 +73,7 @@ export default function SpamTestPage() {
   const coverageState = useApi("map-pdam-coverage", (signal) => api.pdamCoverage(signal));
   const overlays = useMemo<OverlayLayer[]>(() => {
     const features = (coverageState.data?.geojson.features ?? [])
-      .filter((feature) => feature.properties.regency === "Kota Semarang")
+      .filter((feature) => feature.properties.regency === "Semarang City")
       .map((feature) => ({
         ...feature,
         properties: {
@@ -154,7 +154,7 @@ export default function SpamTestPage() {
             </Badge>
           </div>
           <p className="mt-2 max-w-[760px] text-[13px] leading-[19px] text-ink-2">
-            SPAM Semarang Barat brought reservoir water to the west of the city from
+            West Semarang SPAM brought reservoir water to the west of the city from
             January 2024. If pipes replace pumps, sinking there should slow more than in
             similar places without new supply.
           </p>
@@ -177,13 +177,13 @@ export default function SpamTestPage() {
             <div className="relative h-[520px] bg-sea">
               <OverlayMap overlays={overlays} bounds={BOUNDS} />
               <div className="pointer-events-none absolute left-4 top-4 rounded-md bg-surface/95 px-2.5 py-1.5 shadow-card">
-                <p className="text-[11px] font-medium leading-4 text-ink">Kota Semarang, kecamatan</p>
+                <p className="text-[11px] font-medium leading-4 text-ink">Semarang City districts</p>
                 <p className="text-[10px] leading-[14px] text-ink-3">
                   Served in the west, placebo area in the east
                 </p>
               </div>
               <p className="pointer-events-none absolute bottom-3 left-4 right-14 rounded-md bg-surface/90 px-2.5 py-1.5 text-[10px] leading-[14px] text-ink-3">
-                The SPAM service map is not public, so the three kecamatan named by the government
+                The SPAM service map is not public, so the three districts named by the government
                 stand in for it (risk R4). Controls are all other 200 m cells with similar clay and
                 built-up share.
               </p>
@@ -191,7 +191,7 @@ export default function SpamTestPage() {
             <div className="flex flex-wrap items-center gap-x-5 gap-y-2 border-t border-line px-4 py-3 text-[11px] text-ink-2">
               <span className="inline-flex items-center gap-1.5">
                 <span className="size-2.5 rounded-[2px] bg-blue-400" />
-                Service area: Tugu, Semarang Barat, Ngaliyan
+                Service area: Tugu, West Semarang, Ngaliyan
               </span>
               <span className="inline-flex items-center gap-1.5">
                 <span className="size-2.5 rounded-[2px] border border-amber-500 bg-amber-100" />
@@ -327,7 +327,7 @@ export default function SpamTestPage() {
                 <Droplets size={14} />
               </span>
               <h2 className="text-[15px] font-semibold leading-5 text-ink">
-                {spam?.name ?? "SPAM Semarang Barat"}
+                {spam?.name ?? "West Semarang SPAM"}
               </h2>
               <span className="flex-1" />
               <Badge tone="amber" dot>
@@ -367,7 +367,7 @@ export default function SpamTestPage() {
               <p className="font-medium">What the app concludes</p>
               <p className="mt-0.5">
                 {spam?.outcome_wording ??
-                  "The SPAM Semarang Barat before/after test has not been run. The app shows the design and the data on disk, but makes no claim."}
+                  "The West Semarang SPAM before/after test has not been run. The app shows the design and the data on disk, but makes no claim."}
               </p>
             </InfoNote>
           </Card>

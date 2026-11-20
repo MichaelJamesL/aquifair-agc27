@@ -36,14 +36,14 @@ import {
 } from "@/components/neraca/ui";
 
 const ZONE_LABEL: Record<string, string> = {
-  safe: "Aman",
-  vulnerable: "Rawan",
-  critical: "Kritis",
-  damaged: "Rusak",
+  safe: "Safe",
+  vulnerable: "Vulnerable",
+  critical: "Critical",
+  damaged: "Damaged",
 };
 
 function zoneLabel(zone: string | null) {
-  if (!zone) return "not Kritis or Rusak";
+  if (!zone) return "not critical or damaged";
   return ZONE_LABEL[zone.toLowerCase()] ?? zone;
 }
 
@@ -217,12 +217,12 @@ export default function LeadDetailPage() {
             {
               n: "2",
               title: "Inside a closed zone",
-              body: "The point must fall in a Kritis or Rusak conservation zone, where no new well permit can be issued.",
+              body: "The point must fall in a critical or damaged conservation zone, where no new well permit can be issued.",
             },
             {
               n: "3",
               title: "Outside the PDAM proxy",
-              body: "Hotels, malls and hospitals only: the kecamatan has piped coverage below 50 %. The network map is not public, so this is a proxy, not a boundary. Factories skip it: PDAM sells industry almost no water.",
+              body: "Hotels, malls and hospitals only: the district has piped coverage below 50 %. The network map is not public, so this is a proxy, not a boundary. Factories skip it: PDAM sells industry almost no water.",
             },
           ].map((item) => (
             <Card key={item.n} className="bg-surface">

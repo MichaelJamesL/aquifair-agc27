@@ -38,7 +38,7 @@ const PERDA_SERIES = [
   { label: "2019", value: 13.8, range: null },
 ];
 
-// Base water price (HAB) per wilayah, Pergub Jateng 7/2025; the tariff API returns NPA rows, not HAB.
+// Base water price (HAB) per price area, Central Java Governor Regulation 7/2025; the tariff API returns NPA rows, not HAB.
 const HAB: Record<string, number> = { A: 2561, B: 2795, C: 2824 };
 
 const PDAM_SALES = [
@@ -149,7 +149,7 @@ export default function AccountDetailPage() {
   const gapTaxText = gapTax
     ? `Rp ${num(gapTax.low / 1_000_000_000, 0)}–${num(gapTax.high / 1_000_000_000, 0)}`
     : "—";
-  const semarang = account.region.id === "3374"; // the Perda, PDAM and validated figures are Kota Semarang's
+  const semarang = account.region.id === "3374"; // the Bylaw, PDAM and validated figures are Semarang City's
   const model = account.estimate_method === "regency_model";
   const history = historyBars(historyState.data, semarang);
   const maxHistory = Math.max(...history.map((point) => point.value), 1);
@@ -167,7 +167,7 @@ export default function AccountDetailPage() {
           <ArrowLeft size={14} /> Accounts
         </Link>
         <span>/</span>
-        <span>Jawa Tengah</span>
+        <span>Central Java</span>
         <span>/</span>
         <span className="text-ink">{account.region.name}</span>
       </div>
@@ -178,14 +178,14 @@ export default function AccountDetailPage() {
             <h1 className="font-display text-[34px] font-medium leading-10 tracking-[-0.5px] text-ink">
               {account.region.name}
             </h1>
-            <CodeTag>Wil. {account.region.wilayah}</CodeTag>
+            <CodeTag>Area {account.region.wilayah}</CodeTag>
             <LabelBadge label={account.estimate.label} />
           </div>
           <p className="mt-2 max-w-[760px] text-[13px] leading-[19px] text-ink-2">
-            Groundwater account for {account.year}. Declared abstraction from Dinas ESDM,
+            Groundwater account for {account.year}. Declared abstraction from the ESDM office,
             estimated use from{" "}
             {model ? "a regency model that is not validated" : "the validated 16 km split"}, priced
-            with Pergub Jateng 7/2025.
+            with Central Java Governor Regulation 7/2025.
           </p>
         </div>
         <div className="flex shrink-0 items-center gap-2">
@@ -353,7 +353,7 @@ export default function AccountDetailPage() {
             </div>
             <p className="mt-3 text-[11px] leading-[16px] text-ink-3">
               {semarang
-                ? "Year-to-year swings show the declared series is itself noisy. Perda Kota Semarang 2024 for 2003–19; ESDM open data 2020–23."
+                ? "Year-to-year swings show the declared series is itself noisy. Semarang City Bylaw 2024 for 2003–19; ESDM open data 2020–23."
                 : "ESDM open data 2020–23. Years with no declared volume are left out."}
             </p>
           </Card>
@@ -372,13 +372,13 @@ export default function AccountDetailPage() {
               First check: is billing leaking?
             </SectionTitle>
             <p className="mt-3 max-w-[800px] text-[12px] leading-[18px] text-ink-2">
-              Realised groundwater tax (PAT) divided by declared volume gives the rupiah actually
+              Realised groundwater tax divided by declared volume gives the rupiah actually
               collected per m³. If it sits far below the price table, metering or billing leaks
               before any unregistered well is counted. No satellite data needed.
             </p>
             <div className="mt-5 grid grid-cols-[1fr_auto_1fr_auto_1fr] items-center gap-3">
               <div className="rounded-lg border border-line bg-bg p-4">
-                <p className="text-[12px] text-ink-2">PAT realised, {billing?.year ?? account.year}</p>
+                <p className="text-[12px] text-ink-2">Tax realised, {billing?.year ?? account.year}</p>
                 <p className="mt-2 font-display text-[22px] text-ink">
                   {billing?.realised_tax.value == null ? "—" : `Rp ${num(billing.realised_tax.value / 1e9, 2)} bn`}
                 </p>
@@ -410,7 +410,7 @@ export default function AccountDetailPage() {
                 <thead>
                   <tr className="border-b border-line text-left text-[11px] text-ink-3">
                     <th className="py-1.5 font-medium">Year</th>
-                    <th className="py-1.5 font-medium">Realised PAT</th>
+                    <th className="py-1.5 font-medium">Realised tax</th>
                     <th className="py-1.5 font-medium">Declared</th>
                     <th className="py-1.5 font-medium">Rp/m³</th>
                     <th className="py-1.5 font-medium">Band (20% of NPA, groups 2–4)</th>
@@ -444,15 +444,15 @@ export default function AccountDetailPage() {
           <Card>
             <div className="flex items-center gap-2">
               <SectionTitle>Groundwater price (NPA)</SectionTitle>
-              <CodeTag>Pergub 7/2025</CodeTag>
+              <CodeTag>Governor Regulation 7/2025</CodeTag>
             </div>
             <p className="mt-3 text-[12px] leading-[18px] text-ink-2">
-              Wilayah {account.region.wilayah}, good quality, alternative source exists (table 3a).
+              Price area {account.region.wilayah}, good quality, alternative source exists (table 3a).
               NPA = HAB × BAT, HAB Rp {num(HAB[account.region.wilayah], 0)} per m³.
             </p>
             <PriceTable table={table} />
             <p className="mt-3 text-[11px] leading-[16px] text-ink-3">
-              Rp per m³. Five volume tiers; only the first and last are shown. The Wilayah C annex
+              Rp per m³. Five volume tiers; only the first and last are shown. The price area C annex
               prints its P column with an apparent typo, so the NPA column is used as printed.
             </p>
           </Card>
@@ -532,7 +532,7 @@ export default function AccountDetailPage() {
             <p className="mt-2 text-[11px] leading-[17px] text-ink-2">
               The gap is a range, not a finding.{" "}
               {model
-                ? "This kab/kota has no validated estimate: the regency model scales Kota Semarang's industrial rate by mapped industrial land, and moving models between places has been off by 5–27× elsewhere."
+                ? "This regency or city has no validated estimate: the regency model scales Semarang City's industrial rate by mapped industrial land, and moving models between places has been off by 5–27× elsewhere."
                 : "The estimate is validated only at 16 km; it does not identify individual wells."}{" "}
               The declared series is itself noisy.
             </p>

@@ -56,11 +56,11 @@ function classBadge(lead: Lead): string | null {
 }
 
 const ZONE_LEGEND = [
-  { key: "safe", label: "Aman", colour: "#9ccff0" },
-  { key: "vulnerable", label: "Rawan", colour: "#f6eb8c" },
-  { key: "critical", label: "Kritis", colour: "#f4a3a3" },
-  { key: "damaged", label: "Rusak", colour: "#e0393e" },
-  { key: "recharge", label: "Imbuhan", colour: "#9be27a" },
+  { key: "safe", label: "Safe", colour: "#9ccff0" },
+  { key: "vulnerable", label: "Vulnerable", colour: "#f6eb8c" },
+  { key: "critical", label: "Critical", colour: "#f4a3a3" },
+  { key: "damaged", label: "Damaged", colour: "#e0393e" },
+  { key: "recharge", label: "Recharge", colour: "#9be27a" },
 ];
 
 const FILTERS = [
@@ -70,7 +70,7 @@ const FILTERS = [
   { key: "4", label: "Piped coverage below 50 % (proxy; hotels, malls, hospitals only)" },
 ];
 
-// Piped coverage per kecamatan, classed so the 50 % cut-off of filter 4 is a class edge (one hue, light to dark).
+// Piped coverage per district, classed so the 50 % cut-off of filter 4 is a class edge (one hue, light to dark).
 const COVERAGE_CLASSES = [
   { label: "< 25 %", colour: "#cfe2f3" },
   { label: "25–50 %", colour: "#9cc4e4" },
@@ -79,8 +79,8 @@ const COVERAGE_CLASSES = [
 ];
 const COVERAGE_NO_DATA = "#9ca3af";
 const COVERAGE_BASIS: Record<string, string> = {
-  "Kota Semarang": "PDAM customers per resident, scaled to the city's 65 % service level (BPS 2024)",
-  "Kab. Demak": "households with piped water per family card (Portal Data Demak)",
+  "Semarang City": "PDAM customers per resident, scaled to the city's 65 % service level (BPS 2024)",
+  "Demak Regency": "households with piped water per family card (Demak open-data portal)",
 };
 
 function CoverageTip({ properties }: { properties: Record<string, unknown> }) {
@@ -92,7 +92,7 @@ function CoverageTip({ properties }: { properties: Record<string, unknown> }) {
       <p className="text-[11px] text-ink-3">{regency}</p>
       {coverage == null ? (
         <p className="pt-1 text-[11.5px] leading-4">
-          No piped-coverage figure per kecamatan is published here, so a hotel, mall or hospital cannot pass filter 4.
+          No piped-coverage figure per district is published here, so a hotel, mall or hospital cannot pass filter 4.
         </p>
       ) : (
         <>
@@ -116,8 +116,8 @@ type LayerKey = "zones" | "coverage" | "wells" | "leads";
 
 const LAYERS: { key: LayerKey; label: string }[] = [
   { key: "zones", label: "Conservation zones, ESDM 2022" },
-  { key: "coverage", label: "Piped coverage per kecamatan (proxy)" },
-  { key: "wells", label: "Sumur Bor on the 2022 zone map" },
+  { key: "coverage", label: "Piped coverage per district (proxy)" },
+  { key: "wells", label: "Drilled wells on the 2022 zone map" },
   { key: "leads", label: "Leads (inspector only)" },
 ];
 
@@ -445,8 +445,8 @@ export default function LeadsPage() {
           )}
           <p className="mt-2 border-t border-line pt-2 text-[11px] leading-[16px] text-ink-3">
             Four filters, no weighted score. Filter 4 is a proxy until PDAM releases coverage per
-            kelurahan, and is not applied to factories: PDAM sold industry 0.22 Mm³ in 2022 (Perda Kota
-            Semarang 4/2024), so household piped coverage says little about a factory.
+            village, and is not applied to factories: PDAM sold industry 0.22 Mm³ in 2022 (Semarang City
+            Bylaw 4/2024), so household piped coverage says little about a factory.
           </p>
           </details>
         </div>
@@ -454,9 +454,9 @@ export default function LeadsPage() {
         <div className="flex-1" />
 
         <p className="text-[11px] leading-[15px] text-ink-3">
-          Zones and wells: Dinas ESDM Jateng 2022 map under Permen ESDM 31/2018, digitised from the
-          vector PDF. New roofs: Sentinel-2 2021–2026. Class: OpenStreetMap, then Overture places. Coverage: BPS Kota
-          Semarang 2024, Portal Data Demak 2025.
+          Zones and wells: Central Java ESDM office 2022 map under ESDM Ministerial Regulation 31/2018, digitised from the
+          vector PDF. New roofs: Sentinel-2 2021–2026. Class: OpenStreetMap, then Overture places. Coverage: BPS Semarang
+          City 2024, Demak open-data portal 2025.
         </p>
       </aside>
 
@@ -498,7 +498,7 @@ export default function LeadsPage() {
         <div className="absolute bottom-4 left-4 z-10 flex w-[380px] flex-col gap-2">
         {layers.coverage && (
           <div className="rounded-xl bg-surface p-3.5 shadow-pop">
-            <p className="text-[12px] font-medium leading-4 text-ink">Piped water coverage per kecamatan · filter 4 proxy</p>
+            <p className="text-[12px] font-medium leading-4 text-ink">Piped water coverage per district · filter 4 proxy</p>
             <div className="mt-2.5 grid grid-cols-5 gap-2">
               {[...COVERAGE_CLASSES, { label: "no data", colour: COVERAGE_NO_DATA }].map((item) => (
                 <span key={item.label} className="flex items-center gap-1.5 text-[11px] text-ink-2">
@@ -508,8 +508,8 @@ export default function LeadsPage() {
               ))}
             </div>
             <p className="mt-2.5 border-t border-line pt-2 text-[10px] leading-[15px] text-ink-3">
-              Share of a kecamatan on PDAM pipes: Kota Semarang 2023, Kab. Demak 2025. Below 50 % counts as outside the
-              network for hotels, malls and hospitals; factories are not checked. Hover a kecamatan for its value.
+              Share of a district on PDAM pipes: Semarang City 2023, Demak Regency 2025. Below 50 % counts as outside the
+              network for hotels, malls and hospitals; factories are not checked. Hover a district for its value.
             </p>
           </div>
         )}
@@ -527,8 +527,8 @@ export default function LeadsPage() {
             ))}
           </div>
           <p className="mt-2.5 border-t border-line pt-2 text-[10px] leading-[15px] text-ink-3">
-            Kritis: new wells only for non-industrial use, with volume caps. Rusak: no new abstraction,
-            PDAM only. Dark dots: the map&apos;s {num(wellsState.data?.items.length ?? 0)} &ldquo;Sumur Bor&rdquo;
+            Critical: new wells only for non-industrial use, with volume caps. Damaged: no new abstraction,
+            PDAM only. Dark dots: the map&apos;s {num(wellsState.data?.items.length ?? 0)} &ldquo;drilled wells&rdquo;
             markers. Coast fitted to OpenStreetMap: reclaimed land the 2022 map leaves out takes the nearest zone.
           </p>
         </div>

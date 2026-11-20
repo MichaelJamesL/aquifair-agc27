@@ -378,8 +378,8 @@ export default function LeadsValidationPage() {
               <div className="flex gap-2">
                 <Info size={14} className="mt-0.5 shrink-0 text-blue-700" />
                 <p className="text-[11px] leading-[17px] text-ink-2">
-                  The PDAM network map is not public. Until PDAM shares coverage per kelurahan,
-                  filter 4 uses piped coverage per kecamatan (BPS 2024, Portal Data Demak 2025).
+                  The PDAM network map is not public. Until PDAM shares coverage per village,
+                  filter 4 uses piped coverage per district (BPS 2024, Demak open-data portal 2025).
                 </p>
               </div>
             </div>

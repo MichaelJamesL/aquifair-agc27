@@ -223,7 +223,7 @@ export default function AccountsPage() {
         <div className="flex flex-col gap-1.5">
           <h1 className="text-[18px] font-semibold leading-6 text-ink">Groundwater accounts</h1>
           <p className="text-[13px] leading-[19px] text-ink-2">
-            Declared abstraction vs estimated use per kab/kota, priced with the official
+            Declared abstraction vs estimated use per regency or city, priced with the official
             groundwater price.
           </p>
         </div>
@@ -298,7 +298,7 @@ export default function AccountsPage() {
             ))}
           </div>
           <p className="text-[12px] leading-4 text-ink-3">
-            Wilayah C, top volume tier, tax 20% of NPA. Rp 11,140 per m³ for K3.
+            Price area C, top volume tier, tax 20% of NPA. Rp 11,140 per m³ for K3.
           </p>
         </div>
 
@@ -322,15 +322,15 @@ export default function AccountsPage() {
 
         <InfoNote icon={<Info size={15} />} tone="gray">
           Every figure is a range. Rows marked “model” use the regency model, which is not
-          validated: treat its gap as a reason to look, not a finding. Open a kab/kota to see
+          validated: treat its gap as a reason to look, not a finding. Open a regency or city to see
           how each number is built.
         </InfoNote>
 
         <div className="flex-1" />
 
         <p className="text-[11px] leading-[15px] text-ink-3">
-          Declared: Dinas ESDM Jateng open data 2020–23 (CC-BY). Price: Pergub Jateng 7/2025.
-          Tax rate: Perda Kota Semarang 10/2023.
+          Declared: Central Java ESDM office open data 2020–23 (CC-BY). Price: Central Java Governor Regulation 7/2025.
+          Tax rate: Semarang City Bylaw 10/2023.
         </p>
       </aside>
 
@@ -351,8 +351,8 @@ export default function AccountsPage() {
           </Badge>
           <p className="text-[12px] leading-4 text-ink-2">
             {metric === "declared"
-              ? "Declared volumes are official for all 35 kab/kota."
-              : "Kota Semarang uses the validated 16 km estimate. The other 34 use a regency model (BPS population, OSM industrial land) that is not validated."}
+              ? "Declared volumes are official for all 35 regencies and cities."
+              : "Semarang City uses the validated 16 km estimate. The other 34 use a regency model (BPS population, OSM industrial land) that is not validated."}
           </p>
         </div>
 
@@ -360,7 +360,7 @@ export default function AccountsPage() {
           <div className="absolute left-4 top-[76px] w-[250px] rounded-xl bg-surface p-3.5 shadow-pop">
             <div className="flex items-center gap-2">
               <p className="text-[14px] font-semibold leading-5 text-ink">{selected.region.name}</p>
-              <CodeTag>Wil. {selected.region.wilayah}</CodeTag>
+              <CodeTag>Area {selected.region.wilayah}</CodeTag>
             </div>
             <div className="mt-2.5 space-y-1.5 text-[12px]">
               <div className="flex items-center gap-3">
@@ -399,11 +399,11 @@ export default function AccountsPage() {
         )}
 
         <div className="pointer-events-none absolute bottom-4 left-4 rounded-md bg-surface px-2.5 py-1.5 font-mono text-[10px] text-ink-3">
-          Kab/kota boundaries: geoBoundaries, coast OpenStreetMap · 0&nbsp;&nbsp;50 km
+          Regency and city boundaries: geoBoundaries, coast OpenStreetMap · 0&nbsp;&nbsp;50 km
         </div>
 
         <div className="pointer-events-none absolute bottom-4 right-4 flex items-center gap-1 rounded-md bg-surface px-2.5 py-1.5 font-mono text-[10px] text-ink-3">
-          <MapPin size={12} /> 35 kabupaten/kota
+          <MapPin size={12} /> 35 regencies and cities
         </div>
       </section>
 
@@ -414,7 +414,7 @@ export default function AccountsPage() {
           </h2>
           <p className="mt-1 text-[12px] leading-4 text-ink-3">
             {withValue.length === accounts.length
-              ? `${metric === "share" ? "Average" : "Sum"} over all 35 kab/kota, ${year}${metric === "share" ? "" : ", as a range"}`
+              ? `${metric === "share" ? "Average" : "Sum"} over all 35 regencies and cities, ${year}${metric === "share" ? "" : ", as a range"}`
               : `Regions with a ${metric === "declared" ? "reported value" : "value"} · ${withValue.length} of ${accounts.length}`}
           </p>
           <div className="mt-3 flex items-baseline gap-2">
@@ -431,7 +431,7 @@ export default function AccountsPage() {
           </div>
           <p className="mt-1 text-[12px] leading-4 text-ink-2">
             {metric !== "declared"
-              ? "Kota Semarang validated; the rest from the regency model, not validated."
+              ? "Semarang City validated; the rest from the regency model, not validated."
               : withValue.length === accounts.length
                 ? "All regions have a reported value."
                 : "Other regions stay grey in the table and map."}
@@ -440,7 +440,7 @@ export default function AccountsPage() {
 
         <div className="flex items-center gap-2 bg-bg px-5 py-2">
           <p className="w-[18px] font-mono text-[10px] text-ink-3">#</p>
-          <p className="font-mono text-[10px] tracking-[0.6px] text-ink-3">KAB/KOTA</p>
+          <p className="font-mono text-[10px] tracking-[0.6px] text-ink-3">REGENCY / CITY</p>
           <span className="flex-1" />
           <p className="font-mono text-[10px] tracking-[0.6px] text-ink-3">
             {metric === "tax_gap" ? "TAX GAP, BN RP/YR" : metricUnit(metric).toUpperCase()}
@@ -475,7 +475,7 @@ export default function AccountsPage() {
                       <p className="truncate text-[13px] font-medium leading-[18px] text-ink">
                         {account.region.name}
                       </p>
-                      <p className="font-mono text-[10px] text-ink-3">Wil. {account.region.wilayah}</p>
+                      <p className="font-mono text-[10px] text-ink-3">Area {account.region.wilayah}</p>
                     </div>
                     {range ? (
                       <div className="mt-1.5 flex items-center gap-2">

@@ -82,7 +82,7 @@ function MiniMap({
           fontStyle="italic"
           fontFamily="Newsreader, Georgia, serif"
         >
-          Laut Jawa
+          Java Sea
         </text>
       )}
     </svg>
@@ -110,7 +110,7 @@ const HERO_ROWS = [
     tag: "Data",
     value: "10.07",
     unit: "Mm³",
-    sub: "Dinas ESDM record, 35 kab/kota",
+    sub: "ESDM office record, 35 regencies and cities",
     accent: false,
   },
   {
@@ -143,8 +143,8 @@ const HERO_ROWS = [
 ];
 
 const PREVIEW_ROWS = [
-  { name: "Kota Semarang", value: "144–218", estimated: true },
-  { name: "Kab. Semarang", value: "not estimated", estimated: false },
+  { name: "Semarang City", value: "144–218", estimated: true },
+  { name: "Semarang Regency", value: "not estimated", estimated: false },
   { name: "Kendal", value: "not estimated", estimated: false },
   { name: "Demak", value: "not estimated", estimated: false },
   { name: "Grobogan", value: "not estimated", estimated: false },
@@ -178,8 +178,8 @@ function AppPreview() {
         <Logo size="sm" />
         <span className="h-4 w-px bg-line" />
         <span className="flex flex-col">
-          <span className="text-[9px] font-medium leading-3 text-ink">Jawa Tengah</span>
-          <span className="text-[8px] leading-3 text-ink-3">35 kab/kota · 2023</span>
+          <span className="text-[9px] font-medium leading-3 text-ink">Central Java</span>
+          <span className="text-[8px] leading-3 text-ink-3">35 regencies and cities · 2023</span>
         </span>
         <div className="ml-2 flex h-full items-end gap-3">
           {["Accounts", "Leads", "Pipes", "Methods"].map((tab, index) => (
@@ -210,7 +210,7 @@ function AppPreview() {
         <aside className="overflow-hidden border-r border-line p-3">
           <p className="text-[11px] font-semibold leading-4 text-ink">Groundwater accounts</p>
           <p className="mt-1 text-[8px] leading-[12px] text-ink-2">
-            Declared vs estimated use per kab/kota, priced with the official groundwater price.
+            Declared vs estimated use per regency or city, priced with the official groundwater price.
           </p>
 
           <p className="mt-3 text-[8px] font-medium text-ink-2">Year</p>
@@ -308,7 +308,7 @@ function AppPreview() {
               Lead
             </Badge>
             <p className="text-[7px] leading-[10px] text-ink-2">
-              Only Kota Semarang has a validated estimate. Grey is not zero.
+              Only Semarang City has a validated estimate. Grey is not zero.
             </p>
           </div>
 
@@ -325,9 +325,9 @@ function AppPreview() {
 
           <div className="absolute left-1/2 top-[32%] w-[192px] -translate-x-1/2 rounded-lg border border-line bg-surface p-2.5 shadow-pop">
             <div className="flex items-center gap-1.5">
-              <p className="text-[9px] font-semibold text-ink">Kota Semarang</p>
+              <p className="text-[9px] font-semibold text-ink">Semarang City</p>
               <span className="rounded border border-line-strong px-1 font-mono text-[6px] text-ink-3">
-                Wil. C
+                Area C
               </span>
             </div>
             <div className="mt-1.5 space-y-1 text-[8px]">
@@ -356,7 +356,7 @@ function AppPreview() {
             Boundaries: geoBoundaries · 0&nbsp;&nbsp;50 km
           </div>
           <div className="absolute bottom-2.5 right-2.5 flex items-center gap-1 rounded bg-surface/90 px-2 py-1 font-mono text-[6px] text-ink-3">
-            <MapPin size={8} /> 35 kabupaten/kota
+            <MapPin size={8} /> 35 regencies and cities
           </div>
         </section>
 
@@ -375,7 +375,7 @@ function AppPreview() {
           </div>
 
           <div className="flex items-center justify-between bg-bg px-3 py-1 font-mono text-[6px] tracking-[0.4px] text-ink-3">
-            <span>KAB/KOTA</span>
+            <span>REGENCY / CITY</span>
             <span>TAX GAP, BN RP/YR</span>
           </div>
 
@@ -425,9 +425,9 @@ function AccountsPreview() {
   return (
     <div className="h-[300px] overflow-hidden rounded-xl border border-line bg-surface shadow-card">
       <div className="flex items-center gap-2 border-b border-line px-4 py-2">
-        <p className="text-[11px] font-semibold text-ink">Kota Semarang</p>
+        <p className="text-[11px] font-semibold text-ink">Semarang City</p>
         <span className="rounded border border-line-strong px-1 font-mono text-[7px] text-ink-3">
-          Wil. C
+          Area C
         </span>
         <Badge tone="blue" dot className="h-[16px] px-1.5 text-[7px]">
           Validated
@@ -483,7 +483,7 @@ function AccountsPreview() {
         <div className="rounded-lg bg-bg p-2">
           <p className="text-[7px] font-medium text-ink">Groundwater price</p>
           <p className="mt-0.5 text-[6px] leading-[9px] text-ink-3">
-            Pergub Jateng 7/2025 · Wilayah C · top tier, 20% tax
+            Central Java Governor Regulation 7/2025 · price area C · top tier, 20% tax
           </p>
           <div className="mt-1.5 space-y-1">
             {["K1", "K2", "K3", "K4", "K5"].map((group, index) => (
@@ -586,7 +586,7 @@ function LeadsPreview() {
 
       <div className="w-[178px] shrink-0 border-l border-line p-3">
         <p className="text-[10px] font-semibold leading-4 text-ink">Lead card · illustrative</p>
-        <p className="text-[7px] text-ink-3">Semarang Barat · preview only</p>
+        <p className="text-[7px] text-ink-3">West Semarang · preview only</p>
 
         <div className="mt-2 flex h-[76px] items-center justify-center rounded bg-bg text-ink-3">
           <MapPin size={16} />
@@ -656,7 +656,7 @@ function PipesPreview() {
         </div>
 
         <p className="mt-2 text-[6px] leading-[9px] text-ink-3">
-          The SPAM Semarang Barat test checks whether sinking slowed where pipes arrived.
+          The West Semarang SPAM test checks whether sinking slowed where pipes arrived.
         </p>
       </div>
 
@@ -677,11 +677,11 @@ function PipesPreview() {
         <p className="text-[6px] text-ink-3">Weighted score, top 6</p>
         <div className="mt-2 space-y-1.5">
           {[
-            ["Semarang Barat", 92],
-            ["Semarang Utara", 84],
+            ["West Semarang", 92],
+            ["North Semarang", 84],
             ["Genuk", 76],
             ["Pedurungan", 63],
-            ["Semarang Timur", 58],
+            ["East Semarang", 58],
             ["Gajahmungkur", 41],
           ].map(([name, value], index) => (
             <div key={String(name)} className="flex items-center gap-1.5">
@@ -708,9 +708,9 @@ const TOOLS = [
   {
     number: "01",
     title: "Groundwater accounts",
-    body: "Declared use against estimated use for every kab/kota, priced with the official NPA table. The gap is split into real decline, under-reporting and unregistered wells, so the tax figure is never one number.",
-    audience: "Bapenda · Dinas ESDM · DPRD",
-    meta: "35 kab/kota · 2020–2023 · NPA K1–K5",
+    body: "Declared use against estimated use for every regency and city, priced with the official NPA table. The gap is split into real decline, under-reporting and unregistered wells, so the tax figure is never one number.",
+    audience: "Revenue agency · ESDM office · city council",
+    meta: "35 regencies and cities · 2020–2023 · NPA K1–K5",
     link: { href: "/accounts", label: "Open groundwater accounts" },
     note: null,
     preview: <AccountsPreview />,
@@ -719,18 +719,18 @@ const TOOLS = [
     number: "02",
     title: "Inspection leads",
     body: "New large buildings inside no-new-permit zones and outside the PDAM network, ranked for a visit. Inspectors record what they find, and the hit rate per class decides next month’s list.",
-    audience: "Dinas ESDM inspectors",
+    audience: "ESDM office inspectors",
     meta: "Semarang–Demak · official 2022 zones · Sentinel-2 2021–26 · OSM classes",
     link: { href: "/leads", label: "Open inspection leads" },
-    note: "Filter 4 uses a kecamatan coverage proxy until PDAM shares kelurahan data.",
+    note: "Filter 4 uses a district coverage proxy until PDAM shares village data.",
     preview: <LeadsPreview />,
   },
   {
     number: "03",
     title: "Pipes instead of pumps",
-    body: "Where piped surface water should replace the most groundwater, weighted by soft-clay thickness. The SPAM Semarang Barat test checks whether sinking slowed where pipes arrived.",
-    audience: "PDAM · Bappeda · PUPR",
-    meta: "22 blocks of 4 km · SPAM Semarang Barat test run, inconclusive",
+    body: "Where piped surface water should replace the most groundwater, weighted by soft-clay thickness. The West Semarang SPAM test checks whether sinking slowed where pipes arrived.",
+    audience: "Water utility · planning agency · public works",
+    meta: "22 blocks of 4 km · West Semarang SPAM test run, inconclusive",
     link: { href: "/pipes", label: "Open pipes instead of pumps" },
     note: "Preview only. Semarang–Demak only.",
     preview: <PipesPreview />,
@@ -770,21 +770,21 @@ const REGULATOR_POINTS = [
     body: "The rest is a regional fall in deep-aquifer pressure. A sinking bowl does not point at one well, so leads come from buildings and zoning instead.",
   },
   {
-    title: "Names stay with Dinas ESDM.",
+    title: "Names stay with the ESDM office.",
     body: "The public view shows areas, ranges and land-use classes. Permit holders, well locations and field photos stay behind sign-in.",
   },
   {
     title: "Tests are written down before they run.",
-    body: "The Arizona check for leads and the SPAM Semarang Barat check for pipes each have a pass mark set in advance.",
+    body: "The Arizona check for leads and the West Semarang SPAM check for pipes each have a pass mark set in advance.",
   },
 ];
 
 const CREDITS = [
-  "Dinas ESDM Jateng open data, 2020–23 · CC-BY",
-  "Pergub Jateng 7/2025 groundwater price",
-  "Perda Kota Semarang 10/2023",
+  "Central Java ESDM office open data, 2020–23 · CC-BY",
+  "Central Java Governor Regulation 7/2025 groundwater price",
+  "Semarang City Bylaw 10/2023",
   "Sentinel-1 LiCSAR · COMET",
-  "geoBoundaries · kab/kota boundaries",
+  "geoBoundaries · regency and city boundaries",
 ];
 
 export default function HomePage() {
@@ -822,11 +822,11 @@ export default function HomePage() {
           <div className="grid grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] gap-16">
             <div>
               <h1 className="font-serif-display max-w-[680px] text-[50px] leading-[1.07] tracking-[-0.025em] text-ink">
-                Kota Semarang declared 10 million m³ of groundwater in 2023. It used somewhere
+                Semarang City declared 10 million m³ of groundwater in 2023. It used somewhere
                 between 25 and 48.
               </h1>
               <p className="mt-6 max-w-[540px] text-[14px] leading-[22px] text-ink-2">
-                AquiFair puts that gap on a map for every kab/kota in Central Java, shows inspectors
+                AquiFair puts that gap on a map for every regency and city in Central Java, shows inspectors
                 the new large buildings most likely to have drilled, and shows where piped water
                 should replace pumps.
               </p>
@@ -851,7 +851,7 @@ export default function HomePage() {
             </div>
 
             <div className="pt-2">
-              <p className="eyebrow text-ink-3">Kota Semarang, 2023 · million m³ a year</p>
+              <p className="eyebrow text-ink-3">Semarang City, 2023 · million m³ a year</p>
 
               <div className="relative mt-6 h-3 overflow-hidden rounded-sm bg-subtle">
                 <div
@@ -911,8 +911,8 @@ export default function HomePage() {
 
               <p className="mt-4 text-[11px] leading-[17px] text-ink-3">
                 The tax figure prices the undeclared business part only, at 0.20 × NPA. The
-                estimate is checked at 16 km against the city total. Sources: Dinas ESDM Jateng
-                2023; Pergub Jateng 7/2025.
+                estimate is checked at 16 km against the city total. Sources: Central Java ESDM office
+                2023; Central Java Governor Regulation 7/2025.
               </p>
             </div>
           </div>
@@ -921,7 +921,7 @@ export default function HomePage() {
         <section className="mx-auto max-w-[1240px] px-10">
           <AppPreview />
           <p className="mt-3 text-[11px] leading-[16px] text-ink-3">
-            The account is a view, not a verdict. Values outside Kota Semarang stay at “not
+            The account is a view, not a verdict. Values outside Semarang City stay at “not
             estimated” until there is a validated 16 km split.
           </p>
         </section>
@@ -1023,7 +1023,7 @@ export default function HomePage() {
           <div className="mx-auto flex max-w-[1240px] items-center justify-between gap-12 px-10 py-12">
             <div>
               <h2 className="font-serif-display text-[34px] leading-[1.1] text-white">
-                Open the account for your kab/kota
+                Open the account for your regency or city
               </h2>
               <p className="mt-2 text-[13px] leading-[19px] text-blue-100/70">
                 Public view, no sign-in. Figures are ranges with their source and year.

@@ -16,21 +16,21 @@ const ROLES: {
 }[] = [
   {
     key: "regulator",
-    title: "Bapenda · DPRD",
-    sub: "Groundwater accounts · Tax gap, NPA, PAT first check",
+    title: "Revenue agency · city council",
+    sub: "Groundwater accounts · Tax gap, NPA, first tax check",
     icon: Landmark,
     tone: "bg-amber-100 text-amber-800",
   },
   {
     key: "inspector",
-    title: "Dinas ESDM inspector",
+    title: "ESDM office inspector",
     sub: "Inspection leads · Lead list, field results, permit registry",
     icon: MapPin,
     tone: "bg-blue-100 text-blue-700",
   },
   {
     key: "planner",
-    title: "PDAM · Bappeda · PUPR",
+    title: "Water utility · planning · public works",
     sub: "Pipes instead of pumps · Priority map, SPAM test",
     icon: Droplets,
     tone: "bg-blue-100 text-blue-700",
@@ -61,7 +61,7 @@ export default function SignInPage() {
             One account of groundwater, for the people who act on it.
           </h1>
           <p className="mt-5 text-[14px] leading-[22px] text-white/65">
-            Each role sees the tool it needs. Permit and well records stay with Dinas ESDM;
+            Each role sees the tool it needs. Permit and well records stay with the ESDM office;
             public views show areas, ranges and land-use classes only.
           </p>
         </div>

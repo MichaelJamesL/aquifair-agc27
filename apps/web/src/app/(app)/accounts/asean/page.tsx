@@ -18,14 +18,14 @@ type CityRow = {
 const CITIES: CityRow[] = [
   {
     name: "Central Java",
-    sub: "35 kab/kota",
+    sub: "35 regencies and cities",
     sinking: "LiCSAR frames 076D and 127A, processed for Semarang",
-    declared: "ESDM open XLSX 2020–23, every kab/kota",
-    piped: "Piped coverage per kecamatan (BPS 2024, Demak 2025); 4 km priority grid for Semarang–Demak",
-    policy: "Pergub 7/2025 price table; 2022 conservation-zone map",
+    declared: "ESDM open XLSX 2020–23, every regency and city",
+    piped: "Piped coverage per district (BPS 2024, Demak 2025); 4 km priority grid for Semarang–Demak",
+    policy: "Governor Regulation 7/2025 price table; 2022 conservation-zone map",
     status: "Full",
     tone: "green",
-    note: "Accounts for all 35 kab/kota · Leads and Pipes for Semarang–Demak",
+    note: "Accounts for all 35 regencies and cities · Leads and Pipes for Semarang–Demak",
     link: true,
   },
   {
@@ -35,7 +35,7 @@ const CITIES: CityRow[] = [
     declared: "Source pending",
     piped: "PAM Jaya coverage 66–82%, 100% target by 2030",
     policy:
-      "Pergub 93/2021: no groundwater for large buildings in 9 zones and 12 road segments from 1 Aug 2023",
+      "Governor Regulation 93/2021: no groundwater for large buildings in 9 zones and 12 road segments from 1 Aug 2023",
     status: "Waiting for data",
     tone: "amber",
     note: "Account opens when totals are found",
@@ -50,7 +50,7 @@ const CITIES: CityRow[] = [
     policy: "Reduction target: 100,000 m³/day",
     status: "Accounts only",
     tone: "blue",
-    note: "Totals only, no kab/kota split",
+    note: "Totals only, no regency or city split",
   },
   {
     name: "Bangkok",

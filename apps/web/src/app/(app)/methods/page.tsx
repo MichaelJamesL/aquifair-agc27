@@ -70,7 +70,7 @@ const STEPS = [
   {
     title: "How much is used",
     icon: Droplets,
-    body: "Kota Semarang: validated 16 km split, 27.9 / 43.8 / 54.7 Mm³ (P10/P50/P90). The other 34 kab/kota: a regency model from BPS population, household water sources and OSM industrial land, not validated.",
+    body: "Semarang City: validated 16 km split, 27.9 / 43.8 / 54.7 Mm³ (P10/P50/P90). The other 34 regencies and cities: a regency model from BPS population, household water sources and OSM industrial land, not validated.",
   },
   {
     title: "Who and where",

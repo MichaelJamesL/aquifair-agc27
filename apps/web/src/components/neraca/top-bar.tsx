@@ -38,7 +38,7 @@ function activeTab(pathname: string): string {
 }
 
 const SCOPE_COPY: Record<Scope, { title: string; meta: string }> = {
-  jawa: { title: "Jawa Tengah", meta: "35 kab/kota · 2023" },
+  jawa: { title: "Central Java", meta: "35 regencies and cities · 2023" },
   semarang: { title: "Semarang–Demak", meta: "CAT zone map 2022" },
   asean: { title: "ASEAN cities", meta: "Accounts only · where totals exist" },
 };

@@ -15,26 +15,26 @@ const RoleContext = createContext<RoleContextValue | null>(null);
 
 export const ROLE_LABELS: Record<Role, string> = {
   public: "Public viewer",
-  regulator: "Bapenda · DPRD",
-  inspector: "Dinas ESDM inspector",
-  planner: "PDAM · Bappeda · PUPR",
+  regulator: "Revenue agency · city council",
+  inspector: "ESDM office inspector",
+  planner: "Water utility · planning · public works",
 };
 
 export const ROLE_PEOPLE: Record<Role, { name: string; org: string; initials: string }> = {
   public: { name: "Public viewer", org: "Accounts and pipes by area", initials: "PV" },
   regulator: {
     name: "Dewi S.",
-    org: "Bapenda Kota Semarang",
+    org: "Semarang City revenue agency",
     initials: "DS",
   },
   inspector: {
     name: "Arif R.",
-    org: "Inspector · Dinas ESDM Jateng",
+    org: "Inspector · Central Java ESDM office",
     initials: "AR",
   },
   planner: {
     name: "Budi H.",
-    org: "Bappeda Kota Semarang",
+    org: "Semarang City planning agency",
     initials: "BH",
   },
 };

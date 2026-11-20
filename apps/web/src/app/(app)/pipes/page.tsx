@@ -53,7 +53,7 @@ const LAYERS: {
     sub: "Damage potential, metres",
     badge: "measured",
   },
-  { key: "supply", label: "New and planned supply", sub: "SPAM service kecamatan" },
+  { key: "supply", label: "New and planned supply", sub: "SPAM service districts" },
 ];
 
 const WEIGHT_KEYS = ["demand", "damage", "supply"] as const;
@@ -363,7 +363,7 @@ export default function PipesPage() {
               <Droplets size={12} />
             </span>
             <p className="text-[12.5px] font-semibold leading-[18px] text-ink">
-              {spam?.name ?? "SPAM Semarang Barat"}
+              {spam?.name ?? "West Semarang SPAM"}
             </p>
           </div>
           <p className="mt-1.5 text-[12px] leading-4 text-ink-2">
@@ -375,7 +375,7 @@ export default function PipesPage() {
               : `${num(spam.connections_actual_2024_09)} connections by Sep 2024`}
           </p>
           <p className="mt-1.5 text-[11px] leading-[15px] text-ink-3">
-            Its supply is spread over Semarang Barat, Tugu and Ngaliyan by area (dashed amber blocks), because
+            Its supply is spread over West Semarang, Tugu and Ngaliyan by area (dashed amber blocks), because
             the service map is not public.
           </p>
           <p className="mt-2 border-t border-line pt-2 text-[11px] leading-[15px] text-ink-2">
@@ -388,7 +388,7 @@ export default function PipesPage() {
 
         <p className="text-[11px] leading-[15px] text-ink-3">
           22 blocks of 4 km, the grid of the demand model. Demand: AquiFair demand model (4 km Lead, 16 km
-          Validated). Clay: soft-clay thickness layer. Supply: SPAM Semarang Barat service kecamatan.
+          Validated). Clay: soft-clay thickness layer. Supply: West Semarang SPAM service districts.
         </p>
       </aside>
 
