@@ -3,9 +3,9 @@
     "region_id": "3301",
     "year": 2020,
     "method": "regency_model",
-    "low_m3": 36471229,
-    "central_m3": 65805453,
-    "high_m3": 95139677,
+    "low_m3": 36375399,
+    "central_m3": 65677679,
+    "high_m3": 94979959,
     "label": "CALCULATED",
     "source_ids": [
       "BPS-POP-JT",
@@ -14,15 +14,15 @@
       "EXP07",
       "EXP08"
     ],
-    "note": "Regency model, not validated. Household wells 28.4-81.7 Mm3: 1,944,857 people x 80-150 L/day x 50%-77% of households on wells. Business wells 8.09-13.48 Mm3: 4.95 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
+    "note": "Regency model, not validated. Household wells 28.4-81.7 Mm3: 1,944,857 people x 80-150 L/day x 50%-77% of households on wells. Business wells 7.99-13.32 Mm3: 4.98 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
   },
   {
     "region_id": "3301",
     "year": 2021,
     "method": "regency_model",
-    "low_m3": 40188656,
-    "central_m3": 67229083,
-    "high_m3": 94269509,
+    "low_m3": 40092826,
+    "central_m3": 67101308,
+    "high_m3": 94109791,
     "label": "CALCULATED",
     "source_ids": [
       "BPS-POP-JT",
@@ -31,15 +31,15 @@
       "EXP07",
       "EXP08"
     ],
-    "note": "Regency model, not validated. Household wells 32.1-80.8 Mm3: 1,963,824 people x 80-150 L/day x 56%-75% of households on wells. Business wells 8.09-13.48 Mm3: 4.95 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
+    "note": "Regency model, not validated. Household wells 32.1-80.8 Mm3: 1,963,824 people x 80-150 L/day x 56%-75% of households on wells. Business wells 7.99-13.32 Mm3: 4.98 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
   },
   {
     "region_id": "3301",
     "year": 2022,
     "method": "regency_model",
-    "low_m3": 35054344,
-    "central_m3": 65172011,
-    "high_m3": 95289677,
+    "low_m3": 34958513,
+    "central_m3": 65044236,
+    "high_m3": 95129959,
     "label": "CALCULATED",
     "source_ids": [
       "BPS-POP-JT",
@@ -48,15 +48,15 @@
       "EXP07",
       "EXP08"
     ],
-    "note": "Regency model, not validated. Household wells 27.0-81.8 Mm3: 1,988,622 people x 80-150 L/day x 46%-75% of households on wells (2022 has no BPS table: spans 2021 and 2023). Business wells 8.09-13.48 Mm3: 4.95 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
+    "note": "Regency model, not validated. Household wells 27.0-81.8 Mm3: 1,988,622 people x 80-150 L/day x 46%-75% of households on wells (2022 has no BPS table: spans 2021 and 2023). Business wells 7.99-13.32 Mm3: 4.98 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
   },
   {
     "region_id": "3301",
     "year": 2023,
     "method": "regency_model",
-    "low_m3": 35314407,
-    "central_m3": 62986824,
-    "high_m3": 90659240,
+    "low_m3": 35218576,
+    "central_m3": 62859049,
+    "high_m3": 90499522,
     "label": "CALCULATED",
     "source_ids": [
       "BPS-POP-JT",
@@ -65,15 +65,15 @@
       "EXP07",
       "EXP08"
     ],
-    "note": "Regency model, not validated. Household wells 27.2-77.2 Mm3: 2,007,800 people x 80-150 L/day x 46%-70% of households on wells. Business wells 8.09-13.48 Mm3: 4.95 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
+    "note": "Regency model, not validated. Household wells 27.2-77.2 Mm3: 2,007,800 people x 80-150 L/day x 46%-70% of households on wells. Business wells 7.99-13.32 Mm3: 4.98 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
   },
   {
     "region_id": "3302",
     "year": 2020,
     "method": "regency_model",
-    "low_m3": 29954168,
-    "central_m3": 50058283,
-    "high_m3": 70162398,
+    "low_m3": 29940033,
+    "central_m3": 50039436,
+    "high_m3": 70138839,
     "label": "CALCULATED",
     "source_ids": [
       "BPS-POP-JT",
@@ -82,7 +82,7 @@
       "EXP07",
       "EXP08"
     ],
-    "note": "Regency model, not validated. Household wells 29.2-69.0 Mm3: 1,776,918 people x 80-150 L/day x 56%-71% of households on wells. Business wells 0.71-1.18 Mm3: 0.43 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
+    "note": "Regency model, not validated. Household wells 29.2-69.0 Mm3: 1,776,918 people x 80-150 L/day x 56%-71% of households on wells. Business wells 0.69-1.15 Mm3: 0.43 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
   },
   {
     "region_id": "3302",
@@ -140,8 +140,8 @@
     "year": 2020,
     "method": "regency_model",
     "low_m3": 16237662,
-    "central_m3": 25099138,
-    "high_m3": 33960614,
+    "central_m3": 25091653,
+    "high_m3": 33945644,
     "label": "CALCULATED",
     "source_ids": [
       "BPS-POP-JT",
@@ -150,15 +150,15 @@
       "EXP07",
       "EXP08"
     ],
-    "note": "Regency model, not validated. Household wells 15.8-33.3 Mm3: 998,561 people x 80-150 L/day x 54%-61% of households on wells. Business wells 0.46-0.68 Mm3: 0.25 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. Declared use is above that, so business wells are set to the declared volume (no gap visible to this model). PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
+    "note": "Regency model, not validated. Household wells 15.8-33.3 Mm3: 998,561 people x 80-150 L/day x 54%-61% of households on wells. Business wells 0.46-0.66 Mm3: 0.25 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. Declared use is above that, so business wells are set to the declared volume (no gap visible to this model). PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
   },
   {
     "region_id": "3303",
     "year": 2021,
     "method": "regency_model",
     "low_m3": 14395380,
-    "central_m3": 22403447,
-    "high_m3": 30411514,
+    "central_m3": 22395962,
+    "high_m3": 30396544,
     "label": "CALCULATED",
     "source_ids": [
       "BPS-POP-JT",
@@ -167,15 +167,15 @@
       "EXP07",
       "EXP08"
     ],
-    "note": "Regency model, not validated. Household wells 14.0-29.7 Mm3: 1,007,794 people x 80-150 L/day x 48%-54% of households on wells. Business wells 0.42-0.68 Mm3: 0.25 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. Declared use is above that, so business wells are set to the declared volume (no gap visible to this model). PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
+    "note": "Regency model, not validated. Household wells 14.0-29.7 Mm3: 1,007,794 people x 80-150 L/day x 48%-54% of households on wells. Business wells 0.42-0.66 Mm3: 0.25 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. Declared use is above that, so business wells are set to the declared volume (no gap visible to this model). PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
   },
   {
     "region_id": "3303",
     "year": 2022,
     "method": "regency_model",
     "low_m3": 14663008,
-    "central_m3": 23412921,
-    "high_m3": 32162834,
+    "central_m3": 23405436,
+    "high_m3": 32147865,
     "label": "CALCULATED",
     "source_ids": [
       "BPS-POP-JT",
@@ -184,15 +184,15 @@
       "EXP07",
       "EXP08"
     ],
-    "note": "Regency model, not validated. Household wells 14.1-31.5 Mm3: 1,019,840 people x 80-150 L/day x 48%-56% of households on wells (2022 has no BPS table: spans 2021 and 2023). Business wells 0.52-0.68 Mm3: 0.25 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. Declared use is above that, so business wells are set to the declared volume (no gap visible to this model). PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
+    "note": "Regency model, not validated. Household wells 14.1-31.5 Mm3: 1,019,840 people x 80-150 L/day x 48%-56% of households on wells (2022 has no BPS table: spans 2021 and 2023). Business wells 0.52-0.66 Mm3: 0.25 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. Declared use is above that, so business wells are set to the declared volume (no gap visible to this model). PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
   },
   {
     "region_id": "3303",
     "year": 2023,
     "method": "regency_model",
     "low_m3": 15056272,
-    "central_m3": 23724711,
-    "high_m3": 32393151,
+    "central_m3": 23717227,
+    "high_m3": 32378181,
     "label": "CALCULATED",
     "source_ids": [
       "BPS-POP-JT",
@@ -201,7 +201,7 @@
       "EXP07",
       "EXP08"
     ],
-    "note": "Regency model, not validated. Household wells 14.6-31.7 Mm3: 1,027,300 people x 80-150 L/day x 49%-56% of households on wells. Business wells 0.48-0.68 Mm3: 0.25 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. Declared use is above that, so business wells are set to the declared volume (no gap visible to this model). PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
+    "note": "Regency model, not validated. Household wells 14.6-31.7 Mm3: 1,027,300 people x 80-150 L/day x 49%-56% of households on wells. Business wells 0.48-0.66 Mm3: 0.25 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. Declared use is above that, so business wells are set to the declared volume (no gap visible to this model). PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
   },
   {
     "region_id": "3304",
@@ -276,8 +276,8 @@
     "year": 2020,
     "method": "regency_model",
     "low_m3": 24714420,
-    "central_m3": 41261893,
-    "high_m3": 57809366,
+    "central_m3": 41259366,
+    "high_m3": 57804312,
     "label": "CALCULATED",
     "source_ids": [
       "BPS-POP-JT",
@@ -293,8 +293,8 @@
     "year": 2021,
     "method": "regency_model",
     "low_m3": 24384503,
-    "central_m3": 41154883,
-    "high_m3": 57925263,
+    "central_m3": 41152356,
+    "high_m3": 57920209,
     "label": "CALCULATED",
     "source_ids": [
       "BPS-POP-JT",
@@ -411,9 +411,9 @@
     "region_id": "3307",
     "year": 2020,
     "method": "regency_model",
-    "low_m3": 1337535,
-    "central_m3": 2051048,
-    "high_m3": 2764561,
+    "low_m3": 1329686,
+    "central_m3": 2040582,
+    "high_m3": 2751478,
     "label": "CALCULATED",
     "source_ids": [
       "BPS-POP-JT",
@@ -422,15 +422,15 @@
       "EXP07",
       "EXP08"
     ],
-    "note": "Regency model, not validated. Household wells 1.1-2.4 Mm3: 879,124 people x 80-150 L/day x 4%-5% of households on wells. Business wells 0.22-0.37 Mm3: 0.14 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
+    "note": "Regency model, not validated. Household wells 1.1-2.4 Mm3: 879,124 people x 80-150 L/day x 4%-5% of households on wells. Business wells 0.22-0.36 Mm3: 0.13 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
   },
   {
     "region_id": "3307",
     "year": 2021,
     "method": "regency_model",
-    "low_m3": 2048621,
-    "central_m3": 3288110,
-    "high_m3": 4527599,
+    "low_m3": 2040771,
+    "central_m3": 3277643,
+    "high_m3": 4514516,
     "label": "CALCULATED",
     "source_ids": [
       "BPS-POP-JT",
@@ -439,7 +439,7 @@
       "EXP07",
       "EXP08"
     ],
-    "note": "Regency model, not validated. Household wells 1.8-4.2 Mm3: 886,613 people x 80-150 L/day x 7%-9% of households on wells. Business wells 0.22-0.37 Mm3: 0.14 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
+    "note": "Regency model, not validated. Household wells 1.8-4.2 Mm3: 886,613 people x 80-150 L/day x 7%-9% of households on wells. Business wells 0.22-0.36 Mm3: 0.13 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
   },
   {
     "region_id": "3307",
@@ -456,7 +456,7 @@
       "EXP07",
       "EXP08"
     ],
-    "note": "Regency model, not validated. Household wells 1.6-4.2 Mm3: 896,346 people x 80-150 L/day x 6%-9% of households on wells (2022 has no BPS table: spans 2021 and 2023). Business wells 0.50-0.50 Mm3: 0.14 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. Declared use is above that, so business wells are set to the declared volume (no gap visible to this model). PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
+    "note": "Regency model, not validated. Household wells 1.6-4.2 Mm3: 896,346 people x 80-150 L/day x 6%-9% of households on wells (2022 has no BPS table: spans 2021 and 2023). Business wells 0.50-0.50 Mm3: 0.13 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. Declared use is above that, so business wells are set to the declared volume (no gap visible to this model). PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
   },
   {
     "region_id": "3307",
@@ -473,15 +473,15 @@
       "EXP07",
       "EXP08"
     ],
-    "note": "Regency model, not validated. Household wells 1.7-4.3 Mm3: 909,700 people x 80-150 L/day x 6%-9% of households on wells. Business wells 0.37-0.37 Mm3: 0.14 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. Declared use is above that, so business wells are set to the declared volume (no gap visible to this model). PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
+    "note": "Regency model, not validated. Household wells 1.7-4.3 Mm3: 909,700 people x 80-150 L/day x 6%-9% of households on wells. Business wells 0.37-0.37 Mm3: 0.13 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. Declared use is above that, so business wells are set to the declared volume (no gap visible to this model). PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
   },
   {
     "region_id": "3308",
     "year": 2020,
     "method": "regency_model",
-    "low_m3": 14525674,
-    "central_m3": 21863560,
-    "high_m3": 29201446,
+    "low_m3": 14529229,
+    "central_m3": 21868301,
+    "high_m3": 29207372,
     "label": "CALCULATED",
     "source_ids": [
       "BPS-POP-JT",
@@ -490,7 +490,7 @@
       "EXP07",
       "EXP08"
     ],
-    "note": "Regency model, not validated. Household wells 14.5-29.2 Mm3: 1,299,859 people x 80-150 L/day x 38%-41% of households on wells. Business wells 0.03-0.04 Mm3: 0.02 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
+    "note": "Regency model, not validated. Household wells 14.5-29.2 Mm3: 1,299,859 people x 80-150 L/day x 38%-41% of households on wells. Business wells 0.03-0.05 Mm3: 0.02 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
   },
   {
     "region_id": "3308",
@@ -547,9 +547,9 @@
     "region_id": "3309",
     "year": 2020,
     "method": "regency_model",
-    "low_m3": 21454680,
-    "central_m3": 33829506,
-    "high_m3": 46204332,
+    "low_m3": 21407124,
+    "central_m3": 33766097,
+    "high_m3": 46125071,
     "label": "CALCULATED",
     "source_ids": [
       "BPS-POP-JT",
@@ -558,7 +558,7 @@
       "EXP07",
       "EXP08"
     ],
-    "note": "Regency model, not validated. Household wells 19.6-43.0 Mm3: 1,062,713 people x 80-150 L/day x 63%-74% of households on wells. Business wells 1.89-3.15 Mm3: 1.16 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
+    "note": "Regency model, not validated. Household wells 19.6-43.0 Mm3: 1,062,713 people x 80-150 L/day x 63%-74% of households on wells. Business wells 1.85-3.08 Mm3: 1.15 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
   },
   {
     "region_id": "3309",
@@ -575,7 +575,7 @@
       "EXP07",
       "EXP08"
     ],
-    "note": "Regency model, not validated. Household wells 15.5-37.1 Mm3: 1,070,247 people x 80-150 L/day x 49%-63% of households on wells. Business wells 5.28-5.28 Mm3: 1.16 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. Declared use is above that, so business wells are set to the declared volume (no gap visible to this model). PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
+    "note": "Regency model, not validated. Household wells 15.5-37.1 Mm3: 1,070,247 people x 80-150 L/day x 49%-63% of households on wells. Business wells 5.28-5.28 Mm3: 1.15 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. Declared use is above that, so business wells are set to the declared volume (no gap visible to this model). PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
   },
   {
     "region_id": "3309",
@@ -592,7 +592,7 @@
       "EXP07",
       "EXP08"
     ],
-    "note": "Regency model, not validated. Household wells 13.8-37.4 Mm3: 1,079,952 people x 80-150 L/day x 44%-63% of households on wells (2022 has no BPS table: spans 2021 and 2023). Business wells 4.40-4.40 Mm3: 1.16 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. Declared use is above that, so business wells are set to the declared volume (no gap visible to this model). PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
+    "note": "Regency model, not validated. Household wells 13.8-37.4 Mm3: 1,079,952 people x 80-150 L/day x 44%-63% of households on wells (2022 has no BPS table: spans 2021 and 2023). Business wells 4.40-4.40 Mm3: 1.15 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. Declared use is above that, so business wells are set to the declared volume (no gap visible to this model). PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
   },
   {
     "region_id": "3309",
@@ -609,15 +609,15 @@
       "EXP07",
       "EXP08"
     ],
-    "note": "Regency model, not validated. Household wells 13.9-37.2 Mm3: 1,090,100 people x 80-150 L/day x 44%-62% of households on wells. Business wells 5.58-5.58 Mm3: 1.16 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. Declared use is above that, so business wells are set to the declared volume (no gap visible to this model). PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
+    "note": "Regency model, not validated. Household wells 13.9-37.2 Mm3: 1,090,100 people x 80-150 L/day x 44%-62% of households on wells. Business wells 5.58-5.58 Mm3: 1.15 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. Declared use is above that, so business wells are set to the declared volume (no gap visible to this model). PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
   },
   {
     "region_id": "3310",
     "year": 2020,
     "method": "regency_model",
-    "low_m3": 26228052,
-    "central_m3": 43447413,
-    "high_m3": 60666774,
+    "low_m3": 26207255,
+    "central_m3": 43419684,
+    "high_m3": 60632113,
     "label": "CALCULATED",
     "source_ids": [
       "BPS-POP-JT",
@@ -626,7 +626,7 @@
       "EXP07",
       "EXP08"
     ],
-    "note": "Regency model, not validated. Household wells 25.4-59.3 Mm3: 1,260,506 people x 80-150 L/day x 69%-86% of households on wells. Business wells 0.80-1.34 Mm3: 0.49 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
+    "note": "Regency model, not validated. Household wells 25.4-59.3 Mm3: 1,260,506 people x 80-150 L/day x 69%-86% of households on wells. Business wells 0.78-1.30 Mm3: 0.49 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
   },
   {
     "region_id": "3310",
@@ -683,9 +683,9 @@
     "region_id": "3311",
     "year": 2020,
     "method": "regency_model",
-    "low_m3": 22670228,
-    "central_m3": 40337309,
-    "high_m3": 58004389,
+    "low_m3": 22570772,
+    "central_m3": 40204700,
+    "high_m3": 57838629,
     "label": "CALCULATED",
     "source_ids": [
       "BPS-POP-JT",
@@ -694,15 +694,15 @@
       "EXP07",
       "EXP08"
     ],
-    "note": "Regency model, not validated. Household wells 14.6-44.6 Mm3: 907,587 people x 80-150 L/day x 55%-90% of households on wells. Business wells 8.07-13.44 Mm3: 4.94 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
+    "note": "Regency model, not validated. Household wells 14.6-44.6 Mm3: 907,587 people x 80-150 L/day x 55%-90% of households on wells. Business wells 7.97-13.28 Mm3: 4.96 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
   },
   {
     "region_id": "3311",
     "year": 2021,
     "method": "regency_model",
-    "low_m3": 21100459,
-    "central_m3": 38732668,
-    "high_m3": 56364876,
+    "low_m3": 21001003,
+    "central_m3": 38600059,
+    "high_m3": 56199116,
     "label": "CALCULATED",
     "source_ids": [
       "BPS-POP-JT",
@@ -711,15 +711,15 @@
       "EXP07",
       "EXP08"
     ],
-    "note": "Regency model, not validated. Household wells 13.0-42.9 Mm3: 911,603 people x 80-150 L/day x 49%-86% of households on wells. Business wells 8.07-13.44 Mm3: 4.94 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
+    "note": "Regency model, not validated. Household wells 13.0-42.9 Mm3: 911,603 people x 80-150 L/day x 49%-86% of households on wells. Business wells 7.97-13.28 Mm3: 4.96 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
   },
   {
     "region_id": "3311",
     "year": 2022,
     "method": "regency_model",
-    "low_m3": 20588811,
-    "central_m3": 39054317,
-    "high_m3": 57519823,
+    "low_m3": 20489354,
+    "central_m3": 38921708,
+    "high_m3": 57354062,
     "label": "CALCULATED",
     "source_ids": [
       "BPS-POP-JT",
@@ -728,15 +728,15 @@
       "EXP07",
       "EXP08"
     ],
-    "note": "Regency model, not validated. Household wells 12.5-44.1 Mm3: 916,627 people x 80-150 L/day x 47%-88% of households on wells (2022 has no BPS table: spans 2021 and 2023). Business wells 8.07-13.44 Mm3: 4.94 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
+    "note": "Regency model, not validated. Household wells 12.5-44.1 Mm3: 916,627 people x 80-150 L/day x 47%-88% of households on wells (2022 has no BPS table: spans 2021 and 2023). Business wells 7.97-13.28 Mm3: 4.96 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
   },
   {
     "region_id": "3311",
     "year": 2023,
     "method": "regency_model",
-    "low_m3": 20808411,
-    "central_m3": 39550567,
-    "high_m3": 58292724,
+    "low_m3": 20708955,
+    "central_m3": 39417959,
+    "high_m3": 58126963,
     "label": "CALCULATED",
     "source_ids": [
       "BPS-POP-JT",
@@ -745,15 +745,15 @@
       "EXP07",
       "EXP08"
     ],
-    "note": "Regency model, not validated. Household wells 12.7-44.9 Mm3: 932,700 people x 80-150 L/day x 47%-88% of households on wells. Business wells 8.07-13.44 Mm3: 4.94 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
+    "note": "Regency model, not validated. Household wells 12.7-44.9 Mm3: 932,700 people x 80-150 L/day x 47%-88% of households on wells. Business wells 7.97-13.28 Mm3: 4.96 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
   },
   {
     "region_id": "3312",
     "year": 2020,
     "method": "regency_model",
-    "low_m3": 17129544,
-    "central_m3": 26752649,
-    "high_m3": 36375754,
+    "low_m3": 17111245,
+    "central_m3": 26728250,
+    "high_m3": 36345255,
     "label": "CALCULATED",
     "source_ids": [
       "BPS-POP-JT",
@@ -762,15 +762,15 @@
       "EXP07",
       "EXP08"
     ],
-    "note": "Regency model, not validated. Household wells 15.8-34.1 Mm3: 1,043,177 people x 80-150 L/day x 52%-60% of households on wells. Business wells 1.36-2.26 Mm3: 0.83 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
+    "note": "Regency model, not validated. Household wells 15.8-34.1 Mm3: 1,043,177 people x 80-150 L/day x 52%-60% of households on wells. Business wells 1.34-2.23 Mm3: 0.83 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
   },
   {
     "region_id": "3312",
     "year": 2021,
     "method": "regency_model",
-    "low_m3": 15668588,
-    "central_m3": 24111452,
-    "high_m3": 32554316,
+    "low_m3": 15650288,
+    "central_m3": 24087053,
+    "high_m3": 32523817,
     "label": "CALCULATED",
     "source_ids": [
       "BPS-POP-JT",
@@ -779,15 +779,15 @@
       "EXP07",
       "EXP08"
     ],
-    "note": "Regency model, not validated. Household wells 14.3-30.3 Mm3: 1,049,292 people x 80-150 L/day x 47%-53% of households on wells. Business wells 1.36-2.26 Mm3: 0.83 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
+    "note": "Regency model, not validated. Household wells 14.3-30.3 Mm3: 1,049,292 people x 80-150 L/day x 47%-53% of households on wells. Business wells 1.34-2.23 Mm3: 0.83 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
   },
   {
     "region_id": "3312",
     "year": 2022,
     "method": "regency_model",
-    "low_m3": 15774906,
-    "central_m3": 27581822,
-    "high_m3": 39388739,
+    "low_m3": 15756607,
+    "central_m3": 27557423,
+    "high_m3": 39358240,
     "label": "CALCULATED",
     "source_ids": [
       "BPS-POP-JT",
@@ -796,15 +796,15 @@
       "EXP07",
       "EXP08"
     ],
-    "note": "Regency model, not validated. Household wells 14.4-37.1 Mm3: 1,057,087 people x 80-150 L/day x 47%-64% of households on wells (2022 has no BPS table: spans 2021 and 2023). Business wells 1.36-2.26 Mm3: 0.83 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
+    "note": "Regency model, not validated. Household wells 14.4-37.1 Mm3: 1,057,087 people x 80-150 L/day x 47%-64% of households on wells (2022 has no BPS table: spans 2021 and 2023). Business wells 1.34-2.23 Mm3: 0.83 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
   },
   {
     "region_id": "3312",
     "year": 2023,
     "method": "regency_model",
-    "low_m3": 17890803,
-    "central_m3": 28534633,
-    "high_m3": 39178463,
+    "low_m3": 17872504,
+    "central_m3": 28510234,
+    "high_m3": 39147964,
     "label": "CALCULATED",
     "source_ids": [
       "BPS-POP-JT",
@@ -813,15 +813,15 @@
       "EXP07",
       "EXP08"
     ],
-    "note": "Regency model, not validated. Household wells 16.5-36.9 Mm3: 1,051,100 people x 80-150 L/day x 54%-64% of households on wells. Business wells 1.36-2.26 Mm3: 0.83 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
+    "note": "Regency model, not validated. Household wells 16.5-36.9 Mm3: 1,051,100 people x 80-150 L/day x 54%-64% of households on wells. Business wells 1.34-2.23 Mm3: 0.83 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
   },
   {
     "region_id": "3313",
     "year": 2020,
     "method": "regency_model",
-    "low_m3": 18773650,
-    "central_m3": 30120141,
-    "high_m3": 41466632,
+    "low_m3": 18604465,
+    "central_m3": 29894561,
+    "high_m3": 41184657,
     "label": "CALCULATED",
     "source_ids": [
       "BPS-POP-JT",
@@ -830,15 +830,15 @@
       "EXP07",
       "EXP08"
     ],
-    "note": "Regency model, not validated. Household wells 10.6-27.9 Mm3: 931,963 people x 80-150 L/day x 39%-55% of households on wells. Business wells 8.16-13.59 Mm3: 5.00 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
+    "note": "Regency model, not validated. Household wells 10.6-27.9 Mm3: 931,963 people x 80-150 L/day x 39%-55% of households on wells. Business wells 7.99-13.31 Mm3: 4.98 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
   },
   {
     "region_id": "3313",
     "year": 2021,
     "method": "regency_model",
-    "low_m3": 17439862,
-    "central_m3": 28735788,
-    "high_m3": 40031713,
+    "low_m3": 17270677,
+    "central_m3": 28510208,
+    "high_m3": 39749738,
     "label": "CALCULATED",
     "source_ids": [
       "BPS-POP-JT",
@@ -847,15 +847,15 @@
       "EXP07",
       "EXP08"
     ],
-    "note": "Regency model, not validated. Household wells 9.3-26.4 Mm3: 938,808 people x 80-150 L/day x 34%-51% of households on wells. Business wells 8.16-13.59 Mm3: 5.00 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
+    "note": "Regency model, not validated. Household wells 9.3-26.4 Mm3: 938,808 people x 80-150 L/day x 34%-51% of households on wells. Business wells 7.99-13.31 Mm3: 4.98 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
   },
   {
     "region_id": "3313",
     "year": 2022,
     "method": "regency_model",
-    "low_m3": 17527230,
-    "central_m3": 30533008,
-    "high_m3": 43538786,
+    "low_m3": 17358045,
+    "central_m3": 30307428,
+    "high_m3": 43256811,
     "label": "CALCULATED",
     "source_ids": [
       "BPS-POP-JT",
@@ -864,15 +864,15 @@
       "EXP07",
       "EXP08"
     ],
-    "note": "Regency model, not validated. Household wells 9.4-29.9 Mm3: 947,642 people x 80-150 L/day x 34%-58% of households on wells (2022 has no BPS table: spans 2021 and 2023). Business wells 8.16-13.59 Mm3: 5.00 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
+    "note": "Regency model, not validated. Household wells 9.4-29.9 Mm3: 947,642 people x 80-150 L/day x 34%-58% of households on wells (2022 has no BPS table: spans 2021 and 2023). Business wells 7.99-13.31 Mm3: 4.98 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
   },
   {
     "region_id": "3313",
     "year": 2023,
     "method": "regency_model",
-    "low_m3": 17676290,
-    "central_m3": 30725381,
-    "high_m3": 43774472,
+    "low_m3": 17507105,
+    "central_m3": 30499801,
+    "high_m3": 43492497,
     "label": "CALCULATED",
     "source_ids": [
       "BPS-POP-JT",
@@ -881,7 +881,7 @@
       "EXP07",
       "EXP08"
     ],
-    "note": "Regency model, not validated. Household wells 9.5-30.2 Mm3: 955,100 people x 80-150 L/day x 34%-58% of households on wells. Business wells 8.16-13.59 Mm3: 5.00 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
+    "note": "Regency model, not validated. Household wells 9.5-30.2 Mm3: 955,100 people x 80-150 L/day x 34%-58% of households on wells. Business wells 7.99-13.31 Mm3: 4.98 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
   },
   {
     "region_id": "3314",
@@ -904,9 +904,9 @@
     "region_id": "3314",
     "year": 2021,
     "method": "regency_model",
-    "low_m3": 15972350,
-    "central_m3": 30581255,
-    "high_m3": 45190159,
+    "low_m3": 15914387,
+    "central_m3": 30503970,
+    "high_m3": 45093554,
     "label": "CALCULATED",
     "source_ids": [
       "BPS-POP-JT",
@@ -915,15 +915,15 @@
       "EXP07",
       "EXP08"
     ],
-    "note": "Regency model, not validated. Household wells 12.5-39.5 Mm3: 983,641 people x 80-150 L/day x 44%-73% of households on wells. Business wells 3.43-5.72 Mm3: 2.10 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
+    "note": "Regency model, not validated. Household wells 12.5-39.5 Mm3: 983,641 people x 80-150 L/day x 44%-73% of households on wells. Business wells 3.37-5.62 Mm3: 2.10 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
   },
   {
     "region_id": "3314",
     "year": 2022,
     "method": "regency_model",
-    "low_m3": 10475643,
-    "central_m3": 28005484,
-    "high_m3": 45535326,
+    "low_m3": 10417680,
+    "central_m3": 27928200,
+    "high_m3": 45438720,
     "label": "CALCULATED",
     "source_ids": [
       "BPS-POP-JT",
@@ -932,15 +932,15 @@
       "EXP07",
       "EXP08"
     ],
-    "note": "Regency model, not validated. Household wells 7.0-39.8 Mm3: 992,243 people x 80-150 L/day x 24%-73% of households on wells (2022 has no BPS table: spans 2021 and 2023). Business wells 3.43-5.72 Mm3: 2.10 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
+    "note": "Regency model, not validated. Household wells 7.0-39.8 Mm3: 992,243 people x 80-150 L/day x 24%-73% of households on wells (2022 has no BPS table: spans 2021 and 2023). Business wells 3.37-5.62 Mm3: 2.10 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
   },
   {
     "region_id": "3314",
     "year": 2023,
     "method": "regency_model",
-    "low_m3": 10512960,
-    "central_m3": 27504294,
-    "high_m3": 44495629,
+    "low_m3": 10454997,
+    "central_m3": 27427010,
+    "high_m3": 44399024,
     "label": "CALCULATED",
     "source_ids": [
       "BPS-POP-JT",
@@ -949,15 +949,15 @@
       "EXP07",
       "EXP08"
     ],
-    "note": "Regency model, not validated. Household wells 7.1-38.8 Mm3: 997,500 people x 80-150 L/day x 24%-71% of households on wells. Business wells 3.43-5.72 Mm3: 2.10 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
+    "note": "Regency model, not validated. Household wells 7.1-38.8 Mm3: 997,500 people x 80-150 L/day x 24%-71% of households on wells. Business wells 3.37-5.62 Mm3: 2.10 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
   },
   {
     "region_id": "3315",
     "year": 2020,
     "method": "regency_model",
-    "low_m3": 11381129,
-    "central_m3": 44045777,
-    "high_m3": 76710425,
+    "low_m3": 11341039,
+    "central_m3": 43992325,
+    "high_m3": 76643610,
     "label": "CALCULATED",
     "source_ids": [
       "BPS-POP-JT",
@@ -966,15 +966,15 @@
       "EXP07",
       "EXP08"
     ],
-    "note": "Regency model, not validated. Household wells 9.9-74.3 Mm3: 1,453,526 people x 80-150 L/day x 23%-93% of households on wells. Business wells 1.46-2.43 Mm3: 0.89 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
+    "note": "Regency model, not validated. Household wells 9.9-74.3 Mm3: 1,453,526 people x 80-150 L/day x 23%-93% of households on wells. Business wells 1.42-2.36 Mm3: 0.88 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
   },
   {
     "region_id": "3315",
     "year": 2021,
     "method": "regency_model",
-    "low_m3": 9916945,
-    "central_m3": 42365659,
-    "high_m3": 74814373,
+    "low_m3": 9876856,
+    "central_m3": 42312207,
+    "high_m3": 74747557,
     "label": "CALCULATED",
     "source_ids": [
       "BPS-POP-JT",
@@ -983,15 +983,15 @@
       "EXP07",
       "EXP08"
     ],
-    "note": "Regency model, not validated. Household wells 8.5-72.4 Mm3: 1,460,873 people x 80-150 L/day x 20%-90% of households on wells. Business wells 1.46-2.43 Mm3: 0.89 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
+    "note": "Regency model, not validated. Household wells 8.5-72.4 Mm3: 1,460,873 people x 80-150 L/day x 20%-90% of households on wells. Business wells 1.42-2.36 Mm3: 0.88 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
   },
   {
     "region_id": "3315",
     "year": 2022,
     "method": "regency_model",
-    "low_m3": 9116388,
-    "central_m3": 42480954,
-    "high_m3": 75845520,
+    "low_m3": 9076299,
+    "central_m3": 42427502,
+    "high_m3": 75778705,
     "label": "CALCULATED",
     "source_ids": [
       "BPS-POP-JT",
@@ -1000,15 +1000,15 @@
       "EXP07",
       "EXP08"
     ],
-    "note": "Regency model, not validated. Household wells 7.7-73.4 Mm3: 1,470,150 people x 80-150 L/day x 18%-91% of households on wells (2022 has no BPS table: spans 2021 and 2023). Business wells 1.46-2.43 Mm3: 0.89 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
+    "note": "Regency model, not validated. Household wells 7.7-73.4 Mm3: 1,470,150 people x 80-150 L/day x 18%-91% of households on wells (2022 has no BPS table: spans 2021 and 2023). Business wells 1.42-2.36 Mm3: 0.88 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
   },
   {
     "region_id": "3315",
     "year": 2023,
     "method": "regency_model",
-    "low_m3": 9234899,
-    "central_m3": 43108248,
-    "high_m3": 76981598,
+    "low_m3": 9194810,
+    "central_m3": 43054796,
+    "high_m3": 76914782,
     "label": "CALCULATED",
     "source_ids": [
       "BPS-POP-JT",
@@ -1017,15 +1017,15 @@
       "EXP07",
       "EXP08"
     ],
-    "note": "Regency model, not validated. Household wells 7.8-74.6 Mm3: 1,492,900 people x 80-150 L/day x 18%-91% of households on wells. Business wells 1.46-2.43 Mm3: 0.89 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
+    "note": "Regency model, not validated. Household wells 7.8-74.6 Mm3: 1,492,900 people x 80-150 L/day x 18%-91% of households on wells. Business wells 1.42-2.36 Mm3: 0.88 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
   },
   {
     "region_id": "3316",
     "year": 2020,
     "method": "regency_model",
-    "low_m3": 12877912,
-    "central_m3": 30764762,
-    "high_m3": 48651613,
+    "low_m3": 12871326,
+    "central_m3": 30755982,
+    "high_m3": 48640638,
     "label": "CALCULATED",
     "source_ids": [
       "BPS-POP-JT",
@@ -1034,15 +1034,15 @@
       "EXP07",
       "EXP08"
     ],
-    "note": "Regency model, not validated. Household wells 11.6-46.5 Mm3: 884,333 people x 80-150 L/day x 45%-96% of households on wells. Business wells 1.32-2.20 Mm3: 0.81 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
+    "note": "Regency model, not validated. Household wells 11.6-46.5 Mm3: 884,333 people x 80-150 L/day x 45%-96% of households on wells. Business wells 1.31-2.18 Mm3: 0.82 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
   },
   {
     "region_id": "3316",
     "year": 2021,
     "method": "regency_model",
-    "low_m3": 11869194,
-    "central_m3": 30130965,
-    "high_m3": 48392737,
+    "low_m3": 11862608,
+    "central_m3": 30122185,
+    "high_m3": 48381761,
     "label": "CALCULATED",
     "source_ids": [
       "BPS-POP-JT",
@@ -1051,15 +1051,15 @@
       "EXP07",
       "EXP08"
     ],
-    "note": "Regency model, not validated. Household wells 10.6-46.2 Mm3: 886,147 people x 80-150 L/day x 41%-95% of households on wells. Business wells 1.32-2.20 Mm3: 0.81 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
+    "note": "Regency model, not validated. Household wells 10.6-46.2 Mm3: 886,147 people x 80-150 L/day x 41%-95% of households on wells. Business wells 1.31-2.18 Mm3: 0.82 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
   },
   {
     "region_id": "3316",
     "year": 2022,
     "method": "regency_model",
-    "low_m3": 11893926,
-    "central_m3": 30746993,
-    "high_m3": 49600061,
+    "low_m3": 11887340,
+    "central_m3": 30738213,
+    "high_m3": 49589085,
     "label": "CALCULATED",
     "source_ids": [
       "BPS-POP-JT",
@@ -1068,15 +1068,15 @@
       "EXP07",
       "EXP08"
     ],
-    "note": "Regency model, not validated. Household wells 10.6-47.4 Mm3: 888,224 people x 80-150 L/day x 41%-97% of households on wells (2022 has no BPS table: spans 2021 and 2023). Business wells 1.32-2.20 Mm3: 0.81 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
+    "note": "Regency model, not validated. Household wells 10.6-47.4 Mm3: 888,224 people x 80-150 L/day x 41%-97% of households on wells (2022 has no BPS table: spans 2021 and 2023). Business wells 1.31-2.18 Mm3: 0.82 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
   },
   {
     "region_id": "3316",
     "year": 2023,
     "method": "regency_model",
-    "low_m3": 12200634,
-    "central_m3": 31257288,
-    "high_m3": 50313942,
+    "low_m3": 12194048,
+    "central_m3": 31248507,
+    "high_m3": 50302966,
     "label": "CALCULATED",
     "source_ids": [
       "BPS-POP-JT",
@@ -1085,15 +1085,15 @@
       "EXP07",
       "EXP08"
     ],
-    "note": "Regency model, not validated. Household wells 10.9-48.1 Mm3: 901,600 people x 80-150 L/day x 41%-97% of households on wells. Business wells 1.32-2.20 Mm3: 0.81 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
+    "note": "Regency model, not validated. Household wells 10.9-48.1 Mm3: 901,600 people x 80-150 L/day x 41%-97% of households on wells. Business wells 1.31-2.18 Mm3: 0.82 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
   },
   {
     "region_id": "3317",
     "year": 2020,
     "method": "regency_model",
-    "low_m3": 9516699,
-    "central_m3": 22889668,
-    "high_m3": 36262637,
+    "low_m3": 9765869,
+    "central_m3": 23221895,
+    "high_m3": 36677920,
     "label": "CALCULATED",
     "source_ids": [
       "BPS-POP-JT",
@@ -1102,15 +1102,15 @@
       "EXP07",
       "EXP08"
     ],
-    "note": "Regency model, not validated. Household wells 6.2-30.7 Mm3: 645,333 people x 80-150 L/day x 33%-87% of households on wells. Business wells 3.36-5.59 Mm3: 2.06 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
+    "note": "Regency model, not validated. Household wells 6.2-30.7 Mm3: 645,333 people x 80-150 L/day x 33%-87% of households on wells. Business wells 3.61-6.01 Mm3: 2.25 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
   },
   {
     "region_id": "3317",
     "year": 2021,
     "method": "regency_model",
-    "low_m3": 10061971,
-    "central_m3": 23959565,
-    "high_m3": 37857159,
+    "low_m3": 10311141,
+    "central_m3": 24291791,
+    "high_m3": 38272442,
     "label": "CALCULATED",
     "source_ids": [
       "BPS-POP-JT",
@@ -1119,15 +1119,15 @@
       "EXP07",
       "EXP08"
     ],
-    "note": "Regency model, not validated. Household wells 6.7-32.3 Mm3: 647,766 people x 80-150 L/day x 35%-91% of households on wells. Business wells 3.36-5.59 Mm3: 2.06 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
+    "note": "Regency model, not validated. Household wells 6.7-32.3 Mm3: 647,766 people x 80-150 L/day x 35%-91% of households on wells. Business wells 3.61-6.01 Mm3: 2.25 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
   },
   {
     "region_id": "3317",
     "year": 2022,
     "method": "regency_model",
-    "low_m3": 9066933,
-    "central_m3": 23663340,
-    "high_m3": 38259747,
+    "low_m3": 9316102,
+    "central_m3": 23995566,
+    "high_m3": 38675030,
     "label": "CALCULATED",
     "source_ids": [
       "BPS-POP-JT",
@@ -1136,15 +1136,15 @@
       "EXP07",
       "EXP08"
     ],
-    "note": "Regency model, not validated. Household wells 5.7-32.7 Mm3: 650,770 people x 80-150 L/day x 30%-92% of households on wells (2022 has no BPS table: spans 2021 and 2023). Business wells 3.36-5.59 Mm3: 2.06 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
+    "note": "Regency model, not validated. Household wells 5.7-32.7 Mm3: 650,770 people x 80-150 L/day x 30%-92% of households on wells (2022 has no BPS table: spans 2021 and 2023). Business wells 3.61-6.01 Mm3: 2.25 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
   },
   {
     "region_id": "3317",
     "year": 2023,
     "method": "regency_model",
-    "low_m3": 9149677,
-    "central_m3": 23941380,
-    "high_m3": 38733084,
+    "low_m3": 9398847,
+    "central_m3": 24273607,
+    "high_m3": 39148367,
     "label": "CALCULATED",
     "source_ids": [
       "BPS-POP-JT",
@@ -1153,15 +1153,15 @@
       "EXP07",
       "EXP08"
     ],
-    "note": "Regency model, not validated. Household wells 5.8-33.1 Mm3: 660,200 people x 80-150 L/day x 30%-92% of households on wells. Business wells 3.36-5.59 Mm3: 2.06 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
+    "note": "Regency model, not validated. Household wells 5.8-33.1 Mm3: 660,200 people x 80-150 L/day x 30%-92% of households on wells. Business wells 3.61-6.01 Mm3: 2.25 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
   },
   {
     "region_id": "3318",
     "year": 2020,
     "method": "regency_model",
-    "low_m3": 13640985,
-    "central_m3": 37449028,
-    "high_m3": 61257071,
+    "low_m3": 13603150,
+    "central_m3": 37398582,
+    "high_m3": 61194014,
     "label": "CALCULATED",
     "source_ids": [
       "BPS-POP-JT",
@@ -1170,7 +1170,7 @@
       "EXP07",
       "EXP08"
     ],
-    "note": "Regency model, not validated. Household wells 11.8-58.3 Mm3: 1,324,188 people x 80-150 L/day x 31%-80% of households on wells. Business wells 1.79-2.99 Mm3: 1.10 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
+    "note": "Regency model, not validated. Household wells 11.8-58.3 Mm3: 1,324,188 people x 80-150 L/day x 31%-80% of households on wells. Business wells 1.76-2.93 Mm3: 1.09 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
   },
   {
     "region_id": "3318",
@@ -1187,7 +1187,7 @@
       "EXP07",
       "EXP08"
     ],
-    "note": "Regency model, not validated. Household wells 13.5-64.9 Mm3: 1,330,983 people x 80-150 L/day x 35%-89% of households on wells. Business wells 8.26-8.26 Mm3: 1.10 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. Declared use is above that, so business wells are set to the declared volume (no gap visible to this model). PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
+    "note": "Regency model, not validated. Household wells 13.5-64.9 Mm3: 1,330,983 people x 80-150 L/day x 35%-89% of households on wells. Business wells 8.26-8.26 Mm3: 1.09 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. Declared use is above that, so business wells are set to the declared volume (no gap visible to this model). PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
   },
   {
     "region_id": "3318",
@@ -1204,7 +1204,7 @@
       "EXP07",
       "EXP08"
     ],
-    "note": "Regency model, not validated. Household wells 12.8-65.3 Mm3: 1,339,572 people x 80-150 L/day x 33%-89% of households on wells (2022 has no BPS table: spans 2021 and 2023). Business wells 11.45-11.45 Mm3: 1.10 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. Declared use is above that, so business wells are set to the declared volume (no gap visible to this model). PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
+    "note": "Regency model, not validated. Household wells 12.8-65.3 Mm3: 1,339,572 people x 80-150 L/day x 33%-89% of households on wells (2022 has no BPS table: spans 2021 and 2023). Business wells 11.45-11.45 Mm3: 1.09 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. Declared use is above that, so business wells are set to the declared volume (no gap visible to this model). PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
   },
   {
     "region_id": "3318",
@@ -1221,15 +1221,15 @@
       "EXP07",
       "EXP08"
     ],
-    "note": "Regency model, not validated. Household wells 13.0-64.9 Mm3: 1,359,400 people x 80-150 L/day x 33%-87% of households on wells. Business wells 9.66-9.66 Mm3: 1.10 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. Declared use is above that, so business wells are set to the declared volume (no gap visible to this model). PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
+    "note": "Regency model, not validated. Household wells 13.0-64.9 Mm3: 1,359,400 people x 80-150 L/day x 33%-87% of households on wells. Business wells 9.66-9.66 Mm3: 1.09 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. Declared use is above that, so business wells are set to the declared volume (no gap visible to this model). PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
   },
   {
     "region_id": "3319",
     "year": 2020,
     "method": "regency_model",
-    "low_m3": 14213885,
-    "central_m3": 29044923,
-    "high_m3": 43875960,
+    "low_m3": 14138801,
+    "central_m3": 28944810,
+    "high_m3": 43750819,
     "label": "CALCULATED",
     "source_ids": [
       "BPS-POP-JT",
@@ -1238,7 +1238,7 @@
       "EXP07",
       "EXP08"
     ],
-    "note": "Regency model, not validated. Household wells 9.4-35.9 Mm3: 849,184 people x 80-150 L/day x 38%-77% of households on wells. Business wells 4.78-7.96 Mm3: 2.93 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
+    "note": "Regency model, not validated. Household wells 9.4-35.9 Mm3: 849,184 people x 80-150 L/day x 38%-77% of households on wells. Business wells 4.70-7.84 Mm3: 2.93 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
   },
   {
     "region_id": "3319",
@@ -1295,9 +1295,9 @@
     "region_id": "3320",
     "year": 2020,
     "method": "regency_model",
-    "low_m3": 26699703,
-    "central_m3": 44682223,
-    "high_m3": 62664743,
+    "low_m3": 26635618,
+    "central_m3": 44596776,
+    "high_m3": 62557934,
     "label": "CALCULATED",
     "source_ids": [
       "BPS-POP-JT",
@@ -1306,7 +1306,7 @@
       "EXP07",
       "EXP08"
     ],
-    "note": "Regency model, not validated. Household wells 21.9-54.6 Mm3: 1,184,947 people x 80-150 L/day x 63%-84% of households on wells. Business wells 4.84-8.07 Mm3: 2.96 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
+    "note": "Regency model, not validated. Household wells 21.9-54.6 Mm3: 1,184,947 people x 80-150 L/day x 63%-84% of households on wells. Business wells 4.78-7.96 Mm3: 2.98 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
   },
   {
     "region_id": "3320",
@@ -1323,7 +1323,7 @@
       "EXP07",
       "EXP08"
     ],
-    "note": "Regency model, not validated. Household wells 20.5-51.9 Mm3: 1,188,510 people x 80-150 L/day x 59%-80% of households on wells. Business wells 17.11-17.11 Mm3: 2.96 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. Declared use is above that, so business wells are set to the declared volume (no gap visible to this model). PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
+    "note": "Regency model, not validated. Household wells 20.5-51.9 Mm3: 1,188,510 people x 80-150 L/day x 59%-80% of households on wells. Business wells 17.11-17.11 Mm3: 2.98 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. Declared use is above that, so business wells are set to the declared volume (no gap visible to this model). PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
   },
   {
     "region_id": "3320",
@@ -1340,7 +1340,7 @@
       "EXP07",
       "EXP08"
     ],
-    "note": "Regency model, not validated. Household wells 17.6-52.1 Mm3: 1,192,811 people x 80-150 L/day x 50%-80% of households on wells (2022 has no BPS table: spans 2021 and 2023). Business wells 18.04-18.04 Mm3: 2.96 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. Declared use is above that, so business wells are set to the declared volume (no gap visible to this model). PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
+    "note": "Regency model, not validated. Household wells 17.6-52.1 Mm3: 1,192,811 people x 80-150 L/day x 50%-80% of households on wells (2022 has no BPS table: spans 2021 and 2023). Business wells 18.04-18.04 Mm3: 2.98 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. Declared use is above that, so business wells are set to the declared volume (no gap visible to this model). PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
   },
   {
     "region_id": "3320",
@@ -1357,15 +1357,15 @@
       "EXP07",
       "EXP08"
     ],
-    "note": "Regency model, not validated. Household wells 18.0-53.1 Mm3: 1,221,100 people x 80-150 L/day x 50%-79% of households on wells. Business wells 16.46-16.46 Mm3: 2.96 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. Declared use is above that, so business wells are set to the declared volume (no gap visible to this model). PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
+    "note": "Regency model, not validated. Household wells 18.0-53.1 Mm3: 1,221,100 people x 80-150 L/day x 50%-79% of households on wells. Business wells 16.46-16.46 Mm3: 2.98 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. Declared use is above that, so business wells are set to the declared volume (no gap visible to this model). PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
   },
   {
     "region_id": "3321",
     "year": 2020,
     "method": "regency_model",
     "low_m3": 18238018,
-    "central_m3": 45829478,
-    "high_m3": 73420937,
+    "central_m3": 45749851,
+    "high_m3": 73261684,
     "label": "CALCULATED",
     "source_ids": [
       "BPS-POP-JT",
@@ -1374,15 +1374,15 @@
       "EXP07",
       "EXP08"
     ],
-    "note": "Regency model, not validated. Household wells 8.8-61.4 Mm3: 1,203,956 people x 80-150 L/day x 25%-93% of households on wells. Business wells 9.41-11.99 Mm3: 4.41 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. Declared use is above that, so business wells are set to the declared volume (no gap visible to this model). PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
+    "note": "Regency model, not validated. Household wells 8.8-61.4 Mm3: 1,203,956 people x 80-150 L/day x 25%-93% of households on wells. Business wells 9.41-11.83 Mm3: 4.43 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. Declared use is above that, so business wells are set to the declared volume (no gap visible to this model). PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
   },
   {
     "region_id": "3321",
     "year": 2021,
     "method": "regency_model",
-    "low_m3": 12665477,
-    "central_m3": 44718342,
-    "high_m3": 76771206,
+    "low_m3": 12569925,
+    "central_m3": 44590939,
+    "high_m3": 76611953,
     "label": "CALCULATED",
     "source_ids": [
       "BPS-POP-JT",
@@ -1391,15 +1391,15 @@
       "EXP07",
       "EXP08"
     ],
-    "note": "Regency model, not validated. Household wells 5.5-64.8 Mm3: 1,212,377 people x 80-150 L/day x 15%-98% of households on wells. Business wells 7.20-11.99 Mm3: 4.41 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
+    "note": "Regency model, not validated. Household wells 5.5-64.8 Mm3: 1,212,377 people x 80-150 L/day x 15%-98% of households on wells. Business wells 7.10-11.83 Mm3: 4.43 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
   },
   {
     "region_id": "3321",
     "year": 2022,
     "method": "regency_model",
-    "low_m3": 12403635,
-    "central_m3": 44877014,
-    "high_m3": 77350393,
+    "low_m3": 12308083,
+    "central_m3": 44749611,
+    "high_m3": 77191139,
     "label": "CALCULATED",
     "source_ids": [
       "BPS-POP-JT",
@@ -1408,15 +1408,15 @@
       "EXP07",
       "EXP08"
     ],
-    "note": "Regency model, not validated. Household wells 5.2-65.4 Mm3: 1,223,217 people x 80-150 L/day x 15%-98% of households on wells (2022 has no BPS table: spans 2021 and 2023). Business wells 7.20-11.99 Mm3: 4.41 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
+    "note": "Regency model, not validated. Household wells 5.2-65.4 Mm3: 1,223,217 people x 80-150 L/day x 15%-98% of households on wells (2022 has no BPS table: spans 2021 and 2023). Business wells 7.10-11.83 Mm3: 4.43 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
   },
   {
     "region_id": "3321",
     "year": 2023,
     "method": "regency_model",
-    "low_m3": 12477215,
-    "central_m3": 44835581,
-    "high_m3": 77193946,
+    "low_m3": 12381663,
+    "central_m3": 44708178,
+    "high_m3": 77034693,
     "label": "CALCULATED",
     "source_ids": [
       "BPS-POP-JT",
@@ -1425,7 +1425,7 @@
       "EXP07",
       "EXP08"
     ],
-    "note": "Regency model, not validated. Household wells 5.3-65.2 Mm3: 1,240,500 people x 80-150 L/day x 15%-96% of households on wells. Business wells 7.20-11.99 Mm3: 4.41 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
+    "note": "Regency model, not validated. Household wells 5.3-65.2 Mm3: 1,240,500 people x 80-150 L/day x 15%-96% of households on wells. Business wells 7.10-11.83 Mm3: 4.43 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
   },
   {
     "region_id": "3322",
@@ -1442,7 +1442,7 @@
       "EXP07",
       "EXP08"
     ],
-    "note": "Regency model, not validated. Household wells 15.2-36.5 Mm3: 1,053,094 people x 80-150 L/day x 49%-63% of households on wells. Business wells 6.12-6.12 Mm3: 2.21 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. Declared use is above that, so business wells are set to the declared volume (no gap visible to this model). PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
+    "note": "Regency model, not validated. Household wells 15.2-36.5 Mm3: 1,053,094 people x 80-150 L/day x 49%-63% of households on wells. Business wells 6.12-6.12 Mm3: 2.22 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. Declared use is above that, so business wells are set to the declared volume (no gap visible to this model). PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
   },
   {
     "region_id": "3322",
@@ -1459,7 +1459,7 @@
       "EXP07",
       "EXP08"
     ],
-    "note": "Regency model, not validated. Household wells 12.1-31.4 Mm3: 1,059,844 people x 80-150 L/day x 39%-54% of households on wells. Business wells 17.33-17.33 Mm3: 2.21 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. Declared use is above that, so business wells are set to the declared volume (no gap visible to this model). PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
+    "note": "Regency model, not validated. Household wells 12.1-31.4 Mm3: 1,059,844 people x 80-150 L/day x 39%-54% of households on wells. Business wells 17.33-17.33 Mm3: 2.22 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. Declared use is above that, so business wells are set to the declared volume (no gap visible to this model). PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
   },
   {
     "region_id": "3322",
@@ -1476,7 +1476,7 @@
       "EXP07",
       "EXP08"
     ],
-    "note": "Regency model, not validated. Household wells 12.2-34.4 Mm3: 1,068,492 people x 80-150 L/day x 39%-59% of households on wells (2022 has no BPS table: spans 2021 and 2023). Business wells 15.90-15.90 Mm3: 2.21 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. Declared use is above that, so business wells are set to the declared volume (no gap visible to this model). PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
+    "note": "Regency model, not validated. Household wells 12.2-34.4 Mm3: 1,068,492 people x 80-150 L/day x 39%-59% of households on wells (2022 has no BPS table: spans 2021 and 2023). Business wells 15.90-15.90 Mm3: 2.22 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. Declared use is above that, so business wells are set to the declared volume (no gap visible to this model). PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
   },
   {
     "region_id": "3322",
@@ -1493,7 +1493,7 @@
       "EXP07",
       "EXP08"
     ],
-    "note": "Regency model, not validated. Household wells 14.6-34.8 Mm3: 1,080,700 people x 80-150 L/day x 46%-59% of households on wells. Business wells 12.14-12.14 Mm3: 2.21 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. Declared use is above that, so business wells are set to the declared volume (no gap visible to this model). PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
+    "note": "Regency model, not validated. Household wells 14.6-34.8 Mm3: 1,080,700 people x 80-150 L/day x 46%-59% of households on wells. Business wells 12.14-12.14 Mm3: 2.22 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. Declared use is above that, so business wells are set to the declared volume (no gap visible to this model). PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
   },
   {
     "region_id": "3323",
@@ -1517,8 +1517,8 @@
     "year": 2021,
     "method": "regency_model",
     "low_m3": 6631506,
-    "central_m3": 9918967,
-    "high_m3": 13206428,
+    "central_m3": 9924995,
+    "high_m3": 13218484,
     "label": "CALCULATED",
     "source_ids": [
       "BPS-POP-JT",
@@ -1527,15 +1527,15 @@
       "EXP07",
       "EXP08"
     ],
-    "note": "Regency model, not validated. Household wells 6.1-12.6 Mm3: 794,403 people x 80-150 L/day x 26%-29% of households on wells. Business wells 0.52-0.56 Mm3: 0.21 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. Declared use is above that, so business wells are set to the declared volume (no gap visible to this model). PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
+    "note": "Regency model, not validated. Household wells 6.1-12.6 Mm3: 794,403 people x 80-150 L/day x 26%-29% of households on wells. Business wells 0.52-0.57 Mm3: 0.21 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. Declared use is above that, so business wells are set to the declared volume (no gap visible to this model). PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
   },
   {
     "region_id": "3323",
     "year": 2022,
     "method": "regency_model",
     "low_m3": 6626272,
-    "central_m3": 10462564,
-    "high_m3": 14298855,
+    "central_m3": 10468592,
+    "high_m3": 14310911,
     "label": "CALCULATED",
     "source_ids": [
       "BPS-POP-JT",
@@ -1544,15 +1544,15 @@
       "EXP07",
       "EXP08"
     ],
-    "note": "Regency model, not validated. Household wells 6.2-13.7 Mm3: 799,764 people x 80-150 L/day x 26%-31% of households on wells (2022 has no BPS table: spans 2021 and 2023). Business wells 0.47-0.56 Mm3: 0.21 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. Declared use is above that, so business wells are set to the declared volume (no gap visible to this model). PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
+    "note": "Regency model, not validated. Household wells 6.2-13.7 Mm3: 799,764 people x 80-150 L/day x 26%-31% of households on wells (2022 has no BPS table: spans 2021 and 2023). Business wells 0.47-0.57 Mm3: 0.21 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. Declared use is above that, so business wells are set to the declared volume (no gap visible to this model). PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
   },
   {
     "region_id": "3323",
     "year": 2023,
     "method": "regency_model",
     "low_m3": 7391081,
-    "central_m3": 10919989,
-    "high_m3": 14448897,
+    "central_m3": 10926017,
+    "high_m3": 14460953,
     "label": "CALCULATED",
     "source_ids": [
       "BPS-POP-JT",
@@ -1561,15 +1561,15 @@
       "EXP07",
       "EXP08"
     ],
-    "note": "Regency model, not validated. Household wells 6.9-13.9 Mm3: 808,500 people x 80-150 L/day x 29%-31% of households on wells. Business wells 0.52-0.56 Mm3: 0.21 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. Declared use is above that, so business wells are set to the declared volume (no gap visible to this model). PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
+    "note": "Regency model, not validated. Household wells 6.9-13.9 Mm3: 808,500 people x 80-150 L/day x 29%-31% of households on wells. Business wells 0.52-0.57 Mm3: 0.21 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. Declared use is above that, so business wells are set to the declared volume (no gap visible to this model). PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
   },
   {
     "region_id": "3324",
     "year": 2020,
     "method": "regency_model",
     "low_m3": 36891927,
-    "central_m3": 50034319,
-    "high_m3": 63176710,
+    "central_m3": 49815557,
+    "high_m3": 62739187,
     "label": "CALCULATED",
     "source_ids": [
       "BPS-POP-JT",
@@ -1578,15 +1578,15 @@
       "EXP07",
       "EXP08"
     ],
-    "note": "Regency model, not validated. Household wells 9.0-30.8 Mm3: 1,018,505 people x 80-150 L/day x 30%-55% of households on wells. Business wells 27.93-32.37 Mm3: 11.90 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. Declared use is above that, so business wells are set to the declared volume (no gap visible to this model). PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
+    "note": "Regency model, not validated. Household wells 9.0-30.8 Mm3: 1,018,505 people x 80-150 L/day x 30%-55% of households on wells. Business wells 27.93-31.94 Mm3: 11.94 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. Declared use is above that, so business wells are set to the declared volume (no gap visible to this model). PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
   },
   {
     "region_id": "3324",
     "year": 2021,
     "method": "regency_model",
-    "low_m3": 25113692,
-    "central_m3": 41053307,
-    "high_m3": 56992923,
+    "low_m3": 24851178,
+    "central_m3": 40703289,
+    "high_m3": 56555400,
     "label": "CALCULATED",
     "source_ids": [
       "BPS-POP-JT",
@@ -1595,15 +1595,15 @@
       "EXP07",
       "EXP08"
     ],
-    "note": "Regency model, not validated. Household wells 5.7-24.6 Mm3: 1,025,020 people x 80-150 L/day x 19%-44% of households on wells. Business wells 19.42-32.37 Mm3: 11.90 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
+    "note": "Regency model, not validated. Household wells 5.7-24.6 Mm3: 1,025,020 people x 80-150 L/day x 19%-44% of households on wells. Business wells 19.16-31.94 Mm3: 11.94 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
   },
   {
     "region_id": "3324",
     "year": 2022,
     "method": "regency_model",
-    "low_m3": 24607835,
-    "central_m3": 41412642,
-    "high_m3": 58217449,
+    "low_m3": 24345322,
+    "central_m3": 41062624,
+    "high_m3": 57779926,
     "label": "CALCULATED",
     "source_ids": [
       "BPS-POP-JT",
@@ -1612,15 +1612,15 @@
       "EXP07",
       "EXP08"
     ],
-    "note": "Regency model, not validated. Household wells 5.2-25.8 Mm3: 1,033,367 people x 80-150 L/day x 17%-46% of households on wells (2022 has no BPS table: spans 2021 and 2023). Business wells 19.42-32.37 Mm3: 11.90 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
+    "note": "Regency model, not validated. Household wells 5.2-25.8 Mm3: 1,033,367 people x 80-150 L/day x 17%-46% of households on wells (2022 has no BPS table: spans 2021 and 2023). Business wells 19.16-31.94 Mm3: 11.94 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
   },
   {
     "region_id": "3324",
     "year": 2023,
     "method": "regency_model",
     "low_m3": 26183924,
-    "central_m3": 42443694,
-    "high_m3": 58703464,
+    "central_m3": 42224933,
+    "high_m3": 58265941,
     "label": "CALCULATED",
     "source_ids": [
       "BPS-POP-JT",
@@ -1629,15 +1629,15 @@
       "EXP07",
       "EXP08"
     ],
-    "note": "Regency model, not validated. Household wells 5.3-26.3 Mm3: 1,052,800 people x 80-150 L/day x 17%-46% of households on wells. Business wells 20.90-32.37 Mm3: 11.90 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. Declared use is above that, so business wells are set to the declared volume (no gap visible to this model). PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
+    "note": "Regency model, not validated. Household wells 5.3-26.3 Mm3: 1,052,800 people x 80-150 L/day x 17%-46% of households on wells. Business wells 20.90-31.94 Mm3: 11.94 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. Declared use is above that, so business wells are set to the declared volume (no gap visible to this model). PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
   },
   {
     "region_id": "3325",
     "year": 2020,
     "method": "regency_model",
-    "low_m3": 16276241,
-    "central_m3": 23568128,
-    "high_m3": 30860014,
+    "low_m3": 16191792,
+    "central_m3": 23455529,
+    "high_m3": 30719266,
     "label": "CALCULATED",
     "source_ids": [
       "BPS-POP-JT",
@@ -1646,15 +1646,15 @@
       "EXP07",
       "EXP08"
     ],
-    "note": "Regency model, not validated. Household wells 11.3-22.6 Mm3: 801,718 people x 80-150 L/day x 48%-51% of households on wells. Business wells 4.97-8.29 Mm3: 3.05 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
+    "note": "Regency model, not validated. Household wells 11.3-22.6 Mm3: 801,718 people x 80-150 L/day x 48%-51% of households on wells. Business wells 4.89-8.15 Mm3: 3.05 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
   },
   {
     "region_id": "3325",
     "year": 2021,
     "method": "regency_model",
-    "low_m3": 15269163,
-    "central_m3": 22166972,
-    "high_m3": 29064781,
+    "low_m3": 15184714,
+    "central_m3": 22054374,
+    "high_m3": 28924033,
     "label": "CALCULATED",
     "source_ids": [
       "BPS-POP-JT",
@@ -1663,15 +1663,15 @@
       "EXP07",
       "EXP08"
     ],
-    "note": "Regency model, not validated. Household wells 10.3-20.8 Mm3: 807,005 people x 80-150 L/day x 44%-47% of households on wells. Business wells 4.97-8.29 Mm3: 3.05 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
+    "note": "Regency model, not validated. Household wells 10.3-20.8 Mm3: 807,005 people x 80-150 L/day x 44%-47% of households on wells. Business wells 4.89-8.15 Mm3: 3.05 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
   },
   {
     "region_id": "3325",
     "year": 2022,
     "method": "regency_model",
-    "low_m3": 13991757,
-    "central_m3": 21615617,
-    "high_m3": 29239476,
+    "low_m3": 13907308,
+    "central_m3": 21503018,
+    "high_m3": 29098728,
     "label": "CALCULATED",
     "source_ids": [
       "BPS-POP-JT",
@@ -1680,15 +1680,15 @@
       "EXP07",
       "EXP08"
     ],
-    "note": "Regency model, not validated. Household wells 9.0-20.9 Mm3: 813,791 people x 80-150 L/day x 38%-47% of households on wells (2022 has no BPS table: spans 2021 and 2023). Business wells 4.97-8.29 Mm3: 3.05 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
+    "note": "Regency model, not validated. Household wells 9.0-20.9 Mm3: 813,791 people x 80-150 L/day x 38%-47% of households on wells (2022 has no BPS table: spans 2021 and 2023). Business wells 4.89-8.15 Mm3: 3.05 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
   },
   {
     "region_id": "3325",
     "year": 2023,
     "method": "regency_model",
-    "low_m3": 14159186,
-    "central_m3": 20904476,
-    "high_m3": 27649767,
+    "low_m3": 14074737,
+    "central_m3": 20791878,
+    "high_m3": 27509019,
     "label": "CALCULATED",
     "source_ids": [
       "BPS-POP-JT",
@@ -1697,15 +1697,15 @@
       "EXP07",
       "EXP08"
     ],
-    "note": "Regency model, not validated. Household wells 9.2-19.4 Mm3: 828,900 people x 80-150 L/day x 38%-43% of households on wells. Business wells 4.97-8.29 Mm3: 3.05 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
+    "note": "Regency model, not validated. Household wells 9.2-19.4 Mm3: 828,900 people x 80-150 L/day x 38%-43% of households on wells. Business wells 4.89-8.15 Mm3: 3.05 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
   },
   {
     "region_id": "3326",
     "year": 2020,
     "method": "regency_model",
     "low_m3": 18185683,
-    "central_m3": 28648113,
-    "high_m3": 39110544,
+    "central_m3": 28637541,
+    "high_m3": 39089399,
     "label": "CALCULATED",
     "source_ids": [
       "BPS-POP-JT",
@@ -1714,7 +1714,7 @@
       "EXP07",
       "EXP08"
     ],
-    "note": "Regency model, not validated. Household wells 17.2-37.8 Mm3: 968,821 people x 80-150 L/day x 61%-71% of households on wells. Business wells 0.94-1.33 Mm3: 0.49 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. Declared use is above that, so business wells are set to the declared volume (no gap visible to this model). PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
+    "note": "Regency model, not validated. Household wells 17.2-37.8 Mm3: 968,821 people x 80-150 L/day x 61%-71% of households on wells. Business wells 0.94-1.31 Mm3: 0.49 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. Declared use is above that, so business wells are set to the declared volume (no gap visible to this model). PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
   },
   {
     "region_id": "3326",
@@ -1771,9 +1771,9 @@
     "region_id": "3327",
     "year": 2020,
     "method": "regency_model",
-    "low_m3": 16584377,
-    "central_m3": 31842846,
-    "high_m3": 47101315,
+    "low_m3": 16575174,
+    "central_m3": 31830575,
+    "high_m3": 47085977,
     "label": "CALCULATED",
     "source_ids": [
       "BPS-POP-JT",
@@ -1782,7 +1782,7 @@
       "EXP07",
       "EXP08"
     ],
-    "note": "Regency model, not validated. Household wells 16.3-46.7 Mm3: 1,471,489 people x 80-150 L/day x 38%-58% of households on wells. Business wells 0.24-0.41 Mm3: 0.15 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
+    "note": "Regency model, not validated. Household wells 16.3-46.7 Mm3: 1,471,489 people x 80-150 L/day x 38%-58% of households on wells. Business wells 0.23-0.39 Mm3: 0.15 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
   },
   {
     "region_id": "3327",
@@ -1839,9 +1839,9 @@
     "region_id": "3328",
     "year": 2020,
     "method": "regency_model",
-    "low_m3": 22713811,
-    "central_m3": 40240588,
-    "high_m3": 57767366,
+    "low_m3": 22716484,
+    "central_m3": 40244152,
+    "high_m3": 57771820,
     "label": "CALCULATED",
     "source_ids": [
       "BPS-POP-JT",
@@ -1850,15 +1850,15 @@
       "EXP07",
       "EXP08"
     ],
-    "note": "Regency model, not validated. Household wells 22.2-56.9 Mm3: 1,596,996 people x 80-150 L/day x 48%-65% of households on wells. Business wells 0.54-0.91 Mm3: 0.33 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
+    "note": "Regency model, not validated. Household wells 22.2-56.9 Mm3: 1,596,996 people x 80-150 L/day x 48%-65% of households on wells. Business wells 0.55-0.91 Mm3: 0.34 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
   },
   {
     "region_id": "3328",
     "year": 2021,
     "method": "regency_model",
-    "low_m3": 23931904,
-    "central_m3": 45671349,
-    "high_m3": 67410793,
+    "low_m3": 23934577,
+    "central_m3": 45674912,
+    "high_m3": 67415248,
     "label": "CALCULATED",
     "source_ids": [
       "BPS-POP-JT",
@@ -1867,15 +1867,15 @@
       "EXP07",
       "EXP08"
     ],
-    "note": "Regency model, not validated. Household wells 23.4-66.5 Mm3: 1,608,611 people x 80-150 L/day x 50%-76% of households on wells. Business wells 0.54-0.91 Mm3: 0.33 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
+    "note": "Regency model, not validated. Household wells 23.4-66.5 Mm3: 1,608,611 people x 80-150 L/day x 50%-76% of households on wells. Business wells 0.55-0.91 Mm3: 0.34 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
   },
   {
     "region_id": "3328",
     "year": 2022,
     "method": "regency_model",
-    "low_m3": 22253393,
-    "central_m3": 45141825,
-    "high_m3": 68030258,
+    "low_m3": 22256066,
+    "central_m3": 45145389,
+    "high_m3": 68034712,
     "label": "CALCULATED",
     "source_ids": [
       "BPS-POP-JT",
@@ -1884,15 +1884,15 @@
       "EXP07",
       "EXP08"
     ],
-    "note": "Regency model, not validated. Household wells 21.7-67.1 Mm3: 1,623,595 people x 80-150 L/day x 46%-76% of households on wells (2022 has no BPS table: spans 2021 and 2023). Business wells 0.54-0.91 Mm3: 0.33 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
+    "note": "Regency model, not validated. Household wells 21.7-67.1 Mm3: 1,623,595 people x 80-150 L/day x 46%-76% of households on wells (2022 has no BPS table: spans 2021 and 2023). Business wells 0.55-0.91 Mm3: 0.34 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
   },
   {
     "region_id": "3328",
     "year": 2023,
     "method": "regency_model",
     "low_m3": 22740027,
-    "central_m3": 44861433,
-    "high_m3": 66982839,
+    "central_m3": 44863660,
+    "high_m3": 66987293,
     "label": "CALCULATED",
     "source_ids": [
       "BPS-POP-JT",
@@ -1901,7 +1901,7 @@
       "EXP07",
       "EXP08"
     ],
-    "note": "Regency model, not validated. Household wells 22.1-66.1 Mm3: 1,654,800 people x 80-150 L/day x 46%-73% of households on wells. Business wells 0.61-0.91 Mm3: 0.33 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. Declared use is above that, so business wells are set to the declared volume (no gap visible to this model). PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
+    "note": "Regency model, not validated. Household wells 22.1-66.1 Mm3: 1,654,800 people x 80-150 L/day x 46%-73% of households on wells. Business wells 0.61-0.91 Mm3: 0.34 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. Declared use is above that, so business wells are set to the declared volume (no gap visible to this model). PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
   },
   {
     "region_id": "3329",
@@ -2054,7 +2054,7 @@
       "EXP07",
       "EXP08"
     ],
-    "note": "Regency model, not validated. Household wells 3.6-22.9 Mm3: 522,364 people x 80-150 L/day x 24%-80% of households on wells. Business wells 4.27-4.27 Mm3: 0.28 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. Declared use is above that, so business wells are set to the declared volume (no gap visible to this model). PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
+    "note": "Regency model, not validated. Household wells 3.6-22.9 Mm3: 522,364 people x 80-150 L/day x 24%-80% of households on wells. Business wells 4.27-4.27 Mm3: 0.27 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. Declared use is above that, so business wells are set to the declared volume (no gap visible to this model). PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
   },
   {
     "region_id": "3372",
@@ -2071,7 +2071,7 @@
       "EXP07",
       "EXP08"
     ],
-    "note": "Regency model, not validated. Household wells 3.2-24.7 Mm3: 522,728 people x 80-150 L/day x 21%-86% of households on wells. Business wells 6.46-6.46 Mm3: 0.28 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. Declared use is above that, so business wells are set to the declared volume (no gap visible to this model). PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
+    "note": "Regency model, not validated. Household wells 3.2-24.7 Mm3: 522,728 people x 80-150 L/day x 21%-86% of households on wells. Business wells 6.46-6.46 Mm3: 0.27 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. Declared use is above that, so business wells are set to the declared volume (no gap visible to this model). PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
   },
   {
     "region_id": "3372",
@@ -2088,7 +2088,7 @@
       "EXP07",
       "EXP08"
     ],
-    "note": "Regency model, not validated. Household wells 3.0-24.7 Mm3: 523,008 people x 80-150 L/day x 19%-86% of households on wells (2022 has no BPS table: spans 2021 and 2023). Business wells 4.84-4.84 Mm3: 0.28 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. Declared use is above that, so business wells are set to the declared volume (no gap visible to this model). PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
+    "note": "Regency model, not validated. Household wells 3.0-24.7 Mm3: 523,008 people x 80-150 L/day x 19%-86% of households on wells (2022 has no BPS table: spans 2021 and 2023). Business wells 4.84-4.84 Mm3: 0.27 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. Declared use is above that, so business wells are set to the declared volume (no gap visible to this model). PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
   },
   {
     "region_id": "3372",
@@ -2105,7 +2105,7 @@
       "EXP07",
       "EXP08"
     ],
-    "note": "Regency model, not validated. Household wells 3.0-23.4 Mm3: 526,900 people x 80-150 L/day x 19%-81% of households on wells. Business wells 5.92-5.92 Mm3: 0.28 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. Declared use is above that, so business wells are set to the declared volume (no gap visible to this model). PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
+    "note": "Regency model, not validated. Household wells 3.0-23.4 Mm3: 526,900 people x 80-150 L/day x 19%-81% of households on wells. Business wells 5.92-5.92 Mm3: 0.27 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. Declared use is above that, so business wells are set to the declared volume (no gap visible to this model). PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
   },
   {
     "region_id": "3373",
@@ -2190,7 +2190,7 @@
       "EXP07",
       "EXP08"
     ],
-    "note": "Regency model, not validated. Household wells 8.3-73.3 Mm3: 1,653,524 people x 80-150 L/day x 17%-81% of households on wells. Business wells 22.42-25.00 Mm3: 9.19 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. Declared use is above that, so business wells are set to the declared volume (no gap visible to this model). PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
+    "note": "Regency model, not validated. Household wells 8.3-73.3 Mm3: 1,653,524 people x 80-150 L/day x 17%-81% of households on wells. Business wells 22.42-25.00 Mm3: 9.35 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. Declared use is above that, so business wells are set to the declared volume (no gap visible to this model). PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
   },
   {
     "region_id": "3374",
@@ -2220,7 +2220,7 @@
       "EXP07",
       "EXP08"
     ],
-    "note": "Regency model, not validated. Household wells 9.3-75.3 Mm3: 1,656,564 people x 80-150 L/day x 19%-83% of households on wells. Business wells 15.00-25.00 Mm3: 9.19 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
+    "note": "Regency model, not validated. Household wells 9.3-75.3 Mm3: 1,656,564 people x 80-150 L/day x 19%-83% of households on wells. Business wells 15.00-25.00 Mm3: 9.35 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
   },
   {
     "region_id": "3374",
@@ -2250,7 +2250,7 @@
       "EXP07",
       "EXP08"
     ],
-    "note": "Regency model, not validated. Household wells 9.3-76.1 Mm3: 1,659,975 people x 80-150 L/day x 19%-84% of households on wells (2022 has no BPS table: spans 2021 and 2023). Business wells 15.00-25.00 Mm3: 9.19 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
+    "note": "Regency model, not validated. Household wells 9.3-76.1 Mm3: 1,659,975 people x 80-150 L/day x 19%-84% of households on wells (2022 has no BPS table: spans 2021 and 2023). Business wells 15.00-25.00 Mm3: 9.35 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
   },
   {
     "region_id": "3374",
@@ -2293,7 +2293,7 @@
       "EXP07",
       "EXP08"
     ],
-    "note": "Regency model, not validated. Household wells 9.6-77.7 Mm3: 1,694,700 people x 80-150 L/day x 19%-84% of households on wells. Business wells 15.00-25.00 Mm3: 9.19 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
+    "note": "Regency model, not validated. Household wells 9.6-77.7 Mm3: 1,694,700 people x 80-150 L/day x 19%-84% of households on wells. Business wells 15.00-25.00 Mm3: 9.35 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
   },
   {
     "region_id": "3374",
@@ -2313,8 +2313,8 @@
     "year": 2020,
     "method": "regency_model",
     "low_m3": 4388906,
-    "central_m3": 7459495,
-    "high_m3": 10530085,
+    "central_m3": 7456816,
+    "high_m3": 10524726,
     "label": "CALCULATED",
     "source_ids": [
       "BPS-POP-JT",
@@ -2323,7 +2323,7 @@
       "EXP07",
       "EXP08"
     ],
-    "note": "Regency model, not validated. Household wells 4.3-10.4 Mm3: 307,150 people x 80-150 L/day x 48%-62% of households on wells. Business wells 0.10-0.12 Mm3: 0.04 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. Declared use is above that, so business wells are set to the declared volume (no gap visible to this model). PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
+    "note": "Regency model, not validated. Household wells 4.3-10.4 Mm3: 307,150 people x 80-150 L/day x 48%-62% of households on wells. Business wells 0.10-0.11 Mm3: 0.04 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. Declared use is above that, so business wells are set to the declared volume (no gap visible to this model). PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
   },
   {
     "region_id": "3375",
@@ -2380,9 +2380,9 @@
     "region_id": "3376",
     "year": 2020,
     "method": "regency_model",
-    "low_m3": 433944,
-    "central_m3": 1032014,
-    "high_m3": 1630084,
+    "low_m3": 426722,
+    "central_m3": 1022385,
+    "high_m3": 1618048,
     "label": "CALCULATED",
     "source_ids": [
       "BPS-POP-JT",
@@ -2391,7 +2391,7 @@
       "EXP07",
       "EXP08"
     ],
-    "note": "Regency model, not validated. Household wells 0.0-0.9 Mm3: 273,825 people x 80-150 L/day x 0%-6% of households on wells. Business wells 0.42-0.70 Mm3: 0.26 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
+    "note": "Regency model, not validated. Household wells 0.0-0.9 Mm3: 273,825 people x 80-150 L/day x 0%-6% of households on wells. Business wells 0.41-0.69 Mm3: 0.26 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
   },
   {
     "region_id": "3376",
@@ -2432,8 +2432,8 @@
     "year": 2023,
     "method": "regency_model",
     "low_m3": 805672,
-    "central_m3": 1314398,
-    "high_m3": 1823124,
+    "central_m3": 1308380,
+    "high_m3": 1811088,
     "label": "CALCULATED",
     "source_ids": [
       "BPS-POP-JT",
@@ -2442,6 +2442,6 @@
       "EXP07",
       "EXP08"
     ],
-    "note": "Regency model, not validated. Household wells 0.2-1.1 Mm3: 282,800 people x 80-150 L/day x 2%-7% of households on wells. Business wells 0.60-0.70 Mm3: 0.26 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. Declared use is above that, so business wells are set to the declared volume (no gap visible to this model). PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
+    "note": "Regency model, not validated. Household wells 0.2-1.1 Mm3: 282,800 people x 80-150 L/day x 2%-7% of households on wells. Business wells 0.60-0.69 Mm3: 0.26 km2 of OSM industrial land at Kota Semarang's 2003-06 registered rate, never below declared use. Declared use is above that, so business wells are set to the declared volume (no gap visible to this model). PDAM's own wells are not included. Moving pumping models between places without a local total has been off by 5-27x (file 08)."
   }
 ]
