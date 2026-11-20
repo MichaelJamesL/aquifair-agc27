@@ -21,6 +21,7 @@ The seed files in `data/` are generated from real public sources:
 - **Sentinel-1 LiCSAR** processed results: subsidence period medians.
 - **SPAM Semarang Barat** official/news sources: capacity, uptake, connections.
 - **geoBoundaries ADM2**: the 35 Central Java boundaries.
+- **OpenStreetMap coastline** (Overture Maps base land): the zone, regency and kecamatan outlines are fitted to it, because the source maps use a simplified coast and miss reclaimed land such as Tanjung Emas port.
 - **2022 CAT Semarang-Demak zone map** (Dinas ESDM Jateng, Permen ESDM 31/2018): zone polygons and the 467 "Sumur Bor" markers, digitised from the vector PDF (`data/zones.geojson`, `data/zone_wells.json`).
 - **Realised groundwater tax** Kota Semarang 2022-2024 (Perda Kota Semarang 2/2024, Kepgub Jateng 100.3.3.1/211/2025) and the pre-2025 HDA tables (Pergub Jateng 19/2017 + 54/2018) for check V1.
 - **Piped coverage per kecamatan**: BPS Kota Semarang Dalam Angka 2024, Portal Data Demak 2025 (proxy for lead filter 4).
@@ -155,7 +156,9 @@ write the files in `data/` that the API serves:
 
 | Script | Writes | Inputs |
 |---|---|---|
-| `digitise_zones.py <pdf>` | `zones.geojson`, `zone_wells.json` | ESDM 2022 zone map PDF |
+| `digitise_zones.py <pdf>` | `zones.geojson`, `zone_wells.json`, `realdata/semarang/zones/pdf_sea.geojson` | ESDM 2022 zone map PDF |
+| `fetch_overture_land.py` | `realdata/semarang/admin/overture/land_jateng.geojson` | Overture Maps base land (run with `uv run --no-project --with duckdb`) |
+| `fit_coastline.py` | `zones.geojson`, `regions.geojson`, `pdam_coverage.json` (outlines only) | Fits the outlines to the OSM coast and makes each layer an exact coverage (one shared border between neighbours, no GADM slivers). Reads the raw geoBoundaries, GADM and PDF outlines, so reruns give the same files; run after `digitise_zones.py`, `build_seed.py` or `build_pdam_coverage.py`, then rerun `build_regency_estimates.py` and `build_leads.py` (run with `uv run --no-project --with shapely --with pyproj`) |
 | `build_pdam_coverage.py` | `pdam_coverage.json` | BPS Kota Semarang 2024, Demak CKAN, GADM |
 | `build_pipe_cells.py` | `pipe_cells.json` | file 07 demand blocks, clay and Sentinel-1 bundle, GADM |
 | `fetch_s2_composites.py <years>` | `realdata/semarang/leads/s2_<year>.npz` | Planetary Computer Sentinel-2 L2A |

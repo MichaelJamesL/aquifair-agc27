@@ -483,7 +483,7 @@ security.
 
 | Missing | Effect | UI behaviour |
 |---|---|---|
-| ~~2022 CAT conservation zone map~~ | digitised 2026-11-20 from the official vector PDF | zones + Sumur Bor layers |
+| ~~2022 CAT conservation zone map~~ | digitised 2026-11-20 from the official vector PDF; coast fitted to OpenStreetMap (`fit_coastline.py`), reclaimed land given the nearest zone | zones + Sumur Bor layers |
 | PDAM coverage per kelurahan | filter 4 uses kecamatan coverage (BPS 2024, Demak 2025), for hotels, malls and hospitals only; factories skip it (PDAM sold industry 0.22 Mm3 in 2022, Perda Kota Semarang 4/2024 table 2-5) | proxy label on hotel/mall/hospital leads; "not checked" on factories |
 | SPAM service-area map | no precise served area | three named kecamatan; label |
 | ~~Realised PAT revenue~~ | Kota Semarang 2022-2024 found; other regions still missing | V1 done for 3374, `planned` elsewhere |
