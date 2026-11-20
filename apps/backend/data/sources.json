@@ -235,12 +235,12 @@
   },
   {
     "id": "ADWR",
-    "name": "Arizona Department of Water Resources Wells 55 and pump data",
+    "name": "Arizona Department of Water Resources: Wells 55 registry, CWS service areas, metered pumping",
     "publisher": "ADWR",
-    "url": "https://gisweb.azwater.gov/",
+    "url": "https://services.arcgis.com/C34zQ7veRS0V1t04/arcgis/rest/services",
     "label": "OFFICIAL",
-    "accessed": "2026-11-19",
-    "note": "Used for V4 and V8 only; not part of the Central Java accounts."
+    "accessed": "2026-11-20",
+    "note": "V4 uses Well_Registry_2024 (INSTALLED, else APPROVED date) and CWS_Service_Area; V8 uses metered pumping. Not part of the Central Java accounts."
   },
   {
     "id": "EXP05",
