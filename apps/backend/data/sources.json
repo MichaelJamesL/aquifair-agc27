@@ -313,5 +313,23 @@
     "label": "OFFICIAL",
     "accessed": "2026-11-20",
     "note": "Used to assign blocks, leads and served cells to kecamatan. Not an official Indonesian boundary product."
+  },
+  {
+    "id": "S2-L2A",
+    "name": "Copernicus Sentinel-2 L2A, tile 49MDN, dry-season medians 2021-2026",
+    "publisher": "ESA Copernicus via Microsoft Planetary Computer",
+    "url": "https://planetarycomputer.microsoft.com/dataset/sentinel-2-l2a",
+    "label": "MEASURED",
+    "accessed": "2026-11-20",
+    "note": "Clearest June-October scenes per relative orbit (6 from orbit 89, 4 from orbit 132), cloud-masked with SCL; built by scripts/fetch_s2_composites.py."
+  },
+  {
+    "id": "S1-RTC",
+    "name": "Copernicus Sentinel-1 RTC (gamma0 VV, 10 m), relative orbit 76 descending, dry-season medians 2022 and 2026",
+    "publisher": "ESA Copernicus, terrain-corrected by Microsoft Planetary Computer",
+    "url": "https://planetarycomputer.microsoft.com/dataset/sentinel-1-rtc",
+    "label": "MEASURED",
+    "accessed": "2026-11-20",
+    "note": "Radar check in lead filter 1: walls give double bounce, bare fill does not. Built by scripts/fetch_s1_composites.py."
   }
 ]
