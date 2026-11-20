@@ -47,11 +47,22 @@ def test_scenario(client: TestClient) -> None:
     assert body["tax"]["label"] == "CALCULATED"
 
 
-def test_billing_check_is_planned(client: TestClient) -> None:
+def test_billing_check_runs_on_kota_semarang(client: TestClient) -> None:
     response = client.get("/api/v1/accounts/3374/billing-check")
     assert response.status_code == 200
     body = response.json()
-    assert body["check"]["code"] == "V1"
+    assert body["check"] == {"code": "V1", "status": "done", "result": "pass"}
+    assert body["year"] == 2023
+    assert body["realised_tax"]["value"] == 22_609_911_448
+    assert body["implied_tax_per_m3"]["value"] == 2245
+    assert (body["expected_band"]["low"], body["expected_band"]["high"]) == (2100, 2480)
+    by_year = {row["year"]: row for row in body["history"]}
+    assert by_year[2022]["implied_tax_per_m3"]["value"] == 2188
+    assert by_year[2024]["result"] == "waiting"  # no 2024 declared volume yet
+
+
+def test_billing_check_without_realised_tax_is_planned(client: TestClient) -> None:
+    body = client.get("/api/v1/accounts/3301/billing-check").json()
     assert body["check"]["status"] == "planned"
     assert body["realised_tax"]["label"] == "MISSING"
 

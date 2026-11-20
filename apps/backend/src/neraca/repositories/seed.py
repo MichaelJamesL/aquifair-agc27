@@ -10,11 +10,12 @@ from neraca.domain.models import (
     DeclaredUse,
     Estimate,
     Lead,
+    RealisedTax,
     Region,
     Source,
     ValidationCheck,
 )
-from neraca.domain.npa import NpaFile
+from neraca.domain.npa import Npa2018File, NpaFile
 from neraca.repositories.seed_models import (
     DeclaredUseFile,
     EstimateFile,
@@ -43,6 +44,11 @@ class SeedStore:
         self.pipes = self._load_pipes()
         self.validation = self._load_validation()
         self.npa = self._load_npa()
+        self.npa_2018 = Npa2018File.model_validate(self._read_json("npa_2018.json"))
+        self.realised_tax = {
+            (item.region_id, item.year): item
+            for item in (RealisedTax.model_validate(raw) for raw in self._read_json("realised_tax.json"))
+        }
         self.geometry = self._load_geometry()
         self.layers: dict[str, dict[str, Any]] = {
             "zones": self._read_json("zones.geojson"),
@@ -125,9 +131,12 @@ class SeedStore:
         for check in self.validation:
             referenced.update(check.source_ids)
         referenced.update(self.npa.source_ids)
+        referenced.update(self.npa_2018.source_ids)
         referenced.add(self.layers["zones"]["source"]["source_id"])
         for row in self.layers["pdam_coverage"]["items"]:
             referenced.update(row["source_ids"])
+        for realised in self.realised_tax.values():
+            referenced.update(realised.source_ids)
         unknown = sorted(referenced - set(self.sources))
         if unknown:
             raise RuntimeError(f"seed data references unknown sources: {unknown}")
@@ -152,6 +161,9 @@ class SeedStore:
 
     def terms_for(self, region_id: str, year: int) -> AccountTerms | None:
         return self.terms.get((region_id, year))
+
+    def realised_for(self, region_id: str, year: int) -> RealisedTax | None:
+        return self.realised_tax.get((region_id, year))
 
     def available_years(self) -> list[int]:
         return sorted({year for _, year in self.declared})

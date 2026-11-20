@@ -191,6 +191,30 @@ class AccountYear(BaseModel):
     npa_value_total: Number
 
 
+class RealisedTax(BaseModel):
+    model_config = ConfigDict(frozen=True)
+
+    region_id: str
+    year: int
+    realised_idr: int
+    target_idr: int | None = None
+    source_ids: list[str] = Field(default_factory=list)
+    note: str | None = None
+
+
+class BillingYear(BaseModel):
+    model_config = ConfigDict(frozen=True)
+
+    year: int
+    result: CheckResult
+    realised_tax: Number
+    declared_volume: Number
+    implied_tax_per_m3: Number
+    expected_band: Range
+    regulation: str
+    outcome: str
+
+
 class BillingCheck(BaseModel):
     model_config = ConfigDict(frozen=True)
 
@@ -202,6 +226,7 @@ class BillingCheck(BaseModel):
     implied_tax_per_m3: Number
     expected_band: Range
     note: str
+    history: list[BillingYear] = Field(default_factory=list)
 
 
 class Lead(BaseModel):

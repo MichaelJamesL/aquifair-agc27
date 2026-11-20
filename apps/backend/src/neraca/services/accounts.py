@@ -6,6 +6,7 @@ from neraca.domain.models import (
     AccountTerms,
     AccountYear,
     BillingCheck,
+    BillingYear,
     CheckRef,
     DeclaredUse,
     Number,
@@ -13,7 +14,7 @@ from neraca.domain.models import (
     Region,
     ScenarioResult,
 )
-from neraca.domain.npa import NpaTable
+from neraca.domain.npa import Hda2018Table, NpaTable, TaxBand
 from neraca.repositories.seed import SeedStore
 
 DECLARED_UNIT = "m3/yr"
@@ -33,6 +34,7 @@ class AccountService:
     def __init__(self, seed: SeedStore) -> None:
         self.seed = seed
         self.npa = NpaTable(seed.npa)
+        self.hda_2018 = Hda2018Table(seed.npa_2018)
         self._checks = {check.code: check for check in seed.validation}
 
     def latest_year(self) -> int:
@@ -110,31 +112,114 @@ class AccountService:
         )
 
     def billing_check(self, region_id: str, year: int | None = None) -> BillingCheck:
+        """V1: realised tax / declared volume against 0.20 x the NPA range of groups 2-4 for that year."""
         region = self.seed.region(region_id)
-        selected_year = year or self.latest_year()
-        record = self.seed.declared_for(region.id, selected_year)
-        declared = self._declared_number(record)
-        check = self._check_ref("V1")
-        band = self.npa.undeclared_tax_band(region.wilayah)
+        years = sorted(y for (r, y) in self.seed.realised_tax if r == region.id)
+        history = [self._billing_year(region, y) for y in years]
+        tested = [h for h in history if h.result in (CheckResult.PASS, CheckResult.FAIL)]
+        if year is not None:
+            selected_year = year
+        elif tested:
+            selected_year = tested[-1].year
+        else:
+            selected_year = self.latest_year()
+        current = next((h for h in history if h.year == selected_year), None)
+        if current is None:
+            current = self._billing_year(region, selected_year)
+        if tested:
+            failed = [h for h in tested if h.result is CheckResult.FAIL]
+            check = CheckRef(
+                code="V1",
+                status=CheckStatus.DONE,
+                result=CheckResult.FAIL if failed else CheckResult.PASS,
+            )
+            verdict = (
+                " ".join(f"{h.year}: {h.outcome}" for h in failed)
+                if failed
+                else "Realised tax per declared m3 sits inside the band every tested year: no billing leak."
+            )
+            note = f"V1 run on {', '.join(str(h.year) for h in tested)}. {verdict}"
+        else:
+            check = CheckRef(code="V1", status=CheckStatus.PLANNED, result=CheckResult.WAITING)
+            note = (
+                "V1 needs the realised groundwater tax for this region from its APBD accountability report; "
+                "it has not been obtained. The expected band is a reference, not a result."
+            )
         return BillingCheck(
             region=region,
             year=selected_year,
             check=check,
-            realised_tax=Number.missing(MONEY_UNIT, note="APBD/LKPJ realisation has not been obtained."),
+            realised_tax=current.realised_tax,
+            declared_volume=current.declared_volume,
+            implied_tax_per_m3=current.implied_tax_per_m3,
+            expected_band=current.expected_band,
+            note=note,
+            history=history,
+        )
+
+    def _billing_band(self, region: Region, year: int) -> tuple[TaxBand, str]:
+        if self.hda_2018.applies_to(year):
+            return self.hda_2018.billing_band(region.id), self.seed.npa_2018.regulation
+        return self.npa.undeclared_tax_band(region.wilayah), self.seed.npa.regulation
+
+    def _billing_year(self, region: Region, year: int) -> BillingYear:
+        declared = self._declared_number(self.seed.declared_for(region.id, year))
+        band, regulation = self._billing_band(region, year)
+        expected = Range(
+            low=band.low_tax_idr,
+            high=band.high_tax_idr,
+            unit=PER_M3_UNIT,
+            label=ProvenanceLabel.CALCULATED,
+            source_ids=list(band.source_ids),
+            note=f"0.20 x NPA of use groups 2-4 under {regulation}.",
+        )
+        realised_record = self.seed.realised_for(region.id, year)
+        if realised_record is None:
+            realised = Number.missing(MONEY_UNIT, note="Realised groundwater tax for this year not obtained.")
+        else:
+            realised = Number(
+                value=realised_record.realised_idr,
+                unit=MONEY_UNIT,
+                label=ProvenanceLabel.OFFICIAL,
+                source_ids=list(realised_record.source_ids),
+                note=realised_record.note,
+            )
+        if realised.value is None or declared.value is None:
+            missing = "realised tax" if realised.value is None else "declared volume"
+            return BillingYear(
+                year=year,
+                result=CheckResult.WAITING,
+                realised_tax=realised,
+                declared_volume=declared,
+                implied_tax_per_m3=Number.missing(PER_M3_UNIT, note=f"Needs the {missing} for {year}."),
+                expected_band=expected,
+                regulation=regulation,
+                outcome=f"Not tested: no {missing} for {year}.",
+            )
+        implied = realised.value / declared.value
+        low, high = band.low_tax_idr, band.high_tax_idr
+        result = CheckResult.PASS if low <= implied <= high else CheckResult.FAIL
+        if implied < low:
+            outcome = "Below the band: tax collected per declared m3 is too low (billing leak)."
+        elif implied > high:
+            outcome = "Above the band: more tax than the declared volume implies (the volume may be under-declared)."
+        else:
+            outcome = "Inside the band: tax collected matches the declared volume."
+        return BillingYear(
+            year=year,
+            result=result,
+            realised_tax=realised,
             declared_volume=declared,
-            implied_tax_per_m3=Number.missing(PER_M3_UNIT, note="Requires realised tax divided by declared volume."),
-            expected_band=Range(
-                low=band.low_tax_idr,
-                high=band.high_tax_idr,
+            implied_tax_per_m3=Number(
+                value=round(implied),
                 unit=PER_M3_UNIT,
                 label=ProvenanceLabel.CALCULATED,
-                source_ids=list(band.source_ids),
-                note="0.20 x NPA for business groups K4-K2 at the top tier.",
+                source_ids=_unique(list(realised.source_ids) + list(declared.source_ids)),
+                note="Realised tax divided by the ESDM declared volume of the same year.",
             ),
-            note=(
-                "V1 is planned. It needs the realised groundwater tax from the APBD or LKPJ; "
-                "the figure is not in the open dataset. The expected band is a reference, not a result."
-            ),
+            expected_band=expected,
+            regulation=regulation,
+            outcome=outcome,
         )
 
     def _build(self, region: Region, year: int) -> Account:
@@ -203,7 +288,7 @@ class AccountService:
                 note="NPA value reported by ESDM. This is the tax base, not realised tax.",
             )
 
-        checks = [self._check_ref(code) for code in ("V1", "V2") if code in self._checks]
+        checks = [self.billing_check(region.id).check, self._check_ref("V2")]
         return Account(
             region=region,
             year=year,

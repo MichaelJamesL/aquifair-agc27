@@ -133,3 +133,39 @@ class NpaTable:
             high_tax_idr=round(band.high_npa_idr * self.tax_rate * undeclared_m3),
             source_ids=list(band.source_ids),
         )
+
+
+class Npa2018File(BaseModel):
+    regulation: str
+    in_force: str
+    valid_until_year: int
+    formula: str
+    tax_rate: float
+    groups: list[str]
+    tiers: list[str]
+    hda_idr_per_m3: dict[str, list[list[int]]]
+    wilayah_by_region: dict[str, str]
+    source_ids: list[str]
+
+
+class Hda2018Table:
+    """The pre-2025 regime: NPA = volume x HDA (Pergub Jateng 19/2017, annex replaced by Pergub 54/2018)."""
+
+    def __init__(self, data: Npa2018File) -> None:
+        self.data = data
+
+    def applies_to(self, year: int) -> bool:
+        return year <= self.data.valid_until_year
+
+    def billing_band(self, region_id: str) -> TaxBand:
+        """V1 band: 0.20 x the HDA range of groups 2-4 (niaga kecil .. niaga besar), all volume tiers."""
+        wilayah = self.data.wilayah_by_region[region_id]
+        rows = self.data.hda_idr_per_m3[wilayah][1:4]
+        low_npa, high_npa = min(min(r) for r in rows), max(max(r) for r in rows)
+        return TaxBand(
+            low_npa_idr=low_npa,
+            high_npa_idr=high_npa,
+            low_tax_idr=round(low_npa * self.data.tax_rate),
+            high_tax_idr=round(high_npa * self.data.tax_rate),
+            source_ids=list(self.data.source_ids),
+        )
