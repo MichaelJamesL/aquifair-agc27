@@ -3,6 +3,12 @@
 </p>
 
 <p align="center">
+  <img src="apps/web/public/ITB_logo.png" alt="Institut Teknologi Bandung" height="48">
+  &nbsp;&nbsp;&nbsp;
+  <img src="apps/web/public/UI_logo.png" alt="Universitas Indonesia" height="48">
+</p>
+
+<p align="center">
   <b>Who pumps, who pays, and where pipes should replace pumps in sinking Central Java.</b><br>
   Built for the <b>ASEAN Geospatial Challenge (AGC) 2027</b>.
 </p>
