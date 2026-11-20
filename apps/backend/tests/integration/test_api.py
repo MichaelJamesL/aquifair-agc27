@@ -194,6 +194,10 @@ def test_sources_and_validation(client: TestClient) -> None:
     assert len(checks) == 8
     v2 = next(check for check in checks if check["code"] == "V2")
     assert v2["result"] == "pass"
+    for done in ("V1", "V4", "V7", "V8"):  # run checks carry a result and the numbers behind it
+        check = next(check for check in checks if check["code"] == done)
+        assert check["status"] == "done"
+        assert check["detail"]
 
 
 def test_regions_and_geojson(client: TestClient) -> None:

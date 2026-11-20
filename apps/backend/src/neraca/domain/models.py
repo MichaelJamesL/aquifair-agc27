@@ -413,6 +413,7 @@ class ValidationCheck(BaseModel):
     pass_mark: str
     status: CheckStatus
     result: CheckResult
+    detail: str | None = None
     source_ids: list[str] = Field(default_factory=list)
 
 
