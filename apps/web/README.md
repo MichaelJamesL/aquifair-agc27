@@ -1,69 +1,63 @@
-# Groundtrace web
+# NERACA web
 
-The frontend for Groundtrace (AGC 2027). It follows the Groundtrace Figma file (screens 06–09) and the
-software section of `docs/groundwater-audit-latex-v2` (user needs U1–U4).
-
-Stack: Next.js (App Router) + Tailwind CSS v4 + TypeScript. Fonts are self-hosted with Fontsource
-(Plus Jakarta Sans, IBM Plex Mono, IBM Plex Sans, Newsreader), icons from lucide-react.
+PC-only Next.js frontend for **NERACA: Groundwater Accounts**. It implements the Figma
+`Ganesha Makara_Design` screens with real backend data from `apps/backend`.
 
 ## Run
 
+Start the backend first (see `../backend/README.md`), then:
+
 ```bash
+cd apps/web
+cp .env.example .env.local
 npm install
-npm run dev     # http://localhost:3000
-npm run build   # production build
+npm run dev
 ```
 
-## Screens
+Open <http://localhost:3000>.
 
-| Route | Figma screen | Need |
-| --- | --- | --- |
-| `/` | 06 · Sinking map | U1 |
-| `/audit` | 07 · Audit list, and 09 · Cone width (slider state) | U2, U4 |
-| `/audit/[id]` | 08 · Hot-spot evidence | U3 |
-| `/runs` | 03 · Open a run, 03b · No run for this area yet | U6 |
-| `/runs/new` | 04 · Start a run (analysts only) | U6 |
-| `/runs/R-0008` | 05 · Run in progress (live demo: stages advance every few seconds) | U6 |
-| `/runs/R-0009` | 05b · Run stopped at Gate 2 | U6 |
-| `/compare` | 13 · Compare runs (R-0007 → R-0008) | U6, S6 |
-| `/validation` | 14 · Validation and Gate 3 sign-off for R-0008 | V1–V7 |
-| `/planner` | 10 · Background sinking for planners (also opens from the Background subsidence layer) | Q3, O4 |
-| `/sheet?lang=id\|en\|both&version=regulator\|public` | 12 · Audit sheet, 2 A4 pages, print to PDF | O5 |
-| `/story` | 01 · Story page (public landing) | |
-| `/sign-in` | 02 · Sign in, picks the role | S3 |
+The API base URL is read from `NEXT_PUBLIC_API_URL` and defaults to
+`http://localhost:8000/api/v1`. If you run the backend on another port, update `.env.local`.
 
-Export (11) is a dialog opened from the top bar, the audit list or a hot spot. It downloads the
-hot spots as GeoJSON and opens the audit sheet; rasters and cards need the run service.
-ID/EN in the top bar switches the map workspace to Indonesian (07-ID). The public view (08b) hides
-permit matches and the permit layer.
+## Routes
 
-Sign in (or click the user in the top-right corner) to switch role: Regulator (Rina S.), Analyst
-(A. Wibowo), Planner (D. Lestari) or the public view. Analysts also see private and failed runs and
-can start or sign off a run. Signing off R-0008 (on its run page or on Validation) publishes it
-for the rest of the session.
+| Route | Screen |
+|---|---|
+| `/` | public landing |
+| `/sign-in` | role picker (no login) |
+| `/accounts` | Accounts · Jawa Tengah (A1) |
+| `/accounts/[id]` | Account detail (A2) |
+| `/accounts/asean` | ASEAN comparison (A3) |
+| `/leads` | Inspection leads (B1) |
+| `/leads/[id]` | Lead detail (B2) |
+| `/leads/validation` | Hit rate and validation (B4) |
+| `/pipes` | Pipe priority (C1) |
+| `/pipes/spam` | SPAM Semarang Barat test (C2) |
+| `/methods` | Methods and evidence (M) |
 
-The map, top bar and layers panel live in `src/app/(workspace)/layout.tsx`, so they stay mounted
-while the right-hand panel changes. Opening the audit list reframes the map with an animation
-instead of reloading it.
+Older Groundtrace routes under `(workspace)` and `(other)` remain in the repository but are not
+linked from the NERACA shell.
 
-## Where things are
+## Backend integration
 
+- `src/lib/api.ts` contains typed fetchers for every endpoint used.
+- `src/lib/use-api.ts` is the small fetch hook used by client screens.
+- The role dropdown sends `X-Role: public|regulator|inspector|planner`.
+- Every numeric value displays its provenance label through `LabelBadge`.
+- Missing data is shown as `MISSING` / `not estimated` or an explicit empty state; it is never
+  rendered as zero or a fabricated value.
+
+## Design
+
+- Tailwind CSS v4 tokens live in `src/app/globals.css`.
+- Fonts: Plus Jakarta Sans, IBM Plex Mono, Manrope, Newsreader.
+- Map component: MapLibre GL JS with a solid sea background and the backend
+  `regions.geojson` source. Accounts are a polygon choropleth; leads use a circle layer when real
+  leads exist; pipes use a raster/heatmap layer once real cells exist.
+- Shared components: `src/components/neraca/ui.tsx`, `top-bar.tsx`, `region-map.tsx`.
+
+## Checks
+
+```bash
+npm run build
 ```
-src/
-  app/                  routes (App Router)
-    globals.css         Tailwind theme: colours, fonts, radii from the Figma tokens
-  components/           TopBar, LayersPanel, ui primitives (Button, Badge, TraceTag)
-  map/                  MapView (pan, zoom, markers, tooltips), Legend, raster sampler, vector layers
-  panels/               AuditList, ConeWidthSlider, Evidence, HistoryChart
-  data/run.ts           demo data for run R-0007 (the numbers in the Figma screens)
-  data/layers.ts        the six research-output layers and their legends
-  state.tsx             client state: active layer, cone width B, context toggles, hover
-public/map/*.png        raster layers exported from the Figma map component
-```
-
-## Demo data
-
-`src/data/run.ts` holds the eight hot spots shown in the design, with volumes for the three cone
-widths (1.0, 1.5, 2.0 km). The map rasters are the ones drawn in Figma. When the backend exists,
-replace `run.ts` with calls to the API in the architecture section of the document
-(`GET /audits/{id}`, `GET /audits/{id}/sources`) and swap the PNGs for map tiles.
