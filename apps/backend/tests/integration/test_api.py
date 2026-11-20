@@ -113,6 +113,15 @@ def test_public_summary_counts_leads_only(client: TestClient) -> None:
     assert all("unknown" not in row["by_use_class"] for row in body["items"])
 
 
+def test_lead_image_is_inspector_only(client: TestClient) -> None:
+    lead_id = client.get("/api/v1/leads", params={"role": "inspector"}).json()["items"][0]["id"]
+    image = client.get(f"/api/v1/leads/{lead_id}/image/2026", params={"role": "inspector"})
+    assert image.status_code == 200
+    assert image.headers["content-type"] == "image/png"
+    assert client.get(f"/api/v1/leads/{lead_id}/image/2026").status_code == 403
+    assert client.get(f"/api/v1/leads/{lead_id}/image/2019", params={"role": "inspector"}).status_code == 404
+
+
 def test_public_summary_has_no_addresses(client: TestClient) -> None:
     response = client.get("/api/v1/leads/public/summary")
     assert response.status_code == 200

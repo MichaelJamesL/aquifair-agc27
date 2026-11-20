@@ -3,6 +3,7 @@ from __future__ import annotations
 import math
 from collections import Counter, defaultdict
 from datetime import UTC, date, datetime
+from pathlib import Path
 from uuid import uuid4
 
 from neraca.core.errors import InvalidFeedbackError, NotFoundError, RoleForbiddenError
@@ -101,6 +102,15 @@ class LeadService:
             for district, counter in sorted(grouped.items())
         ]
         return LeadSummaryCollection(status="available", funnel=list(self.seed.leads.funnel), items=items)
+
+    def chip_path(self, role: Role, lead_id: str, year: int) -> Path:
+        """Before/after Sentinel-2 true-colour chip for the lead card (inspectors only, like the card)."""
+        self._require_inspector(role)
+        self.seed.lead(lead_id)
+        path = self.seed.data_dir / "lead_chips" / f"{lead_id}_{year}.png"
+        if not path.exists():
+            raise NotFoundError(f"no {year} image for lead {lead_id!r}")
+        return path
 
     def add_feedback(
         self,

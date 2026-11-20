@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from fastapi import APIRouter
+from fastapi.responses import FileResponse
 
 from neraca.api.deps import RoleDep, SeedDep, SessionDep
 from neraca.domain.enums import LeadStage, UseClass, ZoneClass
@@ -48,6 +49,13 @@ def hit_rate(role: RoleDep, seed: SeedDep, session: SessionDep) -> list[HitRate]
 def get_lead(lead_id: str, role: RoleDep, seed: SeedDep, session: SessionDep) -> Lead:
     service = LeadService(seed, SqlFeedbackRepository(session))
     return service.get_lead(role, lead_id)
+
+
+@router.get("/{lead_id}/image/{year}", response_class=FileResponse)
+def lead_image(lead_id: str, year: int, role: RoleDep, seed: SeedDep, session: SessionDep) -> FileResponse:
+    """Sentinel-2 chip for 2022 (before) or 2026 (after); other years are 404."""
+    service = LeadService(seed, SqlFeedbackRepository(session))
+    return FileResponse(service.chip_path(role, lead_id, year), media_type="image/png")
 
 
 @router.get("/{lead_id}/feedback", response_model=list[Feedback])
