@@ -87,6 +87,35 @@ to inspectors only.
 | Inspector | provincial ESDM office | B. Inspection leads |
 | Planner | water utility, planning agency, public works | C. Pipes instead of pumps |
 
+## Methodology at a glance
+
+**The whole method on one page.** A: declared use is compared with a validated estimate, and
+the gap is priced with the official formula (NPA = HAB × (0.6 S + 0.4 P), tax = 20 % of NPA).
+B: new roofs found by satellite pass four filters to become leads, and field visits feed back
+a hit rate. C: Sentinel-1 sinking maps feed a pipe-priority map with user-set weights, and a
+before/after test of the West Semarang SPAM.
+
+![Method overview: groundwater accounts, inspection leads, pipes instead of pumps](docs/neraca-app-guide-latex/figures/method-overview.png)
+
+**How new roofs are found (module B).** Cloud-masked Sentinel-2 composites (June–October,
+2021–2026) give 9 features per 10 m pixel. A gradient-boosting model learns roof vs not-roof
+from 200,000 samples and is tested on a spatial hold-out it never saw: 94.5 % accuracy and
+98.9 % roof recall. A temporal rule dates each roof. Patch filters drop roads and very large
+areas. A Sentinel-1 radar check keeps only buildings that appeared after 2022, which leaves
+507 new buildings.
+
+![Roof detector: composites, gradient boosting, temporal rule, patch filters and radar check](docs/neraca-app-guide-latex/figures/roof-detector.png)
+
+**Accounts and pipes in detail (modules A and C).**
+- **A1:** the 16 km volume split gives Semarang City a P10/P50/P90 of 27.9 / 43.8 / 54.7 Mm³
+  a year, confirmed in two unseen regions.
+- **A2:** the gap is priced with the official price table, and billing check V1 passes.
+- **C1:** demand, clay and new supply are rescaled to 0–1 and weighted into the 22-block grid.
+- **C2:** the SPAM before/after test, checked with placebo years, a placebo area and an
+  Arizona control, comes out inconclusive.
+
+![Accounts and pipes: volume split, gap and price, pipe-priority grid, SPAM test](docs/neraca-app-guide-latex/figures/accounts-pipes.png)
+
 ## Data
 
 All data is real and public. No synthetic data is used.
