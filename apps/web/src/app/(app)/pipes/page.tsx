@@ -1,13 +1,14 @@
 "use client";
 
 import Link from "next/link";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import {
   AlertTriangle,
   Droplets,
   FlaskConical,
   RotateCcw,
   SlidersHorizontal,
+  X,
 } from "lucide-react";
 import type { PipePriority } from "@/lib/api";
 import { api } from "@/lib/api";
@@ -83,6 +84,42 @@ const LAYER_VALUE: Record<Exclude<LayerKey, "demand16">, { get: (item: PipePrior
   supply: { get: (item) => item.cell.supply_m3_yr / 1e6, unit: "Mm³/yr SPAM", digits: 1 },
 };
 
+/** What one 4 km block holds; shared by the hover tooltip and the pinned card. */
+function BlockDetail({ item, rank, of }: { item: PipePriority; rank: number; of: number }) {
+  const cell = item.cell;
+  const range =
+    cell.demand_low_m3_yr != null && cell.demand_high_m3_yr != null
+      ? ` (${mm3(cell.demand_low_m3_yr, 1)}–${mm3(cell.demand_high_m3_yr, 1)})`
+      : "";
+  return (
+    <div className="space-y-1">
+      <p className="text-[12.5px] font-semibold leading-4 text-ink">{cell.districts.join(", ") || cell.id}</p>
+      <p className="font-mono text-[10px] text-ink-3">
+        Block {rank} of {of} · {cell.id}
+      </p>
+      <dl className="grid grid-cols-[auto_1fr] gap-x-3 gap-y-0.5 pt-1 text-[11.5px] leading-4">
+        <dt className="text-ink-3">Score</dt>
+        <dd className="font-mono text-ink">{num(item.score, 2)}</dd>
+        <dt className="text-ink-3">Groundwater demand</dt>
+        <dd className="text-ink">
+          {mm3(cell.demand_m3_yr, 1)}
+          {range}
+        </dd>
+        <dt className="text-ink-3">Soft clay</dt>
+        <dd className="text-ink">{num(cell.clay_m)} m mean thickness</dd>
+        <dt className="text-ink-3">Sinking</dt>
+        <dd className="text-ink">{cell.sinking_mm_yr == null ? "no radar median" : `${num(cell.sinking_mm_yr)} mm/yr`}</dd>
+        <dt className="text-ink-3">New SPAM supply</dt>
+        <dd className="text-ink">{cell.supply_m3_yr > 0 ? mm3(cell.supply_m3_yr, 1) : "none"}</dd>
+      </dl>
+      <p className="pt-1 text-[10.5px] leading-[14px] text-ink-3">
+        Factor values 0–1 across the blocks: demand {num(item.demand_share, 2)}, clay {num(item.damage_share, 2)},
+        not yet on supply {num(item.supply_share, 2)}.
+      </p>
+    </div>
+  );
+}
+
 function LayerBadge({ tone }: { tone: "lead" | "validated" | "measured" }) {
   if (tone === "lead") {
     return (
@@ -98,6 +135,7 @@ function LayerBadge({ tone }: { tone: "lead" | "validated" | "measured" }) {
 export default function PipesPage() {
   const { role } = useRole();
   const [layer, setLayer] = useState<LayerKey>("priority");
+  const [selected, setSelected] = useState<string | null>(null);
   const [weights, setWeights] = useState<Record<WeightKey, number>>({
     ...DEFAULT_WEIGHTS,
   });
@@ -122,6 +160,11 @@ export default function PipesPage() {
     () => (priority?.status === "available" ? priority.items : []),
     [priority],
   );
+  const rankOf = useMemo(() => new Map(items.map((item, index) => [item.cell.id, index])), [items]);
+  const selectedIndex = selected == null ? undefined : rankOf.get(selected);
+  useEffect(() => {
+    if (selected) document.getElementById(`block-${selected}`)?.scrollIntoView({ block: "nearest" });
+  }, [selected]);
   const shown = LAYER_VALUE[layer === "demand16" ? "demand4" : layer];
   const values = items.map(shown.get);
   const low = Math.min(...values);
@@ -138,6 +181,7 @@ export default function PipesPage() {
               id: item.cell.id,
               t: high > low ? (shown.get(item) - low) / (high - low) : 0,
               served: item.cell.supply_m3_yr > 0,
+              selected: item.cell.id === selected,
             },
             geometry: { type: "Polygon", coordinates: [item.cell.polygon] },
           })),
@@ -155,15 +199,31 @@ export default function PipesPage() {
             id: "blocks-line",
             type: "line",
             paint: {
-              "line-color": ["case", ["get", "served"], "#b45309", "#ffffff"] as never,
-              "line-width": ["case", ["get", "served"], 2, 1] as never,
+              "line-color": [
+                "case",
+                ["any", ["get", "selected"], ["boolean", ["feature-state", "hover"], false]],
+                "#0f172a",
+                ["get", "served"],
+                "#b45309",
+                "#ffffff",
+              ] as never,
+              "line-width": [
+                "case",
+                ["get", "selected"],
+                3,
+                ["boolean", ["feature-state", "hover"], false],
+                2.5,
+                ["get", "served"],
+                2,
+                1,
+              ] as never,
               "line-dasharray": [2, 1],
             },
           },
         ],
       },
     ],
-    [items, shown, low, high],
+    [items, shown, low, high, selected],
   );
   const spam = spamState.data;
   const total = weights.demand + weights.damage + weights.supply;
@@ -198,6 +258,10 @@ export default function PipesPage() {
           <p className="text-[13px] leading-[19px] text-ink-2">
             Where piped surface water would replace the most groundwater, weighted by
             how much damage sinking does there.
+          </p>
+          <p className="flex items-start gap-2 text-[11.5px] leading-4 text-ink-3">
+            <LabelBadge label="SCENARIO" dot={false} />
+            <span>A planning priority from your weights, not a prediction: ranking inside a city failed validation (file 12).</span>
           </p>
         </div>
 
@@ -293,27 +357,70 @@ export default function PipesPage() {
           ) : null}
         </div>
 
+        <div className="rounded-lg bg-bg p-3.5">
+          <div className="flex items-center gap-1.5">
+            <span className="flex size-5 items-center justify-center rounded-full bg-amber-100 text-amber-800">
+              <Droplets size={12} />
+            </span>
+            <p className="text-[12.5px] font-semibold leading-[18px] text-ink">
+              {spam?.name ?? "SPAM Semarang Barat"}
+            </p>
+          </div>
+          <p className="mt-1.5 text-[12px] leading-4 text-ink-2">
+            Since Jan 2024 ·{" "}
+            {spam?.uptake_lps_2024_01 == null ? "605 L/s" : `${num(spam.uptake_lps_2024_01)} L/s`}
+            {" · "}
+            {spam?.connections_actual_2024_09 == null
+              ? "47,261 connections by Sep 2024"
+              : `${num(spam.connections_actual_2024_09)} connections by Sep 2024`}
+          </p>
+          <p className="mt-1.5 text-[11px] leading-[15px] text-ink-3">
+            Its supply is spread over Semarang Barat, Tugu and Ngaliyan by area (dashed amber blocks), because
+            the service map is not public.
+          </p>
+          <p className="mt-2 border-t border-line pt-2 text-[11px] leading-[15px] text-ink-2">
+            Validated 16 km cell (west and central Semarang):{" "}
+            <span className="font-medium text-ink">27.9 / 43.8 / 54.7 Mm³</span> (P10/P50/P90)
+          </p>
+        </div>
+
         <div className="flex-1" />
 
         <p className="text-[11px] leading-[15px] text-ink-3">
-          Demand: NERACA demand model (4 km Lead, 16 km Validated). Clay: soft-clay
-          thickness layer. Supply: SPAM Semarang Barat service kecamatan.
+          22 blocks of 4 km, the grid of the demand model. Demand: AquiFair demand model (4 km Lead, 16 km
+          Validated). Clay: soft-clay thickness layer. Supply: SPAM Semarang Barat service kecamatan.
         </p>
       </aside>
 
       <section className="relative min-h-0 overflow-hidden bg-sea">
-        <OverlayMap overlays={overlays} bounds={BOUNDS} />
+        <OverlayMap
+          overlays={overlays}
+          bounds={BOUNDS}
+          clickableLayers={["blocks-fill"]}
+          onFeatureClick={(_, feature) => setSelected(String(feature.properties?.id))}
+          hoverLayers={["blocks-fill"]}
+          tooltip={(_, feature) => {
+            const index = rankOf.get(String(feature.properties?.id));
+            return index == null ? null : <BlockDetail item={items[index]} rank={index + 1} of={items.length} />;
+          }}
+        />
 
-        <div className="pointer-events-none absolute left-4 top-4 flex max-w-[470px] items-start gap-2 rounded-lg bg-surface px-3 py-2 shadow-card">
-          <LabelBadge label="SCENARIO" dot={false} />
-          <p className="text-[12px] leading-4 text-ink-2">
-            Ranking follows your weights. Ranking inside a city failed validation (file 12), so
-            this is a planning priority, not a prediction of where sinking will stop.
-          </p>
-        </div>
+        {selectedIndex != null && (
+          <div className="absolute right-14 top-4 z-20 w-[300px] rounded-xl bg-surface p-3.5 shadow-pop">
+            <button
+              type="button"
+              aria-label="Close block detail"
+              onClick={() => setSelected(null)}
+              className="absolute right-2.5 top-2.5 rounded p-1 text-ink-3 hover:bg-bg hover:text-ink"
+            >
+              <X size={14} />
+            </button>
+            <BlockDetail item={items[selectedIndex]} rank={selectedIndex + 1} of={items.length} />
+          </div>
+        )}
 
         {unavailableReason && (
-          <div className="absolute left-4 top-[86px] flex w-[490px] items-start gap-2 rounded-lg border border-amber-200 bg-amber-50/95 px-3 py-2.5 shadow-card">
+          <div className="absolute left-4 top-4 flex w-[490px] items-start gap-2 rounded-lg border border-amber-200 bg-amber-50/95 px-3 py-2.5 shadow-card">
             <AlertTriangle size={15} className="mt-0.5 shrink-0 text-amber-800" />
             <div>
               <p className="text-[12px] font-semibold leading-4 text-amber-800">
@@ -325,38 +432,6 @@ export default function PipesPage() {
             </div>
           </div>
         )}
-
-        <div className="absolute left-4 top-[96px] w-[270px] rounded-xl bg-surface p-3.5 shadow-pop">
-          <div className="flex items-center gap-1.5">
-            <span className="flex size-5 items-center justify-center rounded-full bg-amber-100 text-amber-800">
-              <Droplets size={12} />
-            </span>
-            <p className="text-[13px] font-semibold leading-[18px] text-ink">
-              {spam?.name ?? "SPAM Semarang Barat"}
-            </p>
-          </div>
-          <p className="mt-1.5 text-[12px] leading-4 text-ink-2">
-            Since Jan 2024 ·{" "}
-            {spam?.uptake_lps_2024_01 == null
-              ? "605 L/s"
-              : `${num(spam.uptake_lps_2024_01)} L/s`}
-          </p>
-          <p className="mt-0.5 text-[11px] leading-4 text-ink-3">
-            {spam?.connections_actual_2024_09 == null
-              ? "47,261 connections by Sep 2024"
-              : `${num(spam.connections_actual_2024_09)} connections by Sep 2024`}
-          </p>
-        </div>
-
-        <div className="absolute bottom-[200px] left-4 w-[330px] rounded-lg bg-navy-900 px-3 py-2 text-white shadow-pop">
-          <p className="text-[10px] uppercase tracking-[0.6px] text-white/60">
-            Validated 16 km cell
-          </p>
-          <p className="mt-1 text-[12px] font-medium leading-4">
-            27.9 / 43.8 / 54.7 Mm³{" "}
-            <span className="font-normal text-white/70">(P10/P50/P90)</span>
-          </p>
-        </div>
 
         <div className="absolute bottom-4 left-4 w-[330px] rounded-lg bg-surface p-3 shadow-card">
           <p className="text-[12px] font-medium leading-4 text-ink">
@@ -383,10 +458,7 @@ export default function PipesPage() {
               Served by new SPAM
             </span>
           </div>
-          <p className="mt-2 text-[10px] leading-[14px] text-ink-3">
-            22 blocks of 4 km, the grid of the demand model. SPAM supply is spread over Semarang
-            Barat, Tugu and Ngaliyan by area, because the service map is not public.
-          </p>
+          <p className="mt-2 text-[10px] leading-[14px] text-ink-3">Hover a block for its numbers; click to pin them.</p>
         </div>
       </section>
 
@@ -416,9 +488,16 @@ export default function PipesPage() {
           ) : items.length > 0 ? (
             <div>
               {items.map((item, index) => (
-                <div
+                <button
+                  type="button"
+                  id={`block-${item.cell.id}`}
                   key={item.cell.id}
-                  className="grid grid-cols-[18px_minmax(0,1fr)_58px_46px_58px] items-center gap-2 border-b border-line py-2"
+                  aria-pressed={item.cell.id === selected}
+                  onClick={() => setSelected(item.cell.id === selected ? null : item.cell.id)}
+                  className={cn(
+                    "grid w-full grid-cols-[18px_minmax(0,1fr)_58px_46px_58px] items-center gap-2 border-b border-line py-2 text-left",
+                    item.cell.id === selected ? "bg-blue-50" : "hover:bg-bg",
+                  )}
                 >
                   <span className="font-mono text-[11px] text-ink-3">{index + 1}</span>
                   <div className="min-w-0">
@@ -441,7 +520,7 @@ export default function PipesPage() {
                   <p className="text-right font-mono text-[11px] leading-4 text-ink">
                     {num(item.score, 2)}
                   </p>
-                </div>
+                </button>
               ))}
             </div>
           ) : (
