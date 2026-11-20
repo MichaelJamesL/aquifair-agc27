@@ -15,11 +15,8 @@ import json
 import re
 from pathlib import Path
 
-import cv2
 import fitz
-import numpy as np
 import pandas as pd
-from pyproj import Transformer
 
 ROOT = Path(__file__).resolve().parents[3]
 REAL = ROOT / "realdata" / "semarang"
@@ -91,34 +88,27 @@ def demak() -> list[dict]:
 
 
 def outlines(rows: list[dict]) -> dict:
-    """GADM 4.1 kecamatan outlines, simplified to ~30 m, carrying the coverage value for the map."""
-    to_utm = Transformer.from_crs("EPSG:4326", "EPSG:32749", always_xy=True)
-    to_ll = Transformer.from_crs("EPSG:32749", "EPSG:4326", always_xy=True)
-    regency = {"KotaSemarang": "Kota Semarang", "Demak": "Kab. Demak"}
+    """GADM 4.1 kecamatan outlines carrying the coverage value for the map. They are not simplified here:
+    fit_coastline.py simplifies all of them together so neighbours keep one shared border."""
+    regency = {"KotaSemarang": "Kota Semarang", "Demak": "Kab. Demak", "Kendal": "Kab. Kendal",
+               "Semarang": "Kab. Semarang", "Grobogan": "Kab. Grobogan"}
     by_key = {(r["regency"], r["kecamatan"].replace(" ", "").lower()): r for r in rows}
     gadm = json.loads((REAL / "admin/gadm41_adm3_semarang_demak.geojson").read_text(encoding="utf-8"))
     features = []
     for f in gadm["features"]:
         p = f["properties"]
-        row = by_key.get((regency.get(p["NAME_2"], ""), p["NAME_3"].lower()))
-        g = f["geometry"]
-        polys = []
-        for poly in g["coordinates"] if g["type"] == "MultiPolygon" else [g["coordinates"]]:
-            x, y = to_utm.transform(*np.array(poly[0]).T)
-            ring = cv2.approxPolyDP(np.c_[x, y].astype(np.float32).reshape(-1, 1, 2), 30, True).reshape(-1, 2)
-            if len(ring) < 3:
-                continue
-            lon, lat = to_ll.transform(ring[:, 0], ring[:, 1])
-            coords = [[round(a, 5), round(b, 5)] for a, b in zip(lon, lat, strict=True)]
-            polys.append([[*coords, coords[0]]])
+        name = regency.get(p["NAME_2"], p["NAME_2"])
+        row = by_key.get((name, p["NAME_3"].lower()))
         features.append({
             "type": "Feature",
             "properties": {
-                "regency": regency.get(p["NAME_2"], p["NAME_2"]),
-                "kecamatan": row["kecamatan"] if row else p["NAME_3"],
+                "gid": p["GID_3"],
+                "regency": name,
+                "kecamatan": row["kecamatan"] if row else re.sub(r"(?<=[a-z])(?=[A-Z])", " ", p["NAME_3"]),
                 "coverage": row["coverage"] if row else None,
+                "year": row["year"] if row else None,
             },
-            "geometry": {"type": "MultiPolygon", "coordinates": polys},
+            "geometry": f["geometry"],
         })
     assert sum(f["properties"]["coverage"] is not None for f in features) == len(rows)
     return {"type": "FeatureCollection", "features": features}
