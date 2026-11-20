@@ -140,7 +140,7 @@ function exportCsv(leads: Lead[]) {
   const blob = new Blob([[header.join(","), ...rows].join("\n")], { type: "text/csv" });
   const link = document.createElement("a");
   link.href = URL.createObjectURL(blob);
-  link.download = "neraca-leads.csv";
+  link.download = "aquifair-leads.csv";
   link.click();
   URL.revokeObjectURL(link.href);
 }

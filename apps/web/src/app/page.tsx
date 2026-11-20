@@ -162,7 +162,7 @@ function BrowserChrome({ path }: { path: string }) {
         <span className="size-2 rounded-full bg-line-strong" />
       </div>
       <div className="mx-auto flex h-5 w-[280px] items-center justify-center rounded-full border border-line bg-surface font-mono text-[9px] text-ink-3">
-        neraca.app{path}
+        aquifair.app{path}
       </div>
       <div className="w-[38px]" />
     </div>

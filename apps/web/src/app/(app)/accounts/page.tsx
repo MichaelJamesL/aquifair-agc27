@@ -142,7 +142,7 @@ function exportCsv(accounts: Account[], metric: Metric, group: UseGroup, tariffs
   const url = URL.createObjectURL(blob);
   const link = document.createElement("a");
   link.href = url;
-  link.download = `neraca-accounts-${metric}.csv`;
+  link.download = `aquifair-accounts-${metric}.csv`;
   link.click();
   URL.revokeObjectURL(url);
 }
