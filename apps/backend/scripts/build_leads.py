@@ -88,12 +88,11 @@ def fill(rings: list[np.ndarray], value: int, out: np.ndarray) -> None:
 
 # ---------------------------------------------------------------- layers on the 10 m grid
 def zone_raster() -> np.ndarray:
+    """1 critical, 2 damaged, 3 any other zone, 0 no zone (sea or outside the basin)."""
     codes = {"critical": 1, "damaged": 2}
     out = np.zeros(SHAPE, np.uint8)
     for f in json.loads((DATA / "zones.geojson").read_text(encoding="utf-8"))["features"]:
-        code = codes.get(f["properties"]["zone"])
-        if code is None:
-            continue
+        code = codes.get(f["properties"]["zone"], 3)
         mask = np.zeros(SHAPE, np.uint8)
         for poly in f["geometry"]["coordinates"]:
             fill([to_px(*np.array(poly[0]).T)], 1, mask)
@@ -421,7 +420,8 @@ def main() -> None:
         r_c, c_c = int(np.median(rows)), int(np.median(cols))
         easting, northing = X0 + (c_c + 0.5) * PIX, Y0 - (r_c + 0.5) * PIX
         lon, lat = TO_LL.transform(easting, northing)
-        zone_code = Counter(zones[rows, cols].tolist()).most_common(1)[0][0]
+        in_zone = [v for v in zones[rows, cols].tolist() if v]  # a shoreline roof takes the zone of its land part
+        zone_code = Counter(in_zone).most_common(1)[0][0] if in_zone else 0
         zone = {1: "critical", 2: "damaged"}.get(zone_code)
         ring = cv2.dilate(sub, np.ones((7, 7), np.uint8))  # 30 m around the patch for tagged points
         rr2, cc2 = np.nonzero(ring)

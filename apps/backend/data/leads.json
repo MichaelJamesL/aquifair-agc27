@@ -78,17 +78,17 @@
   {
    "step": "1-3",
    "label": "... inside a critical or damaged zone",
-   "count": 21
+   "count": 22
   },
   {
    "step": "1-4",
    "label": "... and for hotels, malls and hospitals, kecamatan piped coverage below 50% (proxy; not applied to factories)",
-   "count": 19
+   "count": 20
   },
   {
    "step": "unknown",
    "label": "Class unknown (no tag in OSM or Overture places), inside a critical or damaged zone: listed for a site check, not counted as leads",
-   "count": 61
+   "count": 65
   }
  ],
  "items": [
@@ -58392,11 +58392,11 @@
    "built_year": 2023,
    "use_class": "unknown",
    "use_class_basis": "no tag in OpenStreetMap or Overture places",
-   "zone": null,
+   "zone": "critical",
    "filters": {
     "1": true,
     "2": false,
-    "3": false,
+    "3": true,
     "4": null
    },
    "pdam_status": "Not checked while the class is unknown; 100% household piped coverage in Semarang Barat, 2023",
@@ -58419,6 +58419,7 @@
     "built_year": "MEASURED",
     "footprint_m2": "MEASURED",
     "use_class": "MISSING",
+    "zone": "OFFICIAL",
     "pdam_status": "MISSING",
     "sinking_mm_yr": "MEASURED"
    }
@@ -58679,11 +58680,11 @@
    "built_year": 2025,
    "use_class": "unknown",
    "use_class_basis": "no tag in OpenStreetMap or Overture places",
-   "zone": null,
+   "zone": "critical",
    "filters": {
     "1": true,
     "2": false,
-    "3": false,
+    "3": true,
     "4": null
    },
    "pdam_status": "Not checked while the class is unknown; 100% household piped coverage in Semarang Barat, 2023",
@@ -58706,6 +58707,7 @@
     "built_year": "MEASURED",
     "footprint_m2": "MEASURED",
     "use_class": "MISSING",
+    "zone": "OFFICIAL",
     "pdam_status": "MISSING",
     "sinking_mm_yr": "MEASURED"
    }
@@ -59110,11 +59112,11 @@
    "built_year": 2023,
    "use_class": "unknown",
    "use_class_basis": "no tag in OpenStreetMap or Overture places",
-   "zone": null,
+   "zone": "critical",
    "filters": {
     "1": true,
     "2": false,
-    "3": false,
+    "3": true,
     "4": null
    },
    "pdam_status": "Not checked while the class is unknown; 100% household piped coverage in Semarang Barat, 2023",
@@ -59137,6 +59139,7 @@
     "built_year": "MEASURED",
     "footprint_m2": "MEASURED",
     "use_class": "MISSING",
+    "zone": "OFFICIAL",
     "pdam_status": "MISSING",
     "sinking_mm_yr": "MEASURED"
    }
@@ -59617,11 +59620,11 @@
    "built_year": 2025,
    "use_class": "unknown",
    "use_class_basis": "no tag in OpenStreetMap or Overture places",
-   "zone": null,
+   "zone": "damaged",
    "filters": {
     "1": true,
     "2": false,
-    "3": false,
+    "3": true,
     "4": null
    },
    "pdam_status": "Not checked while the class is unknown; 100% household piped coverage in Semarang Barat, 2023",
@@ -59644,6 +59647,7 @@
     "built_year": "MEASURED",
     "footprint_m2": "MEASURED",
     "use_class": "MISSING",
+    "zone": "OFFICIAL",
     "pdam_status": "MISSING",
     "sinking_mm_yr": "MEASURED"
    }
@@ -60143,11 +60147,11 @@
    "built_year": 2025,
    "use_class": "factory",
    "use_class_basis": "OSM building or point tag",
-   "zone": null,
+   "zone": "damaged",
    "filters": {
     "1": true,
     "2": true,
-    "3": false,
+    "3": true,
     "4": null
    },
    "pdam_status": "Not checked for factories (PDAM sold industry 0.22 Mm3 in 2022); 80% household piped coverage in Semarang Utara, 2023",
@@ -60169,6 +60173,7 @@
     "built_year": "MEASURED",
     "footprint_m2": "MEASURED",
     "use_class": "MEASURED",
+    "zone": "OFFICIAL",
     "pdam_status": "MISSING",
     "sinking_mm_yr": "MEASURED"
    }
