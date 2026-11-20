@@ -4,12 +4,17 @@
     "name": "Billing",
     "module": "A",
     "pass_mark": "Realised tax / declared volume lies within 0.20 x the NPA range of groups 2-4 for that year. Below the range is a billing leak.",
-    "status": "planned",
-    "result": "waiting",
+    "status": "done",
+    "result": "pass",
     "source_ids": [
-      "APBD-SMG",
-      "PERGUB-7-2025"
-    ]
+      "PERDA-SMG-2-2024",
+      "KEPGUB-211-2025",
+      "PERGUB-19-2017",
+      "PERGUB-54-2018",
+      "ESDM-NPA-2022",
+      "ESDM-NPA-2023"
+    ],
+    "detail": "Kota Semarang: realised groundwater tax / ESDM declared volume = Rp 2,188/m3 (2022) and Rp 2,245/m3 (2023), inside 0.20 x the Pergub 54/2018 HDA range for use groups 2-4 in Wilayah A (Rp 2,100-2,480/m3). 2024 not tested: declared volume not yet published. Other regions: realised tax not obtained."
   },
   {
     "code": "V2",

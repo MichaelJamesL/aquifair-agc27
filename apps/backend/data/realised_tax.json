@@ -1,0 +1,26 @@
+[
+ {
+  "region_id": "3374",
+  "year": 2022,
+  "realised_idr": 22791631767,
+  "target_idr": null,
+  "source_ids": ["PERDA-SMG-2-2024"],
+  "note": "Realisation 2022, prior-year column of the 2023 accountability report (CaLK, Pajak Air Tanah)."
+ },
+ {
+  "region_id": "3374",
+  "year": 2023,
+  "realised_idr": 22609911448,
+  "target_idr": 20823667914,
+  "source_ids": ["PERDA-SMG-2-2024"],
+  "note": "Realisation 2023: Rp 22,609,911,448, 108.58 % of the Rp 20,823,667,914 target (CaLK, Pajak Air Tanah)."
+ },
+ {
+  "region_id": "3374",
+  "year": 2024,
+  "realised_idr": 20720803982,
+  "target_idr": 26810000000,
+  "source_ids": ["KEPGUB-211-2025"],
+  "note": "Realisation 2024: Rp 20,720,803,982, 77.29 % of the Rp 26.81 bn target. ESDM has not yet published the 2024 declared volume."
+ }
+]

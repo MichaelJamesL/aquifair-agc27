@@ -271,12 +271,48 @@
   },
   {
     "id": "APBD-SMG",
-    "name": "Realised groundwater tax, Kota Semarang 2020-2025",
+    "name": "Realised groundwater tax, Kota Semarang 2020-2021 and 2025",
     "publisher": "Bapenda Kota Semarang / APBD / LKPJ",
     "url": null,
     "label": "MISSING",
     "accessed": null,
-    "note": "Needed for V1. Not in the open dataset."
+    "note": "2022-2024 found (PERDA-SMG-2-2024, KEPGUB-211-2025); the other years are still missing."
+  },
+  {
+    "id": "PERDA-SMG-2-2024",
+    "name": "Perda Kota Semarang 2/2024: accountability report on the 2023 budget (APBD 2023)",
+    "publisher": "Pemerintah Kota Semarang",
+    "url": "https://jdih.semarangkota.go.id/assets/public/data_dokumen/2024perda3333_002.pdf",
+    "label": "OFFICIAL",
+    "accessed": "2026-11-20",
+    "note": "CaLK, Pajak Air Tanah: realised Rp 22,609,911,448 in 2023 (108.58 % of target) and Rp 22,791,631,767 in 2022."
+  },
+  {
+    "id": "KEPGUB-211-2025",
+    "name": "Kepgub Jawa Tengah 100.3.3.1/211/2025: evaluation of the Kota Semarang 2024 budget accountability",
+    "publisher": "Gubernur Jawa Tengah",
+    "url": "https://jdih.jatengprov.go.id/produk_hukum/kepgub/sk_100.3.3.1-211_th_2025_auten.pdf",
+    "label": "OFFICIAL",
+    "accessed": "2026-11-20",
+    "note": "Pajak Air Tanah 2024: target Rp 26.81 bn, realised Rp 20,720,803,982 (77.29 %)."
+  },
+  {
+    "id": "PERGUB-19-2017",
+    "name": "Pergub Jawa Tengah 19/2017: Nilai Perolehan Air Tanah (NPA = volume x HDA)",
+    "publisher": "Gubernur Jawa Tengah",
+    "url": "https://jdih.jatengprov.go.id/inventarisasi-hukum/detail/pergub_19_th_2017",
+    "label": "OFFICIAL",
+    "accessed": "2026-11-20",
+    "note": "Pre-2025 NPA regime. Wilayah A = Kota Semarang, Tegal, Pekalongan, Surakarta and Kab. Kudus, Rembang, Blora, Pemalang, Brebes, Demak."
+  },
+  {
+    "id": "PERGUB-54-2018",
+    "name": "Pergub Jawa Tengah 54/2018: amendment of Pergub 19/2017 (HDA tables)",
+    "publisher": "Gubernur Jawa Tengah",
+    "url": "https://jdih.jatengprov.go.id/inventarisasi-hukum/detail/pergub_54_th_2018",
+    "label": "OFFICIAL",
+    "accessed": "2026-11-20",
+    "note": "Annex replaces the harga dasar air tables per wilayah, use group and volume tier; in force until Pergub 7/2025."
   },
   {
     "id": "BPS-SMG-DA-2024",
