@@ -44,6 +44,11 @@ class SeedStore:
         self.validation = self._load_validation()
         self.npa = self._load_npa()
         self.geometry = self._load_geometry()
+        self.layers: dict[str, dict[str, Any]] = {
+            "zones": self._read_json("zones.geojson"),
+            "zone_wells": self._read_json("zone_wells.json"),
+            "pdam_coverage": self._read_json("pdam_coverage.json"),
+        }
         self._assert_source_links()
 
     def _read_json(self, name: str) -> Any:
@@ -120,6 +125,9 @@ class SeedStore:
         for check in self.validation:
             referenced.update(check.source_ids)
         referenced.update(self.npa.source_ids)
+        referenced.add(self.layers["zones"]["source"]["source_id"])
+        for row in self.layers["pdam_coverage"]["items"]:
+            referenced.update(row["source_ids"])
         unknown = sorted(referenced - set(self.sources))
         if unknown:
             raise RuntimeError(f"seed data references unknown sources: {unknown}")

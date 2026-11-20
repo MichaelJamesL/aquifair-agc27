@@ -108,6 +108,14 @@ def test_pipes_priority_unavailable(client: TestClient) -> None:
     assert body["items"] == []
 
 
+def test_map_layers(client: TestClient) -> None:
+    zones = client.get("/api/v1/maps/zones").json()
+    assert {f["properties"]["zone"] for f in zones["features"]} >= {"critical", "damaged"}
+    assert len(client.get("/api/v1/maps/zone-wells").json()["items"]) == 467
+    coverage = client.get("/api/v1/maps/pdam-coverage").json()["items"]
+    assert all(0 <= row["coverage"] <= 1 for row in coverage)
+
+
 def test_tariff_table(client: TestClient) -> None:
     response = client.get("/api/v1/tariffs", params={"wilayah": "C"})
     assert response.status_code == 200
