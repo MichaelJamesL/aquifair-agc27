@@ -396,6 +396,42 @@
     "note": "Built-area class: training labels for the Semarang Sentinel-2 roof detector, and the new-building step of the Arizona V4 test (scripts/fetch_az_v4.py)."
   },
   {
+    "id": "BPS-POP-JT",
+    "name": "BPS Jawa Tengah: population by kabupaten/kota (table 2288)",
+    "publisher": "Badan Pusat Statistik Provinsi Jawa Tengah",
+    "url": "https://jateng.bps.go.id/id/statistics-table/2/MjI4OCMy/",
+    "label": "OFFICIAL",
+    "accessed": "2026-11-20",
+    "note": "2020-2023, based on the 2020 census."
+  },
+  {
+    "id": "BPS-WATER-JT",
+    "name": "BPS Jawa Tengah: households by drinking-water source and kabupaten/kota",
+    "publisher": "Badan Pusat Statistik Provinsi Jawa Tengah (Susenas)",
+    "url": "https://jateng.bps.go.id/id/statistics-table/3/YzBaMlduSlFVbTVrUnpWeU9YRTJka0pVTTFkU1FUMDkjMw==/",
+    "label": "OFFICIAL",
+    "accessed": "2026-11-20",
+    "note": "2020, 2021, 2023; no 2022 edition. Drinking source only, so bottled-water households are a range."
+  },
+  {
+    "id": "OSM-IND-JT",
+    "name": "OpenStreetMap landuse=industrial, Central Java",
+    "publisher": "OpenStreetMap contributors (ODbL), via Overpass",
+    "url": "https://overpass-api.de/",
+    "label": "WEAK",
+    "accessed": "2026-11-20",
+    "note": "Volunteer mapping; how completely industrial land is mapped differs between regencies."
+  },
+  {
+    "id": "EXP08",
+    "name": "Experiment 8: moving a pumping model between sites (Arizona, Houston)",
+    "publisher": "NERACA research log",
+    "url": null,
+    "label": "TESTED",
+    "accessed": "2026-11-20",
+    "note": "No model transferred without a local total: error factor 5-27 on the unseen site."
+  },
+  {
     "id": "OVERTURE-PLACES",
     "name": "Overture Maps places, release 2026-11-18.0",
     "publisher": "Overture Maps Foundation",

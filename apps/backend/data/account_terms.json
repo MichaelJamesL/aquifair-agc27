@@ -1,5 +1,2220 @@
 [
   {
+    "region_id": "3301",
+    "year": 2020,
+    "household_wells_low_m3": 28383554,
+    "household_wells_high_m3": 81660218,
+    "public_supply_low_m3": 0,
+    "public_supply_high_m3": 0,
+    "household_in_estimate": true,
+    "source_ids": [
+      "BPS-POP-JT",
+      "BPS-WATER-JT",
+      "OSM-IND-JT",
+      "EXP07",
+      "EXP08"
+    ],
+    "note": "Regency model, not validated: business wells (8.09-13.48 Mm3, OSM industrial land, never below declared) minus declared use. Household wells are exempt and cancel out. If PDAM's own wells are in the declared volume, the gap is understated by their volume; if the regency's industry uses rivers, the sea or PDAM rather than its own wells, it is overstated."
+  },
+  {
+    "region_id": "3301",
+    "year": 2021,
+    "household_wells_low_m3": 32100981,
+    "household_wells_high_m3": 80790050,
+    "public_supply_low_m3": 0,
+    "public_supply_high_m3": 0,
+    "household_in_estimate": true,
+    "source_ids": [
+      "BPS-POP-JT",
+      "BPS-WATER-JT",
+      "OSM-IND-JT",
+      "EXP07",
+      "EXP08"
+    ],
+    "note": "Regency model, not validated: business wells (8.09-13.48 Mm3, OSM industrial land, never below declared) minus declared use. Household wells are exempt and cancel out. If PDAM's own wells are in the declared volume, the gap is understated by their volume; if the regency's industry uses rivers, the sea or PDAM rather than its own wells, it is overstated."
+  },
+  {
+    "region_id": "3301",
+    "year": 2022,
+    "household_wells_low_m3": 26966669,
+    "household_wells_high_m3": 81810219,
+    "public_supply_low_m3": 0,
+    "public_supply_high_m3": 0,
+    "household_in_estimate": true,
+    "source_ids": [
+      "BPS-POP-JT",
+      "BPS-WATER-JT",
+      "OSM-IND-JT",
+      "EXP07",
+      "EXP08"
+    ],
+    "note": "Regency model, not validated: business wells (8.09-13.48 Mm3, OSM industrial land, never below declared) minus declared use. Household wells are exempt and cancel out. If PDAM's own wells are in the declared volume, the gap is understated by their volume; if the regency's industry uses rivers, the sea or PDAM rather than its own wells, it is overstated."
+  },
+  {
+    "region_id": "3301",
+    "year": 2023,
+    "household_wells_low_m3": 27226732,
+    "household_wells_high_m3": 77179782,
+    "public_supply_low_m3": 0,
+    "public_supply_high_m3": 0,
+    "household_in_estimate": true,
+    "source_ids": [
+      "BPS-POP-JT",
+      "BPS-WATER-JT",
+      "OSM-IND-JT",
+      "EXP07",
+      "EXP08"
+    ],
+    "note": "Regency model, not validated: business wells (8.09-13.48 Mm3, OSM industrial land, never below declared) minus declared use. Household wells are exempt and cancel out. If PDAM's own wells are in the declared volume, the gap is understated by their volume; if the regency's industry uses rivers, the sea or PDAM rather than its own wells, it is overstated."
+  },
+  {
+    "region_id": "3302",
+    "year": 2020,
+    "household_wells_low_m3": 29248141,
+    "household_wells_high_m3": 68985687,
+    "public_supply_low_m3": 0,
+    "public_supply_high_m3": 0,
+    "household_in_estimate": true,
+    "source_ids": [
+      "BPS-POP-JT",
+      "BPS-WATER-JT",
+      "OSM-IND-JT",
+      "EXP07",
+      "EXP08"
+    ],
+    "note": "Regency model, not validated: business wells (0.71-1.18 Mm3, OSM industrial land, never below declared) minus declared use. Household wells are exempt and cancel out. If PDAM's own wells are in the declared volume, the gap is understated by their volume; if the regency's industry uses rivers, the sea or PDAM rather than its own wells, it is overstated."
+  },
+  {
+    "region_id": "3302",
+    "year": 2021,
+    "household_wells_low_m3": 25334289,
+    "household_wells_high_m3": 62257917,
+    "public_supply_low_m3": 0,
+    "public_supply_high_m3": 0,
+    "household_in_estimate": true,
+    "source_ids": [
+      "BPS-POP-JT",
+      "BPS-WATER-JT",
+      "OSM-IND-JT",
+      "EXP07",
+      "EXP08"
+    ],
+    "note": "Regency model, not validated: business wells (3.04-3.04 Mm3, OSM industrial land, never below declared) minus declared use. Household wells are exempt and cancel out. If PDAM's own wells are in the declared volume, the gap is understated by their volume; if the regency's industry uses rivers, the sea or PDAM rather than its own wells, it is overstated."
+  },
+  {
+    "region_id": "3302",
+    "year": 2022,
+    "household_wells_low_m3": 25566209,
+    "household_wells_high_m3": 65823891,
+    "public_supply_low_m3": 0,
+    "public_supply_high_m3": 0,
+    "household_in_estimate": true,
+    "source_ids": [
+      "BPS-POP-JT",
+      "BPS-WATER-JT",
+      "OSM-IND-JT",
+      "EXP07",
+      "EXP08"
+    ],
+    "note": "Regency model, not validated: business wells (2.75-2.75 Mm3, OSM industrial land, never below declared) minus declared use. Household wells are exempt and cancel out. If PDAM's own wells are in the declared volume, the gap is understated by their volume; if the regency's industry uses rivers, the sea or PDAM rather than its own wells, it is overstated."
+  },
+  {
+    "region_id": "3302",
+    "year": 2023,
+    "household_wells_low_m3": 26473300,
+    "household_wells_high_m3": 66647121,
+    "public_supply_low_m3": 0,
+    "public_supply_high_m3": 0,
+    "household_in_estimate": true,
+    "source_ids": [
+      "BPS-POP-JT",
+      "BPS-WATER-JT",
+      "OSM-IND-JT",
+      "EXP07",
+      "EXP08"
+    ],
+    "note": "Regency model, not validated: business wells (2.99-2.99 Mm3, OSM industrial land, never below declared) minus declared use. Household wells are exempt and cancel out. If PDAM's own wells are in the declared volume, the gap is understated by their volume; if the regency's industry uses rivers, the sea or PDAM rather than its own wells, it is overstated."
+  },
+  {
+    "region_id": "3303",
+    "year": 2020,
+    "household_wells_low_m3": 15774468,
+    "household_wells_high_m3": 33283836,
+    "public_supply_low_m3": 0,
+    "public_supply_high_m3": 0,
+    "household_in_estimate": true,
+    "source_ids": [
+      "BPS-POP-JT",
+      "BPS-WATER-JT",
+      "OSM-IND-JT",
+      "EXP07",
+      "EXP08"
+    ],
+    "note": "Regency model, not validated: business wells (0.46-0.68 Mm3, OSM industrial land, never below declared) minus declared use. Household wells are exempt and cancel out. If PDAM's own wells are in the declared volume, the gap is understated by their volume; if the regency's industry uses rivers, the sea or PDAM rather than its own wells, it is overstated."
+  },
+  {
+    "region_id": "3303",
+    "year": 2021,
+    "household_wells_low_m3": 13978103,
+    "household_wells_high_m3": 29734735,
+    "public_supply_low_m3": 0,
+    "public_supply_high_m3": 0,
+    "household_in_estimate": true,
+    "source_ids": [
+      "BPS-POP-JT",
+      "BPS-WATER-JT",
+      "OSM-IND-JT",
+      "EXP07",
+      "EXP08"
+    ],
+    "note": "Regency model, not validated: business wells (0.42-0.68 Mm3, OSM industrial land, never below declared) minus declared use. Household wells are exempt and cancel out. If PDAM's own wells are in the declared volume, the gap is understated by their volume; if the regency's industry uses rivers, the sea or PDAM rather than its own wells, it is overstated."
+  },
+  {
+    "region_id": "3303",
+    "year": 2022,
+    "household_wells_low_m3": 14145181,
+    "household_wells_high_m3": 31486056,
+    "public_supply_low_m3": 0,
+    "public_supply_high_m3": 0,
+    "household_in_estimate": true,
+    "source_ids": [
+      "BPS-POP-JT",
+      "BPS-WATER-JT",
+      "OSM-IND-JT",
+      "EXP07",
+      "EXP08"
+    ],
+    "note": "Regency model, not validated: business wells (0.52-0.68 Mm3, OSM industrial land, never below declared) minus declared use. Household wells are exempt and cancel out. If PDAM's own wells are in the declared volume, the gap is understated by their volume; if the regency's industry uses rivers, the sea or PDAM rather than its own wells, it is overstated."
+  },
+  {
+    "region_id": "3303",
+    "year": 2023,
+    "household_wells_low_m3": 14575620,
+    "household_wells_high_m3": 31716372,
+    "public_supply_low_m3": 0,
+    "public_supply_high_m3": 0,
+    "household_in_estimate": true,
+    "source_ids": [
+      "BPS-POP-JT",
+      "BPS-WATER-JT",
+      "OSM-IND-JT",
+      "EXP07",
+      "EXP08"
+    ],
+    "note": "Regency model, not validated: business wells (0.48-0.68 Mm3, OSM industrial land, never below declared) minus declared use. Household wells are exempt and cancel out. If PDAM's own wells are in the declared volume, the gap is understated by their volume; if the regency's industry uses rivers, the sea or PDAM rather than its own wells, it is overstated."
+  },
+  {
+    "region_id": "3304",
+    "year": 2020,
+    "household_wells_low_m3": 13851931,
+    "household_wells_high_m3": 28323870,
+    "public_supply_low_m3": 0,
+    "public_supply_high_m3": 0,
+    "household_in_estimate": true,
+    "source_ids": [
+      "BPS-POP-JT",
+      "BPS-WATER-JT",
+      "OSM-IND-JT",
+      "EXP07",
+      "EXP08"
+    ],
+    "note": "Regency model, not validated: business wells (0.92-0.92 Mm3, OSM industrial land, never below declared) minus declared use. Household wells are exempt and cancel out. If PDAM's own wells are in the declared volume, the gap is understated by their volume; if the regency's industry uses rivers, the sea or PDAM rather than its own wells, it is overstated."
+  },
+  {
+    "region_id": "3304",
+    "year": 2021,
+    "household_wells_low_m3": 8947371,
+    "household_wells_high_m3": 18744053,
+    "public_supply_low_m3": 0,
+    "public_supply_high_m3": 0,
+    "household_in_estimate": true,
+    "source_ids": [
+      "BPS-POP-JT",
+      "BPS-WATER-JT",
+      "OSM-IND-JT",
+      "EXP07",
+      "EXP08"
+    ],
+    "note": "Regency model, not validated: business wells (0.67-0.67 Mm3, OSM industrial land, never below declared) minus declared use. Household wells are exempt and cancel out. If PDAM's own wells are in the declared volume, the gap is understated by their volume; if the regency's industry uses rivers, the sea or PDAM rather than its own wells, it is overstated."
+  },
+  {
+    "region_id": "3304",
+    "year": 2022,
+    "household_wells_low_m3": 9050641,
+    "household_wells_high_m3": 21405797,
+    "public_supply_low_m3": 0,
+    "public_supply_high_m3": 0,
+    "household_in_estimate": true,
+    "source_ids": [
+      "BPS-POP-JT",
+      "BPS-WATER-JT",
+      "OSM-IND-JT",
+      "EXP07",
+      "EXP08"
+    ],
+    "note": "Regency model, not validated: business wells (0.25-0.25 Mm3, OSM industrial land, never below declared) minus declared use. Household wells are exempt and cancel out. If PDAM's own wells are in the declared volume, the gap is understated by their volume; if the regency's industry uses rivers, the sea or PDAM rather than its own wells, it is overstated."
+  },
+  {
+    "region_id": "3304",
+    "year": 2023,
+    "household_wells_low_m3": 10197843,
+    "household_wells_high_m3": 21580593,
+    "public_supply_low_m3": 0,
+    "public_supply_high_m3": 0,
+    "household_in_estimate": true,
+    "source_ids": [
+      "BPS-POP-JT",
+      "BPS-WATER-JT",
+      "OSM-IND-JT",
+      "EXP07",
+      "EXP08"
+    ],
+    "note": "Regency model, not validated: business wells (0.88-0.88 Mm3, OSM industrial land, never below declared) minus declared use. Household wells are exempt and cancel out. If PDAM's own wells are in the declared volume, the gap is understated by their volume; if the regency's industry uses rivers, the sea or PDAM rather than its own wells, it is overstated."
+  },
+  {
+    "region_id": "3305",
+    "year": 2020,
+    "household_wells_low_m3": 24487762,
+    "household_wells_high_m3": 57515188,
+    "public_supply_low_m3": 0,
+    "public_supply_high_m3": 0,
+    "household_in_estimate": true,
+    "source_ids": [
+      "BPS-POP-JT",
+      "BPS-WATER-JT",
+      "OSM-IND-JT",
+      "EXP07",
+      "EXP08"
+    ],
+    "note": "Regency model, not validated: business wells (0.23-0.29 Mm3, OSM industrial land, never below declared) minus declared use. Household wells are exempt and cancel out. If PDAM's own wells are in the declared volume, the gap is understated by their volume; if the regency's industry uses rivers, the sea or PDAM rather than its own wells, it is overstated."
+  },
+  {
+    "region_id": "3305",
+    "year": 2021,
+    "household_wells_low_m3": 24119207,
+    "household_wells_high_m3": 57631085,
+    "public_supply_low_m3": 0,
+    "public_supply_high_m3": 0,
+    "household_in_estimate": true,
+    "source_ids": [
+      "BPS-POP-JT",
+      "BPS-WATER-JT",
+      "OSM-IND-JT",
+      "EXP07",
+      "EXP08"
+    ],
+    "note": "Regency model, not validated: business wells (0.27-0.29 Mm3, OSM industrial land, never below declared) minus declared use. Household wells are exempt and cancel out. If PDAM's own wells are in the declared volume, the gap is understated by their volume; if the regency's industry uses rivers, the sea or PDAM rather than its own wells, it is overstated."
+  },
+  {
+    "region_id": "3305",
+    "year": 2022,
+    "household_wells_low_m3": 24278767,
+    "household_wells_high_m3": 58314872,
+    "public_supply_low_m3": 0,
+    "public_supply_high_m3": 0,
+    "household_in_estimate": true,
+    "source_ids": [
+      "BPS-POP-JT",
+      "BPS-WATER-JT",
+      "OSM-IND-JT",
+      "EXP07",
+      "EXP08"
+    ],
+    "note": "Regency model, not validated: business wells (0.90-0.90 Mm3, OSM industrial land, never below declared) minus declared use. Household wells are exempt and cancel out. If PDAM's own wells are in the declared volume, the gap is understated by their volume; if the regency's industry uses rivers, the sea or PDAM rather than its own wells, it is overstated."
+  },
+  {
+    "region_id": "3305",
+    "year": 2023,
+    "household_wells_low_m3": 24645111,
+    "household_wells_high_m3": 59194789,
+    "public_supply_low_m3": 0,
+    "public_supply_high_m3": 0,
+    "household_in_estimate": true,
+    "source_ids": [
+      "BPS-POP-JT",
+      "BPS-WATER-JT",
+      "OSM-IND-JT",
+      "EXP07",
+      "EXP08"
+    ],
+    "note": "Regency model, not validated: business wells (0.33-0.33 Mm3, OSM industrial land, never below declared) minus declared use. Household wells are exempt and cancel out. If PDAM's own wells are in the declared volume, the gap is understated by their volume; if the regency's industry uses rivers, the sea or PDAM rather than its own wells, it is overstated."
+  },
+  {
+    "region_id": "3306",
+    "year": 2020,
+    "household_wells_low_m3": 15309218,
+    "household_wells_high_m3": 32734412,
+    "public_supply_low_m3": 0,
+    "public_supply_high_m3": 0,
+    "household_in_estimate": true,
+    "source_ids": [
+      "BPS-POP-JT",
+      "BPS-WATER-JT",
+      "OSM-IND-JT",
+      "EXP07",
+      "EXP08"
+    ],
+    "note": "Regency model, not validated: business wells (0.63-0.63 Mm3, OSM industrial land, never below declared) minus declared use. Household wells are exempt and cancel out. If PDAM's own wells are in the declared volume, the gap is understated by their volume; if the regency's industry uses rivers, the sea or PDAM rather than its own wells, it is overstated."
+  },
+  {
+    "region_id": "3306",
+    "year": 2021,
+    "household_wells_low_m3": 13022426,
+    "household_wells_high_m3": 27902778,
+    "public_supply_low_m3": 0,
+    "public_supply_high_m3": 0,
+    "household_in_estimate": true,
+    "source_ids": [
+      "BPS-POP-JT",
+      "BPS-WATER-JT",
+      "OSM-IND-JT",
+      "EXP07",
+      "EXP08"
+    ],
+    "note": "Regency model, not validated: business wells (0.78-0.78 Mm3, OSM industrial land, never below declared) minus declared use. Household wells are exempt and cancel out. If PDAM's own wells are in the declared volume, the gap is understated by their volume; if the regency's industry uses rivers, the sea or PDAM rather than its own wells, it is overstated."
+  },
+  {
+    "region_id": "3306",
+    "year": 2022,
+    "household_wells_low_m3": 13101023,
+    "household_wells_high_m3": 29375038,
+    "public_supply_low_m3": 0,
+    "public_supply_high_m3": 0,
+    "household_in_estimate": true,
+    "source_ids": [
+      "BPS-POP-JT",
+      "BPS-WATER-JT",
+      "OSM-IND-JT",
+      "EXP07",
+      "EXP08"
+    ],
+    "note": "Regency model, not validated: business wells (1.02-1.02 Mm3, OSM industrial land, never below declared) minus declared use. Household wells are exempt and cancel out. If PDAM's own wells are in the declared volume, the gap is understated by their volume; if the regency's industry uses rivers, the sea or PDAM rather than its own wells, it is overstated."
+  },
+  {
+    "region_id": "3306",
+    "year": 2023,
+    "household_wells_low_m3": 13403591,
+    "household_wells_high_m3": 29754108,
+    "public_supply_low_m3": 0,
+    "public_supply_high_m3": 0,
+    "household_in_estimate": true,
+    "source_ids": [
+      "BPS-POP-JT",
+      "BPS-WATER-JT",
+      "OSM-IND-JT",
+      "EXP07",
+      "EXP08"
+    ],
+    "note": "Regency model, not validated: business wells (1.61-1.61 Mm3, OSM industrial land, never below declared) minus declared use. Household wells are exempt and cancel out. If PDAM's own wells are in the declared volume, the gap is understated by their volume; if the regency's industry uses rivers, the sea or PDAM rather than its own wells, it is overstated."
+  },
+  {
+    "region_id": "3307",
+    "year": 2020,
+    "household_wells_low_m3": 1114096,
+    "household_wells_high_m3": 2392162,
+    "public_supply_low_m3": 0,
+    "public_supply_high_m3": 0,
+    "household_in_estimate": true,
+    "source_ids": [
+      "BPS-POP-JT",
+      "BPS-WATER-JT",
+      "OSM-IND-JT",
+      "EXP07",
+      "EXP08"
+    ],
+    "note": "Regency model, not validated: business wells (0.22-0.37 Mm3, OSM industrial land, never below declared) minus declared use. Household wells are exempt and cancel out. If PDAM's own wells are in the declared volume, the gap is understated by their volume; if the regency's industry uses rivers, the sea or PDAM rather than its own wells, it is overstated."
+  },
+  {
+    "region_id": "3307",
+    "year": 2021,
+    "household_wells_low_m3": 1825182,
+    "household_wells_high_m3": 4155200,
+    "public_supply_low_m3": 0,
+    "public_supply_high_m3": 0,
+    "household_in_estimate": true,
+    "source_ids": [
+      "BPS-POP-JT",
+      "BPS-WATER-JT",
+      "OSM-IND-JT",
+      "EXP07",
+      "EXP08"
+    ],
+    "note": "Regency model, not validated: business wells (0.22-0.37 Mm3, OSM industrial land, never below declared) minus declared use. Household wells are exempt and cancel out. If PDAM's own wells are in the declared volume, the gap is understated by their volume; if the regency's industry uses rivers, the sea or PDAM rather than its own wells, it is overstated."
+  },
+  {
+    "region_id": "3307",
+    "year": 2022,
+    "household_wells_low_m3": 1638449,
+    "household_wells_high_m3": 4200815,
+    "public_supply_low_m3": 0,
+    "public_supply_high_m3": 0,
+    "household_in_estimate": true,
+    "source_ids": [
+      "BPS-POP-JT",
+      "BPS-WATER-JT",
+      "OSM-IND-JT",
+      "EXP07",
+      "EXP08"
+    ],
+    "note": "Regency model, not validated: business wells (0.50-0.50 Mm3, OSM industrial land, never below declared) minus declared use. Household wells are exempt and cancel out. If PDAM's own wells are in the declared volume, the gap is understated by their volume; if the regency's industry uses rivers, the sea or PDAM rather than its own wells, it is overstated."
+  },
+  {
+    "region_id": "3307",
+    "year": 2023,
+    "household_wells_low_m3": 1662859,
+    "household_wells_high_m3": 4253439,
+    "public_supply_low_m3": 0,
+    "public_supply_high_m3": 0,
+    "household_in_estimate": true,
+    "source_ids": [
+      "BPS-POP-JT",
+      "BPS-WATER-JT",
+      "OSM-IND-JT",
+      "EXP07",
+      "EXP08"
+    ],
+    "note": "Regency model, not validated: business wells (0.37-0.37 Mm3, OSM industrial land, never below declared) minus declared use. Household wells are exempt and cancel out. If PDAM's own wells are in the declared volume, the gap is understated by their volume; if the regency's industry uses rivers, the sea or PDAM rather than its own wells, it is overstated."
+  },
+  {
+    "region_id": "3308",
+    "year": 2020,
+    "household_wells_low_m3": 14499147,
+    "household_wells_high_m3": 29157235,
+    "public_supply_low_m3": 0,
+    "public_supply_high_m3": 0,
+    "household_in_estimate": true,
+    "source_ids": [
+      "BPS-POP-JT",
+      "BPS-WATER-JT",
+      "OSM-IND-JT",
+      "EXP07",
+      "EXP08"
+    ],
+    "note": "Regency model, not validated: business wells (0.03-0.04 Mm3, OSM industrial land, never below declared) minus declared use. Household wells are exempt and cancel out. If PDAM's own wells are in the declared volume, the gap is understated by their volume; if the regency's industry uses rivers, the sea or PDAM rather than its own wells, it is overstated."
+  },
+  {
+    "region_id": "3308",
+    "year": 2021,
+    "household_wells_low_m3": 10997894,
+    "household_wells_high_m3": 22279313,
+    "public_supply_low_m3": 0,
+    "public_supply_high_m3": 0,
+    "household_in_estimate": true,
+    "source_ids": [
+      "BPS-POP-JT",
+      "BPS-WATER-JT",
+      "OSM-IND-JT",
+      "EXP07",
+      "EXP08"
+    ],
+    "note": "Regency model, not validated: business wells (0.67-0.67 Mm3, OSM industrial land, never below declared) minus declared use. Household wells are exempt and cancel out. If PDAM's own wells are in the declared volume, the gap is understated by their volume; if the regency's industry uses rivers, the sea or PDAM rather than its own wells, it is overstated."
+  },
+  {
+    "region_id": "3308",
+    "year": 2022,
+    "household_wells_low_m3": 10789088,
+    "household_wells_high_m3": 22399813,
+    "public_supply_low_m3": 0,
+    "public_supply_high_m3": 0,
+    "household_in_estimate": true,
+    "source_ids": [
+      "BPS-POP-JT",
+      "BPS-WATER-JT",
+      "OSM-IND-JT",
+      "EXP07",
+      "EXP08"
+    ],
+    "note": "Regency model, not validated: business wells (0.64-0.64 Mm3, OSM industrial land, never below declared) minus declared use. Household wells are exempt and cancel out. If PDAM's own wells are in the declared volume, the gap is understated by their volume; if the regency's industry uses rivers, the sea or PDAM rather than its own wells, it is overstated."
+  },
+  {
+    "region_id": "3308",
+    "year": 2023,
+    "household_wells_low_m3": 10938088,
+    "household_wells_high_m3": 22221027,
+    "public_supply_low_m3": 0,
+    "public_supply_high_m3": 0,
+    "household_in_estimate": true,
+    "source_ids": [
+      "BPS-POP-JT",
+      "BPS-WATER-JT",
+      "OSM-IND-JT",
+      "EXP07",
+      "EXP08"
+    ],
+    "note": "Regency model, not validated: business wells (0.66-0.66 Mm3, OSM industrial land, never below declared) minus declared use. Household wells are exempt and cancel out. If PDAM's own wells are in the declared volume, the gap is understated by their volume; if the regency's industry uses rivers, the sea or PDAM rather than its own wells, it is overstated."
+  },
+  {
+    "region_id": "3309",
+    "year": 2020,
+    "household_wells_low_m3": 19562081,
+    "household_wells_high_m3": 43049999,
+    "public_supply_low_m3": 0,
+    "public_supply_high_m3": 0,
+    "household_in_estimate": true,
+    "source_ids": [
+      "BPS-POP-JT",
+      "BPS-WATER-JT",
+      "OSM-IND-JT",
+      "EXP07",
+      "EXP08"
+    ],
+    "note": "Regency model, not validated: business wells (1.89-3.15 Mm3, OSM industrial land, never below declared) minus declared use. Household wells are exempt and cancel out. If PDAM's own wells are in the declared volume, the gap is understated by their volume; if the regency's industry uses rivers, the sea or PDAM rather than its own wells, it is overstated."
+  },
+  {
+    "region_id": "3309",
+    "year": 2021,
+    "household_wells_low_m3": 15459975,
+    "household_wells_high_m3": 37050266,
+    "public_supply_low_m3": 0,
+    "public_supply_high_m3": 0,
+    "household_in_estimate": true,
+    "source_ids": [
+      "BPS-POP-JT",
+      "BPS-WATER-JT",
+      "OSM-IND-JT",
+      "EXP07",
+      "EXP08"
+    ],
+    "note": "Regency model, not validated: business wells (5.28-5.28 Mm3, OSM industrial land, never below declared) minus declared use. Household wells are exempt and cancel out. If PDAM's own wells are in the declared volume, the gap is understated by their volume; if the regency's industry uses rivers, the sea or PDAM rather than its own wells, it is overstated."
+  },
+  {
+    "region_id": "3309",
+    "year": 2022,
+    "household_wells_low_m3": 13780620,
+    "household_wells_high_m3": 37386237,
+    "public_supply_low_m3": 0,
+    "public_supply_high_m3": 0,
+    "household_in_estimate": true,
+    "source_ids": [
+      "BPS-POP-JT",
+      "BPS-WATER-JT",
+      "OSM-IND-JT",
+      "EXP07",
+      "EXP08"
+    ],
+    "note": "Regency model, not validated: business wells (4.40-4.40 Mm3, OSM industrial land, never below declared) minus declared use. Household wells are exempt and cancel out. If PDAM's own wells are in the declared volume, the gap is understated by their volume; if the regency's industry uses rivers, the sea or PDAM rather than its own wells, it is overstated."
+  },
+  {
+    "region_id": "3309",
+    "year": 2023,
+    "household_wells_low_m3": 13910112,
+    "household_wells_high_m3": 37248145,
+    "public_supply_low_m3": 0,
+    "public_supply_high_m3": 0,
+    "household_in_estimate": true,
+    "source_ids": [
+      "BPS-POP-JT",
+      "BPS-WATER-JT",
+      "OSM-IND-JT",
+      "EXP07",
+      "EXP08"
+    ],
+    "note": "Regency model, not validated: business wells (5.58-5.58 Mm3, OSM industrial land, never below declared) minus declared use. Household wells are exempt and cancel out. If PDAM's own wells are in the declared volume, the gap is understated by their volume; if the regency's industry uses rivers, the sea or PDAM rather than its own wells, it is overstated."
+  },
+  {
+    "region_id": "3310",
+    "year": 2020,
+    "household_wells_low_m3": 25426120,
+    "household_wells_high_m3": 59330221,
+    "public_supply_low_m3": 0,
+    "public_supply_high_m3": 0,
+    "household_in_estimate": true,
+    "source_ids": [
+      "BPS-POP-JT",
+      "BPS-WATER-JT",
+      "OSM-IND-JT",
+      "EXP07",
+      "EXP08"
+    ],
+    "note": "Regency model, not validated: business wells (0.80-1.34 Mm3, OSM industrial land, never below declared) minus declared use. Household wells are exempt and cancel out. If PDAM's own wells are in the declared volume, the gap is understated by their volume; if the regency's industry uses rivers, the sea or PDAM rather than its own wells, it is overstated."
+  },
+  {
+    "region_id": "3310",
+    "year": 2021,
+    "household_wells_low_m3": 20999964,
+    "household_wells_high_m3": 51600243,
+    "public_supply_low_m3": 0,
+    "public_supply_high_m3": 0,
+    "household_in_estimate": true,
+    "source_ids": [
+      "BPS-POP-JT",
+      "BPS-WATER-JT",
+      "OSM-IND-JT",
+      "EXP07",
+      "EXP08"
+    ],
+    "note": "Regency model, not validated: business wells (4.59-4.59 Mm3, OSM industrial land, never below declared) minus declared use. Household wells are exempt and cancel out. If PDAM's own wells are in the declared volume, the gap is understated by their volume; if the regency's industry uses rivers, the sea or PDAM rather than its own wells, it is overstated."
+  },
+  {
+    "region_id": "3310",
+    "year": 2022,
+    "household_wells_low_m3": 21142110,
+    "household_wells_high_m3": 52703928,
+    "public_supply_low_m3": 0,
+    "public_supply_high_m3": 0,
+    "household_in_estimate": true,
+    "source_ids": [
+      "BPS-POP-JT",
+      "BPS-WATER-JT",
+      "OSM-IND-JT",
+      "EXP07",
+      "EXP08"
+    ],
+    "note": "Regency model, not validated: business wells (4.87-4.87 Mm3, OSM industrial land, never below declared) minus declared use. Household wells are exempt and cancel out. If PDAM's own wells are in the declared volume, the gap is understated by their volume; if the regency's industry uses rivers, the sea or PDAM rather than its own wells, it is overstated."
+  },
+  {
+    "region_id": "3310",
+    "year": 2023,
+    "household_wells_low_m3": 21512570,
+    "household_wells_high_m3": 53057119,
+    "public_supply_low_m3": 0,
+    "public_supply_high_m3": 0,
+    "household_in_estimate": true,
+    "source_ids": [
+      "BPS-POP-JT",
+      "BPS-WATER-JT",
+      "OSM-IND-JT",
+      "EXP07",
+      "EXP08"
+    ],
+    "note": "Regency model, not validated: business wells (5.06-5.06 Mm3, OSM industrial land, never below declared) minus declared use. Household wells are exempt and cancel out. If PDAM's own wells are in the declared volume, the gap is understated by their volume; if the regency's industry uses rivers, the sea or PDAM rather than its own wells, it is overstated."
+  },
+  {
+    "region_id": "3311",
+    "year": 2020,
+    "household_wells_low_m3": 14604999,
+    "household_wells_high_m3": 44562340,
+    "public_supply_low_m3": 0,
+    "public_supply_high_m3": 0,
+    "household_in_estimate": true,
+    "source_ids": [
+      "BPS-POP-JT",
+      "BPS-WATER-JT",
+      "OSM-IND-JT",
+      "EXP07",
+      "EXP08"
+    ],
+    "note": "Regency model, not validated: business wells (8.07-13.44 Mm3, OSM industrial land, never below declared) minus declared use. Household wells are exempt and cancel out. If PDAM's own wells are in the declared volume, the gap is understated by their volume; if the regency's industry uses rivers, the sea or PDAM rather than its own wells, it is overstated."
+  },
+  {
+    "region_id": "3311",
+    "year": 2021,
+    "household_wells_low_m3": 13035230,
+    "household_wells_high_m3": 42922827,
+    "public_supply_low_m3": 0,
+    "public_supply_high_m3": 0,
+    "household_in_estimate": true,
+    "source_ids": [
+      "BPS-POP-JT",
+      "BPS-WATER-JT",
+      "OSM-IND-JT",
+      "EXP07",
+      "EXP08"
+    ],
+    "note": "Regency model, not validated: business wells (8.07-13.44 Mm3, OSM industrial land, never below declared) minus declared use. Household wells are exempt and cancel out. If PDAM's own wells are in the declared volume, the gap is understated by their volume; if the regency's industry uses rivers, the sea or PDAM rather than its own wells, it is overstated."
+  },
+  {
+    "region_id": "3311",
+    "year": 2022,
+    "household_wells_low_m3": 12523581,
+    "household_wells_high_m3": 44077774,
+    "public_supply_low_m3": 0,
+    "public_supply_high_m3": 0,
+    "household_in_estimate": true,
+    "source_ids": [
+      "BPS-POP-JT",
+      "BPS-WATER-JT",
+      "OSM-IND-JT",
+      "EXP07",
+      "EXP08"
+    ],
+    "note": "Regency model, not validated: business wells (8.07-13.44 Mm3, OSM industrial land, never below declared) minus declared use. Household wells are exempt and cancel out. If PDAM's own wells are in the declared volume, the gap is understated by their volume; if the regency's industry uses rivers, the sea or PDAM rather than its own wells, it is overstated."
+  },
+  {
+    "region_id": "3311",
+    "year": 2023,
+    "household_wells_low_m3": 12743182,
+    "household_wells_high_m3": 44850675,
+    "public_supply_low_m3": 0,
+    "public_supply_high_m3": 0,
+    "household_in_estimate": true,
+    "source_ids": [
+      "BPS-POP-JT",
+      "BPS-WATER-JT",
+      "OSM-IND-JT",
+      "EXP07",
+      "EXP08"
+    ],
+    "note": "Regency model, not validated: business wells (8.07-13.44 Mm3, OSM industrial land, never below declared) minus declared use. Household wells are exempt and cancel out. If PDAM's own wells are in the declared volume, the gap is understated by their volume; if the regency's industry uses rivers, the sea or PDAM rather than its own wells, it is overstated."
+  },
+  {
+    "region_id": "3312",
+    "year": 2020,
+    "household_wells_low_m3": 15772586,
+    "household_wells_high_m3": 34114157,
+    "public_supply_low_m3": 0,
+    "public_supply_high_m3": 0,
+    "household_in_estimate": true,
+    "source_ids": [
+      "BPS-POP-JT",
+      "BPS-WATER-JT",
+      "OSM-IND-JT",
+      "EXP07",
+      "EXP08"
+    ],
+    "note": "Regency model, not validated: business wells (1.36-2.26 Mm3, OSM industrial land, never below declared) minus declared use. Household wells are exempt and cancel out. If PDAM's own wells are in the declared volume, the gap is understated by their volume; if the regency's industry uses rivers, the sea or PDAM rather than its own wells, it is overstated."
+  },
+  {
+    "region_id": "3312",
+    "year": 2021,
+    "household_wells_low_m3": 14311629,
+    "household_wells_high_m3": 30292719,
+    "public_supply_low_m3": 0,
+    "public_supply_high_m3": 0,
+    "household_in_estimate": true,
+    "source_ids": [
+      "BPS-POP-JT",
+      "BPS-WATER-JT",
+      "OSM-IND-JT",
+      "EXP07",
+      "EXP08"
+    ],
+    "note": "Regency model, not validated: business wells (1.36-2.26 Mm3, OSM industrial land, never below declared) minus declared use. Household wells are exempt and cancel out. If PDAM's own wells are in the declared volume, the gap is understated by their volume; if the regency's industry uses rivers, the sea or PDAM rather than its own wells, it is overstated."
+  },
+  {
+    "region_id": "3312",
+    "year": 2022,
+    "household_wells_low_m3": 14417948,
+    "household_wells_high_m3": 37127142,
+    "public_supply_low_m3": 0,
+    "public_supply_high_m3": 0,
+    "household_in_estimate": true,
+    "source_ids": [
+      "BPS-POP-JT",
+      "BPS-WATER-JT",
+      "OSM-IND-JT",
+      "EXP07",
+      "EXP08"
+    ],
+    "note": "Regency model, not validated: business wells (1.36-2.26 Mm3, OSM industrial land, never below declared) minus declared use. Household wells are exempt and cancel out. If PDAM's own wells are in the declared volume, the gap is understated by their volume; if the regency's industry uses rivers, the sea or PDAM rather than its own wells, it is overstated."
+  },
+  {
+    "region_id": "3312",
+    "year": 2023,
+    "household_wells_low_m3": 16533845,
+    "household_wells_high_m3": 36916866,
+    "public_supply_low_m3": 0,
+    "public_supply_high_m3": 0,
+    "household_in_estimate": true,
+    "source_ids": [
+      "BPS-POP-JT",
+      "BPS-WATER-JT",
+      "OSM-IND-JT",
+      "EXP07",
+      "EXP08"
+    ],
+    "note": "Regency model, not validated: business wells (1.36-2.26 Mm3, OSM industrial land, never below declared) minus declared use. Household wells are exempt and cancel out. If PDAM's own wells are in the declared volume, the gap is understated by their volume; if the regency's industry uses rivers, the sea or PDAM rather than its own wells, it is overstated."
+  },
+  {
+    "region_id": "3313",
+    "year": 2020,
+    "household_wells_low_m3": 10618637,
+    "household_wells_high_m3": 27874943,
+    "public_supply_low_m3": 0,
+    "public_supply_high_m3": 0,
+    "household_in_estimate": true,
+    "source_ids": [
+      "BPS-POP-JT",
+      "BPS-WATER-JT",
+      "OSM-IND-JT",
+      "EXP07",
+      "EXP08"
+    ],
+    "note": "Regency model, not validated: business wells (8.16-13.59 Mm3, OSM industrial land, never below declared) minus declared use. Household wells are exempt and cancel out. If PDAM's own wells are in the declared volume, the gap is understated by their volume; if the regency's industry uses rivers, the sea or PDAM rather than its own wells, it is overstated."
+  },
+  {
+    "region_id": "3313",
+    "year": 2021,
+    "household_wells_low_m3": 9284849,
+    "household_wells_high_m3": 26440025,
+    "public_supply_low_m3": 0,
+    "public_supply_high_m3": 0,
+    "household_in_estimate": true,
+    "source_ids": [
+      "BPS-POP-JT",
+      "BPS-WATER-JT",
+      "OSM-IND-JT",
+      "EXP07",
+      "EXP08"
+    ],
+    "note": "Regency model, not validated: business wells (8.16-13.59 Mm3, OSM industrial land, never below declared) minus declared use. Household wells are exempt and cancel out. If PDAM's own wells are in the declared volume, the gap is understated by their volume; if the regency's industry uses rivers, the sea or PDAM rather than its own wells, it is overstated."
+  },
+  {
+    "region_id": "3313",
+    "year": 2022,
+    "household_wells_low_m3": 9372217,
+    "household_wells_high_m3": 29947098,
+    "public_supply_low_m3": 0,
+    "public_supply_high_m3": 0,
+    "household_in_estimate": true,
+    "source_ids": [
+      "BPS-POP-JT",
+      "BPS-WATER-JT",
+      "OSM-IND-JT",
+      "EXP07",
+      "EXP08"
+    ],
+    "note": "Regency model, not validated: business wells (8.16-13.59 Mm3, OSM industrial land, never below declared) minus declared use. Household wells are exempt and cancel out. If PDAM's own wells are in the declared volume, the gap is understated by their volume; if the regency's industry uses rivers, the sea or PDAM rather than its own wells, it is overstated."
+  },
+  {
+    "region_id": "3313",
+    "year": 2023,
+    "household_wells_low_m3": 9521277,
+    "household_wells_high_m3": 30182784,
+    "public_supply_low_m3": 0,
+    "public_supply_high_m3": 0,
+    "household_in_estimate": true,
+    "source_ids": [
+      "BPS-POP-JT",
+      "BPS-WATER-JT",
+      "OSM-IND-JT",
+      "EXP07",
+      "EXP08"
+    ],
+    "note": "Regency model, not validated: business wells (8.16-13.59 Mm3, OSM industrial land, never below declared) minus declared use. Household wells are exempt and cancel out. If PDAM's own wells are in the declared volume, the gap is understated by their volume; if the regency's industry uses rivers, the sea or PDAM rather than its own wells, it is overstated."
+  },
+  {
+    "region_id": "3314",
+    "year": 2020,
+    "household_wells_low_m3": 9100103,
+    "household_wells_high_m3": 38821639,
+    "public_supply_low_m3": 0,
+    "public_supply_high_m3": 0,
+    "household_in_estimate": true,
+    "source_ids": [
+      "BPS-POP-JT",
+      "BPS-WATER-JT",
+      "OSM-IND-JT",
+      "EXP07",
+      "EXP08"
+    ],
+    "note": "Regency model, not validated: business wells (13.63-13.63 Mm3, OSM industrial land, never below declared) minus declared use. Household wells are exempt and cancel out. If PDAM's own wells are in the declared volume, the gap is understated by their volume; if the regency's industry uses rivers, the sea or PDAM rather than its own wells, it is overstated."
+  },
+  {
+    "region_id": "3314",
+    "year": 2021,
+    "household_wells_low_m3": 12540164,
+    "household_wells_high_m3": 39469849,
+    "public_supply_low_m3": 0,
+    "public_supply_high_m3": 0,
+    "household_in_estimate": true,
+    "source_ids": [
+      "BPS-POP-JT",
+      "BPS-WATER-JT",
+      "OSM-IND-JT",
+      "EXP07",
+      "EXP08"
+    ],
+    "note": "Regency model, not validated: business wells (3.43-5.72 Mm3, OSM industrial land, never below declared) minus declared use. Household wells are exempt and cancel out. If PDAM's own wells are in the declared volume, the gap is understated by their volume; if the regency's industry uses rivers, the sea or PDAM rather than its own wells, it is overstated."
+  },
+  {
+    "region_id": "3314",
+    "year": 2022,
+    "household_wells_low_m3": 7043457,
+    "household_wells_high_m3": 39815015,
+    "public_supply_low_m3": 0,
+    "public_supply_high_m3": 0,
+    "household_in_estimate": true,
+    "source_ids": [
+      "BPS-POP-JT",
+      "BPS-WATER-JT",
+      "OSM-IND-JT",
+      "EXP07",
+      "EXP08"
+    ],
+    "note": "Regency model, not validated: business wells (3.43-5.72 Mm3, OSM industrial land, never below declared) minus declared use. Household wells are exempt and cancel out. If PDAM's own wells are in the declared volume, the gap is understated by their volume; if the regency's industry uses rivers, the sea or PDAM rather than its own wells, it is overstated."
+  },
+  {
+    "region_id": "3314",
+    "year": 2023,
+    "household_wells_low_m3": 7080774,
+    "household_wells_high_m3": 38775319,
+    "public_supply_low_m3": 0,
+    "public_supply_high_m3": 0,
+    "household_in_estimate": true,
+    "source_ids": [
+      "BPS-POP-JT",
+      "BPS-WATER-JT",
+      "OSM-IND-JT",
+      "EXP07",
+      "EXP08"
+    ],
+    "note": "Regency model, not validated: business wells (3.43-5.72 Mm3, OSM industrial land, never below declared) minus declared use. Household wells are exempt and cancel out. If PDAM's own wells are in the declared volume, the gap is understated by their volume; if the regency's industry uses rivers, the sea or PDAM rather than its own wells, it is overstated."
+  },
+  {
+    "region_id": "3315",
+    "year": 2020,
+    "household_wells_low_m3": 9923164,
+    "household_wells_high_m3": 74280484,
+    "public_supply_low_m3": 0,
+    "public_supply_high_m3": 0,
+    "household_in_estimate": true,
+    "source_ids": [
+      "BPS-POP-JT",
+      "BPS-WATER-JT",
+      "OSM-IND-JT",
+      "EXP07",
+      "EXP08"
+    ],
+    "note": "Regency model, not validated: business wells (1.46-2.43 Mm3, OSM industrial land, never below declared) minus declared use. Household wells are exempt and cancel out. If PDAM's own wells are in the declared volume, the gap is understated by their volume; if the regency's industry uses rivers, the sea or PDAM rather than its own wells, it is overstated."
+  },
+  {
+    "region_id": "3315",
+    "year": 2021,
+    "household_wells_low_m3": 8458981,
+    "household_wells_high_m3": 72384431,
+    "public_supply_low_m3": 0,
+    "public_supply_high_m3": 0,
+    "household_in_estimate": true,
+    "source_ids": [
+      "BPS-POP-JT",
+      "BPS-WATER-JT",
+      "OSM-IND-JT",
+      "EXP07",
+      "EXP08"
+    ],
+    "note": "Regency model, not validated: business wells (1.46-2.43 Mm3, OSM industrial land, never below declared) minus declared use. Household wells are exempt and cancel out. If PDAM's own wells are in the declared volume, the gap is understated by their volume; if the regency's industry uses rivers, the sea or PDAM rather than its own wells, it is overstated."
+  },
+  {
+    "region_id": "3315",
+    "year": 2022,
+    "household_wells_low_m3": 7658423,
+    "household_wells_high_m3": 73415579,
+    "public_supply_low_m3": 0,
+    "public_supply_high_m3": 0,
+    "household_in_estimate": true,
+    "source_ids": [
+      "BPS-POP-JT",
+      "BPS-WATER-JT",
+      "OSM-IND-JT",
+      "EXP07",
+      "EXP08"
+    ],
+    "note": "Regency model, not validated: business wells (1.46-2.43 Mm3, OSM industrial land, never below declared) minus declared use. Household wells are exempt and cancel out. If PDAM's own wells are in the declared volume, the gap is understated by their volume; if the regency's industry uses rivers, the sea or PDAM rather than its own wells, it is overstated."
+  },
+  {
+    "region_id": "3315",
+    "year": 2023,
+    "household_wells_low_m3": 7776934,
+    "household_wells_high_m3": 74551656,
+    "public_supply_low_m3": 0,
+    "public_supply_high_m3": 0,
+    "household_in_estimate": true,
+    "source_ids": [
+      "BPS-POP-JT",
+      "BPS-WATER-JT",
+      "OSM-IND-JT",
+      "EXP07",
+      "EXP08"
+    ],
+    "note": "Regency model, not validated: business wells (1.46-2.43 Mm3, OSM industrial land, never below declared) minus declared use. Household wells are exempt and cancel out. If PDAM's own wells are in the declared volume, the gap is understated by their volume; if the regency's industry uses rivers, the sea or PDAM rather than its own wells, it is overstated."
+  },
+  {
+    "region_id": "3316",
+    "year": 2020,
+    "household_wells_low_m3": 11560744,
+    "household_wells_high_m3": 46456334,
+    "public_supply_low_m3": 0,
+    "public_supply_high_m3": 0,
+    "household_in_estimate": true,
+    "source_ids": [
+      "BPS-POP-JT",
+      "BPS-WATER-JT",
+      "OSM-IND-JT",
+      "EXP07",
+      "EXP08"
+    ],
+    "note": "Regency model, not validated: business wells (1.32-2.20 Mm3, OSM industrial land, never below declared) minus declared use. Household wells are exempt and cancel out. If PDAM's own wells are in the declared volume, the gap is understated by their volume; if the regency's industry uses rivers, the sea or PDAM rather than its own wells, it is overstated."
+  },
+  {
+    "region_id": "3316",
+    "year": 2021,
+    "household_wells_low_m3": 10552026,
+    "household_wells_high_m3": 46197457,
+    "public_supply_low_m3": 0,
+    "public_supply_high_m3": 0,
+    "household_in_estimate": true,
+    "source_ids": [
+      "BPS-POP-JT",
+      "BPS-WATER-JT",
+      "OSM-IND-JT",
+      "EXP07",
+      "EXP08"
+    ],
+    "note": "Regency model, not validated: business wells (1.32-2.20 Mm3, OSM industrial land, never below declared) minus declared use. Household wells are exempt and cancel out. If PDAM's own wells are in the declared volume, the gap is understated by their volume; if the regency's industry uses rivers, the sea or PDAM rather than its own wells, it is overstated."
+  },
+  {
+    "region_id": "3316",
+    "year": 2022,
+    "household_wells_low_m3": 10576758,
+    "household_wells_high_m3": 47404781,
+    "public_supply_low_m3": 0,
+    "public_supply_high_m3": 0,
+    "household_in_estimate": true,
+    "source_ids": [
+      "BPS-POP-JT",
+      "BPS-WATER-JT",
+      "OSM-IND-JT",
+      "EXP07",
+      "EXP08"
+    ],
+    "note": "Regency model, not validated: business wells (1.32-2.20 Mm3, OSM industrial land, never below declared) minus declared use. Household wells are exempt and cancel out. If PDAM's own wells are in the declared volume, the gap is understated by their volume; if the regency's industry uses rivers, the sea or PDAM rather than its own wells, it is overstated."
+  },
+  {
+    "region_id": "3316",
+    "year": 2023,
+    "household_wells_low_m3": 10883466,
+    "household_wells_high_m3": 48118662,
+    "public_supply_low_m3": 0,
+    "public_supply_high_m3": 0,
+    "household_in_estimate": true,
+    "source_ids": [
+      "BPS-POP-JT",
+      "BPS-WATER-JT",
+      "OSM-IND-JT",
+      "EXP07",
+      "EXP08"
+    ],
+    "note": "Regency model, not validated: business wells (1.32-2.20 Mm3, OSM industrial land, never below declared) minus declared use. Household wells are exempt and cancel out. If PDAM's own wells are in the declared volume, the gap is understated by their volume; if the regency's industry uses rivers, the sea or PDAM rather than its own wells, it is overstated."
+  },
+  {
+    "region_id": "3317",
+    "year": 2020,
+    "household_wells_low_m3": 6160013,
+    "household_wells_high_m3": 30668160,
+    "public_supply_low_m3": 0,
+    "public_supply_high_m3": 0,
+    "household_in_estimate": true,
+    "source_ids": [
+      "BPS-POP-JT",
+      "BPS-WATER-JT",
+      "OSM-IND-JT",
+      "EXP07",
+      "EXP08"
+    ],
+    "note": "Regency model, not validated: business wells (3.36-5.59 Mm3, OSM industrial land, never below declared) minus declared use. Household wells are exempt and cancel out. If PDAM's own wells are in the declared volume, the gap is understated by their volume; if the regency's industry uses rivers, the sea or PDAM rather than its own wells, it is overstated."
+  },
+  {
+    "region_id": "3317",
+    "year": 2021,
+    "household_wells_low_m3": 6705285,
+    "household_wells_high_m3": 32262682,
+    "public_supply_low_m3": 0,
+    "public_supply_high_m3": 0,
+    "household_in_estimate": true,
+    "source_ids": [
+      "BPS-POP-JT",
+      "BPS-WATER-JT",
+      "OSM-IND-JT",
+      "EXP07",
+      "EXP08"
+    ],
+    "note": "Regency model, not validated: business wells (3.36-5.59 Mm3, OSM industrial land, never below declared) minus declared use. Household wells are exempt and cancel out. If PDAM's own wells are in the declared volume, the gap is understated by their volume; if the regency's industry uses rivers, the sea or PDAM rather than its own wells, it is overstated."
+  },
+  {
+    "region_id": "3317",
+    "year": 2022,
+    "household_wells_low_m3": 5710246,
+    "household_wells_high_m3": 32665270,
+    "public_supply_low_m3": 0,
+    "public_supply_high_m3": 0,
+    "household_in_estimate": true,
+    "source_ids": [
+      "BPS-POP-JT",
+      "BPS-WATER-JT",
+      "OSM-IND-JT",
+      "EXP07",
+      "EXP08"
+    ],
+    "note": "Regency model, not validated: business wells (3.36-5.59 Mm3, OSM industrial land, never below declared) minus declared use. Household wells are exempt and cancel out. If PDAM's own wells are in the declared volume, the gap is understated by their volume; if the regency's industry uses rivers, the sea or PDAM rather than its own wells, it is overstated."
+  },
+  {
+    "region_id": "3317",
+    "year": 2023,
+    "household_wells_low_m3": 5792991,
+    "household_wells_high_m3": 33138607,
+    "public_supply_low_m3": 0,
+    "public_supply_high_m3": 0,
+    "household_in_estimate": true,
+    "source_ids": [
+      "BPS-POP-JT",
+      "BPS-WATER-JT",
+      "OSM-IND-JT",
+      "EXP07",
+      "EXP08"
+    ],
+    "note": "Regency model, not validated: business wells (3.36-5.59 Mm3, OSM industrial land, never below declared) minus declared use. Household wells are exempt and cancel out. If PDAM's own wells are in the declared volume, the gap is understated by their volume; if the regency's industry uses rivers, the sea or PDAM rather than its own wells, it is overstated."
+  },
+  {
+    "region_id": "3318",
+    "year": 2020,
+    "household_wells_low_m3": 11847351,
+    "household_wells_high_m3": 58267682,
+    "public_supply_low_m3": 0,
+    "public_supply_high_m3": 0,
+    "household_in_estimate": true,
+    "source_ids": [
+      "BPS-POP-JT",
+      "BPS-WATER-JT",
+      "OSM-IND-JT",
+      "EXP07",
+      "EXP08"
+    ],
+    "note": "Regency model, not validated: business wells (1.79-2.99 Mm3, OSM industrial land, never below declared) minus declared use. Household wells are exempt and cancel out. If PDAM's own wells are in the declared volume, the gap is understated by their volume; if the regency's industry uses rivers, the sea or PDAM rather than its own wells, it is overstated."
+  },
+  {
+    "region_id": "3318",
+    "year": 2021,
+    "household_wells_low_m3": 13540463,
+    "household_wells_high_m3": 64870048,
+    "public_supply_low_m3": 0,
+    "public_supply_high_m3": 0,
+    "household_in_estimate": true,
+    "source_ids": [
+      "BPS-POP-JT",
+      "BPS-WATER-JT",
+      "OSM-IND-JT",
+      "EXP07",
+      "EXP08"
+    ],
+    "note": "Regency model, not validated: business wells (8.26-8.26 Mm3, OSM industrial land, never below declared) minus declared use. Household wells are exempt and cancel out. If PDAM's own wells are in the declared volume, the gap is understated by their volume; if the regency's industry uses rivers, the sea or PDAM rather than its own wells, it is overstated."
+  },
+  {
+    "region_id": "3318",
+    "year": 2022,
+    "household_wells_low_m3": 12779035,
+    "household_wells_high_m3": 65288663,
+    "public_supply_low_m3": 0,
+    "public_supply_high_m3": 0,
+    "household_in_estimate": true,
+    "source_ids": [
+      "BPS-POP-JT",
+      "BPS-WATER-JT",
+      "OSM-IND-JT",
+      "EXP07",
+      "EXP08"
+    ],
+    "note": "Regency model, not validated: business wells (11.45-11.45 Mm3, OSM industrial land, never below declared) minus declared use. Household wells are exempt and cancel out. If PDAM's own wells are in the declared volume, the gap is understated by their volume; if the regency's industry uses rivers, the sea or PDAM rather than its own wells, it is overstated."
+  },
+  {
+    "region_id": "3318",
+    "year": 2023,
+    "household_wells_low_m3": 12968187,
+    "household_wells_high_m3": 64885589,
+    "public_supply_low_m3": 0,
+    "public_supply_high_m3": 0,
+    "household_in_estimate": true,
+    "source_ids": [
+      "BPS-POP-JT",
+      "BPS-WATER-JT",
+      "OSM-IND-JT",
+      "EXP07",
+      "EXP08"
+    ],
+    "note": "Regency model, not validated: business wells (9.66-9.66 Mm3, OSM industrial land, never below declared) minus declared use. Household wells are exempt and cancel out. If PDAM's own wells are in the declared volume, the gap is understated by their volume; if the regency's industry uses rivers, the sea or PDAM rather than its own wells, it is overstated."
+  },
+  {
+    "region_id": "3319",
+    "year": 2020,
+    "household_wells_low_m3": 9434944,
+    "household_wells_high_m3": 35911057,
+    "public_supply_low_m3": 0,
+    "public_supply_high_m3": 0,
+    "household_in_estimate": true,
+    "source_ids": [
+      "BPS-POP-JT",
+      "BPS-WATER-JT",
+      "OSM-IND-JT",
+      "EXP07",
+      "EXP08"
+    ],
+    "note": "Regency model, not validated: business wells (4.78-7.96 Mm3, OSM industrial land, never below declared) minus declared use. Household wells are exempt and cancel out. If PDAM's own wells are in the declared volume, the gap is understated by their volume; if the regency's industry uses rivers, the sea or PDAM rather than its own wells, it is overstated."
+  },
+  {
+    "region_id": "3319",
+    "year": 2021,
+    "household_wells_low_m3": 10324926,
+    "household_wells_high_m3": 37024306,
+    "public_supply_low_m3": 0,
+    "public_supply_high_m3": 0,
+    "household_in_estimate": true,
+    "source_ids": [
+      "BPS-POP-JT",
+      "BPS-WATER-JT",
+      "OSM-IND-JT",
+      "EXP07",
+      "EXP08"
+    ],
+    "note": "Regency model, not validated: business wells (16.23-16.23 Mm3, OSM industrial land, never below declared) minus declared use. Household wells are exempt and cancel out. If PDAM's own wells are in the declared volume, the gap is understated by their volume; if the regency's industry uses rivers, the sea or PDAM rather than its own wells, it is overstated."
+  },
+  {
+    "region_id": "3319",
+    "year": 2022,
+    "household_wells_low_m3": 9443392,
+    "household_wells_high_m3": 37199298,
+    "public_supply_low_m3": 0,
+    "public_supply_high_m3": 0,
+    "household_in_estimate": true,
+    "source_ids": [
+      "BPS-POP-JT",
+      "BPS-WATER-JT",
+      "OSM-IND-JT",
+      "EXP07",
+      "EXP08"
+    ],
+    "note": "Regency model, not validated: business wells (17.85-17.85 Mm3, OSM industrial land, never below declared) minus declared use. Household wells are exempt and cancel out. If PDAM's own wells are in the declared volume, the gap is understated by their volume; if the regency's industry uses rivers, the sea or PDAM rather than its own wells, it is overstated."
+  },
+  {
+    "region_id": "3319",
+    "year": 2023,
+    "household_wells_low_m3": 9643270,
+    "household_wells_high_m3": 37694560,
+    "public_supply_low_m3": 0,
+    "public_supply_high_m3": 0,
+    "household_in_estimate": true,
+    "source_ids": [
+      "BPS-POP-JT",
+      "BPS-WATER-JT",
+      "OSM-IND-JT",
+      "EXP07",
+      "EXP08"
+    ],
+    "note": "Regency model, not validated: business wells (14.43-14.43 Mm3, OSM industrial land, never below declared) minus declared use. Household wells are exempt and cancel out. If PDAM's own wells are in the declared volume, the gap is understated by their volume; if the regency's industry uses rivers, the sea or PDAM rather than its own wells, it is overstated."
+  },
+  {
+    "region_id": "3320",
+    "year": 2020,
+    "household_wells_low_m3": 21860566,
+    "household_wells_high_m3": 54599514,
+    "public_supply_low_m3": 0,
+    "public_supply_high_m3": 0,
+    "household_in_estimate": true,
+    "source_ids": [
+      "BPS-POP-JT",
+      "BPS-WATER-JT",
+      "OSM-IND-JT",
+      "EXP07",
+      "EXP08"
+    ],
+    "note": "Regency model, not validated: business wells (4.84-8.07 Mm3, OSM industrial land, never below declared) minus declared use. Household wells are exempt and cancel out. If PDAM's own wells are in the declared volume, the gap is understated by their volume; if the regency's industry uses rivers, the sea or PDAM rather than its own wells, it is overstated."
+  },
+  {
+    "region_id": "3320",
+    "year": 2021,
+    "household_wells_low_m3": 20541589,
+    "household_wells_high_m3": 51946117,
+    "public_supply_low_m3": 0,
+    "public_supply_high_m3": 0,
+    "household_in_estimate": true,
+    "source_ids": [
+      "BPS-POP-JT",
+      "BPS-WATER-JT",
+      "OSM-IND-JT",
+      "EXP07",
+      "EXP08"
+    ],
+    "note": "Regency model, not validated: business wells (17.11-17.11 Mm3, OSM industrial land, never below declared) minus declared use. Household wells are exempt and cancel out. If PDAM's own wells are in the declared volume, the gap is understated by their volume; if the regency's industry uses rivers, the sea or PDAM rather than its own wells, it is overstated."
+  },
+  {
+    "region_id": "3320",
+    "year": 2022,
+    "household_wells_low_m3": 17568293,
+    "household_wells_high_m3": 52134101,
+    "public_supply_low_m3": 0,
+    "public_supply_high_m3": 0,
+    "household_in_estimate": true,
+    "source_ids": [
+      "BPS-POP-JT",
+      "BPS-WATER-JT",
+      "OSM-IND-JT",
+      "EXP07",
+      "EXP08"
+    ],
+    "note": "Regency model, not validated: business wells (18.04-18.04 Mm3, OSM industrial land, never below declared) minus declared use. Household wells are exempt and cancel out. If PDAM's own wells are in the declared volume, the gap is understated by their volume; if the regency's industry uses rivers, the sea or PDAM rather than its own wells, it is overstated."
+  },
+  {
+    "region_id": "3320",
+    "year": 2023,
+    "household_wells_low_m3": 17984947,
+    "household_wells_high_m3": 53076363,
+    "public_supply_low_m3": 0,
+    "public_supply_high_m3": 0,
+    "household_in_estimate": true,
+    "source_ids": [
+      "BPS-POP-JT",
+      "BPS-WATER-JT",
+      "OSM-IND-JT",
+      "EXP07",
+      "EXP08"
+    ],
+    "note": "Regency model, not validated: business wells (16.46-16.46 Mm3, OSM industrial land, never below declared) minus declared use. Household wells are exempt and cancel out. If PDAM's own wells are in the declared volume, the gap is understated by their volume; if the regency's industry uses rivers, the sea or PDAM rather than its own wells, it is overstated."
+  },
+  {
+    "region_id": "3321",
+    "year": 2020,
+    "household_wells_low_m3": 8827550,
+    "household_wells_high_m3": 61427671,
+    "public_supply_low_m3": 0,
+    "public_supply_high_m3": 0,
+    "household_in_estimate": true,
+    "source_ids": [
+      "BPS-POP-JT",
+      "BPS-WATER-JT",
+      "OSM-IND-JT",
+      "EXP07",
+      "EXP08"
+    ],
+    "note": "Regency model, not validated: business wells (9.41-11.99 Mm3, OSM industrial land, never below declared) minus declared use. Household wells are exempt and cancel out. If PDAM's own wells are in the declared volume, the gap is understated by their volume; if the regency's industry uses rivers, the sea or PDAM rather than its own wells, it is overstated."
+  },
+  {
+    "region_id": "3321",
+    "year": 2021,
+    "household_wells_low_m3": 5469518,
+    "household_wells_high_m3": 64777940,
+    "public_supply_low_m3": 0,
+    "public_supply_high_m3": 0,
+    "household_in_estimate": true,
+    "source_ids": [
+      "BPS-POP-JT",
+      "BPS-WATER-JT",
+      "OSM-IND-JT",
+      "EXP07",
+      "EXP08"
+    ],
+    "note": "Regency model, not validated: business wells (7.20-11.99 Mm3, OSM industrial land, never below declared) minus declared use. Household wells are exempt and cancel out. If PDAM's own wells are in the declared volume, the gap is understated by their volume; if the regency's industry uses rivers, the sea or PDAM rather than its own wells, it is overstated."
+  },
+  {
+    "region_id": "3321",
+    "year": 2022,
+    "household_wells_low_m3": 5207675,
+    "household_wells_high_m3": 65357126,
+    "public_supply_low_m3": 0,
+    "public_supply_high_m3": 0,
+    "household_in_estimate": true,
+    "source_ids": [
+      "BPS-POP-JT",
+      "BPS-WATER-JT",
+      "OSM-IND-JT",
+      "EXP07",
+      "EXP08"
+    ],
+    "note": "Regency model, not validated: business wells (7.20-11.99 Mm3, OSM industrial land, never below declared) minus declared use. Household wells are exempt and cancel out. If PDAM's own wells are in the declared volume, the gap is understated by their volume; if the regency's industry uses rivers, the sea or PDAM rather than its own wells, it is overstated."
+  },
+  {
+    "region_id": "3321",
+    "year": 2023,
+    "household_wells_low_m3": 5281255,
+    "household_wells_high_m3": 65200680,
+    "public_supply_low_m3": 0,
+    "public_supply_high_m3": 0,
+    "household_in_estimate": true,
+    "source_ids": [
+      "BPS-POP-JT",
+      "BPS-WATER-JT",
+      "OSM-IND-JT",
+      "EXP07",
+      "EXP08"
+    ],
+    "note": "Regency model, not validated: business wells (7.20-11.99 Mm3, OSM industrial land, never below declared) minus declared use. Household wells are exempt and cancel out. If PDAM's own wells are in the declared volume, the gap is understated by their volume; if the regency's industry uses rivers, the sea or PDAM rather than its own wells, it is overstated."
+  },
+  {
+    "region_id": "3322",
+    "year": 2020,
+    "household_wells_low_m3": 15166070,
+    "household_wells_high_m3": 36514113,
+    "public_supply_low_m3": 0,
+    "public_supply_high_m3": 0,
+    "household_in_estimate": true,
+    "source_ids": [
+      "BPS-POP-JT",
+      "BPS-WATER-JT",
+      "OSM-IND-JT",
+      "EXP07",
+      "EXP08"
+    ],
+    "note": "Regency model, not validated: business wells (6.12-6.12 Mm3, OSM industrial land, never below declared) minus declared use. Household wells are exempt and cancel out. If PDAM's own wells are in the declared volume, the gap is understated by their volume; if the regency's industry uses rivers, the sea or PDAM rather than its own wells, it is overstated."
+  },
+  {
+    "region_id": "3322",
+    "year": 2021,
+    "household_wells_low_m3": 12125209,
+    "household_wells_high_m3": 31380709,
+    "public_supply_low_m3": 0,
+    "public_supply_high_m3": 0,
+    "household_in_estimate": true,
+    "source_ids": [
+      "BPS-POP-JT",
+      "BPS-WATER-JT",
+      "OSM-IND-JT",
+      "EXP07",
+      "EXP08"
+    ],
+    "note": "Regency model, not validated: business wells (17.33-17.33 Mm3, OSM industrial land, never below declared) minus declared use. Household wells are exempt and cancel out. If PDAM's own wells are in the declared volume, the gap is understated by their volume; if the regency's industry uses rivers, the sea or PDAM rather than its own wells, it is overstated."
+  },
+  {
+    "region_id": "3322",
+    "year": 2022,
+    "household_wells_low_m3": 12224147,
+    "household_wells_high_m3": 34409663,
+    "public_supply_low_m3": 0,
+    "public_supply_high_m3": 0,
+    "household_in_estimate": true,
+    "source_ids": [
+      "BPS-POP-JT",
+      "BPS-WATER-JT",
+      "OSM-IND-JT",
+      "EXP07",
+      "EXP08"
+    ],
+    "note": "Regency model, not validated: business wells (15.90-15.90 Mm3, OSM industrial land, never below declared) minus declared use. Household wells are exempt and cancel out. If PDAM's own wells are in the declared volume, the gap is understated by their volume; if the regency's industry uses rivers, the sea or PDAM rather than its own wells, it is overstated."
+  },
+  {
+    "region_id": "3322",
+    "year": 2023,
+    "household_wells_low_m3": 14635877,
+    "household_wells_high_m3": 34802809,
+    "public_supply_low_m3": 0,
+    "public_supply_high_m3": 0,
+    "household_in_estimate": true,
+    "source_ids": [
+      "BPS-POP-JT",
+      "BPS-WATER-JT",
+      "OSM-IND-JT",
+      "EXP07",
+      "EXP08"
+    ],
+    "note": "Regency model, not validated: business wells (12.14-12.14 Mm3, OSM industrial land, never below declared) minus declared use. Household wells are exempt and cancel out. If PDAM's own wells are in the declared volume, the gap is understated by their volume; if the regency's industry uses rivers, the sea or PDAM rather than its own wells, it is overstated."
+  },
+  {
+    "region_id": "3323",
+    "year": 2020,
+    "household_wells_low_m3": 6238961,
+    "household_wells_high_m3": 12597902,
+    "public_supply_low_m3": 0,
+    "public_supply_high_m3": 0,
+    "household_in_estimate": true,
+    "source_ids": [
+      "BPS-POP-JT",
+      "BPS-WATER-JT",
+      "OSM-IND-JT",
+      "EXP07",
+      "EXP08"
+    ],
+    "note": "Regency model, not validated: business wells (0.77-0.77 Mm3, OSM industrial land, never below declared) minus declared use. Household wells are exempt and cancel out. If PDAM's own wells are in the declared volume, the gap is understated by their volume; if the regency's industry uses rivers, the sea or PDAM rather than its own wells, it is overstated."
+  },
+  {
+    "region_id": "3323",
+    "year": 2021,
+    "household_wells_low_m3": 6112296,
+    "household_wells_high_m3": 12643579,
+    "public_supply_low_m3": 0,
+    "public_supply_high_m3": 0,
+    "household_in_estimate": true,
+    "source_ids": [
+      "BPS-POP-JT",
+      "BPS-WATER-JT",
+      "OSM-IND-JT",
+      "EXP07",
+      "EXP08"
+    ],
+    "note": "Regency model, not validated: business wells (0.52-0.56 Mm3, OSM industrial land, never below declared) minus declared use. Household wells are exempt and cancel out. If PDAM's own wells are in the declared volume, the gap is understated by their volume; if the regency's industry uses rivers, the sea or PDAM rather than its own wells, it is overstated."
+  },
+  {
+    "region_id": "3323",
+    "year": 2022,
+    "household_wells_low_m3": 6153544,
+    "household_wells_high_m3": 13736007,
+    "public_supply_low_m3": 0,
+    "public_supply_high_m3": 0,
+    "household_in_estimate": true,
+    "source_ids": [
+      "BPS-POP-JT",
+      "BPS-WATER-JT",
+      "OSM-IND-JT",
+      "EXP07",
+      "EXP08"
+    ],
+    "note": "Regency model, not validated: business wells (0.47-0.56 Mm3, OSM industrial land, never below declared) minus declared use. Household wells are exempt and cancel out. If PDAM's own wells are in the declared volume, the gap is understated by their volume; if the regency's industry uses rivers, the sea or PDAM rather than its own wells, it is overstated."
+  },
+  {
+    "region_id": "3323",
+    "year": 2023,
+    "household_wells_low_m3": 6869986,
+    "household_wells_high_m3": 13886048,
+    "public_supply_low_m3": 0,
+    "public_supply_high_m3": 0,
+    "household_in_estimate": true,
+    "source_ids": [
+      "BPS-POP-JT",
+      "BPS-WATER-JT",
+      "OSM-IND-JT",
+      "EXP07",
+      "EXP08"
+    ],
+    "note": "Regency model, not validated: business wells (0.52-0.56 Mm3, OSM industrial land, never below declared) minus declared use. Household wells are exempt and cancel out. If PDAM's own wells are in the declared volume, the gap is understated by their volume; if the regency's industry uses rivers, the sea or PDAM rather than its own wells, it is overstated."
+  },
+  {
+    "region_id": "3324",
+    "year": 2020,
+    "household_wells_low_m3": 8966714,
+    "household_wells_high_m3": 30803563,
+    "public_supply_low_m3": 0,
+    "public_supply_high_m3": 0,
+    "household_in_estimate": true,
+    "source_ids": [
+      "BPS-POP-JT",
+      "BPS-WATER-JT",
+      "OSM-IND-JT",
+      "EXP07",
+      "EXP08"
+    ],
+    "note": "Regency model, not validated: business wells (27.93-32.37 Mm3, OSM industrial land, never below declared) minus declared use. Household wells are exempt and cancel out. If PDAM's own wells are in the declared volume, the gap is understated by their volume; if the regency's industry uses rivers, the sea or PDAM rather than its own wells, it is overstated."
+  },
+  {
+    "region_id": "3324",
+    "year": 2021,
+    "household_wells_low_m3": 5689804,
+    "household_wells_high_m3": 24619776,
+    "public_supply_low_m3": 0,
+    "public_supply_high_m3": 0,
+    "household_in_estimate": true,
+    "source_ids": [
+      "BPS-POP-JT",
+      "BPS-WATER-JT",
+      "OSM-IND-JT",
+      "EXP07",
+      "EXP08"
+    ],
+    "note": "Regency model, not validated: business wells (19.42-32.37 Mm3, OSM industrial land, never below declared) minus declared use. Household wells are exempt and cancel out. If PDAM's own wells are in the declared volume, the gap is understated by their volume; if the regency's industry uses rivers, the sea or PDAM rather than its own wells, it is overstated."
+  },
+  {
+    "region_id": "3324",
+    "year": 2022,
+    "household_wells_low_m3": 5183948,
+    "household_wells_high_m3": 25844302,
+    "public_supply_low_m3": 0,
+    "public_supply_high_m3": 0,
+    "household_in_estimate": true,
+    "source_ids": [
+      "BPS-POP-JT",
+      "BPS-WATER-JT",
+      "OSM-IND-JT",
+      "EXP07",
+      "EXP08"
+    ],
+    "note": "Regency model, not validated: business wells (19.42-32.37 Mm3, OSM industrial land, never below declared) minus declared use. Household wells are exempt and cancel out. If PDAM's own wells are in the declared volume, the gap is understated by their volume; if the regency's industry uses rivers, the sea or PDAM rather than its own wells, it is overstated."
+  },
+  {
+    "region_id": "3324",
+    "year": 2023,
+    "household_wells_low_m3": 5281434,
+    "household_wells_high_m3": 26330317,
+    "public_supply_low_m3": 0,
+    "public_supply_high_m3": 0,
+    "household_in_estimate": true,
+    "source_ids": [
+      "BPS-POP-JT",
+      "BPS-WATER-JT",
+      "OSM-IND-JT",
+      "EXP07",
+      "EXP08"
+    ],
+    "note": "Regency model, not validated: business wells (20.90-32.37 Mm3, OSM industrial land, never below declared) minus declared use. Household wells are exempt and cancel out. If PDAM's own wells are in the declared volume, the gap is understated by their volume; if the regency's industry uses rivers, the sea or PDAM rather than its own wells, it is overstated."
+  },
+  {
+    "region_id": "3325",
+    "year": 2020,
+    "household_wells_low_m3": 11302428,
+    "household_wells_high_m3": 22570326,
+    "public_supply_low_m3": 0,
+    "public_supply_high_m3": 0,
+    "household_in_estimate": true,
+    "source_ids": [
+      "BPS-POP-JT",
+      "BPS-WATER-JT",
+      "OSM-IND-JT",
+      "EXP07",
+      "EXP08"
+    ],
+    "note": "Regency model, not validated: business wells (4.97-8.29 Mm3, OSM industrial land, never below declared) minus declared use. Household wells are exempt and cancel out. If PDAM's own wells are in the declared volume, the gap is understated by their volume; if the regency's industry uses rivers, the sea or PDAM rather than its own wells, it is overstated."
+  },
+  {
+    "region_id": "3325",
+    "year": 2021,
+    "household_wells_low_m3": 10295350,
+    "household_wells_high_m3": 20775093,
+    "public_supply_low_m3": 0,
+    "public_supply_high_m3": 0,
+    "household_in_estimate": true,
+    "source_ids": [
+      "BPS-POP-JT",
+      "BPS-WATER-JT",
+      "OSM-IND-JT",
+      "EXP07",
+      "EXP08"
+    ],
+    "note": "Regency model, not validated: business wells (4.97-8.29 Mm3, OSM industrial land, never below declared) minus declared use. Household wells are exempt and cancel out. If PDAM's own wells are in the declared volume, the gap is understated by their volume; if the regency's industry uses rivers, the sea or PDAM rather than its own wells, it is overstated."
+  },
+  {
+    "region_id": "3325",
+    "year": 2022,
+    "household_wells_low_m3": 9017944,
+    "household_wells_high_m3": 20949788,
+    "public_supply_low_m3": 0,
+    "public_supply_high_m3": 0,
+    "household_in_estimate": true,
+    "source_ids": [
+      "BPS-POP-JT",
+      "BPS-WATER-JT",
+      "OSM-IND-JT",
+      "EXP07",
+      "EXP08"
+    ],
+    "note": "Regency model, not validated: business wells (4.97-8.29 Mm3, OSM industrial land, never below declared) minus declared use. Household wells are exempt and cancel out. If PDAM's own wells are in the declared volume, the gap is understated by their volume; if the regency's industry uses rivers, the sea or PDAM rather than its own wells, it is overstated."
+  },
+  {
+    "region_id": "3325",
+    "year": 2023,
+    "household_wells_low_m3": 9185372,
+    "household_wells_high_m3": 19360079,
+    "public_supply_low_m3": 0,
+    "public_supply_high_m3": 0,
+    "household_in_estimate": true,
+    "source_ids": [
+      "BPS-POP-JT",
+      "BPS-WATER-JT",
+      "OSM-IND-JT",
+      "EXP07",
+      "EXP08"
+    ],
+    "note": "Regency model, not validated: business wells (4.97-8.29 Mm3, OSM industrial land, never below declared) minus declared use. Household wells are exempt and cancel out. If PDAM's own wells are in the declared volume, the gap is understated by their volume; if the regency's industry uses rivers, the sea or PDAM rather than its own wells, it is overstated."
+  },
+  {
+    "region_id": "3326",
+    "year": 2020,
+    "household_wells_low_m3": 17245324,
+    "household_wells_high_m3": 37782493,
+    "public_supply_low_m3": 0,
+    "public_supply_high_m3": 0,
+    "household_in_estimate": true,
+    "source_ids": [
+      "BPS-POP-JT",
+      "BPS-WATER-JT",
+      "OSM-IND-JT",
+      "EXP07",
+      "EXP08"
+    ],
+    "note": "Regency model, not validated: business wells (0.94-1.33 Mm3, OSM industrial land, never below declared) minus declared use. Household wells are exempt and cancel out. If PDAM's own wells are in the declared volume, the gap is understated by their volume; if the regency's industry uses rivers, the sea or PDAM rather than its own wells, it is overstated."
+  },
+  {
+    "region_id": "3326",
+    "year": 2021,
+    "household_wells_low_m3": 13658166,
+    "household_wells_high_m3": 32853379,
+    "public_supply_low_m3": 0,
+    "public_supply_high_m3": 0,
+    "household_in_estimate": true,
+    "source_ids": [
+      "BPS-POP-JT",
+      "BPS-WATER-JT",
+      "OSM-IND-JT",
+      "EXP07",
+      "EXP08"
+    ],
+    "note": "Regency model, not validated: business wells (4.82-4.82 Mm3, OSM industrial land, never below declared) minus declared use. Household wells are exempt and cancel out. If PDAM's own wells are in the declared volume, the gap is understated by their volume; if the regency's industry uses rivers, the sea or PDAM rather than its own wells, it is overstated."
+  },
+  {
+    "region_id": "3326",
+    "year": 2022,
+    "household_wells_low_m3": 13797349,
+    "household_wells_high_m3": 36785129,
+    "public_supply_low_m3": 0,
+    "public_supply_high_m3": 0,
+    "household_in_estimate": true,
+    "source_ids": [
+      "BPS-POP-JT",
+      "BPS-WATER-JT",
+      "OSM-IND-JT",
+      "EXP07",
+      "EXP08"
+    ],
+    "note": "Regency model, not validated: business wells (3.92-3.92 Mm3, OSM industrial land, never below declared) minus declared use. Household wells are exempt and cancel out. If PDAM's own wells are in the declared volume, the gap is understated by their volume; if the regency's industry uses rivers, the sea or PDAM rather than its own wells, it is overstated."
+  },
+  {
+    "region_id": "3326",
+    "year": 2023,
+    "household_wells_low_m3": 15817026,
+    "household_wells_high_m3": 37566173,
+    "public_supply_low_m3": 0,
+    "public_supply_high_m3": 0,
+    "household_in_estimate": true,
+    "source_ids": [
+      "BPS-POP-JT",
+      "BPS-WATER-JT",
+      "OSM-IND-JT",
+      "EXP07",
+      "EXP08"
+    ],
+    "note": "Regency model, not validated: business wells (4.97-4.97 Mm3, OSM industrial land, never below declared) minus declared use. Household wells are exempt and cancel out. If PDAM's own wells are in the declared volume, the gap is understated by their volume; if the regency's industry uses rivers, the sea or PDAM rather than its own wells, it is overstated."
+  },
+  {
+    "region_id": "3327",
+    "year": 2020,
+    "household_wells_low_m3": 16340532,
+    "household_wells_high_m3": 46694908,
+    "public_supply_low_m3": 0,
+    "public_supply_high_m3": 0,
+    "household_in_estimate": true,
+    "source_ids": [
+      "BPS-POP-JT",
+      "BPS-WATER-JT",
+      "OSM-IND-JT",
+      "EXP07",
+      "EXP08"
+    ],
+    "note": "Regency model, not validated: business wells (0.24-0.41 Mm3, OSM industrial land, never below declared) minus declared use. Household wells are exempt and cancel out. If PDAM's own wells are in the declared volume, the gap is understated by their volume; if the regency's industry uses rivers, the sea or PDAM rather than its own wells, it is overstated."
+  },
+  {
+    "region_id": "3327",
+    "year": 2021,
+    "household_wells_low_m3": 16932509,
+    "household_wells_high_m3": 46204688,
+    "public_supply_low_m3": 0,
+    "public_supply_high_m3": 0,
+    "household_in_estimate": true,
+    "source_ids": [
+      "BPS-POP-JT",
+      "BPS-WATER-JT",
+      "OSM-IND-JT",
+      "EXP07",
+      "EXP08"
+    ],
+    "note": "Regency model, not validated: business wells (0.51-0.51 Mm3, OSM industrial land, never below declared) minus declared use. Household wells are exempt and cancel out. If PDAM's own wells are in the declared volume, the gap is understated by their volume; if the regency's industry uses rivers, the sea or PDAM rather than its own wells, it is overstated."
+  },
+  {
+    "region_id": "3327",
+    "year": 2022,
+    "household_wells_low_m3": 15736486,
+    "household_wells_high_m3": 48667089,
+    "public_supply_low_m3": 0,
+    "public_supply_high_m3": 0,
+    "household_in_estimate": true,
+    "source_ids": [
+      "BPS-POP-JT",
+      "BPS-WATER-JT",
+      "OSM-IND-JT",
+      "EXP07",
+      "EXP08"
+    ],
+    "note": "Regency model, not validated: business wells (0.67-0.67 Mm3, OSM industrial land, never below declared) minus declared use. Household wells are exempt and cancel out. If PDAM's own wells are in the declared volume, the gap is understated by their volume; if the regency's industry uses rivers, the sea or PDAM rather than its own wells, it is overstated."
+  },
+  {
+    "region_id": "3327",
+    "year": 2023,
+    "household_wells_low_m3": 15976043,
+    "household_wells_high_m3": 49407948,
+    "public_supply_low_m3": 0,
+    "public_supply_high_m3": 0,
+    "household_in_estimate": true,
+    "source_ids": [
+      "BPS-POP-JT",
+      "BPS-WATER-JT",
+      "OSM-IND-JT",
+      "EXP07",
+      "EXP08"
+    ],
+    "note": "Regency model, not validated: business wells (0.83-0.83 Mm3, OSM industrial land, never below declared) minus declared use. Household wells are exempt and cancel out. If PDAM's own wells are in the declared volume, the gap is understated by their volume; if the regency's industry uses rivers, the sea or PDAM rather than its own wells, it is overstated."
+  },
+  {
+    "region_id": "3328",
+    "year": 2020,
+    "household_wells_low_m3": 22168987,
+    "household_wells_high_m3": 56859326,
+    "public_supply_low_m3": 0,
+    "public_supply_high_m3": 0,
+    "household_in_estimate": true,
+    "source_ids": [
+      "BPS-POP-JT",
+      "BPS-WATER-JT",
+      "OSM-IND-JT",
+      "EXP07",
+      "EXP08"
+    ],
+    "note": "Regency model, not validated: business wells (0.54-0.91 Mm3, OSM industrial land, never below declared) minus declared use. Household wells are exempt and cancel out. If PDAM's own wells are in the declared volume, the gap is understated by their volume; if the regency's industry uses rivers, the sea or PDAM rather than its own wells, it is overstated."
+  },
+  {
+    "region_id": "3328",
+    "year": 2021,
+    "household_wells_low_m3": 23387081,
+    "household_wells_high_m3": 66502754,
+    "public_supply_low_m3": 0,
+    "public_supply_high_m3": 0,
+    "household_in_estimate": true,
+    "source_ids": [
+      "BPS-POP-JT",
+      "BPS-WATER-JT",
+      "OSM-IND-JT",
+      "EXP07",
+      "EXP08"
+    ],
+    "note": "Regency model, not validated: business wells (0.54-0.91 Mm3, OSM industrial land, never below declared) minus declared use. Household wells are exempt and cancel out. If PDAM's own wells are in the declared volume, the gap is understated by their volume; if the regency's industry uses rivers, the sea or PDAM rather than its own wells, it is overstated."
+  },
+  {
+    "region_id": "3328",
+    "year": 2022,
+    "household_wells_low_m3": 21708569,
+    "household_wells_high_m3": 67122218,
+    "public_supply_low_m3": 0,
+    "public_supply_high_m3": 0,
+    "household_in_estimate": true,
+    "source_ids": [
+      "BPS-POP-JT",
+      "BPS-WATER-JT",
+      "OSM-IND-JT",
+      "EXP07",
+      "EXP08"
+    ],
+    "note": "Regency model, not validated: business wells (0.54-0.91 Mm3, OSM industrial land, never below declared) minus declared use. Household wells are exempt and cancel out. If PDAM's own wells are in the declared volume, the gap is understated by their volume; if the regency's industry uses rivers, the sea or PDAM rather than its own wells, it is overstated."
+  },
+  {
+    "region_id": "3328",
+    "year": 2023,
+    "household_wells_low_m3": 22125801,
+    "household_wells_high_m3": 66074799,
+    "public_supply_low_m3": 0,
+    "public_supply_high_m3": 0,
+    "household_in_estimate": true,
+    "source_ids": [
+      "BPS-POP-JT",
+      "BPS-WATER-JT",
+      "OSM-IND-JT",
+      "EXP07",
+      "EXP08"
+    ],
+    "note": "Regency model, not validated: business wells (0.61-0.91 Mm3, OSM industrial land, never below declared) minus declared use. Household wells are exempt and cancel out. If PDAM's own wells are in the declared volume, the gap is understated by their volume; if the regency's industry uses rivers, the sea or PDAM rather than its own wells, it is overstated."
+  },
+  {
+    "region_id": "3329",
+    "year": 2020,
+    "household_wells_low_m3": 18697531,
+    "household_wells_high_m3": 65392247,
+    "public_supply_low_m3": 0,
+    "public_supply_high_m3": 0,
+    "household_in_estimate": true,
+    "source_ids": [
+      "BPS-POP-JT",
+      "BPS-WATER-JT",
+      "OSM-IND-JT",
+      "EXP07",
+      "EXP08"
+    ],
+    "note": "Regency model, not validated: business wells (0.32-0.32 Mm3, OSM industrial land, never below declared) minus declared use. Household wells are exempt and cancel out. If PDAM's own wells are in the declared volume, the gap is understated by their volume; if the regency's industry uses rivers, the sea or PDAM rather than its own wells, it is overstated."
+  },
+  {
+    "region_id": "3329",
+    "year": 2021,
+    "household_wells_low_m3": 22297029,
+    "household_wells_high_m3": 72180232,
+    "public_supply_low_m3": 0,
+    "public_supply_high_m3": 0,
+    "household_in_estimate": true,
+    "source_ids": [
+      "BPS-POP-JT",
+      "BPS-WATER-JT",
+      "OSM-IND-JT",
+      "EXP07",
+      "EXP08"
+    ],
+    "note": "Regency model, not validated: business wells (1.98-1.98 Mm3, OSM industrial land, never below declared) minus declared use. Household wells are exempt and cancel out. If PDAM's own wells are in the declared volume, the gap is understated by their volume; if the regency's industry uses rivers, the sea or PDAM rather than its own wells, it is overstated."
+  },
+  {
+    "region_id": "3329",
+    "year": 2022,
+    "household_wells_low_m3": 20613087,
+    "household_wells_high_m3": 73325141,
+    "public_supply_low_m3": 0,
+    "public_supply_high_m3": 0,
+    "household_in_estimate": true,
+    "source_ids": [
+      "BPS-POP-JT",
+      "BPS-WATER-JT",
+      "OSM-IND-JT",
+      "EXP07",
+      "EXP08"
+    ],
+    "note": "Regency model, not validated: business wells (1.70-1.70 Mm3, OSM industrial land, never below declared) minus declared use. Household wells are exempt and cancel out. If PDAM's own wells are in the declared volume, the gap is understated by their volume; if the regency's industry uses rivers, the sea or PDAM rather than its own wells, it is overstated."
+  },
+  {
+    "region_id": "3329",
+    "year": 2023,
+    "household_wells_low_m3": 20946106,
+    "household_wells_high_m3": 74509763,
+    "public_supply_low_m3": 0,
+    "public_supply_high_m3": 0,
+    "household_in_estimate": true,
+    "source_ids": [
+      "BPS-POP-JT",
+      "BPS-WATER-JT",
+      "OSM-IND-JT",
+      "EXP07",
+      "EXP08"
+    ],
+    "note": "Regency model, not validated: business wells (2.58-2.58 Mm3, OSM industrial land, never below declared) minus declared use. Household wells are exempt and cancel out. If PDAM's own wells are in the declared volume, the gap is understated by their volume; if the regency's industry uses rivers, the sea or PDAM rather than its own wells, it is overstated."
+  },
+  {
+    "region_id": "3371",
+    "year": 2020,
+    "household_wells_low_m3": 539026,
+    "household_wells_high_m3": 2021348,
+    "public_supply_low_m3": 0,
+    "public_supply_high_m3": 0,
+    "household_in_estimate": true,
+    "source_ids": [
+      "BPS-POP-JT",
+      "BPS-WATER-JT",
+      "OSM-IND-JT",
+      "EXP07",
+      "EXP08"
+    ],
+    "note": "Regency model, not validated: business wells (0.00-0.00 Mm3, OSM industrial land, never below declared) minus declared use. Household wells are exempt and cancel out. If PDAM's own wells are in the declared volume, the gap is understated by their volume; if the regency's industry uses rivers, the sea or PDAM rather than its own wells, it is overstated."
+  },
+  {
+    "region_id": "3371",
+    "year": 2021,
+    "household_wells_low_m3": 681794,
+    "household_wells_high_m3": 2244462,
+    "public_supply_low_m3": 0,
+    "public_supply_high_m3": 0,
+    "household_in_estimate": true,
+    "source_ids": [
+      "BPS-POP-JT",
+      "BPS-WATER-JT",
+      "OSM-IND-JT",
+      "EXP07",
+      "EXP08"
+    ],
+    "note": "Regency model, not validated: business wells (0.24-0.24 Mm3, OSM industrial land, never below declared) minus declared use. Household wells are exempt and cancel out. If PDAM's own wells are in the declared volume, the gap is understated by their volume; if the regency's industry uses rivers, the sea or PDAM rather than its own wells, it is overstated."
+  },
+  {
+    "region_id": "3371",
+    "year": 2022,
+    "household_wells_low_m3": 511264,
+    "household_wells_high_m3": 2245661,
+    "public_supply_low_m3": 0,
+    "public_supply_high_m3": 0,
+    "household_in_estimate": true,
+    "source_ids": [
+      "BPS-POP-JT",
+      "BPS-WATER-JT",
+      "OSM-IND-JT",
+      "EXP07",
+      "EXP08"
+    ],
+    "note": "Regency model, not validated: business wells (0.27-0.27 Mm3, OSM industrial land, never below declared) minus declared use. Household wells are exempt and cancel out. If PDAM's own wells are in the declared volume, the gap is understated by their volume; if the regency's industry uses rivers, the sea or PDAM rather than its own wells, it is overstated."
+  },
+  {
+    "region_id": "3371",
+    "year": 2023,
+    "household_wells_low_m3": 513470,
+    "household_wells_high_m3": 1852586,
+    "public_supply_low_m3": 0,
+    "public_supply_high_m3": 0,
+    "household_in_estimate": true,
+    "source_ids": [
+      "BPS-POP-JT",
+      "BPS-WATER-JT",
+      "OSM-IND-JT",
+      "EXP07",
+      "EXP08"
+    ],
+    "note": "Regency model, not validated: business wells (0.30-0.30 Mm3, OSM industrial land, never below declared) minus declared use. Household wells are exempt and cancel out. If PDAM's own wells are in the declared volume, the gap is understated by their volume; if the regency's industry uses rivers, the sea or PDAM rather than its own wells, it is overstated."
+  },
+  {
+    "region_id": "3372",
+    "year": 2020,
+    "household_wells_low_m3": 3648524,
+    "household_wells_high_m3": 22868103,
+    "public_supply_low_m3": 0,
+    "public_supply_high_m3": 0,
+    "household_in_estimate": true,
+    "source_ids": [
+      "BPS-POP-JT",
+      "BPS-WATER-JT",
+      "OSM-IND-JT",
+      "EXP07",
+      "EXP08"
+    ],
+    "note": "Regency model, not validated: business wells (4.27-4.27 Mm3, OSM industrial land, never below declared) minus declared use. Household wells are exempt and cancel out. If PDAM's own wells are in the declared volume, the gap is understated by their volume; if the regency's industry uses rivers, the sea or PDAM rather than its own wells, it is overstated."
+  },
+  {
+    "region_id": "3372",
+    "year": 2021,
+    "household_wells_low_m3": 3209947,
+    "household_wells_high_m3": 24669887,
+    "public_supply_low_m3": 0,
+    "public_supply_high_m3": 0,
+    "household_in_estimate": true,
+    "source_ids": [
+      "BPS-POP-JT",
+      "BPS-WATER-JT",
+      "OSM-IND-JT",
+      "EXP07",
+      "EXP08"
+    ],
+    "note": "Regency model, not validated: business wells (6.46-6.46 Mm3, OSM industrial land, never below declared) minus declared use. Household wells are exempt and cancel out. If PDAM's own wells are in the declared volume, the gap is understated by their volume; if the regency's industry uses rivers, the sea or PDAM rather than its own wells, it is overstated."
+  },
+  {
+    "region_id": "3372",
+    "year": 2022,
+    "household_wells_low_m3": 2965790,
+    "household_wells_high_m3": 24683101,
+    "public_supply_low_m3": 0,
+    "public_supply_high_m3": 0,
+    "household_in_estimate": true,
+    "source_ids": [
+      "BPS-POP-JT",
+      "BPS-WATER-JT",
+      "OSM-IND-JT",
+      "EXP07",
+      "EXP08"
+    ],
+    "note": "Regency model, not validated: business wells (4.84-4.84 Mm3, OSM industrial land, never below declared) minus declared use. Household wells are exempt and cancel out. If PDAM's own wells are in the declared volume, the gap is understated by their volume; if the regency's industry uses rivers, the sea or PDAM rather than its own wells, it is overstated."
+  },
+  {
+    "region_id": "3372",
+    "year": 2023,
+    "household_wells_low_m3": 2987860,
+    "household_wells_high_m3": 23355159,
+    "public_supply_low_m3": 0,
+    "public_supply_high_m3": 0,
+    "household_in_estimate": true,
+    "source_ids": [
+      "BPS-POP-JT",
+      "BPS-WATER-JT",
+      "OSM-IND-JT",
+      "EXP07",
+      "EXP08"
+    ],
+    "note": "Regency model, not validated: business wells (5.92-5.92 Mm3, OSM industrial land, never below declared) minus declared use. Household wells are exempt and cancel out. If PDAM's own wells are in the declared volume, the gap is understated by their volume; if the regency's industry uses rivers, the sea or PDAM rather than its own wells, it is overstated."
+  },
+  {
+    "region_id": "3373",
+    "year": 2020,
+    "household_wells_low_m3": 1483695,
+    "household_wells_high_m3": 5729171,
+    "public_supply_low_m3": 0,
+    "public_supply_high_m3": 0,
+    "household_in_estimate": true,
+    "source_ids": [
+      "BPS-POP-JT",
+      "BPS-WATER-JT",
+      "OSM-IND-JT",
+      "EXP07",
+      "EXP08"
+    ],
+    "note": "Regency model, not validated: business wells (3.05-3.05 Mm3, OSM industrial land, never below declared) minus declared use. Household wells are exempt and cancel out. If PDAM's own wells are in the declared volume, the gap is understated by their volume; if the regency's industry uses rivers, the sea or PDAM rather than its own wells, it is overstated."
+  },
+  {
+    "region_id": "3373",
+    "year": 2021,
+    "household_wells_low_m3": 1491846,
+    "household_wells_high_m3": 5987514,
+    "public_supply_low_m3": 0,
+    "public_supply_high_m3": 0,
+    "household_in_estimate": true,
+    "source_ids": [
+      "BPS-POP-JT",
+      "BPS-WATER-JT",
+      "OSM-IND-JT",
+      "EXP07",
+      "EXP08"
+    ],
+    "note": "Regency model, not validated: business wells (2.20-2.20 Mm3, OSM industrial land, never below declared) minus declared use. Household wells are exempt and cancel out. If PDAM's own wells are in the declared volume, the gap is understated by their volume; if the regency's industry uses rivers, the sea or PDAM rather than its own wells, it is overstated."
+  },
+  {
+    "region_id": "3373",
+    "year": 2022,
+    "household_wells_low_m3": 1286703,
+    "household_wells_high_m3": 6035160,
+    "public_supply_low_m3": 0,
+    "public_supply_high_m3": 0,
+    "household_in_estimate": true,
+    "source_ids": [
+      "BPS-POP-JT",
+      "BPS-WATER-JT",
+      "OSM-IND-JT",
+      "EXP07",
+      "EXP08"
+    ],
+    "note": "Regency model, not validated: business wells (2.16-2.16 Mm3, OSM industrial land, never below declared) minus declared use. Household wells are exempt and cancel out. If PDAM's own wells are in the declared volume, the gap is understated by their volume; if the regency's industry uses rivers, the sea or PDAM rather than its own wells, it is overstated."
+  },
+  {
+    "region_id": "3373",
+    "year": 2023,
+    "household_wells_low_m3": 1312000,
+    "household_wells_high_m3": 5549429,
+    "public_supply_low_m3": 0,
+    "public_supply_high_m3": 0,
+    "household_in_estimate": true,
+    "source_ids": [
+      "BPS-POP-JT",
+      "BPS-WATER-JT",
+      "OSM-IND-JT",
+      "EXP07",
+      "EXP08"
+    ],
+    "note": "Regency model, not validated: business wells (1.18-1.18 Mm3, OSM industrial land, never below declared) minus declared use. Household wells are exempt and cancel out. If PDAM's own wells are in the declared volume, the gap is understated by their volume; if the regency's industry uses rivers, the sea or PDAM rather than its own wells, it is overstated."
+  },
+  {
+    "region_id": "3374",
+    "year": 2020,
+    "household_wells_low_m3": 0,
+    "household_wells_high_m3": 25000000,
+    "public_supply_low_m3": 0,
+    "public_supply_high_m3": 10000000,
+    "source_ids": [
+      "PERDA-SMG-2024",
+      "EXP09"
+    ],
+    "note": "Household wells outside PDAM: PDAM households 41.63 x 38/62, an upper bound that includes shallow wells and springs. Public supply wells: about 19 % of PDAM supply, if not already in the declared volume. The range is the point."
+  },
+  {
+    "region_id": "3374",
+    "year": 2021,
+    "household_wells_low_m3": 0,
+    "household_wells_high_m3": 25000000,
+    "public_supply_low_m3": 0,
+    "public_supply_high_m3": 10000000,
+    "source_ids": [
+      "PERDA-SMG-2024",
+      "EXP09"
+    ],
+    "note": "Household wells outside PDAM: PDAM households 41.63 x 38/62, an upper bound that includes shallow wells and springs. Public supply wells: about 19 % of PDAM supply, if not already in the declared volume. The range is the point."
+  },
+  {
+    "region_id": "3374",
+    "year": 2022,
+    "household_wells_low_m3": 0,
+    "household_wells_high_m3": 25000000,
+    "public_supply_low_m3": 0,
+    "public_supply_high_m3": 10000000,
+    "source_ids": [
+      "PERDA-SMG-2024",
+      "EXP09"
+    ],
+    "note": "Household wells outside PDAM: PDAM households 41.63 x 38/62, an upper bound that includes shallow wells and springs. Public supply wells: about 19 % of PDAM supply, if not already in the declared volume. The range is the point."
+  },
+  {
     "region_id": "3374",
     "year": 2023,
     "household_wells_low_m3": 0,
@@ -11,5 +2226,141 @@
       "EXP09"
     ],
     "note": "Household wells outside PDAM: PDAM households 41.63 x 38/62, an upper bound that includes shallow wells and springs. Public supply wells: about 19 % of PDAM supply, if not already in the declared volume. The range is the point."
+  },
+  {
+    "region_id": "3375",
+    "year": 2020,
+    "household_wells_low_m3": 4290664,
+    "household_wells_high_m3": 10412754,
+    "public_supply_low_m3": 0,
+    "public_supply_high_m3": 0,
+    "household_in_estimate": true,
+    "source_ids": [
+      "BPS-POP-JT",
+      "BPS-WATER-JT",
+      "OSM-IND-JT",
+      "EXP07",
+      "EXP08"
+    ],
+    "note": "Regency model, not validated: business wells (0.10-0.12 Mm3, OSM industrial land, never below declared) minus declared use. Household wells are exempt and cancel out. If PDAM's own wells are in the declared volume, the gap is understated by their volume; if the regency's industry uses rivers, the sea or PDAM rather than its own wells, it is overstated."
+  },
+  {
+    "region_id": "3375",
+    "year": 2021,
+    "household_wells_low_m3": 4633665,
+    "household_wells_high_m3": 11989844,
+    "public_supply_low_m3": 0,
+    "public_supply_high_m3": 0,
+    "household_in_estimate": true,
+    "source_ids": [
+      "BPS-POP-JT",
+      "BPS-WATER-JT",
+      "OSM-IND-JT",
+      "EXP07",
+      "EXP08"
+    ],
+    "note": "Regency model, not validated: business wells (3.67-3.67 Mm3, OSM industrial land, never below declared) minus declared use. Household wells are exempt and cancel out. If PDAM's own wells are in the declared volume, the gap is understated by their volume; if the regency's industry uses rivers, the sea or PDAM rather than its own wells, it is overstated."
+  },
+  {
+    "region_id": "3375",
+    "year": 2022,
+    "household_wells_low_m3": 4627149,
+    "household_wells_high_m3": 12098104,
+    "public_supply_low_m3": 0,
+    "public_supply_high_m3": 0,
+    "household_in_estimate": true,
+    "source_ids": [
+      "BPS-POP-JT",
+      "BPS-WATER-JT",
+      "OSM-IND-JT",
+      "EXP07",
+      "EXP08"
+    ],
+    "note": "Regency model, not validated: business wells (2.30-2.30 Mm3, OSM industrial land, never below declared) minus declared use. Household wells are exempt and cancel out. If PDAM's own wells are in the declared volume, the gap is understated by their volume; if the regency's industry uses rivers, the sea or PDAM rather than its own wells, it is overstated."
+  },
+  {
+    "region_id": "3375",
+    "year": 2023,
+    "household_wells_low_m3": 4743044,
+    "household_wells_high_m3": 12401121,
+    "public_supply_low_m3": 0,
+    "public_supply_high_m3": 0,
+    "household_in_estimate": true,
+    "source_ids": [
+      "BPS-POP-JT",
+      "BPS-WATER-JT",
+      "OSM-IND-JT",
+      "EXP07",
+      "EXP08"
+    ],
+    "note": "Regency model, not validated: business wells (2.53-2.53 Mm3, OSM industrial land, never below declared) minus declared use. Household wells are exempt and cancel out. If PDAM's own wells are in the declared volume, the gap is understated by their volume; if the regency's industry uses rivers, the sea or PDAM rather than its own wells, it is overstated."
+  },
+  {
+    "region_id": "3376",
+    "year": 2020,
+    "household_wells_low_m3": 13593,
+    "household_wells_high_m3": 929499,
+    "public_supply_low_m3": 0,
+    "public_supply_high_m3": 0,
+    "household_in_estimate": true,
+    "source_ids": [
+      "BPS-POP-JT",
+      "BPS-WATER-JT",
+      "OSM-IND-JT",
+      "EXP07",
+      "EXP08"
+    ],
+    "note": "Regency model, not validated: business wells (0.42-0.70 Mm3, OSM industrial land, never below declared) minus declared use. Household wells are exempt and cancel out. If PDAM's own wells are in the declared volume, the gap is understated by their volume; if the regency's industry uses rivers, the sea or PDAM rather than its own wells, it is overstated."
+  },
+  {
+    "region_id": "3376",
+    "year": 2021,
+    "household_wells_low_m3": 41875,
+    "household_wells_high_m3": 1466114,
+    "public_supply_low_m3": 0,
+    "public_supply_high_m3": 0,
+    "household_in_estimate": true,
+    "source_ids": [
+      "BPS-POP-JT",
+      "BPS-WATER-JT",
+      "OSM-IND-JT",
+      "EXP07",
+      "EXP08"
+    ],
+    "note": "Regency model, not validated: business wells (0.76-0.76 Mm3, OSM industrial land, never below declared) minus declared use. Household wells are exempt and cancel out. If PDAM's own wells are in the declared volume, the gap is understated by their volume; if the regency's industry uses rivers, the sea or PDAM rather than its own wells, it is overstated."
+  },
+  {
+    "region_id": "3376",
+    "year": 2022,
+    "household_wells_low_m3": 42257,
+    "household_wells_high_m3": 1479500,
+    "public_supply_low_m3": 0,
+    "public_supply_high_m3": 0,
+    "household_in_estimate": true,
+    "source_ids": [
+      "BPS-POP-JT",
+      "BPS-WATER-JT",
+      "OSM-IND-JT",
+      "EXP07",
+      "EXP08"
+    ],
+    "note": "Regency model, not validated: business wells (0.98-0.98 Mm3, OSM industrial land, never below declared) minus declared use. Household wells are exempt and cancel out. If PDAM's own wells are in the declared volume, the gap is understated by their volume; if the regency's industry uses rivers, the sea or PDAM rather than its own wells, it is overstated."
+  },
+  {
+    "region_id": "3376",
+    "year": 2023,
+    "household_wells_low_m3": 204792,
+    "household_wells_high_m3": 1122539,
+    "public_supply_low_m3": 0,
+    "public_supply_high_m3": 0,
+    "household_in_estimate": true,
+    "source_ids": [
+      "BPS-POP-JT",
+      "BPS-WATER-JT",
+      "OSM-IND-JT",
+      "EXP07",
+      "EXP08"
+    ],
+    "note": "Regency model, not validated: business wells (0.60-0.70 Mm3, OSM industrial land, never below declared) minus declared use. Household wells are exempt and cancel out. If PDAM's own wells are in the declared volume, the gap is understated by their volume; if the regency's industry uses rivers, the sea or PDAM rather than its own wells, it is overstated."
   }
 ]

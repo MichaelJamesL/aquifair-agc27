@@ -446,18 +446,24 @@ def main() -> None:
         json.dumps(build_accounts(), indent=2, ensure_ascii=False) + "\n", encoding="utf-8"
     )
 
+    # The 38-61 Mm3/yr city total behind the split is from 2000-2010 studies, so it is not year-specific.
     estimates = [
         {
             "region_id": "3374",
-            "year": 2023,
+            "year": year,
             "method": "validated_16km_split",
             "low_m3": 27_900_000,
             "central_m3": 43_800_000,
             "high_m3": 54_700_000,
             "label": "TESTED",
             "source_ids": ["EXP09"],
-            "note": "Semarang west and central 16 km cell, P10/P50/P90. Validated in two unseen regions.",
-        },
+            "note": (
+                "Semarang west and central 16 km cell, P10/P50/P90. Validated in two unseen regions. "
+                "The city total it splits is from 2000-2010 studies, so every year gets the same range."
+            ),
+        }
+        for year in (2020, 2021, 2022, 2023)
+    ] + [
         {
             "region_id": "3374",
             "year": 2023,
@@ -475,7 +481,7 @@ def main() -> None:
     terms = [
         {
             "region_id": "3374",
-            "year": 2023,
+            "year": year,
             "household_wells_low_m3": 0,
             "household_wells_high_m3": 25_000_000,
             "public_supply_low_m3": 0,
@@ -487,6 +493,7 @@ def main() -> None:
                 "supply, if not already in the declared volume. The range is the point."
             ),
         }
+        for year in (2020, 2021, 2022, 2023)
     ]
     (DATA / "account_terms.json").write_text(json.dumps(terms, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
